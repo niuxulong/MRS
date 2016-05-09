@@ -1,0 +1,24 @@
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\obj\Debug\MRS.Properties.Resources.resources
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\obj\Debug\MRS.csproj.GenerateResource.Cache
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\bin\Debug\MRS.exe.config
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\bin\Debug\MRS.exe
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\bin\Debug\MRS.pdb
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\obj\Debug\MRS.exe
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\obj\Debug\MRS.pdb
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\bin\Debug\Common.dll
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\bin\Debug\Common.pdb
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\obj\Debug\MRS.csprojResolveAssemblyReference.cache
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\obj\Debug\MRS.MainForm.resources
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\MRS\bin\Debug\DCSoft.Writer.dll
+C:\Users\Lawrence\Desktop\MRS\MRS\bin\Debug\MRS.exe.config
+C:\Users\Lawrence\Desktop\MRS\MRS\obj\Debug\MRS.exe
+C:\Users\Lawrence\Desktop\MRS\MRS\obj\Debug\MRS.pdb
+C:\Users\Lawrence\Desktop\MRS\MRS\bin\Debug\MRS.exe
+C:\Users\Lawrence\Desktop\MRS\MRS\bin\Debug\MRS.pdb
+C:\Users\Lawrence\Desktop\MRS\MRS\bin\Debug\Common.dll
+C:\Users\Lawrence\Desktop\MRS\MRS\bin\Debug\DCSoft.Writer.dll
+C:\Users\Lawrence\Desktop\MRS\MRS\bin\Debug\Common.pdb
+C:\Users\Lawrence\Desktop\MRS\MRS\obj\Debug\MRS.csprojResolveAssemblyReference.cache
+C:\Users\Lawrence\Desktop\MRS\MRS\obj\Debug\MRS.MainForm.resources
+C:\Users\Lawrence\Desktop\MRS\MRS\obj\Debug\MRS.Properties.Resources.resources
+C:\Users\Lawrence\Desktop\MRS\MRS\obj\Debug\MRS.csproj.GenerateResource.Cache
