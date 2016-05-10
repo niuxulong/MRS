@@ -1,0 +1,9 @@
+D:\dev\MRS\Database\bin\Debug\Database.dacpac
+D:\dev\MRS\Database\bin\Debug\Database.dll
+D:\dev\MRS\Database\bin\Debug\Database.pdb
+D:\dev\MRS\Database\obj\Debug\Model.xml
+D:\dev\MRS\Database\obj\Debug\refactor.xml
+D:\dev\MRS\Database\obj\Debug\postdeploy.sql
+D:\dev\MRS\Database\obj\Debug\predeploy.sql
+D:\dev\MRS\Database\obj\Debug\Database.dll
+D:\dev\MRS\Database\obj\Debug\Database.pdb

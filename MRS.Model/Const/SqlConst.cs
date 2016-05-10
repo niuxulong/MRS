@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MRS.Model.Const
+{
+    public static class SqlConst
+    {
+        public const string SP_SELECTPATIENTS = "Sp_SelectPatients";
+    }
+}

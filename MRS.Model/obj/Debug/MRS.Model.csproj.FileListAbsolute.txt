@@ -1,0 +1,5 @@
+D:\dev\MRS\MRS.Model\obj\Debug\MRS.Model.csprojResolveAssemblyReference.cache
+D:\dev\MRS\bin\MRS.Model.dll
+D:\dev\MRS\bin\MRS.Model.pdb
+D:\dev\MRS\MRS.Model\obj\Debug\MRS.Model.dll
+D:\dev\MRS\MRS.Model\obj\Debug\MRS.Model.pdb
