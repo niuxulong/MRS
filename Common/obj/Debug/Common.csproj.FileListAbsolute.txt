@@ -5,10 +5,5 @@ C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\Common\bin\Debug\C
 C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\Common\bin\Debug\Common.pdb
 C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\Common\obj\Debug\Common.dll
 C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\Common\obj\Debug\Common.pdb
-C:\Users\Lawrence\Desktop\MRS\Common\bin\Debug\Common.dll
-C:\Users\Lawrence\Desktop\MRS\Common\bin\Debug\Common.pdb
-C:\Users\Lawrence\Desktop\MRS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
-C:\Users\Lawrence\Desktop\MRS\Common\obj\Debug\Common.Properties.Resources.resources
-C:\Users\Lawrence\Desktop\MRS\Common\obj\Debug\Common.csproj.GenerateResource.Cache
-C:\Users\Lawrence\Desktop\MRS\Common\obj\Debug\Common.dll
-C:\Users\Lawrence\Desktop\MRS\Common\obj\Debug\Common.pdb
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\Common\obj\Debug\Common.UserControls.BaseTemplateControl.resources
+C:\Users\cranezhang\Documents\Visual Studio 2013\Projects\MRS\Common\bin\Debug\DCSoft.Writer.dll
