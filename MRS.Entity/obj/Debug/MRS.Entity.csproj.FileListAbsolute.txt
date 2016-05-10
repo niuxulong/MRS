@@ -1,4 +1,0 @@
-D:\dev\MRS\bin\MRS.Entity.dll
-D:\dev\MRS\bin\MRS.Entity.pdb
-D:\dev\MRS\MRS.Entity\obj\Debug\MRS.Entity.dll
-D:\dev\MRS\MRS.Entity\obj\Debug\MRS.Entity.pdb
