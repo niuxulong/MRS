@@ -1,5 +1,0 @@
-D:\dev\MRS\MRS.Presenter\obj\Debug\MRS.Presenter.csprojResolveAssemblyReference.cache
-D:\dev\MRS\bin\MRS.Presenter.dll
-D:\dev\MRS\bin\MRS.Presenter.pdb
-D:\dev\MRS\MRS.Presenter\obj\Debug\MRS.Presenter.dll
-D:\dev\MRS\MRS.Presenter\obj\Debug\MRS.Presenter.pdb
