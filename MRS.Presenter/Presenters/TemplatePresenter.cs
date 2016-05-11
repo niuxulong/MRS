@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace MRS.Presenter.Presenters
 {
-    public class PatientPresenter : IPatientPresenter
+    public class TemplatePresenter: ITemplatePresenter
     {
-        private IPatientModel patientModel;
+        private ITemplateModel templateModel;
 
-        public PatientPresenter()
-        {
-            patientModel = new PatientModel();
+        public TemplatePresenter()
+        { 
+            templateModel = new TemplateModel();
         }
 
-        public List<Patient> GetPatientsByName(string name = null)
+        public List<Template> GetTemplates()
         {
-            return patientModel.GetPatientsByName(name);
+            return templateModel.GetTemplates();
         }
     }
 }

@@ -1,3 +1,5 @@
+using MRS.Presenter.Interfaces;
+using MRS.Presenter.Presenters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +14,18 @@ namespace MRS
 {
 	public partial class MainForm : Form
 	{
+        private IPatientPresenter patientPresenter;
+        private ITemplatePresenter templatePresenter;
+
 		public MainForm()
 		{
 			InitializeComponent();
+
+            patientPresenter = new PatientPresenter();
+            templatePresenter = new TemplatePresenter();
+
+            var patients = patientPresenter.GetPatientsByName();
+            var templates = templatePresenter.GetTemplates();
 		}
 
 		private void btn_LoadTemplate_Click(object sender, EventArgs e)
