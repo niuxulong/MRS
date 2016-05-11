@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MRS.DataCacheManager;
 
 namespace MRS
 {
@@ -21,12 +22,21 @@ namespace MRS
 		{
 			InitializeComponent();
 
+
             patientPresenter = new PatientPresenter();
             templatePresenter = new TemplatePresenter();
+
+            InitilizeCache();
 
             var patients = patientPresenter.GetPatientsByName();
             var templates = templatePresenter.GetTemplates();
 		}
+
+        private void InitilizeCache()
+        {
+            var cacheManager = DataCacheManager.DataCacheManager.GetCacheManagerInstance();
+            cacheManager.InitilizeDataCache();
+        }
 
 		private void btn_LoadTemplate_Click(object sender, EventArgs e)
 		{

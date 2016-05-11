@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D20A693E-8280-488A-A2A3-10593810B805}</ProjectGuid>
+    <ProjectGuid>{4F37F03F-63DC-4751-B4D0-B3F660F5DD4E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MRS.Model</RootNamespace>
-    <AssemblyName>MRS.Model</AssemblyName>
+    <RootNamespace>MRS.DataCacheManager</RootNamespace>
+    <AssemblyName>MRS.DataCacheManager</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,20 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IPatientModel.cs" />
-    <Compile Include="Interfaces\ITemplateModel.cs" />
-    <Compile Include="Models\PatientModel.cs" />
-    <Compile Include="Models\TemplateModel.cs" />
+    <Compile Include="DataCache.cs" />
+    <Compile Include="DataCacheManager.cs" />
+    <Compile Include="Interfaces\IDataCacheManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{18194d93-348c-498e-84ea-558c353425b8}</Project>
       <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MRS.DataCacheManager\MRS.DataCacheManager.csproj">
-      <Project>{4f37f03f-63dc-4751-b4d0-b3f660f5dd4e}</Project>
-      <Name>MRS.DataCacheManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\MRS.Entity\MRS.Entity.csproj">
       <Project>{260bc469-a34d-4ba1-b197-ea78d14b8b64}</Project>

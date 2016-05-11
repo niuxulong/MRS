@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRS.Model.Const
+namespace Common.Const
 {
     public static class SqlConst
     {

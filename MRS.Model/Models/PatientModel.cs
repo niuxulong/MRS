@@ -1,6 +1,6 @@
-﻿using Common.DataBaseAccessor;
+﻿using Common.Const;
+using Common.DataBaseAccessor;
 using MRS.Entity.Entities;
-using MRS.Model.Const;
 using MRS.Model.Interfaces;
 using System;
 using System.Collections.Generic;

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRS.Model", "MRS.Model\MRS.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRS.Entity", "MRS.Entity\MRS.Entity.csproj", "{260BC469-A34D-4BA1-B197-EA78D14B8B64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRS.DataCacheManager", "MRS.DataCacheManager\MRS.DataCacheManager.csproj", "{4F37F03F-63DC-4751-B4D0-B3F660F5DD4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{260BC469-A34D-4BA1-B197-EA78D14B8B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{260BC469-A34D-4BA1-B197-EA78D14B8B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{260BC469-A34D-4BA1-B197-EA78D14B8B64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F37F03F-63DC-4751-B4D0-B3F660F5DD4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F37F03F-63DC-4751-B4D0-B3F660F5DD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F37F03F-63DC-4751-B4D0-B3F660F5DD4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F37F03F-63DC-4751-B4D0-B3F660F5DD4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
