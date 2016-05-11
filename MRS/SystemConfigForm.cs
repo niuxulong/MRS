@@ -16,5 +16,14 @@ namespace MRS
 		{
 			InitializeComponent();
 		}
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                this.treeView1.SelectedNode = e.Node;
+                this.contextMenuStrip1.Show(this.treeView1, e.Location);
+            }
+        }
 	}
 }

@@ -180,7 +180,7 @@ namespace Common.DataBaseAccessor
             //return ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
 
             //Use a temporary connection string here, will visite the user settings later.
-            return @"server=localhost\SQLEXPRESS;database=DCEMR;uid=sa;pwd=sql2008";
+            return @"server=.;database=DCEMR;uid=sa;pwd=492ocnsyqj";
 
         }
         /// <summary> 
