@@ -78,7 +78,7 @@ namespace MRS
 
 		private void btn_Configure_Click(object sender, EventArgs e)
 		{
-			SystemConfigForm form = new SystemConfigForm();
+			UserConfigForm form = new UserConfigForm();
 			form.ShowDialog();
 		}
 
@@ -92,6 +92,11 @@ namespace MRS
 		{
 			SearchPatient form = new SearchPatient();
 			form.ShowDialog();
+		}
+
+		private void btn_SystemConfigure_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

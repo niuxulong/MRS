@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MRS
 {
-	public partial class SystemConfigForm : Form
+	public partial class UserConfigForm : Form
 	{
-		public SystemConfigForm()
+		public UserConfigForm()
 		{
 			InitializeComponent();
 		}
