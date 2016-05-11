@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SystemConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemConfigForm.Designer.cs">
+      <DependentUpon>SystemConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Template\AddTemplate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="Template\LoadTemplate.Designer.cs">
       <DependentUpon>LoadTemplate.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SystemConfigForm.resx">
+      <DependentUpon>SystemConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Template\AddTemplate.resx">
       <DependentUpon>AddTemplate.cs</DependentUpon>
     </EmbeddedResource>

@@ -30,46 +30,46 @@
 		{
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.btn_Save = new System.Windows.Forms.Button();
-			this.btn_Cancel = new System.Windows.Forms.Button();
-			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.button1 = new System.Windows.Forms.Button();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.textBox5 = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.listBox1 = new System.Windows.Forms.ListBox();
-			this.listBox2 = new System.Windows.Forms.ListBox();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
-			this.label6 = new System.Windows.Forms.Label();
+			this.button3 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
+			this.listBox2 = new System.Windows.Forms.ListBox();
+			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.panel3 = new System.Windows.Forms.Panel();
 			this.label7 = new System.Windows.Forms.Label();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.btn_Cancel = new System.Windows.Forms.Button();
+			this.btn_Save = new System.Windows.Forms.Button();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
-			this.tabPage2.SuspendLayout();
-			this.panel1.SuspendLayout();
-			this.panel2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.tabPage2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tabPage4.SuspendLayout();
 			this.panel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.panel1.SuspendLayout();
+			this.panel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -98,70 +98,6 @@
 			this.tabPage1.Text = "数据库";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
-			// tabPage2
-			// 
-			this.tabPage2.Controls.Add(this.pictureBox1);
-			this.tabPage2.Controls.Add(this.button1);
-			this.tabPage2.Controls.Add(this.tableLayoutPanel2);
-			this.tabPage2.Location = new System.Drawing.Point(4, 30);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(418, 233);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "签名";
-			this.tabPage2.UseVisualStyleBackColor = true;
-			// 
-			// panel1
-			// 
-			this.panel1.Controls.Add(this.btn_Cancel);
-			this.panel1.Controls.Add(this.btn_Save);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 267);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(426, 36);
-			this.panel1.TabIndex = 1;
-			// 
-			// panel2
-			// 
-			this.panel2.Controls.Add(this.tabControl1);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel2.Location = new System.Drawing.Point(0, 0);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(426, 267);
-			this.panel2.TabIndex = 2;
-			// 
-			// btn_Save
-			// 
-			this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btn_Save.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btn_Save.Location = new System.Drawing.Point(261, 4);
-			this.btn_Save.Name = "btn_Save";
-			this.btn_Save.Size = new System.Drawing.Size(75, 29);
-			this.btn_Save.TabIndex = 0;
-			this.btn_Save.Text = "保存";
-			this.btn_Save.UseVisualStyleBackColor = true;
-			// 
-			// btn_Cancel
-			// 
-			this.btn_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btn_Cancel.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btn_Cancel.Location = new System.Drawing.Point(342, 4);
-			this.btn_Cancel.Name = "btn_Cancel";
-			this.btn_Cancel.Size = new System.Drawing.Size(75, 29);
-			this.btn_Cancel.TabIndex = 1;
-			this.btn_Cancel.Text = "关闭";
-			this.btn_Cancel.UseVisualStyleBackColor = true;
-			// 
-			// tabPage3
-			// 
-			this.tabPage3.Location = new System.Drawing.Point(4, 30);
-			this.tabPage3.Name = "tabPage3";
-			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage3.Size = new System.Drawing.Size(418, 233);
-			this.tabPage3.TabIndex = 2;
-			this.tabPage3.Text = "输入法";
-			this.tabPage3.UseVisualStyleBackColor = true;
-			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.ColumnCount = 2;
@@ -181,6 +117,21 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(359, 157);
 			this.tableLayoutPanel1.TabIndex = 0;
+			// 
+			// textBox3
+			// 
+			this.textBox3.Location = new System.Drawing.Point(89, 107);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.Size = new System.Drawing.Size(214, 29);
+			this.textBox3.TabIndex = 5;
+			this.textBox3.UseSystemPasswordChar = true;
+			// 
+			// textBox2
+			// 
+			this.textBox2.Location = new System.Drawing.Point(89, 55);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(214, 29);
+			this.textBox2.TabIndex = 4;
 			// 
 			// label1
 			// 
@@ -220,20 +171,37 @@
 			this.textBox1.Size = new System.Drawing.Size(214, 29);
 			this.textBox1.TabIndex = 3;
 			// 
-			// textBox2
+			// tabPage2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(89, 55);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(214, 29);
-			this.textBox2.TabIndex = 4;
+			this.tabPage2.Controls.Add(this.pictureBox1);
+			this.tabPage2.Controls.Add(this.button1);
+			this.tabPage2.Controls.Add(this.tableLayoutPanel2);
+			this.tabPage2.Location = new System.Drawing.Point(4, 30);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage2.Size = new System.Drawing.Size(418, 233);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "签名";
+			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
-			// textBox3
+			// pictureBox1
 			// 
-			this.textBox3.Location = new System.Drawing.Point(89, 107);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(214, 29);
-			this.textBox3.TabIndex = 5;
-			this.textBox3.UseSystemPasswordChar = true;
+			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+			this.pictureBox1.Image = global::MRS.Properties.Resources.a;
+			this.pictureBox1.Location = new System.Drawing.Point(86, 101);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(329, 129);
+			this.pictureBox1.TabIndex = 3;
+			this.pictureBox1.TabStop = false;
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(10, 197);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 30);
+			this.button1.TabIndex = 4;
+			this.button1.Text = "上传";
+			this.button1.UseVisualStyleBackColor = true;
 			// 
 			// tableLayoutPanel2
 			// 
@@ -257,9 +225,9 @@
 			// textBox5
 			// 
 			this.textBox5.Dock = System.Windows.Forms.DockStyle.Top;
-			this.textBox5.Location = new System.Drawing.Point(84, 52);
+			this.textBox5.Location = new System.Drawing.Point(85, 52);
 			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(325, 29);
+			this.textBox5.Size = new System.Drawing.Size(324, 29);
 			this.textBox5.TabIndex = 3;
 			this.textBox5.UseSystemPasswordChar = true;
 			// 
@@ -286,24 +254,21 @@
 			// textBox4
 			// 
 			this.textBox4.Dock = System.Windows.Forms.DockStyle.Top;
-			this.textBox4.Location = new System.Drawing.Point(84, 3);
+			this.textBox4.Location = new System.Drawing.Point(85, 3);
 			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(325, 29);
+			this.textBox4.Size = new System.Drawing.Size(324, 29);
 			this.textBox4.TabIndex = 2;
 			this.textBox4.UseSystemPasswordChar = true;
 			// 
-			// button1
+			// tabPage3
 			// 
-			this.button1.Location = new System.Drawing.Point(10, 197);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 30);
-			this.button1.TabIndex = 4;
-			this.button1.Text = "上传";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// openFileDialog1
-			// 
-			this.openFileDialog1.FileName = "openFileDialog1";
+			this.tabPage3.Location = new System.Drawing.Point(4, 30);
+			this.tabPage3.Name = "tabPage3";
+			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage3.Size = new System.Drawing.Size(418, 233);
+			this.tabPage3.TabIndex = 2;
+			this.tabPage3.Text = "输入法";
+			this.tabPage3.UseVisualStyleBackColor = true;
 			// 
 			// tabPage4
 			// 
@@ -321,15 +286,50 @@
 			this.tabPage4.Text = "模板类型管理";
 			this.tabPage4.UseVisualStyleBackColor = true;
 			// 
-			// panel3
+			// button4
 			// 
-			this.panel3.Controls.Add(this.label7);
-			this.panel3.Controls.Add(this.label6);
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel3.Location = new System.Drawing.Point(3, 3);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(412, 36);
-			this.panel3.TabIndex = 0;
+			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button4.Location = new System.Drawing.Point(309, 150);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(94, 29);
+			this.button4.TabIndex = 2;
+			this.button4.Text = "删除";
+			this.button4.UseVisualStyleBackColor = true;
+			// 
+			// button3
+			// 
+			this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button3.Location = new System.Drawing.Point(309, 105);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(94, 29);
+			this.button3.TabIndex = 2;
+			this.button3.Text = "增加模板";
+			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.button3_Click);
+			// 
+			// button2
+			// 
+			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button2.Location = new System.Drawing.Point(309, 60);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(94, 29);
+			this.button2.TabIndex = 2;
+			this.button2.Text = "增加类型";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// listBox2
+			// 
+			this.listBox2.Dock = System.Windows.Forms.DockStyle.Left;
+			this.listBox2.FormattingEnabled = true;
+			this.listBox2.ItemHeight = 21;
+			this.listBox2.Location = new System.Drawing.Point(148, 39);
+			this.listBox2.Name = "listBox2";
+			this.listBox2.Size = new System.Drawing.Size(145, 191);
+			this.listBox2.TabIndex = 2;
 			// 
 			// listBox1
 			// 
@@ -351,59 +351,15 @@
 			this.listBox1.Size = new System.Drawing.Size(145, 191);
 			this.listBox1.TabIndex = 1;
 			// 
-			// listBox2
+			// panel3
 			// 
-			this.listBox2.Dock = System.Windows.Forms.DockStyle.Left;
-			this.listBox2.FormattingEnabled = true;
-			this.listBox2.ItemHeight = 21;
-			this.listBox2.Location = new System.Drawing.Point(148, 39);
-			this.listBox2.Name = "listBox2";
-			this.listBox2.Size = new System.Drawing.Size(145, 191);
-			this.listBox2.TabIndex = 2;
-			// 
-			// button2
-			// 
-			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(309, 60);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(94, 29);
-			this.button2.TabIndex = 2;
-			this.button2.Text = "增加类型";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
-			// 
-			// button3
-			// 
-			this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(309, 105);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(94, 29);
-			this.button3.TabIndex = 2;
-			this.button3.Text = "增加模板";
-			this.button3.UseVisualStyleBackColor = true;
-			this.button3.Click += new System.EventHandler(this.button3_Click);
-			// 
-			// button4
-			// 
-			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button4.Location = new System.Drawing.Point(309, 150);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(94, 29);
-			this.button4.TabIndex = 2;
-			this.button4.Text = "删除";
-			this.button4.UseVisualStyleBackColor = true;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(5, 12);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(58, 21);
-			this.label6.TabIndex = 0;
-			this.label6.Text = "类型：";
+			this.panel3.Controls.Add(this.label7);
+			this.panel3.Controls.Add(this.label6);
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel3.Location = new System.Drawing.Point(3, 3);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(412, 36);
+			this.panel3.TabIndex = 0;
 			// 
 			// label7
 			// 
@@ -414,17 +370,61 @@
 			this.label7.TabIndex = 1;
 			this.label7.Text = "模板：";
 			// 
-			// pictureBox1
+			// label6
 			// 
-			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-			this.pictureBox1.Image = global::MRS.Properties.Resources.a;
-			this.pictureBox1.Location = new System.Drawing.Point(86, 101);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(329, 129);
-			this.pictureBox1.TabIndex = 3;
-			this.pictureBox1.TabStop = false;
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(5, 12);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(58, 21);
+			this.label6.TabIndex = 0;
+			this.label6.Text = "类型：";
 			// 
-			// SystemConfigForm
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.btn_Cancel);
+			this.panel1.Controls.Add(this.btn_Save);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel1.Location = new System.Drawing.Point(0, 267);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(426, 36);
+			this.panel1.TabIndex = 1;
+			// 
+			// btn_Cancel
+			// 
+			this.btn_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btn_Cancel.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btn_Cancel.Location = new System.Drawing.Point(342, 4);
+			this.btn_Cancel.Name = "btn_Cancel";
+			this.btn_Cancel.Size = new System.Drawing.Size(75, 29);
+			this.btn_Cancel.TabIndex = 1;
+			this.btn_Cancel.Text = "关闭";
+			this.btn_Cancel.UseVisualStyleBackColor = true;
+			// 
+			// btn_Save
+			// 
+			this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btn_Save.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btn_Save.Location = new System.Drawing.Point(261, 4);
+			this.btn_Save.Name = "btn_Save";
+			this.btn_Save.Size = new System.Drawing.Size(75, 29);
+			this.btn_Save.TabIndex = 0;
+			this.btn_Save.Text = "保存";
+			this.btn_Save.UseVisualStyleBackColor = true;
+			// 
+			// panel2
+			// 
+			this.panel2.Controls.Add(this.tabControl1);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel2.Location = new System.Drawing.Point(0, 0);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(426, 267);
+			this.panel2.TabIndex = 2;
+			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.FileName = "openFileDialog1";
+			// 
+			// UserConfigForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -434,22 +434,22 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.IsMdiContainer = true;
 			this.MaximizeBox = false;
-			this.Name = "SystemConfigForm";
+			this.Name = "UserConfigForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "参数配置";
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
-			this.tabPage2.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
-			this.panel2.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			this.tabPage2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
 			this.tabPage4.ResumeLayout(false);
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
