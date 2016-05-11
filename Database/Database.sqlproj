@@ -62,5 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="StoreProcedures\Sp_SelectPatients.sql" />
+    <Build Include="StoreProcedures\Sp_SelectTemplate.sql" />
   </ItemGroup>
 </Project>

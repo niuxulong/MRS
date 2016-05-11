@@ -9,5 +9,7 @@ namespace MRS.Model.Const
     public static class SqlConst
     {
         public const string SP_SELECTPATIENTS = "Sp_SelectPatients";
+
+        public const string SP_SELECTTEMPLATE = "Sp_SelectTemplate";
     }
 }

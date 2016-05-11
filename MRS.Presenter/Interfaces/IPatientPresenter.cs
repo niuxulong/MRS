@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MRS.Presenter.Interfaces
 {
-    interface IPatientPresenter
+    public interface IPatientPresenter
     {
-        List<Patient> GetPatientsByName(string name);
+        List<Patient> GetPatientsByName(string name = null);
     }
 }

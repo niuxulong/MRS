@@ -165,6 +165,14 @@
       <Project>{18194D93-348C-498E-84EA-558C353425B8}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MRS.Entity\MRS.Entity.csproj">
+      <Project>{260bc469-a34d-4ba1-b197-ea78d14b8b64}</Project>
+      <Name>MRS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MRS.Presenter\MRS.Presenter.csproj">
+      <Project>{9f8ad3d5-1e43-4741-93b2-39f6e420c04d}</Project>
+      <Name>MRS.Presenter</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -9,6 +9,6 @@ namespace MRS.Model.Interfaces
 {
     public interface IPatientModel
     {
-        List<Patient> GetPatientsByName(string name);
+        List<Patient> GetPatientsByName(string name = null);
     }
 }
