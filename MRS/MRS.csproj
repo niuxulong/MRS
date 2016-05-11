@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DCSoft.Writer">
-      <HintPath>bin\DCSoft.Writer.dll</HintPath>
+      <HintPath>..\Dlls\DCSoft.Writer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.Compatibility" />
