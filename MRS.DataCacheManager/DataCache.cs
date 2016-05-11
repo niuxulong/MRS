@@ -10,6 +10,7 @@ namespace MRS.DataCacheManager
     public class DataCache
     {
         public List<Template> TemplateCache = new List<Template>();
+        public Dictionary<string, string> SystemSettingCache = new Dictionary<string, string>(); 
 
         private static DataCache dataCache = null;
         private static readonly object locker = new object();

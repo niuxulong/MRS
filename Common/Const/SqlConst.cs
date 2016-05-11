@@ -11,5 +11,7 @@ namespace Common.Const
         public const string SP_SELECTPATIENTS = "Sp_SelectPatients";
 
         public const string SP_SELECTTEMPLATE = "Sp_SelectTemplate";
+
+        public const string SP_SELECTSYSTEMSETTING = "Sp_SelectSystemSetting";
     }
 }

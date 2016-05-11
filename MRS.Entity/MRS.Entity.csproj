@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Entities\SystemSetting.cs" />
     <Compile Include="Entities\Template.cs" />
+    <Compile Include="Entities\TemplateCatalogNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

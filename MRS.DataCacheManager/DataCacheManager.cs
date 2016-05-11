@@ -42,12 +42,20 @@ namespace MRS.DataCacheManager
             dataCache = DataCache.GetCacheInstance();
             var templates = LoadTemplatesFromDB();
             dataCache.TemplateCache.AddRange(templates);
+
+            var systemSettings = LoadSystemSettingFromDB();
+            dataCache.SystemSettingCache = systemSettings;
             
         }
 
         public List<Template> GetTemplatesFromCache()
         {
             return dataCache.TemplateCache;
+        }
+
+        public Dictionary<string, string> GetSystemSettingsFromCache()
+        {
+            return dataCache.SystemSettingCache;
         }
 
         /// <summary>
@@ -69,6 +77,24 @@ namespace MRS.DataCacheManager
                     template.FileContent = dataRow.ItemArray[3].ToString();
 
                     results.Add(template);
+                }
+                return results;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        private Dictionary<string, string> LoadSystemSettingFromDB()
+        {
+            try
+            {
+                var results = new Dictionary<string, string>();
+                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(), SqlConst.SP_SELECTSYSTEMSETTING);
+                foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+                {
+                    results.Add(dataRow.ItemArray[1].ToString(), dataRow.ItemArray[2].ToString());
                 }
                 return results;
             }

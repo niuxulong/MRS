@@ -40,8 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IPatientModel.cs" />
+    <Compile Include="Interfaces\ITemplateCatalogModel.cs" />
     <Compile Include="Interfaces\ITemplateModel.cs" />
     <Compile Include="Models\PatientModel.cs" />
+    <Compile Include="Models\TemplateCatalogModel.cs" />
     <Compile Include="Models\TemplateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
