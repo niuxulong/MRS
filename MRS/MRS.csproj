@@ -54,22 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddTemplate.cs">
+    <Compile Include="Template\AddTemplate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTemplate.Designer.cs">
+    <Compile Include="Template\AddTemplate.Designer.cs">
       <DependentUpon>AddTemplate.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddTemplateType.cs">
+    <Compile Include="Template\AddTemplateType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTemplateType.Designer.cs">
+    <Compile Include="Template\AddTemplateType.Designer.cs">
       <DependentUpon>AddTemplateType.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageTemplate.cs">
+    <Compile Include="Template\ManageTemplate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageTemplate.Designer.cs">
+    <Compile Include="Template\ManageTemplate.Designer.cs">
       <DependentUpon>ManageTemplate.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -80,10 +80,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveTemplate.cs">
+    <Compile Include="Template\SaveTemplate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaveTemplate.Designer.cs">
+    <Compile Include="Template\SaveTemplate.Designer.cs">
       <DependentUpon>SaveTemplate.cs</DependentUpon>
     </Compile>
     <Compile Include="SearchPatient.cs">
@@ -92,25 +92,25 @@
     <Compile Include="SearchPatient.Designer.cs">
       <DependentUpon>SearchPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="SystemConfigForm.cs">
+    <Compile Include="UserConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SystemConfigForm.Designer.cs">
-      <DependentUpon>SystemConfigForm.cs</DependentUpon>
+    <Compile Include="UserConfigForm.Designer.cs">
+      <DependentUpon>UserConfigForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoadTemplate.cs">
+    <Compile Include="Template\LoadTemplate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoadTemplate.Designer.cs">
+    <Compile Include="Template\LoadTemplate.Designer.cs">
       <DependentUpon>LoadTemplate.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddTemplate.resx">
+    <EmbeddedResource Include="Template\AddTemplate.resx">
       <DependentUpon>AddTemplate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddTemplateType.resx">
+    <EmbeddedResource Include="Template\AddTemplateType.resx">
       <DependentUpon>AddTemplateType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageTemplate.resx">
+    <EmbeddedResource Include="Template\ManageTemplate.resx">
       <DependentUpon>ManageTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -126,16 +126,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SaveTemplate.resx">
+    <EmbeddedResource Include="Template\SaveTemplate.resx">
       <DependentUpon>SaveTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchPatient.resx">
       <DependentUpon>SearchPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SystemConfigForm.resx">
-      <DependentUpon>SystemConfigForm.cs</DependentUpon>
+    <EmbeddedResource Include="UserConfigForm.resx">
+      <DependentUpon>UserConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoadTemplate.resx">
+    <EmbeddedResource Include="Template\LoadTemplate.resx">
       <DependentUpon>LoadTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

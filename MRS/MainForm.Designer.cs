@@ -30,41 +30,41 @@ namespace MRS
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node2");
-			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("病案首页", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node3");
-			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("入院记录", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node8");
-			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node9");
-			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("病程记录", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6});
-			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node10");
-			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node11");
-			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("出院记录", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9});
-			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Node12");
-			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Node13");
-			System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("知情文书", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12});
-			System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Node14");
-			System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("护理记录", new System.Windows.Forms.TreeNode[] {
-            treeNode14});
-			System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Node18");
-			System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("护理评估", new System.Windows.Forms.TreeNode[] {
-            treeNode16});
-			System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Node19");
-			System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("产科病例", new System.Windows.Forms.TreeNode[] {
-            treeNode18});
-			System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Node20");
-			System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("体温记录", new System.Windows.Forms.TreeNode[] {
-            treeNode20});
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Node2");
+			System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("病案首页", new System.Windows.Forms.TreeNode[] {
+            treeNode22});
+			System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Node3");
+			System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("入院记录", new System.Windows.Forms.TreeNode[] {
+            treeNode24});
+			System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Node8");
+			System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Node9");
+			System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("病程记录", new System.Windows.Forms.TreeNode[] {
+            treeNode26,
+            treeNode27});
+			System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Node10");
+			System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Node11");
+			System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("出院记录", new System.Windows.Forms.TreeNode[] {
+            treeNode29,
+            treeNode30});
+			System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Node12");
+			System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Node13");
+			System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("知情文书", new System.Windows.Forms.TreeNode[] {
+            treeNode32,
+            treeNode33});
+			System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Node14");
+			System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("护理记录", new System.Windows.Forms.TreeNode[] {
+            treeNode35});
+			System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Node18");
+			System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("护理评估", new System.Windows.Forms.TreeNode[] {
+            treeNode37});
+			System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Node19");
+			System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("产科病例", new System.Windows.Forms.TreeNode[] {
+            treeNode39});
+			System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Node20");
+			System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("体温记录", new System.Windows.Forms.TreeNode[] {
+            treeNode41});
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.pl_info = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.txt_User = new System.Windows.Forms.TextBox();
@@ -98,7 +98,7 @@ namespace MRS
 			this.btn_Finalize = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-			this.btn_Configure = new System.Windows.Forms.ToolStripLabel();
+			this.btn_UserConfigure = new System.Windows.Forms.ToolStripLabel();
 			this.btn_Search = new System.Windows.Forms.ToolStripLabel();
 			this.btn_History = new System.Windows.Forms.ToolStripLabel();
 			this.panel1 = new System.Windows.Forms.Panel();
@@ -148,6 +148,7 @@ namespace MRS
 			this.MenuItem_CheckRecord = new System.Windows.Forms.ToolStripMenuItem();
 			this.MenuItem_RemoveCheck = new System.Windows.Forms.ToolStripMenuItem();
 			this.writerControl1 = new DCSoft.Writer.Controls.WriterControl();
+			this.btn_SystemConfigure = new System.Windows.Forms.ToolStripLabel();
 			this.pl_info.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.pl_Menu.SuspendLayout();
@@ -398,9 +399,10 @@ namespace MRS
             this.btn_Finalize,
             this.toolStripSeparator9,
             this.toolStripSeparator10,
-            this.btn_Configure,
+            this.btn_UserConfigure,
             this.btn_Search,
-            this.btn_History});
+            this.btn_History,
+            this.btn_SystemConfigure});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 3);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(1383, 25);
@@ -537,15 +539,15 @@ namespace MRS
 			this.toolStripSeparator10.Name = "toolStripSeparator10";
 			this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
 			// 
-			// btn_Configure
+			// btn_UserConfigure
 			// 
-			this.btn_Configure.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btn_Configure.IsLink = true;
-			this.btn_Configure.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-			this.btn_Configure.Name = "btn_Configure";
-			this.btn_Configure.Size = new System.Drawing.Size(74, 22);
-			this.btn_Configure.Text = "参数配置";
-			this.btn_Configure.Click += new System.EventHandler(this.btn_Configure_Click);
+			this.btn_UserConfigure.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btn_UserConfigure.IsLink = true;
+			this.btn_UserConfigure.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+			this.btn_UserConfigure.Name = "btn_UserConfigure";
+			this.btn_UserConfigure.Size = new System.Drawing.Size(74, 22);
+			this.btn_UserConfigure.Text = "用户配置";
+			this.btn_UserConfigure.Click += new System.EventHandler(this.btn_Configure_Click);
 			// 
 			// btn_Search
 			// 
@@ -618,58 +620,58 @@ namespace MRS
 			this.treeView1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.treeView1.Location = new System.Drawing.Point(3, 25);
 			this.treeView1.Name = "treeView1";
-			treeNode1.Name = "Node2";
-			treeNode1.Text = "Node2";
-			treeNode2.Name = "Node0";
-			treeNode2.Text = "病案首页";
-			treeNode3.Name = "Node3";
-			treeNode3.Text = "Node3";
-			treeNode4.Name = "Node1";
-			treeNode4.Text = "入院记录";
-			treeNode5.Name = "Node8";
-			treeNode5.Text = "Node8";
-			treeNode6.Name = "Node9";
-			treeNode6.Text = "Node9";
-			treeNode7.Name = "Node4";
-			treeNode7.Text = "病程记录";
-			treeNode8.Name = "Node10";
-			treeNode8.Text = "Node10";
-			treeNode9.Name = "Node11";
-			treeNode9.Text = "Node11";
-			treeNode10.Name = "Node5";
-			treeNode10.Text = "出院记录";
-			treeNode11.Name = "Node12";
-			treeNode11.Text = "Node12";
-			treeNode12.Name = "Node13";
-			treeNode12.Text = "Node13";
-			treeNode13.Name = "Node6";
-			treeNode13.Text = "知情文书";
-			treeNode14.Name = "Node14";
-			treeNode14.Text = "Node14";
-			treeNode15.Name = "Node7";
-			treeNode15.Text = "护理记录";
-			treeNode16.Name = "Node18";
-			treeNode16.Text = "Node18";
-			treeNode17.Name = "Node15";
-			treeNode17.Text = "护理评估";
-			treeNode18.Name = "Node19";
-			treeNode18.Text = "Node19";
-			treeNode19.Name = "Node16";
-			treeNode19.Text = "产科病例";
-			treeNode20.Name = "Node20";
-			treeNode20.Text = "Node20";
-			treeNode21.Name = "Node17";
-			treeNode21.Text = "体温记录";
+			treeNode22.Name = "Node2";
+			treeNode22.Text = "Node2";
+			treeNode23.Name = "Node0";
+			treeNode23.Text = "病案首页";
+			treeNode24.Name = "Node3";
+			treeNode24.Text = "Node3";
+			treeNode25.Name = "Node1";
+			treeNode25.Text = "入院记录";
+			treeNode26.Name = "Node8";
+			treeNode26.Text = "Node8";
+			treeNode27.Name = "Node9";
+			treeNode27.Text = "Node9";
+			treeNode28.Name = "Node4";
+			treeNode28.Text = "病程记录";
+			treeNode29.Name = "Node10";
+			treeNode29.Text = "Node10";
+			treeNode30.Name = "Node11";
+			treeNode30.Text = "Node11";
+			treeNode31.Name = "Node5";
+			treeNode31.Text = "出院记录";
+			treeNode32.Name = "Node12";
+			treeNode32.Text = "Node12";
+			treeNode33.Name = "Node13";
+			treeNode33.Text = "Node13";
+			treeNode34.Name = "Node6";
+			treeNode34.Text = "知情文书";
+			treeNode35.Name = "Node14";
+			treeNode35.Text = "Node14";
+			treeNode36.Name = "Node7";
+			treeNode36.Text = "护理记录";
+			treeNode37.Name = "Node18";
+			treeNode37.Text = "Node18";
+			treeNode38.Name = "Node15";
+			treeNode38.Text = "护理评估";
+			treeNode39.Name = "Node19";
+			treeNode39.Text = "Node19";
+			treeNode40.Name = "Node16";
+			treeNode40.Text = "产科病例";
+			treeNode41.Name = "Node20";
+			treeNode41.Text = "Node20";
+			treeNode42.Name = "Node17";
+			treeNode42.Text = "体温记录";
 			this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4,
-            treeNode7,
-            treeNode10,
-            treeNode13,
-            treeNode15,
-            treeNode17,
-            treeNode19,
-            treeNode21});
+            treeNode23,
+            treeNode25,
+            treeNode28,
+            treeNode31,
+            treeNode34,
+            treeNode36,
+            treeNode38,
+            treeNode40,
+            treeNode42});
 			this.treeView1.Size = new System.Drawing.Size(227, 661);
 			this.treeView1.TabIndex = 0;
 			// 
@@ -732,8 +734,8 @@ namespace MRS
 			// dataGridViewTextBoxColumn1
 			// 
 			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
 			this.dataGridViewTextBoxColumn1.HeaderText = "序号";
 			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
 			this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1080,8 +1082,8 @@ namespace MRS
 			// 
 			// col_Complated_No
 			// 
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.col_Complated_No.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.col_Complated_No.DefaultCellStyle = dataGridViewCellStyle4;
 			this.col_Complated_No.HeaderText = "序号";
 			this.col_Complated_No.Name = "col_Complated_No";
 			this.col_Complated_No.ReadOnly = true;
@@ -1153,6 +1155,16 @@ namespace MRS
 			this.writerControl1.Name = "writerControl1";
 			this.writerControl1.Size = new System.Drawing.Size(700, 694);
 			this.writerControl1.TabIndex = 0;
+			// 
+			// btn_SystemConfigure
+			// 
+			this.btn_SystemConfigure.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btn_SystemConfigure.IsLink = true;
+			this.btn_SystemConfigure.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+			this.btn_SystemConfigure.Name = "btn_SystemConfigure";
+			this.btn_SystemConfigure.Size = new System.Drawing.Size(74, 22);
+			this.btn_SystemConfigure.Text = "系统配置";
+			this.btn_SystemConfigure.Click += new System.EventHandler(this.btn_SystemConfigure_Click);
 			// 
 			// MainForm
 			// 
@@ -1231,7 +1243,7 @@ namespace MRS
 		private System.Windows.Forms.ToolStripLabel btn_Finalize;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-		private System.Windows.Forms.ToolStripLabel btn_Configure;
+		private System.Windows.Forms.ToolStripLabel btn_UserConfigure;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.GroupBox groupBox1;
@@ -1281,6 +1293,7 @@ namespace MRS
 		private System.Windows.Forms.ToolStripMenuItem MenuItem_RemoveRecord;
 		private System.Windows.Forms.ToolStripMenuItem MenuItem_CheckRecord;
 		private System.Windows.Forms.ToolStripMenuItem MenuItem_RemoveCheck;
+		private System.Windows.Forms.ToolStripLabel btn_SystemConfigure;
 	}
 }
 

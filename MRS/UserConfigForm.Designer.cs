@@ -1,6 +1,6 @@
 ﻿namespace MRS
 {
-	partial class SystemConfigForm
+	partial class UserConfigForm
 	{
 		/// <summary>
 		/// Required designer variable.
