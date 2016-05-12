@@ -70,4 +70,8 @@
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\EMR_CASEHISTORY.sql" />
+    <None Include="StoreProcedures\Sp_InsertCaseHistory.sql" />
+  </ItemGroup>
 </Project>

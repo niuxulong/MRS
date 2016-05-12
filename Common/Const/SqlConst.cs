@@ -15,5 +15,7 @@ namespace Common.Const
         public const string SP_SELECTSYSTEMSETTING = "Sp_SelectSystemSetting";
 
         public const string SP_ADDUPDATESYSTEMSETTING = "Sp_AddUpdateSystemSetting";
+
+        public const string SP_INSERTCASEHISTORY = "Sp_InsertCaseHistory";
     }
 }

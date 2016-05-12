@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ICaseHistoryPresenter.cs" />
     <Compile Include="Interfaces\IPatientPresenter.cs" />
     <Compile Include="Interfaces\ITemplateCatalogPresenter.cs" />
     <Compile Include="Interfaces\ITemplatePresenter.cs" />
+    <Compile Include="Presenters\CaseHistoryPresenter.cs" />
     <Compile Include="Presenters\PatientPresenter.cs" />
     <Compile Include="Presenters\TemplateCatalogPresenter.cs" />
     <Compile Include="Presenters\TemplatePresenter.cs" />

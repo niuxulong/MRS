@@ -19,6 +19,7 @@ namespace MRS
         private IPatientPresenter patientPresenter;
         private ITemplatePresenter templatePresenter;
         private ITemplateCatalogPresenter templateCatalogPresenter;
+        private ICaseHistoryPresenter caseHistoryPresenter;
 
 		public MainForm()
 		{
@@ -27,68 +28,9 @@ namespace MRS
             patientPresenter = new PatientPresenter();
             templatePresenter = new TemplatePresenter();
             templateCatalogPresenter = new TemplateCatalogPresenter();
+            caseHistoryPresenter = new CaseHistoryPresenter();
 
             InitilizeCache();
-
-            var patients = patientPresenter.GetPatientsByName();
-            var templates = templatePresenter.GetTemplates();
-            var templateCatalogNodes = templateCatalogPresenter.GetTemplateCatalogNodes();
-
-            # region test update nodes db and cache
-            List<TemplateCatalogNode> nodes = new List<TemplateCatalogNode>();
-            var childNode = new TemplateCatalogNode()
-            {
-                TemplateNodeId = 11,
-                TemplateNodeName = "Name11",
-                TemplateParentNodeId = 1
-            };
-            var childNode2 = new TemplateCatalogNode()
-            {
-                TemplateNodeId = 12,
-                TemplateNodeName = "Name12ss",
-                TemplateParentNodeId = 1
-            };
-            var childList = new List<TemplateCatalogNode>();
-            childList.Add(childNode);
-            childList.Add(childNode2);
-            TemplateCatalogNode parentNode1 = new TemplateCatalogNode()
-            {
-                TemplateNodeId = 1,
-                TemplateNodeName = "Name1",
-                TemplateParentNodeId = 0,
-                ChildTemplateNodeList = childList
-            };
-
-            var childNode3 = new TemplateCatalogNode()
-            {
-                TemplateNodeId = 21,
-                TemplateNodeName = "Name2ss1",
-                TemplateParentNodeId = 2
-            };
-            var childNode4 = new TemplateCatalogNode()
-            {
-                TemplateNodeId = 22,
-                TemplateNodeName = "Name22",
-                TemplateParentNodeId = 2
-            };
-            var childList2 = new List<TemplateCatalogNode>();
-            childList2.Add(childNode3);
-            childList2.Add(childNode4);
-            TemplateCatalogNode parentNode2 = new TemplateCatalogNode()
-            {
-                TemplateNodeId = 2,
-                TemplateNodeName = "Name2",
-                TemplateParentNodeId = 0,
-                ChildTemplateNodeList = childList2
-            };
-
-            nodes.Add(parentNode1);
-            nodes.Add(parentNode2);
-
-            var success = templateCatalogPresenter.UpdateOrAddTemplateCatgalogNodes(nodes);
-
-            var lists = templateCatalogPresenter.GetTemplateCatalogNodes();
-            #endregion
         }
 
         private void InitilizeCache()
