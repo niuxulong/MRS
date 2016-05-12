@@ -60,6 +60,12 @@
     <Compile Include="AdminValidationForm.Designer.cs">
       <DependentUpon>AdminValidationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchCase.Designer.cs">
+      <DependentUpon>SearchCase.cs</DependentUpon>
+    </Compile>
     <Compile Include="SystemConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </Compile>
     <EmbeddedResource Include="AdminValidationForm.resx">
       <DependentUpon>AdminValidationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchCase.resx">
+      <DependentUpon>SearchCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SystemConfigForm.resx">
       <DependentUpon>SystemConfigForm.cs</DependentUpon>

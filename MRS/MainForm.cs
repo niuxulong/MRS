@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MRS.DataCacheManager;
+using MRS.Entity.Entities;
 
 namespace MRS
 {
@@ -32,6 +33,7 @@ namespace MRS
             var patients = patientPresenter.GetPatientsByName();
             var templates = templatePresenter.GetTemplates();
             var templateCatalogNodes = templateCatalogPresenter.GetTemplateCatalogNodes();
+            this.writerControl1.XMLText = templates[0].FileContent;
 		}
 
         private void InitilizeCache()
@@ -97,8 +99,16 @@ namespace MRS
 		private void btn_Search_Click(object sender, EventArgs e)
 		{
 			SearchPatient form = new SearchPatient();
+            form.SelectPatientEvent += form_SelectPatientEvent;
 			form.ShowDialog();
 		}
+
+        void form_SelectPatientEvent(Patient patient)
+        {
+            
+        }
+
+      
 
 		private void btn_History_Click(object sender, EventArgs e)
 		{
