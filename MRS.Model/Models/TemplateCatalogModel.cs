@@ -1,4 +1,5 @@
-﻿using MRS.Entity.Entities;
+﻿using Common.Utility;
+using MRS.Entity.Entities;
 using MRS.Model.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,29 +16,16 @@ namespace MRS.Model.Models
         
         }
 
-        public List<TemplateCatalogNode> GetTemplateCatalogNode()
+        public List<TemplateCatalogNode> GetTemplateCatalogNodes()
         {
-            var templateCatalogNodeXml = DataCacheManager.DataCacheManager.GetCacheManagerInstance().GetSystemSettingsFromCache()["TemplateCatalogNode"];
-
-
+            var systemSettingsDic = DataCacheManager.DataCacheManager.GetCacheManagerInstance().GetSystemSettingsFromCache();
+            if (systemSettingsDic.ContainsKey("TemplateCatalogNode"))
+            {
+                var templateCatalogNodeXml = DataCacheManager.DataCacheManager.GetCacheManagerInstance().GetSystemSettingsFromCache()["TemplateCatalogNode"];
+                return SerializeUtility<List<TemplateCatalogNode>>.XmlDeserialize(templateCatalogNodeXml);
+            }
 
             return null;
         }
     }
 }
-
-/*
-//
- 
-<xml>
-    <ParentTemplateCatalog Id=1 Name=入院记录>
-        <ChildTemplateCatalog Id=1 Name=节点1/>
-        <ChildTemplateCatalog Id=2 Name=节点2/>
-    </ParentTemplateCatalog>
-
-    <ParentTemplateCatalog Id=2 Name=入院记录>
-        <ChildTemplateCatalog Id=1 Name=节点1/>
-        <ChildTemplateCatalog Id=2 Name=节点2/>
-    </ParentTemplateCatalog>
-</xml>
-*/

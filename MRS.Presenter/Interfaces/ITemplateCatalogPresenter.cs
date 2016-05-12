@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRS.Model.Interfaces
+namespace MRS.Presenter.Interfaces
 {
-    public interface ITemplateCatalogModel
+    public interface ITemplateCatalogPresenter
     {
         List<TemplateCatalogNode> GetTemplateCatalogNodes();
     }

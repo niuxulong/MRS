@@ -69,6 +69,7 @@
     <Compile Include="UserControls\WaterMarkTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utility\SerializeUtility.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -17,19 +17,21 @@ namespace MRS
 	{
         private IPatientPresenter patientPresenter;
         private ITemplatePresenter templatePresenter;
+        private ITemplateCatalogPresenter templateCatalogPresenter;
 
 		public MainForm()
 		{
 			InitializeComponent();
 
-
             patientPresenter = new PatientPresenter();
             templatePresenter = new TemplatePresenter();
+            templateCatalogPresenter = new TemplateCatalogPresenter();
 
             InitilizeCache();
 
             var patients = patientPresenter.GetPatientsByName();
             var templates = templatePresenter.GetTemplates();
+            var templateCatalogNodes = templateCatalogPresenter.GetTemplateCatalogNodes();
 		}
 
         private void InitilizeCache()
