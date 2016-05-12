@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminValidationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminValidationForm.Designer.cs">
+      <DependentUpon>AdminValidationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SystemConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     <Compile Include="Template\LoadTemplate.Designer.cs">
       <DependentUpon>LoadTemplate.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminValidationForm.resx">
+      <DependentUpon>AdminValidationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SystemConfigForm.resx">
       <DependentUpon>SystemConfigForm.cs</DependentUpon>
     </EmbeddedResource>
