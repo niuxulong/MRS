@@ -112,8 +112,14 @@ namespace MRS
 
 		private void btn_SystemConfigure_Click(object sender, EventArgs e)
 		{
-            SystemConfigForm form = new SystemConfigForm();
-            form.Show();
+            AdminValidationForm form = new AdminValidationForm();
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                SystemConfigForm form1 = new SystemConfigForm();
+                form1.Show();
+            }
+
+
 		}
 	}
 }
