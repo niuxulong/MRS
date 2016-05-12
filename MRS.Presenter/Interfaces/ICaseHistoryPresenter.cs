@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace MRS.Presenter.Interfaces
 {
-    public interface ITemplateCatalogPresenter
+    public interface ICaseHistoryPresenter
     {
-        List<TemplateCatalogNode> GetTemplateCatalogNodes();
-
-        bool UpdateOrAddTemplateCatgalogNodes(List<TemplateCatalogNode> nodes);
+        bool InsertCasaHistory(CaseHistory caseHistory);
     }
 }

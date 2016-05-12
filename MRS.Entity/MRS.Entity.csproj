@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\CaseHistory.cs" />
     <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\SystemSetting.cs" />
     <Compile Include="Entities\Template.cs" />

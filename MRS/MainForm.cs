@@ -19,6 +19,7 @@ namespace MRS
         private IPatientPresenter patientPresenter;
         private ITemplatePresenter templatePresenter;
         private ITemplateCatalogPresenter templateCatalogPresenter;
+        private ICaseHistoryPresenter caseHistoryPresenter;
 
 		public MainForm()
 		{
@@ -27,6 +28,7 @@ namespace MRS
             patientPresenter = new PatientPresenter();
             templatePresenter = new TemplatePresenter();
             templateCatalogPresenter = new TemplateCatalogPresenter();
+            caseHistoryPresenter = new CaseHistoryPresenter();
 
             InitilizeCache();
 

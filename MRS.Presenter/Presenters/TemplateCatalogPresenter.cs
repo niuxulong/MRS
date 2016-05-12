@@ -22,5 +22,10 @@ namespace MRS.Presenter.Presenters
         {
             return templateCatalogModel.GetTemplateCatalogNodes();
         }
+
+        public bool UpdateOrAddTemplateCatgalogNodes(List<TemplateCatalogNode> nodes)
+        {
+            return templateCatalogModel.UpdateOrAddTemplateCatgalogNodes(nodes);
+        }
     }
 }
