@@ -10,5 +10,7 @@ namespace MRS.Presenter.Interfaces
     public interface ITemplateCatalogPresenter
     {
         List<TemplateCatalogNode> GetTemplateCatalogNodes();
+
+        bool UpdateOrAddTemplateCatgalogNodes(List<TemplateCatalogNode> nodes);
     }
 }

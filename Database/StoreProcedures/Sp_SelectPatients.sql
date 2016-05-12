@@ -1,4 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[Sp_SelectPatients]
+﻿IF(EXISTS(SELECT * FROM SYSOBJECTS WHERE XTYPE='P' AND NAME='Sp_SelectPatients'))
+	DROP PROCEDURE Sp_SelectPatients
+GO
+
+CREATE PROCEDURE [dbo].[Sp_SelectPatients]
 	@name VARCHAR(20)
 AS
 	IF @name IS NULL

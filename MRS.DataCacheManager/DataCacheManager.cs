@@ -1,5 +1,6 @@
 ﻿using Common.Const;
 using Common.DataBaseAccessor;
+using Common.Enums;
 using MRS.DataCacheManager.Interfaces;
 using MRS.Entity.Entities;
 using System;
@@ -56,6 +57,20 @@ namespace MRS.DataCacheManager
         public Dictionary<string, string> GetSystemSettingsFromCache()
         {
             return dataCache.SystemSettingCache;
+        }
+
+        public bool UpdateSystemSettingsCache(string key, string value)
+        {
+            if (dataCache.SystemSettingCache.ContainsKey(key))
+            {
+                dataCache.SystemSettingCache[key] = value;
+            }
+            else
+            {
+                dataCache.SystemSettingCache.Add(key, value);
+            }
+
+            return true;
         }
 
         /// <summary>

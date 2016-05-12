@@ -32,6 +32,10 @@ namespace MRS
             var patients = patientPresenter.GetPatientsByName();
             var templates = templatePresenter.GetTemplates();
             var templateCatalogNodes = templateCatalogPresenter.GetTemplateCatalogNodes();
+
+            //test update nodes db and cache
+           // var TemplateCatalogNode
+
 		}
 
         private void InitilizeCache()

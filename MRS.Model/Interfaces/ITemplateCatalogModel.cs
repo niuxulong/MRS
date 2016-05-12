@@ -10,5 +10,7 @@ namespace MRS.Model.Interfaces
     public interface ITemplateCatalogModel
     {
         List<TemplateCatalogNode> GetTemplateCatalogNodes();
+
+        bool UpdateOrAddTemplateCatgalogNodes(List<TemplateCatalogNode> nodes);
     }
 }
