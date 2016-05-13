@@ -32,8 +32,10 @@ namespace MRS.Presenters.Presenter
         private void HandleRetriveTemplateCatalogTree(object sender, object e)
         {
             var templateTreeNodes = templateCatalogModel.GetTemplateCatalogNodes();
-            this.View.PopulateTemplateCatalogTree(templateTreeNodes);
-
+            if (templateTreeNodes != null)
+            {
+                this.View.PopulateTemplateCatalogTree(templateTreeNodes);
+            }
         }
 
         private void HandleRetriveCaseHistoriesByPatientIdEvent(object sender, string patientId)

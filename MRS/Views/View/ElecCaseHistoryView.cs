@@ -27,12 +27,13 @@ namespace MRS.Views.View
         {
             InitilizeCache();
             InitilizeTimer();
-            InitilizeTemplateCatalogTree();
+            SetupTemplateCatalogTree();
             ConfigDgvFinishedCaseHistoryColumns();
         }
 
-        private void InitilizeTemplateCatalogTree()
+        private void SetupTemplateCatalogTree()
         {
+            tv_TemplateCatalog.Nodes.Clear();
             if (RetriveTemplateCatalogTree != null)
             {
                 RetriveTemplateCatalogTree(null, null);
@@ -76,25 +77,7 @@ namespace MRS.Views.View
         {
             foreach (var node in nodes)
             {
-                var parentNode = new TreeNode()
-                {
-                    Tag = node.TemplateNodeId,
-                    Name = node.TemplateNodeName,
-                    Text = node.TemplateNodeName
-                };
-                foreach(var cNode in node.ChildTemplateNodeList)
-                {
-                    var childNode = new TreeNode()
-                    {
-                        Tag = cNode.TemplateNodeId,
-                        Name = cNode.TemplateNodeName,
-                        Text = cNode.TemplateNodeName
-                    };
-
-                    parentNode.Nodes.Add(childNode);
-                }
-
-                tv_TemplateCatalog.Nodes.Add(parentNode);
+                tv_TemplateCatalog.Nodes.Add(node.ToTreeNode());
             }
         }
 
@@ -157,7 +140,12 @@ namespace MRS.Views.View
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 SystemConfigView form1 = new SystemConfigView();
-                form1.Show();
+                if (form1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    SetupTemplateCatalogTree();
+
+                    //update database connection, currently not sure the details.
+                }
             }
 
 

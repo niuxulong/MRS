@@ -55,7 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenters\Presenter\SearchPatientPresenter.cs" />
+    <Compile Include="Presenters\Presenter\SystemConfigPresenter.cs" />
     <Compile Include="Views\Interface\ISearchPatientView.cs" />
+    <Compile Include="Views\Interface\ISystemConfigView.cs" />
     <Compile Include="Views\View\AdminValidationView.cs">
       <SubType>Form</SubType>
     </Compile>

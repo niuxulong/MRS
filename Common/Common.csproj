@@ -60,6 +60,7 @@
     <Compile Include="Const\SqlConst.cs" />
     <Compile Include="DatabaseAccessor\SqlHelper.cs" />
     <Compile Include="Enums\Enums.cs" />
+    <Compile Include="EventArguments\SystemConfigEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\BaseTemplateControl.cs">
       <SubType>UserControl</SubType>
@@ -92,6 +93,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MRS.Entity\MRS.Entity.csproj">
+      <Project>{260bc469-a34d-4ba1-b197-ea78d14b8b64}</Project>
+      <Name>MRS.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
