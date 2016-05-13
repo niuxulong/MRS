@@ -13,6 +13,20 @@ namespace MRS.Model.Models
 {
     public class CaseHistoryModel : ICaseHistoryModel 
     {
+        public List<CaseHistory> GetCaseHistoryByPatientId(string patientId)
+        {
+            try
+            {
+                var results = new List<CaseHistory>();
+                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), SqlConst.SP_SELECTCASEHISTORY, patientId);
+                return ConvertToCaseHistoryList(dataSet);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public bool InsertCasaHistory(CaseHistory caseHistory)
         {
             try
@@ -38,6 +52,25 @@ namespace MRS.Model.Models
             caseHistoryParams[6] = caseHistory.CreatedById;
 
             return caseHistoryParams;
+        }
+
+        private List<CaseHistory> ConvertToCaseHistoryList(DataSet dataSet)
+        {
+            List<CaseHistory> results = new List<CaseHistory>();
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                var caseHistory = new CaseHistory();
+                caseHistory.Id = System.Guid.Parse(dataRow.ItemArray[0].ToString());
+                caseHistory.PatientId = dataRow.ItemArray[1].ToString();
+                caseHistory.FileName = dataRow.ItemArray[2].ToString();
+                caseHistory.FileTitle = dataRow.ItemArray[3].ToString();
+                caseHistory.FileContent = dataRow.ItemArray[4].ToString();
+                caseHistory.CreatedById = dataRow.ItemArray[12].ToString();
+                caseHistory.CreatedBy = dataRow.ItemArray[13].ToString();
+                results.Add(caseHistory);
+            }
+
+            return results;
         }
     }
 }

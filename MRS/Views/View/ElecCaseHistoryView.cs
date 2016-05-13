@@ -1,30 +1,51 @@
+using MRS.Entity.Entities;
+using MRS.Presenters.Presenter;
+using MRS.Views.Interface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MRS.DataCacheManager;
-using MRS.Entity.Entities;
-using MRS.Views.Interface;
-using MRS.Presenters.Presenter;
 
 namespace MRS.Views.View
 {
 	public partial class ElecCaseHistoryView : ViewBase, IElecCaseHistoryView
 	{
-		public ElecCaseHistoryView()
+        Timer timer = new Timer();
+
+        #region Event Handler
+        public event EventHandler<string> RetriveCaseHistoriesByPatientIdEvent;
+        public event EventHandler RetriveTemplateCatalogTree;
+        #endregion
+
+        public ElecCaseHistoryView()
 		{
 			InitializeComponent();
-
-            InitilizeCache();
-
             
             //this.writerControl1.XMLText = templates[0].FileContent;
 		}
+
+        private void ElecCaseHistoryView_Load(object sender, EventArgs e)
+        {
+            InitilizeCache();
+            InitilizeTimer();
+            InitilizeTemplateCatalogTree();
+            ConfigDgvFinishedCaseHistoryColumns();
+        }
+
+        private void InitilizeTemplateCatalogTree()
+        {
+            if (RetriveTemplateCatalogTree != null)
+            {
+                RetriveTemplateCatalogTree(null, null);
+            }
+        }
+
+        private void ConfigDgvFinishedCaseHistoryColumns()
+        {
+            this.dgv_FinishedCaseHistory.Columns["col_Complated_No"].DataPropertyName = "PatientId";
+            this.dgv_FinishedCaseHistory.Columns["col_Complated_ID"].DataPropertyName = "PatientId";
+            this.dgv_FinishedCaseHistory.Columns["col_Complated_Name"].DataPropertyName = "FileName";
+            this.dgv_FinishedCaseHistory.Columns["col_Complated_Check"].DataPropertyName = "FileTitle";
+        }
 
         protected override object CreatePresenter()
         {
@@ -35,6 +56,52 @@ namespace MRS.Views.View
         {
             var cacheManager = DataCacheManager.DataCacheManager.GetCacheManagerInstance();
             cacheManager.InitilizeDataCache();
+        }
+
+        private void InitilizeTimer()
+        {
+            lb_SystemTime.Text = DateTime.Now.ToLongDateString() + "  " + DateTime.Now.ToShortTimeString();
+            this.timer.Interval = 2000;
+            this.timer.Tick += (sender, e) => { lb_SystemTime.Text = DateTime.Now.ToLongDateString() + "  " + DateTime.Now.ToShortTimeString(); };
+            this.timer.Start();
+        }
+
+        public void PopulateCaseHistoryRecords(List<CaseHistory> caseHistories)
+        {
+            dgv_FinishedCaseHistory.DataSource = null;
+            dgv_FinishedCaseHistory.DataSource = caseHistories;
+        }
+
+        public void PopulateTemplateCatalogTree(List<TemplateCatalogNode> nodes)
+        {
+            foreach (var node in nodes)
+            {
+                var parentNode = new TreeNode()
+                {
+                    Tag = node.TemplateNodeId,
+                    Name = node.TemplateNodeName,
+                    Text = node.TemplateNodeName
+                };
+                foreach(var cNode in node.ChildTemplateNodeList)
+                {
+                    var childNode = new TreeNode()
+                    {
+                        Tag = cNode.TemplateNodeId,
+                        Name = cNode.TemplateNodeName,
+                        Text = cNode.TemplateNodeName
+                    };
+
+                    parentNode.Nodes.Add(childNode);
+                }
+
+                tv_TemplateCatalog.Nodes.Add(parentNode);
+            }
+        }
+
+        public void PopulatePatientInfo(Patient patient)
+        { 
+            txt_Name.Text = patient.Name;
+            // and other info
         }
 
 		private void btn_LoadTemplate_Click(object sender, EventArgs e)
@@ -68,8 +135,12 @@ namespace MRS.Views.View
             {
                 var selectedPatient = form.selectedPatient;
                 if (selectedPatient != null)
-                { 
-                    // call its presenter to retrive other info like case history or template and populate to the main form
+                {
+                    PopulatePatientInfo(selectedPatient);
+                    if (RetriveCaseHistoriesByPatientIdEvent != null)
+                    {
+                        RetriveCaseHistoriesByPatientIdEvent(sender, selectedPatient.PatientId);
+                    }
                 }
             }
 		}
@@ -91,9 +162,6 @@ namespace MRS.Views.View
 
 
         }
-
-
-        //this.writerControl1.XMLText = templates[0].FileContent;
 
         #region 待实现
         private void btn_SaveRecord_Click(object sender, EventArgs e)
@@ -126,5 +194,6 @@ namespace MRS.Views.View
             MessageBox.Show("档案归档");
         }
         #endregion
+
     }
 }

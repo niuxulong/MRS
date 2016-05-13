@@ -30,39 +30,6 @@ namespace MRS.Views.View
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("病案首页", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node3");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("入院记录", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node8");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node9");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("病程记录", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node10");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node11");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("出院记录", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Node12");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Node13");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("知情文书", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Node14");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("护理记录", new System.Windows.Forms.TreeNode[] {
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Node18");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("护理评估", new System.Windows.Forms.TreeNode[] {
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Node19");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("产科病例", new System.Windows.Forms.TreeNode[] {
-            treeNode18});
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Node20");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("体温记录", new System.Windows.Forms.TreeNode[] {
-            treeNode20});
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pl_info = new System.Windows.Forms.Panel();
@@ -105,7 +72,7 @@ namespace MRS.Views.View
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.tv_TemplateCatalog = new System.Windows.Forms.TreeView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -137,7 +104,7 @@ namespace MRS.Views.View
             this.label10 = new System.Windows.Forms.Label();
             this.txt_CaseId = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_FinishedCaseHistory = new System.Windows.Forms.DataGridView();
             this.col_Complated_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Complated_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Complated_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -170,7 +137,7 @@ namespace MRS.Views.View
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FinishedCaseHistory)).BeginInit();
             this.ContextMenuSrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -614,7 +581,7 @@ namespace MRS.Views.View
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.treeView1);
+            this.groupBox1.Controls.Add(this.tv_TemplateCatalog);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 5);
@@ -624,66 +591,14 @@ namespace MRS.Views.View
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1、病历目录";
             // 
-            // treeView1
+            // tv_TemplateCatalog
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView1.Location = new System.Drawing.Point(3, 25);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node2";
-            treeNode1.Text = "Node2";
-            treeNode2.Name = "Node0";
-            treeNode2.Text = "病案首页";
-            treeNode3.Name = "Node3";
-            treeNode3.Text = "Node3";
-            treeNode4.Name = "Node1";
-            treeNode4.Text = "入院记录";
-            treeNode5.Name = "Node8";
-            treeNode5.Text = "Node8";
-            treeNode6.Name = "Node9";
-            treeNode6.Text = "Node9";
-            treeNode7.Name = "Node4";
-            treeNode7.Text = "病程记录";
-            treeNode8.Name = "Node10";
-            treeNode8.Text = "Node10";
-            treeNode9.Name = "Node11";
-            treeNode9.Text = "Node11";
-            treeNode10.Name = "Node5";
-            treeNode10.Text = "出院记录";
-            treeNode11.Name = "Node12";
-            treeNode11.Text = "Node12";
-            treeNode12.Name = "Node13";
-            treeNode12.Text = "Node13";
-            treeNode13.Name = "Node6";
-            treeNode13.Text = "知情文书";
-            treeNode14.Name = "Node14";
-            treeNode14.Text = "Node14";
-            treeNode15.Name = "Node7";
-            treeNode15.Text = "护理记录";
-            treeNode16.Name = "Node18";
-            treeNode16.Text = "Node18";
-            treeNode17.Name = "Node15";
-            treeNode17.Text = "护理评估";
-            treeNode18.Name = "Node19";
-            treeNode18.Text = "Node19";
-            treeNode19.Name = "Node16";
-            treeNode19.Text = "产科病例";
-            treeNode20.Name = "Node20";
-            treeNode20.Text = "Node20";
-            treeNode21.Name = "Node17";
-            treeNode21.Text = "体温记录";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4,
-            treeNode7,
-            treeNode10,
-            treeNode13,
-            treeNode15,
-            treeNode17,
-            treeNode19,
-            treeNode21});
-            this.treeView1.Size = new System.Drawing.Size(227, 607);
-            this.treeView1.TabIndex = 0;
+            this.tv_TemplateCatalog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv_TemplateCatalog.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tv_TemplateCatalog.Location = new System.Drawing.Point(3, 25);
+            this.tv_TemplateCatalog.Name = "tv_TemplateCatalog";
+            this.tv_TemplateCatalog.Size = new System.Drawing.Size(227, 607);
+            this.tv_TemplateCatalog.TabIndex = 0;
             // 
             // splitContainer2
             // 
@@ -1066,29 +981,29 @@ namespace MRS.Views.View
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dgv_FinishedCaseHistory);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 25);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(432, 198);
             this.panel2.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgv_FinishedCaseHistory
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_FinishedCaseHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_FinishedCaseHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_FinishedCaseHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_Complated_No,
             this.col_Complated_ID,
             this.col_Complated_Name,
             this.col_Complated_Check});
-            this.dataGridView1.ContextMenuStrip = this.ContextMenuSrip;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.Size = new System.Drawing.Size(432, 198);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_FinishedCaseHistory.ContextMenuStrip = this.ContextMenuSrip;
+            this.dgv_FinishedCaseHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_FinishedCaseHistory.Location = new System.Drawing.Point(0, 0);
+            this.dgv_FinishedCaseHistory.Name = "dgv_FinishedCaseHistory";
+            this.dgv_FinishedCaseHistory.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_FinishedCaseHistory.Size = new System.Drawing.Size(432, 198);
+            this.dgv_FinishedCaseHistory.TabIndex = 0;
             // 
             // col_Complated_No
             // 
@@ -1166,7 +1081,7 @@ namespace MRS.Views.View
             this.writerControl1.Size = new System.Drawing.Size(700, 640);
             this.writerControl1.TabIndex = 0;
             // 
-            // ElecCaseHistoryForm
+            // ElecCaseHistoryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1174,8 +1089,9 @@ namespace MRS.Views.View
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pl_Menu);
             this.Controls.Add(this.pl_info);
-            this.Name = "ElecCaseHistoryForm";
+            this.Name = "ElecCaseHistoryView";
             this.Text = "电子病历";
+            this.Load += new System.EventHandler(this.ElecCaseHistoryView_Load);
             this.pl_info.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -1202,7 +1118,7 @@ namespace MRS.Views.View
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FinishedCaseHistory)).EndInit();
             this.ContextMenuSrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1247,14 +1163,14 @@ namespace MRS.Views.View
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.TreeView treeView1;
+		private System.Windows.Forms.TreeView tv_TemplateCatalog;
 		private System.Windows.Forms.SplitContainer splitContainer2;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dgv_FinishedCaseHistory;
 		private System.Windows.Forms.TextBox textBox16;
 		private System.Windows.Forms.TextBox textBox15;
 		private System.Windows.Forms.TextBox textBox14;

@@ -54,7 +54,7 @@ namespace MRS.Views.View
 
         public void PopulatePatientsRecords(List<Patient> patients)
         {
-            dgv_Patient.Rows.Clear();
+            dgv_Patient.DataSource = null;
             dgv_Patient.DataSource = patients;
         }
 

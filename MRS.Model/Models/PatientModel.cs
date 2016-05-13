@@ -24,7 +24,6 @@ namespace MRS.Model.Models
             {
                 var results = new List<Patient>();
                 var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(), SqlConst.SP_SELECTPATIENTS, name);
-                //dataSet.Tables
                 return ConvertToPatientsList(dataSet);
             }
             catch (Exception ex)

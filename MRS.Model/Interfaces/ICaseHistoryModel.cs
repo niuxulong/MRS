@@ -10,5 +10,7 @@ namespace MRS.Model.Interfaces
     public interface ICaseHistoryModel
     {
         bool InsertCasaHistory(CaseHistory caseHistory);
+
+        List<CaseHistory> GetCaseHistoryByPatientId(string patientId);
     }
 }

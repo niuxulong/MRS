@@ -73,5 +73,6 @@
   <ItemGroup>
     <Build Include="Tables\EMR_CASEHISTORY.sql" />
     <None Include="StoreProcedures\Sp_InsertCaseHistory.sql" />
+    <None Include="StoreProcedures\Sp_SelectCaseHistory.sql" />
   </ItemGroup>
 </Project>
