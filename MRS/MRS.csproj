@@ -54,23 +54,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminValidationForm.cs">
+    <Compile Include="Presenters\Presenter\SearchPatientPresenter.cs" />
+    <Compile Include="Views\Interface\ISearchPatientView.cs" />
+    <Compile Include="Views\View\AdminValidationView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminValidationForm.Designer.cs">
-      <DependentUpon>AdminValidationForm.cs</DependentUpon>
+    <Compile Include="Views\View\AdminValidationView.Designer.cs">
+      <DependentUpon>AdminValidationView.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchCase.cs">
+    <Compile Include="Presenters\Interface\Presenter.cs" />
+    <Compile Include="Presenters\Presenter\ElecCaseHistoryPresenter.cs" />
+    <Compile Include="Views\View\SearchCaseView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchCase.Designer.cs">
-      <DependentUpon>SearchCase.cs</DependentUpon>
+    <Compile Include="Views\View\SearchCaseView.Designer.cs">
+      <DependentUpon>SearchCaseView.cs</DependentUpon>
     </Compile>
-    <Compile Include="SystemConfigForm.cs">
+    <Compile Include="Views\View\SystemConfigView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SystemConfigForm.Designer.cs">
-      <DependentUpon>SystemConfigForm.cs</DependentUpon>
+    <Compile Include="Views\View\SystemConfigView.Designer.cs">
+      <DependentUpon>SystemConfigView.cs</DependentUpon>
     </Compile>
     <Compile Include="Template\AddTemplate.cs">
       <SubType>Form</SubType>
@@ -90,11 +94,11 @@
     <Compile Include="Template\ManageTemplate.Designer.cs">
       <DependentUpon>ManageTemplate.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Views\View\ElecCaseHistoryView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Views\View\ElecCaseHistoryView.Designer.cs">
+      <DependentUpon>ElecCaseHistoryView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,17 +108,17 @@
     <Compile Include="Template\SaveTemplate.Designer.cs">
       <DependentUpon>SaveTemplate.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchPatient.cs">
+    <Compile Include="Views\View\SearchPatientView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchPatient.Designer.cs">
-      <DependentUpon>SearchPatient.cs</DependentUpon>
+    <Compile Include="Views\View\SearchPatientView.Designer.cs">
+      <DependentUpon>SearchPatientView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserConfigForm.cs">
+    <Compile Include="Views\View\UserConfigView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserConfigForm.Designer.cs">
-      <DependentUpon>UserConfigForm.cs</DependentUpon>
+    <Compile Include="Views\View\UserConfigView.Designer.cs">
+      <DependentUpon>UserConfigView.cs</DependentUpon>
     </Compile>
     <Compile Include="Template\LoadTemplate.cs">
       <SubType>Form</SubType>
@@ -122,14 +126,19 @@
     <Compile Include="Template\LoadTemplate.Designer.cs">
       <DependentUpon>LoadTemplate.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminValidationForm.resx">
-      <DependentUpon>AdminValidationForm.cs</DependentUpon>
+    <Compile Include="Views\Interface\IElecCaseHistoryView.cs" />
+    <Compile Include="Views\Interface\IViewBase.cs" />
+    <Compile Include="Views\Interface\ViewBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="Views\View\AdminValidationView.resx">
+      <DependentUpon>AdminValidationView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchCase.resx">
-      <DependentUpon>SearchCase.cs</DependentUpon>
+    <EmbeddedResource Include="Views\View\SearchCaseView.resx">
+      <DependentUpon>SearchCaseView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SystemConfigForm.resx">
-      <DependentUpon>SystemConfigForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\View\SystemConfigView.resx">
+      <DependentUpon>SystemConfigView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Template\AddTemplate.resx">
       <DependentUpon>AddTemplate.cs</DependentUpon>
@@ -140,8 +149,8 @@
     <EmbeddedResource Include="Template\ManageTemplate.resx">
       <DependentUpon>ManageTemplate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\View\ElecCaseHistoryView.resx">
+      <DependentUpon>ElecCaseHistoryView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -156,11 +165,11 @@
     <EmbeddedResource Include="Template\SaveTemplate.resx">
       <DependentUpon>SaveTemplate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchPatient.resx">
-      <DependentUpon>SearchPatient.cs</DependentUpon>
+    <EmbeddedResource Include="Views\View\SearchPatientView.resx">
+      <DependentUpon>SearchPatientView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserConfigForm.resx">
-      <DependentUpon>UserConfigForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\View\UserConfigView.resx">
+      <DependentUpon>UserConfigView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Template\LoadTemplate.resx">
       <DependentUpon>LoadTemplate.cs</DependentUpon>
@@ -191,9 +200,9 @@
       <Project>{260bc469-a34d-4ba1-b197-ea78d14b8b64}</Project>
       <Name>MRS.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MRS.Presenter\MRS.Presenter.csproj">
-      <Project>{9f8ad3d5-1e43-4741-93b2-39f6e420c04d}</Project>
-      <Name>MRS.Presenter</Name>
+    <ProjectReference Include="..\MRS.Model\MRS.Model.csproj">
+      <Project>{d20a693e-8280-488a-a2a3-10593810b805}</Project>
+      <Name>MRS.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

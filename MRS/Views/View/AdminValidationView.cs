@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MRS
+namespace MRS.Views.View
 {
-    public partial class AdminValidationForm : Form
+    public partial class AdminValidationView : Form
     {
-        public AdminValidationForm()
+        public AdminValidationView()
         {
             InitializeComponent();
         }

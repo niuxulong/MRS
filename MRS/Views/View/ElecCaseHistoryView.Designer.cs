@@ -1,7 +1,7 @@
 using Common;
-namespace MRS
+namespace MRS.Views.View
 {
-	partial class MainForm
+	partial class ElecCaseHistoryView
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -225,7 +225,7 @@ namespace MRS
             // 
             this.txt_User.BackColor = System.Drawing.Color.White;
             this.txt_User.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_User.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_User.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_User.ForeColor = System.Drawing.Color.Silver;
             this.txt_User.Location = new System.Drawing.Point(777, 8);
             this.txt_User.Name = "txt_User";
@@ -238,7 +238,7 @@ namespace MRS
             // 
             this.txt_hospitalNo.BackColor = System.Drawing.Color.White;
             this.txt_hospitalNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_hospitalNo.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_hospitalNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_hospitalNo.ForeColor = System.Drawing.Color.Silver;
             this.txt_hospitalNo.Location = new System.Drawing.Point(573, 8);
             this.txt_hospitalNo.Name = "txt_hospitalNo";
@@ -251,7 +251,7 @@ namespace MRS
             // 
             this.txt_BedNo.BackColor = System.Drawing.Color.White;
             this.txt_BedNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_BedNo.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BedNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_BedNo.ForeColor = System.Drawing.Color.Silver;
             this.txt_BedNo.Location = new System.Drawing.Point(390, 8);
             this.txt_BedNo.Name = "txt_BedNo";
@@ -264,7 +264,7 @@ namespace MRS
             // 
             this.txt_Subject.BackColor = System.Drawing.Color.White;
             this.txt_Subject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_Subject.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Subject.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Subject.ForeColor = System.Drawing.Color.Silver;
             this.txt_Subject.Location = new System.Drawing.Point(228, 8);
             this.txt_Subject.Name = "txt_Subject";
@@ -277,7 +277,7 @@ namespace MRS
             // 
             this.txt_Name.BackColor = System.Drawing.Color.White;
             this.txt_Name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_Name.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Name.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Name.ForeColor = System.Drawing.Color.Silver;
             this.txt_Name.Location = new System.Drawing.Point(68, 8);
             this.txt_Name.Name = "txt_Name";
@@ -289,7 +289,7 @@ namespace MRS
             // lb_SystemTime
             // 
             this.lb_SystemTime.AutoSize = true;
-            this.lb_SystemTime.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_SystemTime.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_SystemTime.Location = new System.Drawing.Point(1048, 10);
             this.lb_SystemTime.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_SystemTime.Name = "lb_SystemTime";
@@ -301,7 +301,7 @@ namespace MRS
             // 
             this.lb_Name.AutoSize = true;
             this.lb_Name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_Name.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Name.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Name.Location = new System.Drawing.Point(3, 10);
             this.lb_Name.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_Name.Name = "lb_Name";
@@ -313,7 +313,7 @@ namespace MRS
             // 
             this.lb_Department.AutoSize = true;
             this.lb_Department.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_Department.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Department.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Department.Location = new System.Drawing.Point(160, 10);
             this.lb_Department.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_Department.Name = "lb_Department";
@@ -325,7 +325,7 @@ namespace MRS
             // 
             this.lb_BedNo.AutoSize = true;
             this.lb_BedNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_BedNo.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_BedNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_BedNo.Location = new System.Drawing.Point(321, 10);
             this.lb_BedNo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_BedNo.Name = "lb_BedNo";
@@ -337,7 +337,7 @@ namespace MRS
             // 
             this.lb_HospitalizedNo.AutoSize = true;
             this.lb_HospitalizedNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_HospitalizedNo.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_HospitalizedNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_HospitalizedNo.Location = new System.Drawing.Point(492, 10);
             this.lb_HospitalizedNo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_HospitalizedNo.Name = "lb_HospitalizedNo";
@@ -349,7 +349,7 @@ namespace MRS
             // 
             this.lb_User.AutoSize = true;
             this.lb_User.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_User.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_User.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_User.Location = new System.Drawing.Point(696, 10);
             this.lb_User.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_User.Name = "lb_User";
@@ -361,7 +361,7 @@ namespace MRS
             // 
             this.label99.AutoSize = true;
             this.label99.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label99.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label99.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label99.Location = new System.Drawing.Point(919, 10);
             this.label99.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label99.Name = "label99";
@@ -411,7 +411,7 @@ namespace MRS
             // 
             // btn_LoadTemplate
             // 
-            this.btn_LoadTemplate.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LoadTemplate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_LoadTemplate.IsLink = true;
             this.btn_LoadTemplate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_LoadTemplate.Name = "btn_LoadTemplate";
@@ -421,7 +421,7 @@ namespace MRS
             // 
             // btn_SaveTemplate
             // 
-            this.btn_SaveTemplate.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveTemplate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SaveTemplate.IsLink = true;
             this.btn_SaveTemplate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_SaveTemplate.Name = "btn_SaveTemplate";
@@ -431,7 +431,7 @@ namespace MRS
             // 
             // btn_ManageTemplate
             // 
-            this.btn_ManageTemplate.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ManageTemplate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ManageTemplate.IsLink = true;
             this.btn_ManageTemplate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_ManageTemplate.Name = "btn_ManageTemplate";
@@ -451,7 +451,7 @@ namespace MRS
             // 
             // btn_SaveRecord
             // 
-            this.btn_SaveRecord.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveRecord.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SaveRecord.IsLink = true;
             this.btn_SaveRecord.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_SaveRecord.Name = "btn_SaveRecord";
@@ -461,7 +461,7 @@ namespace MRS
             // 
             // btn_ManageData
             // 
-            this.btn_ManageData.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ManageData.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ManageData.IsLink = true;
             this.btn_ManageData.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_ManageData.Name = "btn_ManageData";
@@ -481,7 +481,7 @@ namespace MRS
             // 
             // btn_Eval
             // 
-            this.btn_Eval.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Eval.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Eval.IsLink = true;
             this.btn_Eval.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_Eval.Name = "btn_Eval";
@@ -491,7 +491,7 @@ namespace MRS
             // 
             // btn_Validate
             // 
-            this.btn_Validate.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Validate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Validate.IsLink = true;
             this.btn_Validate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_Validate.Name = "btn_Validate";
@@ -511,7 +511,7 @@ namespace MRS
             // 
             // btn_ElecSignature
             // 
-            this.btn_ElecSignature.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ElecSignature.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ElecSignature.IsLink = true;
             this.btn_ElecSignature.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_ElecSignature.Name = "btn_ElecSignature";
@@ -521,7 +521,7 @@ namespace MRS
             // 
             // btn_Finalize
             // 
-            this.btn_Finalize.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Finalize.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Finalize.IsLink = true;
             this.btn_Finalize.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_Finalize.Name = "btn_Finalize";
@@ -541,7 +541,7 @@ namespace MRS
             // 
             // btn_UserConfigure
             // 
-            this.btn_UserConfigure.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_UserConfigure.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_UserConfigure.IsLink = true;
             this.btn_UserConfigure.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_UserConfigure.Name = "btn_UserConfigure";
@@ -552,7 +552,7 @@ namespace MRS
             // btn_Search
             // 
             this.btn_Search.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_Search.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Search.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Search.ForeColor = System.Drawing.Color.Blue;
             this.btn_Search.IsLink = true;
             this.btn_Search.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
@@ -564,7 +564,7 @@ namespace MRS
             // btn_History
             // 
             this.btn_History.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_History.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_History.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_History.ForeColor = System.Drawing.Color.Red;
             this.btn_History.IsLink = true;
             this.btn_History.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
@@ -576,7 +576,7 @@ namespace MRS
             // 
             // btn_SystemConfigure
             // 
-            this.btn_SystemConfigure.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SystemConfigure.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SystemConfigure.IsLink = true;
             this.btn_SystemConfigure.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_SystemConfigure.Name = "btn_SystemConfigure";
@@ -616,7 +616,7 @@ namespace MRS
             // 
             this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(233, 635);
@@ -627,7 +627,7 @@ namespace MRS
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(3, 25);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "Node2";
@@ -710,7 +710,7 @@ namespace MRS
             this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(438, 635);
@@ -769,7 +769,7 @@ namespace MRS
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
             this.label11.Location = new System.Drawing.Point(21, 9);
             this.label11.Name = "label11";
@@ -814,7 +814,7 @@ namespace MRS
             this.tableLayoutPanel2.Controls.Add(this.label10, 2, 4);
             this.tableLayoutPanel2.Controls.Add(this.txt_CaseId, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanel2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
@@ -830,7 +830,7 @@ namespace MRS
             // 
             this.textBox16.BackColor = System.Drawing.Color.White;
             this.textBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox16.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox16.ForeColor = System.Drawing.Color.Silver;
             this.textBox16.Location = new System.Drawing.Point(268, 115);
             this.textBox16.Name = "textBox16";
@@ -843,7 +843,7 @@ namespace MRS
             // 
             this.textBox15.BackColor = System.Drawing.Color.White;
             this.textBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox15.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox15.ForeColor = System.Drawing.Color.Silver;
             this.textBox15.Location = new System.Drawing.Point(67, 115);
             this.textBox15.Name = "textBox15";
@@ -856,7 +856,7 @@ namespace MRS
             // 
             this.textBox14.BackColor = System.Drawing.Color.White;
             this.textBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox14.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox14.ForeColor = System.Drawing.Color.Silver;
             this.textBox14.Location = new System.Drawing.Point(268, 87);
             this.textBox14.Name = "textBox14";
@@ -868,7 +868,7 @@ namespace MRS
             // 
             this.textBox13.BackColor = System.Drawing.Color.White;
             this.textBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox13.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox13.ForeColor = System.Drawing.Color.Silver;
             this.textBox13.Location = new System.Drawing.Point(67, 87);
             this.textBox13.Name = "textBox13";
@@ -881,7 +881,7 @@ namespace MRS
             // 
             this.textBox12.BackColor = System.Drawing.Color.White;
             this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox12.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.ForeColor = System.Drawing.Color.Silver;
             this.textBox12.Location = new System.Drawing.Point(268, 59);
             this.textBox12.Name = "textBox12";
@@ -894,7 +894,7 @@ namespace MRS
             // 
             this.textBox11.BackColor = System.Drawing.Color.White;
             this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.ForeColor = System.Drawing.Color.Silver;
             this.textBox11.Location = new System.Drawing.Point(67, 59);
             this.textBox11.Name = "textBox11";
@@ -907,7 +907,7 @@ namespace MRS
             // 
             this.textBox10.BackColor = System.Drawing.Color.White;
             this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox10.ForeColor = System.Drawing.Color.Silver;
             this.textBox10.Location = new System.Drawing.Point(268, 31);
             this.textBox10.Name = "textBox10";
@@ -920,7 +920,7 @@ namespace MRS
             // 
             this.txt_Creator.BackColor = System.Drawing.Color.White;
             this.txt_Creator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_Creator.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Creator.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Creator.ForeColor = System.Drawing.Color.Silver;
             this.txt_Creator.Location = new System.Drawing.Point(67, 31);
             this.txt_Creator.Name = "txt_Creator";
@@ -933,7 +933,7 @@ namespace MRS
             // 
             this.txt_CaseName.BackColor = System.Drawing.Color.White;
             this.txt_CaseName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_CaseName.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_CaseName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CaseName.ForeColor = System.Drawing.Color.Silver;
             this.txt_CaseName.Location = new System.Drawing.Point(268, 3);
             this.txt_CaseName.Name = "txt_CaseName";
@@ -945,7 +945,7 @@ namespace MRS
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label1.Name = "label1";
@@ -956,7 +956,7 @@ namespace MRS
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(186, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label2.Name = "label2";
@@ -967,7 +967,7 @@ namespace MRS
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 33);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label3.Name = "label3";
@@ -978,7 +978,7 @@ namespace MRS
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(186, 33);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label4.Name = "label4";
@@ -989,7 +989,7 @@ namespace MRS
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 61);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label5.Name = "label5";
@@ -1000,7 +1000,7 @@ namespace MRS
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(186, 61);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label6.Name = "label6";
@@ -1021,7 +1021,7 @@ namespace MRS
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(186, 89);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label8.Name = "label8";
@@ -1032,7 +1032,7 @@ namespace MRS
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 117);
             this.label9.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label9.Name = "label9";
@@ -1043,7 +1043,7 @@ namespace MRS
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(186, 117);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label10.Name = "label10";
@@ -1055,7 +1055,7 @@ namespace MRS
             // 
             this.txt_CaseId.BackColor = System.Drawing.Color.White;
             this.txt_CaseId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_CaseId.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_CaseId.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CaseId.ForeColor = System.Drawing.Color.Silver;
             this.txt_CaseId.Location = new System.Drawing.Point(67, 3);
             this.txt_CaseId.Name = "txt_CaseId";
@@ -1166,7 +1166,7 @@ namespace MRS
             this.writerControl1.Size = new System.Drawing.Size(700, 640);
             this.writerControl1.TabIndex = 0;
             // 
-            // MainForm
+            // ElecCaseHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1174,7 +1174,7 @@ namespace MRS
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pl_Menu);
             this.Controls.Add(this.pl_info);
-            this.Name = "MainForm";
+            this.Name = "ElecCaseHistoryForm";
             this.Text = "电子病历";
             this.pl_info.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

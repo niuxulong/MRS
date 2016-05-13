@@ -1,6 +1,6 @@
-﻿namespace MRS
+﻿namespace MRS.Views.View
 {
-    partial class AdminValidationForm
+    partial class AdminValidationView
     {
         /// <summary>
         /// Required designer variable.

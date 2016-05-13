@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MRS
+namespace MRS.Views.View
 {
-	public partial class SearchCase : Form
+	public partial class SearchCaseView : Form
 	{
-        public SearchCase()
+        public SearchCaseView()
 		{
 			InitializeComponent();
 		}

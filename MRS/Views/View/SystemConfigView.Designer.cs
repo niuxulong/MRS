@@ -1,6 +1,6 @@
-﻿namespace MRS
+﻿namespace MRS.Views.View
 {
-	partial class SystemConfigForm
+	partial class SystemConfigView
 	{
 		/// <summary>
 		/// Required designer variable.

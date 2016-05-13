@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MRS
+namespace MRS.Views.View
 {
-	public partial class UserConfigForm : Form
+	public partial class UserConfigView : Form
 	{
-		public UserConfigForm()
+		public UserConfigView()
 		{
 			InitializeComponent();
 		}
