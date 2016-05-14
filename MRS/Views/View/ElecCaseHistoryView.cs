@@ -125,19 +125,24 @@ namespace MRS.Views.View
 		private void btn_Search_Click(object sender, EventArgs e)
 		{
 			SearchPatientView form = new SearchPatientView();
+            form.SelectPatientEvent += HandleSelectPatientEvent;
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                var selectedPatient = form.selectedPatient;
-                if (selectedPatient != null)
-                {
-                    PopulatePatientInfo(selectedPatient);
-                    if (RetriveCaseHistoriesByPatientIdEvent != null)
-                    {
-                        RetriveCaseHistoriesByPatientIdEvent(sender, selectedPatient.PatientId);
-                    }
-                }
+                
             }
 		}
+
+        private void HandleSelectPatientEvent(object sender, Patient args)
+        {
+            if (args != null)
+            {
+                PopulatePatientInfo(args);
+                if (RetriveCaseHistoriesByPatientIdEvent != null)
+                {
+                    RetriveCaseHistoriesByPatientIdEvent(sender, args.PatientId);
+                }    
+            }
+        }
 
 		private void btn_History_Click(object sender, EventArgs e)
 		{

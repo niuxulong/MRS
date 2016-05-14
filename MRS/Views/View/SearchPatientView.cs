@@ -17,9 +17,8 @@ namespace MRS.Views.View
     {
         #region Event Handler
         public event EventHandler<string> SearchPatientEvent;
+        public event EventHandler<Patient> SelectPatientEvent;
         #endregion
-
-        public Patient selectedPatient;
 
         public SearchPatientView()
         {
@@ -46,10 +45,15 @@ namespace MRS.Views.View
         {
             if (this.dgv_Patient.SelectedRows.Count > 0)
             {
-                selectedPatient = this.dgv_Patient.SelectedRows[0].DataBoundItem as Patient;
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
+                var selectedPatient = this.dgv_Patient.SelectedRows[0].DataBoundItem as Patient;
+                if (SelectPatientEvent != null)
+                {
+                    SelectPatientEvent(sender, selectedPatient);
+                }
             }
+
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Close();
         }
 
         public void PopulatePatientsRecords(List<Patient> patients)

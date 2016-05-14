@@ -12,5 +12,7 @@ namespace MRS.Views.Interface
         event EventHandler<string> SearchPatientEvent;
 
         void PopulatePatientsRecords(List<Patient> patients);
+
+        event EventHandler<Patient> SelectPatientEvent;
     }
 }
