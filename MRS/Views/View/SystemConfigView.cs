@@ -35,7 +35,11 @@ namespace MRS.Views.View
 
         private void SetupTemplateCatalogConfigTree()
         {
-            tv_ConfigTemplateTree.Nodes.Clear();
+            if (tv_ConfigTemplateTree.Nodes.Count != 1 || tv_ConfigTemplateTree.Nodes[0].Text != InitialNode)
+            {
+                tv_ConfigTemplateTree.Nodes.Clear();
+            }
+            
             if (RetriveTemplateCatalogConfigTree != null)
             {
                 RetriveTemplateCatalogConfigTree(null, null);

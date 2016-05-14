@@ -3,11 +3,6 @@ using MRS.Model.Interfaces;
 using MRS.Model.Models;
 using MRS.Presenters.Interface;
 using MRS.Views.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MRS.Presenters.Presenter
 {
