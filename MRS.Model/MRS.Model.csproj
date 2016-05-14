@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonUltility.cs" />
     <Compile Include="Interfaces\ICaseHistoryModel.cs" />
     <Compile Include="Interfaces\IPatientModel.cs" />
     <Compile Include="Interfaces\IDatabaseConfigModel.cs" />

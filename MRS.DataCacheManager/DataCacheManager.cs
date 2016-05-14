@@ -17,9 +17,16 @@ namespace MRS.DataCacheManager
         private static IDataCacheManager dataCacheManager = null;
         private DataCache dataCache = null;
         private static readonly object locker = new object();
+        private bool initializedCache = false;
+
         private DataCacheManager()
         {
             
+        }
+
+        public bool CacheInitialized()
+        {
+            return this.initializedCache;
         }
 
         public static IDataCacheManager GetCacheManagerInstance()
@@ -38,15 +45,21 @@ namespace MRS.DataCacheManager
             return dataCacheManager;
         }
 
-        public void InitilizeDataCache()
+        public void InitilizeDataCache(DatabaseConfig dbConfig = null)
         {
             dataCache = DataCache.GetCacheInstance();
-            var templates = LoadTemplatesFromDB();
-            dataCache.TemplateCache.AddRange(templates);
-
-            var systemSettings = LoadSystemSettingFromDB();
+            //Load系统配置
+            var systemSettings = LoadSystemSettingFromDB(dbConfig);
             dataCache.SystemSettingCache = systemSettings;
-            
+            //Load模板
+            var templates = LoadTemplatesFromDB();
+            dataCache.TemplateCache.Clear();
+            if (templates != null)
+            {
+                dataCache.TemplateCache.AddRange(templates);
+            }
+
+            this.initializedCache = true;
         }
 
         public List<Template> GetTemplatesFromCache()
@@ -90,7 +103,10 @@ namespace MRS.DataCacheManager
             try
             {
                 var results = new List<Template>();
-                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(), SqlConst.SP_SELECTTEMPLATE);
+                var systemSettings = GetSystemSettingsFromCache();
+                var dbConfigXml = systemSettings[Enums.SystemSettingKeyEnum.DataBaseConnection.ToString()];
+                DatabaseConfig dbConfig = Common.Utility.SerializeUtility<DatabaseConfig>.XmlDeserialize(dbConfigXml);
+                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(dbConfig.Server, dbConfig.Database, dbConfig.User, dbConfig.Password), SqlConst.SP_SELECTTEMPLATE);
                 foreach (DataRow dataRow in dataSet.Tables[0].Rows)
                 {
                     var template = new Template();
@@ -109,12 +125,19 @@ namespace MRS.DataCacheManager
             }
         }
 
-        private Dictionary<string, string> LoadSystemSettingFromDB()
+        private Dictionary<string, string> LoadSystemSettingFromDB(DatabaseConfig dbConfig = null)
         {
             try
             {
                 var results = new Dictionary<string, string>();
-                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(), SqlConst.SP_SELECTSYSTEMSETTING);
+                if (dbConfig == null)
+                {
+                    var systemSettings = GetSystemSettingsFromCache();
+                    var dbConfigXml = systemSettings[Enums.SystemSettingKeyEnum.DataBaseConnection.ToString()];
+                    dbConfig = Common.Utility.SerializeUtility<DatabaseConfig>.XmlDeserialize(dbConfigXml);
+                }
+
+                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(dbConfig.Server, dbConfig.Database, dbConfig.User, dbConfig.Password), SqlConst.SP_SELECTSYSTEMSETTING);
                 foreach (DataRow dataRow in dataSet.Tables[0].Rows)
                 {
                     results.Add(dataRow.ItemArray[1].ToString(), dataRow.ItemArray[2].ToString());

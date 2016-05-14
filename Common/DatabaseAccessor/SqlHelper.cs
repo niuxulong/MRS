@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Data;
-using System.Xml;
-using System.Data.SqlClient;
 using System.Collections;
-using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Xml;
 
 namespace Common.DataBaseAccessor
 {
@@ -171,27 +170,57 @@ namespace Common.DataBaseAccessor
         #endregion 私有构造函数和方法结束
 
         #region 数据库连接
+        /// <summary>
+        /// 检查数据库配置是否可以连接
+        /// </summary>
+        /// <param name="serverName"></param>
+        /// <param name="dataBaseName"></param>
+        /// <param name="uid"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        public static bool CheckDatabaseConnection(string serverName, string dataBaseName, string uid,string pwd )
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(GetConnSting(serverName, dataBaseName, uid, pwd)))
+                {
+                    conn.Open();
+                    if (ConnectionState.Open == conn.State)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            
+        }
+
+        public static string GetConnSting(string serverName, string dataBaseName, string uid, string pwd)
+        {
+            return "server=" + serverName + ";database=" + dataBaseName + ";uid=" + uid + ";pwd=" + pwd;
+        }
+
         /// <summary> 
         /// 一个有效的数据库连接字符串 
         /// </summary> 
         /// <returns></returns> 
-        public static string GetConnSting()
-        {
-            //return ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
-
-            //Use a temporary connection string here, will visite the user settings later.
-            return @"server=.;database=DCEMR;uid=sa;pwd=492ocnsyqj";
-
-        }
+        //public static string GetConnSting()
+        //{
+        //    return @"server=localhost\SQLEXPRESS;database=DCEMR;uid=sa;pwd=sql2008";
+        //}
         /// <summary> 
         /// 一个有效的数据库连接对象 
         /// </summary> 
         /// <returns></returns> 
-        public static SqlConnection GetConnection()
-        {
-            SqlConnection Connection = new SqlConnection(SqlHelper.GetConnSting());
-            return Connection;
-        }
+        //public static SqlConnection GetConnection()
+        //{
+        //    SqlConnection Connection = new SqlConnection(SqlHelper.GetConnSting());
+        //    return Connection;
+        //}
         #endregion
 
         #region ExecuteNonQuery命令

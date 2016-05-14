@@ -1,8 +1,11 @@
-﻿using Common.EventArguments;
+﻿using Common.DataBaseAccessor;
+using Common.EventArguments;
+using MRS.Entity.Entities;
 using MRS.Model.Interfaces;
 using MRS.Model.Models;
 using MRS.Presenters.Interface;
 using MRS.Views.Interface;
+using System.Collections.Generic;
 
 namespace MRS.Presenters.Presenter
 {
@@ -20,31 +23,64 @@ namespace MRS.Presenters.Presenter
 
         protected override void OnViewSet()
         {
-            this.View.SaveSystemConfigEvent += HandleSaveSystemConfigEvent;
             this.View.RetriveTemplateCatalogConfigTree += HandleRetriveTemplateCatalogTree;
+            this.View.CheckDatabaseConnectionAndSaveConfigEvent += HandleCheckDatabaseConnectionAndSaveConfigEvent;
+            this.View.RetriveDatabaseConfigEvent += HandleRetriveDatabaseConfigEvent;
+        }
 
+        private void HandleRetriveDatabaseConfigEvent(object sender, object e)
+        {
+            if (DataCacheManager.DataCacheManager.GetCacheManagerInstance().CacheInitialized())
+            {
+                var config = databaseConfigModel.GetDatabaseConfig();
+                if (config != null)
+                {
+                    this.View.PopulateDatabaseConfig(config);
+                }
+            }
+        }
+
+        private void HandleCheckDatabaseConnectionAndSaveConfigEvent(object sender, SystemConfigEventArgs args)
+        {
+            var result = SqlHelper.CheckDatabaseConnection(args.DatabaseConfig.Server, args.DatabaseConfig.Database, args.DatabaseConfig.User, args.DatabaseConfig.Password);
+            if (!result)
+            {
+                this.View.NotificationNoDatabaseFound();
+            }
+            else
+            {
+                this.SaveSystemConfig(args.DatabaseConfig, args.TemplateCatalogNodes);
+
+                //数据库配置更新后更新cache
+                DataCacheManager.DataCacheManager.GetCacheManagerInstance().InitilizeDataCache();
+
+                this.View.CloseForm();
+            }
         }
 
         private void HandleRetriveTemplateCatalogTree(object sender, object e)
         {
-            var templateTreeNodes = templateCatalogModel.GetTemplateCatalogNodes();
-            if (templateTreeNodes != null)
+            if (DataCacheManager.DataCacheManager.GetCacheManagerInstance().CacheInitialized())
             {
-                this.View.PopulateTemplateCatalogConfigTree(templateTreeNodes);
+                var templateTreeNodes = templateCatalogModel.GetTemplateCatalogNodes();
+                if (templateTreeNodes != null)
+                {
+                    this.View.PopulateTemplateCatalogConfigTree(templateTreeNodes);
+                }    
             }
         }
 
-        private void HandleSaveSystemConfigEvent(object sender, SystemConfigEventArgs args)
+        private void SaveSystemConfig(DatabaseConfig databaseConfig, List<TemplateCatalogNode> templateCatalogNodes)
         {
-            if (args.TemplateCatalogNodes.Count == 0)
+            databaseConfigModel.UpdateOrAddDatabaseConfig(databaseConfig);
+            if (templateCatalogNodes.Count == 0)
             {
                 templateCatalogModel.DeleteTemplateCatgalogNodes();
             }
             else
             {
-                templateCatalogModel.UpdateOrAddTemplateCatgalogNodes(args.TemplateCatalogNodes);
+                templateCatalogModel.UpdateOrAddTemplateCatgalogNodes(templateCatalogNodes);
             }
-            databaseConfigModel.UpdateOrAddDatabaseConfig(args.DatabaseConfig);
         }
     }
 }

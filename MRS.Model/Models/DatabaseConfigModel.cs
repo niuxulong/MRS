@@ -26,7 +26,7 @@ namespace MRS.Model.Models
 
         public bool UpdateOrAddDatabaseConfig(DatabaseConfig config)
         {
-            return this.UpdateOrAddSystemConfig(config, Enums.SystemSettingIdEnum.DataBaseConnectionId, Enums.SystemSettingKeyEnum.DataBaseConnection);
+            return this.UpdateOrAddSystemConfig(config, Enums.SystemSettingIdEnum.DataBaseConnectionId, Enums.SystemSettingKeyEnum.DataBaseConnection, config);
         }
 
         public bool DeleteDatabaseConfig()

@@ -10,10 +10,18 @@ namespace MRS.Views.Interface
 {
     public interface ISystemConfigView : IViewBase
     {
-        event EventHandler<SystemConfigEventArgs> SaveSystemConfigEvent;
-
         event EventHandler RetriveTemplateCatalogConfigTree;
 
+        event EventHandler<SystemConfigEventArgs> CheckDatabaseConnectionAndSaveConfigEvent;
+
+        event EventHandler RetriveDatabaseConfigEvent;
+
         void PopulateTemplateCatalogConfigTree(List<TemplateCatalogNode> nodes);
+
+        void PopulateDatabaseConfig(DatabaseConfig config);
+
+        void NotificationNoDatabaseFound();
+
+        void CloseForm();
     }
 }

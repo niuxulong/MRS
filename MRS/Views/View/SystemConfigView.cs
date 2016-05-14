@@ -4,12 +4,6 @@ using MRS.Presenters.Presenter;
 using MRS.Views.Interface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MRS.Views.View
@@ -19,8 +13,9 @@ namespace MRS.Views.View
         private string InitialNode = "请点击右键编辑";
 
         #region Event Handler
-        public event EventHandler<SystemConfigEventArgs> SaveSystemConfigEvent;
         public event EventHandler RetriveTemplateCatalogConfigTree;
+        public event EventHandler<SystemConfigEventArgs> CheckDatabaseConnectionAndSaveConfigEvent;
+        public event EventHandler RetriveDatabaseConfigEvent;
         #endregion
 
 		public SystemConfigView()
@@ -31,6 +26,15 @@ namespace MRS.Views.View
         private void SystemConfigView_Load(object sender, EventArgs e)
         {
             SetupTemplateCatalogConfigTree();
+            SetupDatabaseCofigInfo();
+        }
+
+        private void SetupDatabaseCofigInfo()
+        {
+            if (RetriveDatabaseConfigEvent != null)
+            {
+                RetriveDatabaseConfigEvent(null, null);
+            }
         }
 
         private void SetupTemplateCatalogConfigTree()
@@ -53,6 +57,20 @@ namespace MRS.Views.View
                 this.tv_ConfigTemplateTree.SelectedNode = e.Node;
                 this.contextMenuStrip.Show(this.tv_ConfigTemplateTree, e.Location);
             }
+        }
+
+        public void NotificationNoDatabaseFound()
+        {
+            MessageBox.Show("未发现数据库，或指定用户名密码不正确，请检查数据库配置。");
+            this.tabControl1.SelectedIndex = 0;
+        }
+
+        public void PopulateDatabaseConfig(DatabaseConfig config)
+        {
+            this.tb_Server.Text = config.Server;
+            this.tb_Database.Text = config.Database;
+            this.tb_User.Text = config.User;
+            this.tb_Pwd.Text = config.Password;
         }
 
         public void PopulateTemplateCatalogConfigTree(List<TemplateCatalogNode> nodes)
@@ -117,8 +135,6 @@ namespace MRS.Views.View
                 }
                 node.BeginEdit();
             }
-            
-            
         }
 
         private void MenuRename_Click(object sender, EventArgs e)
@@ -143,21 +159,26 @@ namespace MRS.Views.View
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (SaveSystemConfigEvent != null)
+            var eventArgs = new SystemConfigEventArgs();
+            var databaseConfig = new DatabaseConfig()
             {
-                var eventArgs = new SystemConfigEventArgs();
-                var databaseConfig = new DatabaseConfig()
-                {
-                    Server = tb_Server.Text,
-                    User = tb_User.Text,
-                    Password = tb_Pwd.Text
-                };
-                eventArgs.DatabaseConfig = databaseConfig;
-                eventArgs.TemplateCatalogNodes = GetTemplateCatalogTreeInfo();
+                Server = tb_Server.Text,
+                Database = tb_Database.Text,
+                User = tb_User.Text,
+                Password = tb_Pwd.Text
+            };
+            eventArgs.DatabaseConfig = databaseConfig;
+            eventArgs.TemplateCatalogNodes = GetTemplateCatalogTreeInfo();
 
-                SaveSystemConfigEvent(this, eventArgs);
+            //检查数据库配置是否正确
+            if (CheckDatabaseConnectionAndSaveConfigEvent != null)
+            {
+                CheckDatabaseConnectionAndSaveConfigEvent(this, eventArgs);
             }
+        }
 
+        public void CloseForm()
+        {
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
         }

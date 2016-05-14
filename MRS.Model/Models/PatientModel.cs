@@ -18,12 +18,18 @@ namespace MRS.Model.Models
 
         }
 
+        public string GetConnSting(string serverName, string dataBaseName, string uid, string pwd)
+        {
+            return "server=" + serverName + ";database=" + dataBaseName + ";uid=" + uid + ";pwd=" + pwd;
+        }
+
         public List<Patient> GetPatientsByName(string name = null)
         {
             try
             {
+                var dbConfig = CommonUltility.GetDatabaseConfigFromCache();
                 var results = new List<Patient>();
-                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(), SqlConst.SP_SELECTPATIENTS, name);
+                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(dbConfig.Server, dbConfig.Database, dbConfig.User, dbConfig.Password), SqlConst.SP_SELECTPATIENTS, name);
                 return ConvertToPatientsList(dataSet);
             }
             catch (Exception ex)

@@ -17,8 +17,9 @@ namespace MRS.Model.Models
         {
             try
             {
+                var dbConfig = CommonUltility.GetDatabaseConfigFromCache();
                 var results = new List<CaseHistory>();
-                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), SqlConst.SP_SELECTCASEHISTORY, patientId);
+                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(dbConfig.Server, dbConfig.Database, dbConfig.User, dbConfig.Password), SqlConst.SP_SELECTCASEHISTORY, patientId);
                 return ConvertToCaseHistoryList(dataSet);
             }
             catch (Exception ex)
@@ -31,7 +32,8 @@ namespace MRS.Model.Models
         {
             try
             {
-                var rowCount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_INSERTCASEHISTORY, ConvertToParamDataRow(caseHistory));
+                var dbConfig = CommonUltility.GetDatabaseConfigFromCache();
+                var rowCount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(dbConfig.Server, dbConfig.Database, dbConfig.User, dbConfig.Password), SqlConst.SP_INSERTCASEHISTORY, ConvertToParamDataRow(caseHistory));
                 return rowCount > 0;
             }
             catch (Exception ex)

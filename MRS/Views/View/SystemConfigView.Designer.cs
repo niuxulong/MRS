@@ -38,6 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tb_Database = new System.Windows.Forms.TextBox();
             this.tb_Server = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tv_ConfigTemplateTree = new System.Windows.Forms.TreeView();
@@ -85,35 +87,38 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.02402F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.97598F));
-            this.tableLayoutPanel1.Controls.Add(this.tb_Pwd, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tb_User, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tb_Pwd, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tb_User, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tb_Database, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tb_Server, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 17);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(359, 145);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tb_Pwd
             // 
-            this.tb_Pwd.Location = new System.Drawing.Point(89, 99);
+            this.tb_Pwd.Location = new System.Drawing.Point(89, 126);
             this.tb_Pwd.Name = "tb_Pwd";
             this.tb_Pwd.Size = new System.Drawing.Size(214, 29);
-            this.tb_Pwd.TabIndex = 5;
+            this.tb_Pwd.TabIndex = 4;
             this.tb_Pwd.UseSystemPasswordChar = true;
             // 
             // tb_User
             // 
-            this.tb_User.Location = new System.Drawing.Point(89, 51);
+            this.tb_User.Location = new System.Drawing.Point(89, 85);
             this.tb_User.Name = "tb_User";
             this.tb_User.Size = new System.Drawing.Size(214, 29);
-            this.tb_User.TabIndex = 4;
+            this.tb_User.TabIndex = 3;
             // 
             // label1
             // 
@@ -128,22 +133,39 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 54);
+            this.label2.Location = new System.Drawing.Point(3, 88);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 21);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 0;
             this.label2.Text = "用户名：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 102);
+            this.label3.Location = new System.Drawing.Point(3, 129);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 21);
-            this.label3.TabIndex = 2;
+            this.label3.Size = new System.Drawing.Size(73, 16);
+            this.label3.TabIndex = 0;
             this.label3.Text = "密   码：";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 47);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 21);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "数据库：";
+            // 
+            // tb_Database
+            // 
+            this.tb_Database.Location = new System.Drawing.Point(89, 44);
+            this.tb_Database.Name = "tb_Database";
+            this.tb_Database.Size = new System.Drawing.Size(214, 29);
+            this.tb_Database.TabIndex = 2;
             // 
             // tb_Server
             // 
@@ -151,7 +173,7 @@
             this.tb_Server.Location = new System.Drawing.Point(89, 3);
             this.tb_Server.Name = "tb_Server";
             this.tb_Server.Size = new System.Drawing.Size(214, 29);
-            this.tb_Server.TabIndex = 3;
+            this.tb_Server.TabIndex = 1;
             // 
             // tabPage2
             // 
@@ -288,9 +310,11 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.TextBox tb_Pwd;
 		private System.Windows.Forms.TextBox tb_User;
+        private System.Windows.Forms.TextBox tb_Database;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_Server;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_Save;

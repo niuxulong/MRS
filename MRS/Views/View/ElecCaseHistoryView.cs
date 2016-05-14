@@ -25,10 +25,13 @@ namespace MRS.Views.View
 
         private void ElecCaseHistoryView_Load(object sender, EventArgs e)
         {
-            InitilizeCache();
-            InitilizeTimer();
-            SetupTemplateCatalogTree();
             ConfigDgvFinishedCaseHistoryColumns();
+            InitilizeTimer();
+
+            if (DataCacheManager.DataCacheManager.GetCacheManagerInstance().CacheInitialized())
+            {
+                SetupTemplateCatalogTree();
+            }
         }
 
         private void SetupTemplateCatalogTree()
@@ -51,12 +54,6 @@ namespace MRS.Views.View
         protected override object CreatePresenter()
         {
             return new ElecCaseHistoryPresenter(this);
-        }
-
-        private void InitilizeCache()
-        {
-            var cacheManager = DataCacheManager.DataCacheManager.GetCacheManagerInstance();
-            cacheManager.InitilizeDataCache();
         }
 
         private void InitilizeTimer()
@@ -142,13 +139,10 @@ namespace MRS.Views.View
                 SystemConfigView form1 = new SystemConfigView();
                 if (form1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    //加载模板树节点
                     SetupTemplateCatalogTree();
-
-                    //update database connection, currently not sure the details.
                 }
             }
-
-
         }
 
         #region 待实现

@@ -12,5 +12,7 @@ namespace MRS.Model.Interfaces
         bool UpdateOrAddDatabaseConfig(DatabaseConfig config);
 
         bool DeleteDatabaseConfig();
+
+        DatabaseConfig GetDatabaseConfig();
     }
 }
