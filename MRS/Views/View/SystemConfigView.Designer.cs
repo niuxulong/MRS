@@ -30,6 +30,11 @@
 		{
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("请点击右键编辑");
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.添加分类ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加模板类型ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.重命名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,18 +51,51 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.添加分类ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.添加模板类型ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.重命名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.添加分类ToolStripMenuItem,
+            this.添加模板类型ToolStripMenuItem,
+            this.重命名ToolStripMenuItem,
+            this.删除ToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip1";
+            this.contextMenuStrip.Size = new System.Drawing.Size(149, 92);
+            // 
+            // 添加分类ToolStripMenuItem
+            // 
+            this.添加分类ToolStripMenuItem.Name = "添加分类ToolStripMenuItem";
+            this.添加分类ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.添加分类ToolStripMenuItem.Text = "添加分类";
+            this.添加分类ToolStripMenuItem.Click += new System.EventHandler(this.MenuAddCatolog_Click);
+            // 
+            // 添加模板类型ToolStripMenuItem
+            // 
+            this.添加模板类型ToolStripMenuItem.Name = "添加模板类型ToolStripMenuItem";
+            this.添加模板类型ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.添加模板类型ToolStripMenuItem.Text = "添加模板类型";
+            this.添加模板类型ToolStripMenuItem.Click += new System.EventHandler(this.MenuAddTemplateType_Click);
+            // 
+            // 重命名ToolStripMenuItem
+            // 
+            this.重命名ToolStripMenuItem.Name = "重命名ToolStripMenuItem";
+            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.重命名ToolStripMenuItem.Text = "重命名";
+            this.重命名ToolStripMenuItem.Click += new System.EventHandler(this.MenuRename_Click);
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.MenuDelete_Click);
             // 
             // tabControl1
             // 
@@ -102,12 +140,12 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(359, 145);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(359, 157);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tb_Pwd
             // 
-            this.tb_Pwd.Location = new System.Drawing.Point(89, 126);
+            this.tb_Pwd.Location = new System.Drawing.Point(89, 138);
             this.tb_Pwd.Name = "tb_Pwd";
             this.tb_Pwd.Size = new System.Drawing.Size(214, 29);
             this.tb_Pwd.TabIndex = 4;
@@ -115,7 +153,7 @@
             // 
             // tb_User
             // 
-            this.tb_User.Location = new System.Drawing.Point(89, 85);
+            this.tb_User.Location = new System.Drawing.Point(89, 93);
             this.tb_User.Name = "tb_User";
             this.tb_User.Size = new System.Drawing.Size(214, 29);
             this.tb_User.TabIndex = 3;
@@ -133,7 +171,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 88);
+            this.label2.Location = new System.Drawing.Point(3, 96);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 21);
@@ -143,7 +181,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 129);
+            this.label3.Location = new System.Drawing.Point(3, 141);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 16);
@@ -153,7 +191,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 47);
+            this.label4.Location = new System.Drawing.Point(3, 51);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 21);
@@ -162,7 +200,7 @@
             // 
             // tb_Database
             // 
-            this.tb_Database.Location = new System.Drawing.Point(89, 44);
+            this.tb_Database.Location = new System.Drawing.Point(89, 48);
             this.tb_Database.Name = "tb_Database";
             this.tb_Database.Size = new System.Drawing.Size(214, 29);
             this.tb_Database.TabIndex = 2;
@@ -234,44 +272,6 @@
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
-            // contextMenuStrip
-            // 
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.添加分类ToolStripMenuItem,
-            this.添加模板类型ToolStripMenuItem,
-            this.重命名ToolStripMenuItem,
-            this.删除ToolStripMenuItem});
-            this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(149, 92);
-            // 
-            // 添加分类ToolStripMenuItem
-            // 
-            this.添加分类ToolStripMenuItem.Name = "添加分类ToolStripMenuItem";
-            this.添加分类ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.添加分类ToolStripMenuItem.Text = "添加分类";
-            this.添加分类ToolStripMenuItem.Click += new System.EventHandler(this.MenuAddCatolog_Click);
-            // 
-            // 添加模板类型ToolStripMenuItem
-            // 
-            this.添加模板类型ToolStripMenuItem.Name = "添加模板类型ToolStripMenuItem";
-            this.添加模板类型ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.添加模板类型ToolStripMenuItem.Text = "添加模板类型";
-            this.添加模板类型ToolStripMenuItem.Click += new System.EventHandler(this.MenuAddTemplateType_Click);
-            // 
-            // 重命名ToolStripMenuItem
-            // 
-            this.重命名ToolStripMenuItem.Name = "重命名ToolStripMenuItem";
-            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.重命名ToolStripMenuItem.Text = "重命名";
-            this.重命名ToolStripMenuItem.Click += new System.EventHandler(this.MenuRename_Click);
-            // 
-            // 删除ToolStripMenuItem
-            // 
-            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.删除ToolStripMenuItem.Text = "删除";
-            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.MenuDelete_Click);
-            // 
             // SystemConfigView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -289,13 +289,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "系统配置";
             this.Load += new System.EventHandler(this.SystemConfigView_Load);
+            this.contextMenuStrip.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}

@@ -1,6 +1,6 @@
 namespace MRS
 {
-	partial class LoadTemplate
+	partial class LoadTemplateView
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -34,7 +34,7 @@ namespace MRS
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.baseTemplateControl1 = new Common.UserControls.BaseTemplateControl();
+            this.baseTemplateControl = new Common.UserControls.BaseTemplateControl();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,24 +110,25 @@ namespace MRS
             this.label1.TabIndex = 0;
             this.label1.Text = "父级模板：";
             // 
-            // baseTemplateControl1
+            // baseTemplateControl
             // 
-            this.baseTemplateControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.baseTemplateControl1.Location = new System.Drawing.Point(0, 39);
-            this.baseTemplateControl1.Name = "baseTemplateControl1";
-            this.baseTemplateControl1.Size = new System.Drawing.Size(1206, 563);
-            this.baseTemplateControl1.TabIndex = 2;
+            this.baseTemplateControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.baseTemplateControl.Location = new System.Drawing.Point(0, 39);
+            this.baseTemplateControl.Name = "baseTemplateControl";
+            this.baseTemplateControl.Size = new System.Drawing.Size(1206, 563);
+            this.baseTemplateControl.TabIndex = 2;
             // 
-            // LoadTemplate
+            // LoadTemplateView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1206, 602);
-            this.Controls.Add(this.baseTemplateControl1);
+            this.Controls.Add(this.baseTemplateControl);
             this.Controls.Add(this.panel1);
-            this.Name = "LoadTemplate";
+            this.Name = "LoadTemplateView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "加载模板";
+            this.Load += new System.EventHandler(this.LoadTemplateView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -142,7 +143,7 @@ namespace MRS
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
-		private Common.UserControls.BaseTemplateControl baseTemplateControl1;
+		private Common.UserControls.BaseTemplateControl baseTemplateControl;
 
 	}
 }

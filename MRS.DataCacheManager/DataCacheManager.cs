@@ -64,7 +64,11 @@ namespace MRS.DataCacheManager
 
         public List<Template> GetTemplatesFromCache()
         {
-            return dataCache.TemplateCache;
+            if (dataCache != null)
+            {
+                return dataCache.TemplateCache;    
+            }
+            return new List<Template>();
         }
 
         public Dictionary<string, string> GetSystemSettingsFromCache()
@@ -114,7 +118,12 @@ namespace MRS.DataCacheManager
                     template.FileName = dataRow.ItemArray[1].ToString();
                     template.FileTitle = dataRow.ItemArray[2].ToString();
                     template.FileContent = dataRow.ItemArray[3].ToString();
-
+                    template.ParentNodeId = (int)dataRow.ItemArray[4];
+                    template.CreatedById = dataRow.ItemArray[5].ToString();
+                    template.CreatedBy = dataRow.ItemArray[6].ToString();
+                    int templateAttr = 0;
+                    int.TryParse(dataRow.ItemArray[7].ToString(), out templateAttr);
+                    template.TemplateAttr = templateAttr;
                     results.Add(template);
                 }
                 return results;

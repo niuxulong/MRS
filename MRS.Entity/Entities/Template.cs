@@ -12,5 +12,13 @@ namespace MRS.Entity.Entities
         public string FileTitle { get; set; }
 
         public string FileContent { get; set; }
+
+        public int ParentNodeId { get; set; }
+
+        public string CreatedById { get; set; }
+
+        public string CreatedBy { get; set; }
+
+        public int TemplateAttr { get; set; }
     }
 }

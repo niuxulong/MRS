@@ -54,8 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenters\Presenter\LoadTemplatePresenter.cs" />
     <Compile Include="Presenters\Presenter\SearchPatientPresenter.cs" />
     <Compile Include="Presenters\Presenter\SystemConfigPresenter.cs" />
+    <Compile Include="Views\Interface\ILoadTemplateView.cs" />
     <Compile Include="Views\Interface\ISearchPatientView.cs" />
     <Compile Include="Views\Interface\ISystemConfigView.cs" />
     <Compile Include="Views\View\AdminValidationView.cs">
@@ -122,11 +124,11 @@
     <Compile Include="Views\View\UserConfigView.Designer.cs">
       <DependentUpon>UserConfigView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Template\LoadTemplate.cs">
+    <Compile Include="Template\LoadTemplateView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Template\LoadTemplate.Designer.cs">
-      <DependentUpon>LoadTemplate.cs</DependentUpon>
+    <Compile Include="Template\LoadTemplateView.Designer.cs">
+      <DependentUpon>LoadTemplateView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Interface\IElecCaseHistoryView.cs" />
     <Compile Include="Views\Interface\IViewBase.cs" />
@@ -173,8 +175,8 @@
     <EmbeddedResource Include="Views\View\UserConfigView.resx">
       <DependentUpon>UserConfigView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Template\LoadTemplate.resx">
-      <DependentUpon>LoadTemplate.cs</DependentUpon>
+    <EmbeddedResource Include="Template\LoadTemplateView.resx">
+      <DependentUpon>LoadTemplateView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

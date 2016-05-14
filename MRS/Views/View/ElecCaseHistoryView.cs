@@ -20,7 +20,7 @@ namespace MRS.Views.View
 		{
 			InitializeComponent();
             
-            //this.writerControl1.XMLText = templates[0].FileContent;
+            //this.writerControl1.XMLText = "";
 		}
 
         private void ElecCaseHistoryView_Load(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace MRS.Views.View
 
 		private void btn_LoadTemplate_Click(object sender, EventArgs e)
 		{
-			LoadTemplate form = new LoadTemplate();
+			LoadTemplateView form = new LoadTemplateView();
 			form.ShowDialog();
 		}
 

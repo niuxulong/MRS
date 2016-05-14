@@ -9,6 +9,6 @@ namespace MRS.Model.Interfaces
 {
     public interface ITemplateModel
     {
-        List<Template> GetTemplates();
+        List<Template> GetTemplatesByName(string name);
     }
 }

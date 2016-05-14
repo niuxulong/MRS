@@ -18,9 +18,17 @@ namespace MRS.Model.Models
         
         }
 
-        public List<Template> GetTemplates()
+        public List<Template> GetTemplatesByName(string name)
         {
-            return DataCacheManager.DataCacheManager.GetCacheManagerInstance().GetTemplatesFromCache();
+            var allTemplates = DataCacheManager.DataCacheManager.GetCacheManagerInstance().GetTemplatesFromCache();
+            if (string.IsNullOrEmpty(name))
+            {
+                return allTemplates;
+            }
+            else
+            {
+                return allTemplates.Where(t => t.FileName.Contains(name)).ToList();
+            }
         }
     }
 }

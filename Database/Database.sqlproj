@@ -59,6 +59,7 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="StoreProcedures" />
+    <Folder Include="Sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="StoreProcedures\Sp_SelectPatients.sql" />
@@ -66,6 +67,7 @@
     <Build Include="Tables\EMR_SYSTEMSETTING.sql" />
     <None Include="StoreProcedures\Sp_SelectSystemSetting.sql" />
     <None Include="StoreProcedures\Sp_AddUpdateSystemSetting.sql" />
+    <None Include="Sql\AddColumnsToTemplateTable.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
