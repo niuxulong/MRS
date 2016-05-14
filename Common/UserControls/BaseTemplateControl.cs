@@ -7,7 +7,8 @@ namespace Common.UserControls
 {
 	public partial class BaseTemplateControl : UserControl
 	{
-        public event EventHandler<string> SearchButtonClickEvent; 
+        public event EventHandler<string> SearchButtonClickEvent;
+        public event EventHandler<Template> SelectButtonClickEvent;
 
 		public BaseTemplateControl()
 		{
@@ -45,6 +46,15 @@ namespace Common.UserControls
         {
             this.dgv_templateList.Columns["col_Number"].DataPropertyName = "RecordId";
             this.dgv_templateList.Columns["col_Name"].DataPropertyName = "FileName";
+        }
+
+        private void btn_Select_Click(object sender, EventArgs e)
+        {
+            if (dgv_templateList.SelectedRows.Count > 0 && SelectButtonClickEvent != null)
+            {
+                var selectedTemplate = dgv_templateList.SelectedRows[0].DataBoundItem as Template;
+                SelectButtonClickEvent(sender, selectedTemplate);
+            }
         }
 	}
 }

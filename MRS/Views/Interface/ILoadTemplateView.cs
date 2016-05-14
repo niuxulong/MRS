@@ -12,5 +12,7 @@ namespace MRS.Views.Interface
         event EventHandler<string> SearchTemplatesEvent;
 
         void PopulateTemlatesInfo(List<Template> templates);
+
+        event EventHandler<Template> SelectTemplateEvent;
     }
 }

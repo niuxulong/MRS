@@ -10,6 +10,7 @@ namespace MRS
     {
         #region Event Handler
         public event EventHandler<string> SearchTemplatesEvent;
+        public event EventHandler<Template> SelectTemplateEvent;
         #endregion
 
         public LoadTemplateView()
@@ -25,6 +26,7 @@ namespace MRS
         private void LoadTemplateView_Load(object sender, System.EventArgs e)
         {
             baseTemplateControl.SearchButtonClickEvent += HandleSearchButtonClickEvent;
+            baseTemplateControl.SelectButtonClickEvent += HandleSelectButtonClickEvent;
         }
 
         public void PopulateTemlatesInfo(List<Template> templates)
@@ -38,6 +40,16 @@ namespace MRS
             {
                 SearchTemplatesEvent(sender, args);
             }
+        }
+
+        private void HandleSelectButtonClickEvent(object sender, Template args)
+        {
+            if (SelectTemplateEvent != null)
+            {
+                SelectTemplateEvent(sender, args);
+            }
+
+            this.Close();
         }
 	}
 }

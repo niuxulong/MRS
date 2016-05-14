@@ -87,8 +87,22 @@ namespace MRS.Views.View
 		private void btn_LoadTemplate_Click(object sender, EventArgs e)
 		{
 			LoadTemplateView form = new LoadTemplateView();
-			form.ShowDialog();
+            form.SelectTemplateEvent += HandleSelectTemplateEvent;
+            form.ShowDialog();
 		}
+
+        private void HandleSelectTemplateEvent(object sender, Template args)
+        {
+            PopulateSelectedTemplateInfo(args);
+        }
+
+        private void PopulateSelectedTemplateInfo(Template args)
+        { 
+            //打开相应的树节点
+
+            //显示到编辑控件
+            this.writerControl1.XMLText = args.FileContent;
+        }
 
 		private void btn_SaveTemplate_Click(object sender, EventArgs e)
 		{

@@ -37,7 +37,7 @@
             this.col_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tb_forSearch = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Select = new System.Windows.Forms.Button();
             this.writerControl = new DCSoft.Writer.Controls.WriterControl();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -133,7 +133,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.tb_forSearch);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btn_Select);
             this.panel1.Controls.Add(this.btn_Search);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -149,16 +149,17 @@
             this.tb_forSearch.Size = new System.Drawing.Size(205, 29);
             this.tb_forSearch.TabIndex = 5;
             // 
-            // button2
+            // btn_Select
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(295, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 31);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "选择";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Select.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Select.Location = new System.Drawing.Point(295, 4);
+            this.btn_Select.Name = "btn_Select";
+            this.btn_Select.Size = new System.Drawing.Size(75, 31);
+            this.btn_Select.TabIndex = 0;
+            this.btn_Select.Text = "选择";
+            this.btn_Select.UseVisualStyleBackColor = true;
+            this.btn_Select.Click += new System.EventHandler(this.btn_Select_Click);
             // 
             // writerControl
             // 
@@ -196,7 +197,7 @@
 		private System.Windows.Forms.DataGridView dgv_templateList;
 		private DCSoft.Writer.Controls.WriterControl writerControl;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button btn_Select;
 		private System.Windows.Forms.DataGridViewTextBoxColumn col_Number;
 		private System.Windows.Forms.DataGridViewTextBoxColumn col_Name;
 		private System.Windows.Forms.TextBox tb_forSearch;
