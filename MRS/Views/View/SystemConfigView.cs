@@ -35,11 +35,6 @@ namespace MRS.Views.View
 
         private void SetupTemplateCatalogConfigTree()
         {
-            if (tv_ConfigTemplateTree.Nodes.Count != 1 || tv_ConfigTemplateTree.Nodes[0].Text != InitialNode)
-            {
-                tv_ConfigTemplateTree.Nodes.Clear();
-            }
-            
             if (RetriveTemplateCatalogConfigTree != null)
             {
                 RetriveTemplateCatalogConfigTree(null, null);
@@ -62,6 +57,10 @@ namespace MRS.Views.View
 
         public void PopulateTemplateCatalogConfigTree(List<TemplateCatalogNode> nodes)
         {
+            if (nodes != null && nodes.Count > 0)
+            {
+                tv_ConfigTemplateTree.Nodes.Clear();
+            }
             foreach (var node in nodes)
             {
                 tv_ConfigTemplateTree.Nodes.Add(node.ToTreeNode());
@@ -135,6 +134,10 @@ namespace MRS.Views.View
             if (tv_ConfigTemplateTree.SelectedNode != null && tv_ConfigTemplateTree.SelectedNode.Text != InitialNode)
             {
                 tv_ConfigTemplateTree.SelectedNode.Remove();
+                if (tv_ConfigTemplateTree.Nodes.Count == 0)
+                {
+                    tv_ConfigTemplateTree.Nodes.Add(new TreeNode() { Text = InitialNode });
+                }
             }
         }
 
@@ -162,6 +165,10 @@ namespace MRS.Views.View
         private List<TemplateCatalogNode> GetTemplateCatalogTreeInfo()
         {
             var results = new List<TemplateCatalogNode>();
+            if (tv_ConfigTemplateTree.Nodes.Count == 1 && tv_ConfigTemplateTree.Nodes[0].Text == InitialNode)
+            {
+                return results;
+            }
             for(int index = 0; index < tv_ConfigTemplateTree.Nodes.Count; index++)
             {
                 var node = tv_ConfigTemplateTree.Nodes[index];
