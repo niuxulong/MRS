@@ -12,5 +12,7 @@ namespace MRS.Model.Interfaces
         List<TemplateCatalogNode> GetTemplateCatalogNodes();
 
         bool UpdateOrAddTemplateCatgalogNodes(List<TemplateCatalogNode> nodes);
+
+        bool DeleteTemplateCatgalogNodes();
     }
 }

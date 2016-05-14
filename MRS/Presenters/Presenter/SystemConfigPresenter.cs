@@ -36,7 +36,14 @@ namespace MRS.Presenters.Presenter
 
         private void HandleSaveSystemConfigEvent(object sender, SystemConfigEventArgs args)
         {
-            templateCatalogModel.UpdateOrAddTemplateCatgalogNodes(args.TemplateCatalogNodes);
+            if (args.TemplateCatalogNodes.Count == 0)
+            {
+                templateCatalogModel.DeleteTemplateCatgalogNodes();
+            }
+            else
+            {
+                templateCatalogModel.UpdateOrAddTemplateCatgalogNodes(args.TemplateCatalogNodes);
+            }
             databaseConfigModel.UpdateOrAddDatabaseConfig(args.DatabaseConfig);
         }
     }

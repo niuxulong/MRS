@@ -10,6 +10,8 @@
 
         public const string SP_ADDUPDATESYSTEMSETTING = "Sp_AddUpdateSystemSetting";
 
+        public const string SP_DELETESYSTEMSETTING = "Sp_DeleteSystemSetting";
+
         public const string SP_INSERTCASEHISTORY = "Sp_InsertCaseHistory";
 
         public const string SP_SELECTCASEHISTORY = "Sp_SelectCaseHistory";

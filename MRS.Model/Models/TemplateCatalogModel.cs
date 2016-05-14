@@ -28,5 +28,10 @@ namespace MRS.Model.Models
         {
             return this.UpdateOrAddSystemConfig(nodes, Enums.SystemSettingIdEnum.TemplateCatalogNodeId, Enums.SystemSettingKeyEnum.TemplateCatalogNode);
         }
+
+        public bool DeleteTemplateCatgalogNodes()
+        {
+            return this.DeleteSystemConfig(Enums.SystemSettingIdEnum.TemplateCatalogNodeId, Enums.SystemSettingKeyEnum.TemplateCatalogNode);
+        }
     }
 }

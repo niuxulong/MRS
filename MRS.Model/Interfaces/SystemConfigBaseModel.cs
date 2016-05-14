@@ -3,10 +3,6 @@ using Common.DataBaseAccessor;
 using Common.Enums;
 using Common.Utility;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MRS.Model.Interfaces
 {
@@ -42,6 +38,24 @@ namespace MRS.Model.Interfaces
             }
 
             return default(T);
+        }
+
+        public bool DeleteSystemConfig(Enums.SystemSettingIdEnum settingId, Enums.SystemSettingKeyEnum settingKey)
+        {
+            try
+            {
+                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_DELETESYSTEMSETTING, (int) settingId);
+                if (rowAmount > 0)
+                {
+                    DataCacheManager.DataCacheManager.GetCacheManagerInstance().DeleteSystemSettingsCache(settingKey.ToString());
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

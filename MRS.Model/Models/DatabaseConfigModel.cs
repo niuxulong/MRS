@@ -28,5 +28,10 @@ namespace MRS.Model.Models
         {
             return this.UpdateOrAddSystemConfig(config, Enums.SystemSettingIdEnum.DataBaseConnectionId, Enums.SystemSettingKeyEnum.DataBaseConnection);
         }
+
+        public bool DeleteDatabaseConfig()
+        {
+            return this.DeleteSystemConfig(Enums.SystemSettingIdEnum.DataBaseConnectionId, Enums.SystemSettingKeyEnum.DataBaseConnection);
+        }
     }
 }

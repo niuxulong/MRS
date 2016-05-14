@@ -74,5 +74,6 @@
     <Build Include="Tables\EMR_CASEHISTORY.sql" />
     <None Include="StoreProcedures\Sp_InsertCaseHistory.sql" />
     <None Include="StoreProcedures\Sp_SelectCaseHistory.sql" />
+    <None Include="StoreProcedures\Sp_DeleteSystemSetting.sql" />
   </ItemGroup>
 </Project>

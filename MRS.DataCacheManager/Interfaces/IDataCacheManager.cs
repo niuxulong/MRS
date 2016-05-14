@@ -16,5 +16,7 @@ namespace MRS.DataCacheManager.Interfaces
         Dictionary<string, string> GetSystemSettingsFromCache();
 
         bool UpdateSystemSettingsCache(string key, string value);
+
+        void DeleteSystemSettingsCache(string settingKey);
     }
 }

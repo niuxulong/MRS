@@ -73,6 +73,14 @@ namespace MRS.DataCacheManager
             return true;
         }
 
+        public void DeleteSystemSettingsCache(string settingKey)
+        {
+            if (dataCache.SystemSettingCache.ContainsKey(settingKey))
+            {
+                dataCache.SystemSettingCache.Remove(settingKey);
+            }
+        }
+
         /// <summary>
         /// 从数据库获取模板记录
         /// </summary>

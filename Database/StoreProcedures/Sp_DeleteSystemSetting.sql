@@ -1,0 +1,10 @@
+﻿IF(EXISTS(SELECT * FROM SYSOBJECTS WHERE XTYPE='P' AND NAME='Sp_DeleteSystemSetting'))
+	DROP PROCEDURE Sp_DeleteSystemSetting
+GO
+
+CREATE PROCEDURE [dbo].[Sp_DeleteSystemSetting]
+	@Id int
+AS
+	DELETE FROM EMR_SYSTEMSETTING WHERE Id = @Id
+GO
+ 
