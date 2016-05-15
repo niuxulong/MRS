@@ -56,9 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenters\Presenter\LoadTemplatePresenter.cs" />
+    <Compile Include="Presenters\Presenter\ManageTemplatePresenter.cs" />
     <Compile Include="Presenters\Presenter\SearchPatientPresenter.cs" />
     <Compile Include="Presenters\Presenter\SystemConfigPresenter.cs" />
     <Compile Include="Views\Interface\ILoadTemplateView.cs" />
+    <Compile Include="Views\Interface\IManageTemplateView.cs" />
     <Compile Include="Views\Interface\ISearchPatientView.cs" />
     <Compile Include="Views\Interface\ISystemConfigView.cs" />
     <Compile Include="Views\View\AdminValidationView.cs">
@@ -93,11 +95,11 @@
     <Compile Include="Template\AddTemplateType.Designer.cs">
       <DependentUpon>AddTemplateType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Template\ManageTemplate.cs">
+    <Compile Include="Template\ManageTemplateView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Template\ManageTemplate.Designer.cs">
-      <DependentUpon>ManageTemplate.cs</DependentUpon>
+    <Compile Include="Template\ManageTemplateView.Designer.cs">
+      <DependentUpon>ManageTemplateView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\View\ElecCaseHistoryView.cs">
       <SubType>Form</SubType>
@@ -151,8 +153,8 @@
     <EmbeddedResource Include="Template\AddTemplateType.resx">
       <DependentUpon>AddTemplateType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Template\ManageTemplate.resx">
-      <DependentUpon>ManageTemplate.cs</DependentUpon>
+    <EmbeddedResource Include="Template\ManageTemplateView.resx">
+      <DependentUpon>ManageTemplateView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\View\ElecCaseHistoryView.resx">
       <DependentUpon>ElecCaseHistoryView.cs</DependentUpon>

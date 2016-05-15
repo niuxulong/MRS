@@ -34,7 +34,7 @@ namespace MRS
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.baseTemplateControl1 = new Common.UserControls.BaseTemplateControl();
+            this.baseTemplateControl = new Common.UserControls.BaseTemplateControl();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,24 +103,25 @@ namespace MRS
             this.label1.TabIndex = 0;
             this.label1.Text = "父级模板：";
             // 
-            // baseTemplateControl1
+            // baseTemplateControl
             // 
-            this.baseTemplateControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.baseTemplateControl1.Location = new System.Drawing.Point(0, 33);
-            this.baseTemplateControl1.Name = "baseTemplateControl1";
-            this.baseTemplateControl1.Size = new System.Drawing.Size(1206, 569);
-            this.baseTemplateControl1.TabIndex = 2;
+            this.baseTemplateControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.baseTemplateControl.Location = new System.Drawing.Point(0, 33);
+            this.baseTemplateControl.Name = "baseTemplateControl";
+            this.baseTemplateControl.Size = new System.Drawing.Size(1206, 569);
+            this.baseTemplateControl.TabIndex = 2;
             // 
             // ManageTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1206, 602);
-            this.Controls.Add(this.baseTemplateControl1);
+            this.Controls.Add(this.baseTemplateControl);
             this.Controls.Add(this.panel1);
             this.Name = "ManageTemplate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "模板维护";
+            this.Load += new System.EventHandler(this.ManageTemplate_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -131,7 +132,7 @@ namespace MRS
 
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label1;
-		private Common.UserControls.BaseTemplateControl baseTemplateControl1;
+		private Common.UserControls.BaseTemplateControl baseTemplateControl;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button1;

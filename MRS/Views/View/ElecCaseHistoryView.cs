@@ -231,19 +231,22 @@ namespace MRS.Views.View
 
         private void btn_SaveRecord_Click(object sender, EventArgs e)
         {
-            var caseHistory = new CaseHistory()
+            if (currentSelectedPatient != null)
             {
-                Id = System.Guid.NewGuid(),
-                PatientId = currentSelectedPatient.PatientId,
-                FileName = string.Empty,
-                FileTitle = string.Empty,
-                FileContent = writerControl1.XMLText,
-                CreatedBy = "User1"
-            };
-            if (SaveCaseHistoryEvent != null)
-            {
-                SaveCaseHistoryEvent(sender, caseHistory);
-                MessageBox.Show("保存病历");
+                var caseHistory = new CaseHistory()
+                {
+                    Id = System.Guid.NewGuid(),
+                    PatientId = currentSelectedPatient.PatientId,
+                    FileName = string.Empty,
+                    FileTitle = string.Empty,
+                    FileContent = writerControl1.XMLText,
+                    CreatedBy = "User1"
+                };
+                if (SaveCaseHistoryEvent != null)
+                {
+                    SaveCaseHistoryEvent(sender, caseHistory);
+                    MessageBox.Show("保存病历成功");
+                }
             }
         }
 
