@@ -9,7 +9,7 @@ namespace MRS.DataCacheManager.Interfaces
 {
     public interface IDataCacheManager
     {
-        void InitilizeDataCache(DatabaseConfig dbConfig = null);
+        void InitilizeDataCache();
 
         List<Template> GetTemplatesFromCache();
 

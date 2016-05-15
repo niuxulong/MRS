@@ -2,6 +2,7 @@ using MRS.Entity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Common.UserControls
 {
@@ -13,7 +14,7 @@ namespace Common.UserControls
 		public BaseTemplateControl()
 		{
 			InitializeComponent();
-            ConfigColumns();
+            ConfigDgvTemplateList();
 		}
 
         private void dgv_templateList_SelectionChanged(object sender, EventArgs e)
@@ -38,13 +39,15 @@ namespace Common.UserControls
 
         public void PopulateTemlatesInfo(List<Template> templates)
         {
-            dgv_templateList.DataSource = null;
             dgv_templateList.DataSource = templates;
         }
 
-        private void ConfigColumns()
+        private void ConfigDgvTemplateList()
         {
-            this.dgv_templateList.Columns["col_Number"].DataPropertyName = "RecordId";
+            this.dgv_templateList.SelectionChanged += dgv_templateList_SelectionChanged;
+            this.dgv_templateList.AutoGenerateColumns = false;
+            this.dgv_templateList.ColumnCount = 2;
+            this.dgv_templateList.Columns["col_Number"].DataPropertyName = "ParentNodeId";
             this.dgv_templateList.Columns["col_Name"].DataPropertyName = "FileName";
         }
 

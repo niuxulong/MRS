@@ -12,7 +12,7 @@ namespace MRS.Views.Interface
     {
         event EventHandler RetriveTemplateCatalogConfigTree;
 
-        event EventHandler<SystemConfigEventArgs> CheckDatabaseConnectionAndSaveConfigEvent;
+        event EventHandler<SystemConfigEventArgs> SaveSystemConfigsAndCheckDBConnectionEvent;
 
         event EventHandler RetriveDatabaseConfigEvent;
 

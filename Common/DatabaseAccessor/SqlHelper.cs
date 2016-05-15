@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Xml;
@@ -182,7 +183,7 @@ namespace Common.DataBaseAccessor
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(GetConnSting(serverName, dataBaseName, uid, pwd)))
+                using (SqlConnection conn = new SqlConnection(GenerateConnString(serverName, dataBaseName, uid, pwd)))
                 {
                     conn.Open();
                     if (ConnectionState.Open == conn.State)
@@ -199,7 +200,7 @@ namespace Common.DataBaseAccessor
             
         }
 
-        public static string GetConnSting(string serverName, string dataBaseName, string uid, string pwd)
+        public static string GenerateConnString(string serverName, string dataBaseName, string uid, string pwd)
         {
             return "server=" + serverName + ";database=" + dataBaseName + ";uid=" + uid + ";pwd=" + pwd;
         }
@@ -208,19 +209,23 @@ namespace Common.DataBaseAccessor
         /// 一个有效的数据库连接字符串 
         /// </summary> 
         /// <returns></returns> 
-        //public static string GetConnSting()
-        //{
-        //    return @"server=localhost\SQLEXPRESS;database=DCEMR;uid=sa;pwd=sql2008";
-        //}
+        public static string GetConnSting()
+        {
+            if (ConfigurationManager.ConnectionStrings["ConStr"] != null)
+            {
+                return ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;    
+            }
+            return string.Empty;
+        }
         /// <summary> 
         /// 一个有效的数据库连接对象 
         /// </summary> 
         /// <returns></returns> 
-        //public static SqlConnection GetConnection()
-        //{
-        //    SqlConnection Connection = new SqlConnection(SqlHelper.GetConnSting());
-        //    return Connection;
-        //}
+        public static SqlConnection GetConnection()
+        {
+            SqlConnection Connection = new SqlConnection(SqlHelper.GetConnSting());
+            return Connection;
+        }
         #endregion
 
         #region ExecuteNonQuery命令

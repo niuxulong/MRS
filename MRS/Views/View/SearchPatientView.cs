@@ -58,12 +58,12 @@ namespace MRS.Views.View
 
         public void PopulatePatientsRecords(List<Patient> patients)
         {
-            dgv_Patient.DataSource = null;
             dgv_Patient.DataSource = patients;
         }
 
         private void ConfigColumns()
         {
+            this.dgv_Patient.AutoGenerateColumns = false;
             this.dgv_Patient.Columns["col_CaseNo"].DataPropertyName = "PatientId";
             this.dgv_Patient.Columns["col_Name"].DataPropertyName = "Name";
             this.dgv_Patient.Columns["col_HospitalNo"].DataPropertyName = "BeinHospitalCode";

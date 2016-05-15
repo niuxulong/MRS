@@ -45,11 +45,11 @@ namespace MRS.DataCacheManager
             return dataCacheManager;
         }
 
-        public void InitilizeDataCache(DatabaseConfig dbConfig = null)
+        public void InitilizeDataCache()
         {
             dataCache = DataCache.GetCacheInstance();
             //Load系统配置
-            var systemSettings = LoadSystemSettingFromDB(dbConfig);
+            var systemSettings = LoadSystemSettingFromDB();
             dataCache.SystemSettingCache = systemSettings;
             //Load模板
             var templates = LoadTemplatesFromDB();
@@ -107,10 +107,7 @@ namespace MRS.DataCacheManager
             try
             {
                 var results = new List<Template>();
-                var systemSettings = GetSystemSettingsFromCache();
-                var dbConfigXml = systemSettings[Enums.SystemSettingKeyEnum.DataBaseConnection.ToString()];
-                DatabaseConfig dbConfig = Common.Utility.SerializeUtility<DatabaseConfig>.XmlDeserialize(dbConfigXml);
-                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(dbConfig.Server, dbConfig.Database, dbConfig.User, dbConfig.Password), SqlConst.SP_SELECTTEMPLATE);
+                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(), SqlConst.SP_SELECTTEMPLATE);
                 foreach (DataRow dataRow in dataSet.Tables[0].Rows)
                 {
                     var template = new Template();
@@ -134,19 +131,12 @@ namespace MRS.DataCacheManager
             }
         }
 
-        private Dictionary<string, string> LoadSystemSettingFromDB(DatabaseConfig dbConfig = null)
+        private Dictionary<string, string> LoadSystemSettingFromDB()
         {
             try
             {
                 var results = new Dictionary<string, string>();
-                if (dbConfig == null)
-                {
-                    var systemSettings = GetSystemSettingsFromCache();
-                    var dbConfigXml = systemSettings[Enums.SystemSettingKeyEnum.DataBaseConnection.ToString()];
-                    dbConfig = Common.Utility.SerializeUtility<DatabaseConfig>.XmlDeserialize(dbConfigXml);
-                }
-
-                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(dbConfig.Server, dbConfig.Database, dbConfig.User, dbConfig.Password), SqlConst.SP_SELECTSYSTEMSETTING);
+                var dataSet = SqlHelper.ExecuteDataset(SqlHelper.GetConnSting(),SqlConst.SP_SELECTSYSTEMSETTING);
                 foreach (DataRow dataRow in dataSet.Tables[0].Rows)
                 {
                     results.Add(dataRow.ItemArray[1].ToString(), dataRow.ItemArray[2].ToString());

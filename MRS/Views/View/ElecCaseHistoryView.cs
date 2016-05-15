@@ -19,8 +19,6 @@ namespace MRS.Views.View
         public ElecCaseHistoryView()
 		{
 			InitializeComponent();
-            
-            //this.writerControl1.XMLText = "";
 		}
 
         private void ElecCaseHistoryView_Load(object sender, EventArgs e)
@@ -43,8 +41,19 @@ namespace MRS.Views.View
             }
         }
 
+        private void ClearView()
+        { 
+            //清空病人信息
+            ClearPatientInfo();
+            //清空病历信息
+            dgv_FinishedCaseHistory.DataSource = null;
+            //清空编辑信息
+            writerControl1.XMLText = null;
+        }
+
         private void ConfigDgvFinishedCaseHistoryColumns()
         {
+            this.dgv_FinishedCaseHistory.AutoGenerateColumns = false;
             this.dgv_FinishedCaseHistory.Columns["col_Complated_No"].DataPropertyName = "PatientId";
             this.dgv_FinishedCaseHistory.Columns["col_Complated_ID"].DataPropertyName = "PatientId";
             this.dgv_FinishedCaseHistory.Columns["col_Complated_Name"].DataPropertyName = "FileName";
@@ -66,7 +75,6 @@ namespace MRS.Views.View
 
         public void PopulateCaseHistoryRecords(List<CaseHistory> caseHistories)
         {
-            dgv_FinishedCaseHistory.DataSource = null;
             dgv_FinishedCaseHistory.DataSource = caseHistories;
         }
 
@@ -81,7 +89,13 @@ namespace MRS.Views.View
         public void PopulatePatientInfo(Patient patient)
         { 
             txt_Name.Text = patient.Name;
-            // and other info
+            txt_hospitalNo.Text = patient.BeinHospitalCode;
+        }
+
+        private void ClearPatientInfo()
+        {
+            txt_Name.Text = string.Empty;
+            txt_hospitalNo.Text = string.Empty;
         }
 
 		private void btn_LoadTemplate_Click(object sender, EventArgs e)
@@ -96,18 +110,40 @@ namespace MRS.Views.View
             PopulateSelectedTemplateInfo(args);
         }
 
-        private void PopulateSelectedTemplateInfo(Template args)
-        { 
-            //打开相应的树节点
+        private void HandleSaveTemplateEvent(object sender, string args)
+        {
+            var template = new Template()
+            {
+                RecordId = System.Guid.NewGuid(),
+                FileName = args,
+                FileTitle = string.Empty,//Temp set
+                FileContent = writerControl1.XMLText,
+                CreatedBy = "User1",//Temp Set
+            };
+            if (tv_TemplateCatalog.SelectedNode.Level == 0)
+            { 
+                
+            }
+            //template.ParentNodeId = tv_TemplateCatalog.SelectedNode.le
 
-            //显示到编辑控件
-            this.writerControl1.XMLText = args.FileContent;
+        }
+
+        private void PopulateSelectedTemplateInfo(Template args)
+        {
+            if (args != null)
+            {
+                //打开相应的树节点
+
+                //显示到编辑控件
+                this.writerControl1.XMLText = args.FileContent;
+            }
         }
 
 		private void btn_SaveTemplate_Click(object sender, EventArgs e)
 		{
 			SaveTemplate form = new SaveTemplate();
-			form.ShowDialog();
+            form.SaveTemplateEvent += HandleSaveTemplateEvent;
+            form.ShowDialog();
 		}
 
 		private void btn_ManageTemplate_Click(object sender, EventArgs e)
@@ -126,10 +162,7 @@ namespace MRS.Views.View
 		{
 			SearchPatientView form = new SearchPatientView();
             form.SelectPatientEvent += HandleSelectPatientEvent;
-            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                
-            }
+            form.ShowDialog();
 		}
 
         private void HandleSelectPatientEvent(object sender, Patient args)
@@ -160,6 +193,8 @@ namespace MRS.Views.View
                 {
                     //加载模板树节点
                     SetupTemplateCatalogTree();
+                    //系统配置更新后清空页面信息
+                    ClearView();
                 }
             }
         }

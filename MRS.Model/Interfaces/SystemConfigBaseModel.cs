@@ -15,24 +15,15 @@ namespace MRS.Model.Interfaces
             
         }
 
-        public bool UpdateOrAddSystemConfig(T obj, Enums.SystemSettingIdEnum settingId, Enums.SystemSettingKeyEnum settingKey, DatabaseConfig dbConfig = null)
+        public bool UpdateOrAddSystemConfig(T obj, Enums.SystemSettingIdEnum settingId, Enums.SystemSettingKeyEnum settingKey)
         {
             try
             {
                 var configXml = SerializeUtility<T>.XmlSerialize(obj);
-                if (dbConfig == null)
-                {
-                    dbConfig = CommonUltility.GetDatabaseConfigFromCache();    
-                }
-
-                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(dbConfig.Server, dbConfig.Database, dbConfig.User, dbConfig.Password), SqlConst.SP_ADDUPDATESYSTEMSETTING, new object[] { (int)settingId, settingKey.ToString(), configXml });
+                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_ADDUPDATESYSTEMSETTING, new object[] { (int)settingId, settingKey.ToString(), configXml });
                 var updateCacheSuccess = false;
                 if (rowAmount > 0)
                 {
-                    if (!DataCacheManager.DataCacheManager.GetCacheManagerInstance().CacheInitialized())
-                    {
-                        DataCacheManager.DataCacheManager.GetCacheManagerInstance().InitilizeDataCache(dbConfig);
-                    }
                     updateCacheSuccess = DataCacheManager.DataCacheManager.GetCacheManagerInstance().UpdateSystemSettingsCache(settingKey.ToString(), configXml);
                 }
 
@@ -60,8 +51,7 @@ namespace MRS.Model.Interfaces
         {
             try
             {
-                var dbConfig = CommonUltility.GetDatabaseConfigFromCache();
-                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(dbConfig.Server, dbConfig.Database, dbConfig.User, dbConfig.Password), SqlConst.SP_DELETESYSTEMSETTING, (int)settingId);
+                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_DELETESYSTEMSETTING, (int)settingId);
                 if (rowAmount > 0)
                 {
                     DataCacheManager.DataCacheManager.GetCacheManagerInstance().DeleteSystemSettingsCache(settingKey.ToString());

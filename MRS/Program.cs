@@ -17,7 +17,9 @@ namespace MRS
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+            DataCacheManager.DataCacheManager.GetCacheManagerInstance().InitilizeDataCache();
 			Application.Run(new ElecCaseHistoryView());
+            
 		}
 	}
 }

@@ -14,7 +14,7 @@ namespace MRS.Views.View
 
         #region Event Handler
         public event EventHandler RetriveTemplateCatalogConfigTree;
-        public event EventHandler<SystemConfigEventArgs> CheckDatabaseConnectionAndSaveConfigEvent;
+        public event EventHandler<SystemConfigEventArgs> SaveSystemConfigsAndCheckDBConnectionEvent;
         public event EventHandler RetriveDatabaseConfigEvent;
         #endregion
 
@@ -159,21 +159,14 @@ namespace MRS.Views.View
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            var eventArgs = new SystemConfigEventArgs();
-            var databaseConfig = new DatabaseConfig()
+            if (SaveSystemConfigsAndCheckDBConnectionEvent != null)
             {
-                Server = tb_Server.Text,
-                Database = tb_Database.Text,
-                User = tb_User.Text,
-                Password = tb_Pwd.Text
-            };
-            eventArgs.DatabaseConfig = databaseConfig;
-            eventArgs.TemplateCatalogNodes = GetTemplateCatalogTreeInfo();
-
-            //检查数据库配置是否正确
-            if (CheckDatabaseConnectionAndSaveConfigEvent != null)
-            {
-                CheckDatabaseConnectionAndSaveConfigEvent(this, eventArgs);
+                var args = new SystemConfigEventArgs()
+                {
+                    DatabaseConfig = GetDatabaseConfigInfo(),
+                    TemplateCatalogNodes = GetTemplateCatalogTreeInfo()
+                };
+                SaveSystemConfigsAndCheckDBConnectionEvent(this, args);
             }
         }
 
@@ -183,8 +176,22 @@ namespace MRS.Views.View
             this.Close();
         }
 
+        private DatabaseConfig GetDatabaseConfigInfo()
+        {
+            var databaseConfig = new DatabaseConfig()
+            {
+                Server = tb_Server.Text,
+                Database = tb_Database.Text,
+                User = tb_User.Text,
+                Password = tb_Pwd.Text
+            };
+
+            return databaseConfig;
+        }
+
         private List<TemplateCatalogNode> GetTemplateCatalogTreeInfo()
         {
+            int subChildId = 0;
             var results = new List<TemplateCatalogNode>();
             if (tv_ConfigTemplateTree.Nodes.Count == 1 && tv_ConfigTemplateTree.Nodes[0].Text == InitialNode)
             {
@@ -198,7 +205,7 @@ namespace MRS.Views.View
                 {
                     var childNode = new TemplateCatalogNode()
                     {
-                        TemplateNodeId = subIndex + 1,
+                        TemplateNodeId = ++subChildId,
                         TemplateNodeName = node.Nodes[subIndex].Text,
                         TemplateParentNodeId = index + 1
                     };

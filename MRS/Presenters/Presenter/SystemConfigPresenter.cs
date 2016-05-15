@@ -6,54 +6,63 @@ using MRS.Model.Models;
 using MRS.Presenters.Interface;
 using MRS.Views.Interface;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace MRS.Presenters.Presenter
 {
     public class SystemConfigPresenter: Presenter<ISystemConfigView>
     {
-        public IDatabaseConfigModel databaseConfigModel { get; private set; }
         public ITemplateCatalogModel templateCatalogModel { get; private set; }
 
         public SystemConfigPresenter(ISystemConfigView view)
             : base(view)
         {
-            this.databaseConfigModel = new DatabaseConfigModel();
             this.templateCatalogModel = new TemplateCatalogModel();
         }
 
         protected override void OnViewSet()
         {
             this.View.RetriveTemplateCatalogConfigTree += HandleRetriveTemplateCatalogTree;
-            this.View.CheckDatabaseConnectionAndSaveConfigEvent += HandleCheckDatabaseConnectionAndSaveConfigEvent;
+            this.View.SaveSystemConfigsAndCheckDBConnectionEvent += HandleSaveSystemConfigsAndCheckDBConnectionEvent;
             this.View.RetriveDatabaseConfigEvent += HandleRetriveDatabaseConfigEvent;
         }
 
         private void HandleRetriveDatabaseConfigEvent(object sender, object e)
         {
-            if (DataCacheManager.DataCacheManager.GetCacheManagerInstance().CacheInitialized())
+            var connString = SqlHelper.GetConnSting();
+            var config = DatabaseConfig.FromString(connString);
+            if (config != null)
             {
-                var config = databaseConfigModel.GetDatabaseConfig();
-                if (config != null)
-                {
-                    this.View.PopulateDatabaseConfig(config);
-                }
+                this.View.PopulateDatabaseConfig(config);
             }
         }
 
-        private void HandleCheckDatabaseConnectionAndSaveConfigEvent(object sender, SystemConfigEventArgs args)
+        private void HandleSaveSystemConfigsAndCheckDBConnectionEvent(object sender, SystemConfigEventArgs args)
         {
-            var result = SqlHelper.CheckDatabaseConnection(args.DatabaseConfig.Server, args.DatabaseConfig.Database, args.DatabaseConfig.User, args.DatabaseConfig.Password);
-            if (!result)
+            //保存本数据库的系统配置
+            this.SaveSystemConfig(args.TemplateCatalogNodes);
+            //检查新数据库连接
+            var canConnect = SqlHelper.CheckDatabaseConnection(args.DatabaseConfig.Server, args.DatabaseConfig.Database, args.DatabaseConfig.User, args.DatabaseConfig.Password);
+            if (!canConnect)
             {
                 this.View.NotificationNoDatabaseFound();
             }
             else
             {
-                this.SaveSystemConfig(args.DatabaseConfig, args.TemplateCatalogNodes);
+                // 更新配置文件数据库连接
+                var settings = new ConnectionStringSettings()
+                {
+                    Name = "ConStr",
+                    ConnectionString = SqlHelper.GenerateConnString(args.DatabaseConfig.Server, args.DatabaseConfig.Database, args.DatabaseConfig.User, args.DatabaseConfig.Password)
 
-                //数据库配置更新后更新cache
+                };
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.ConnectionStrings.ConnectionStrings.Add(settings);  
+                config.Save(ConfigurationSaveMode.Modified);  
+                ConfigurationManager.RefreshSection("connectionStrings");
+
+                //数据库配置更新后从新数据库更新cache
                 DataCacheManager.DataCacheManager.GetCacheManagerInstance().InitilizeDataCache();
-
                 this.View.CloseForm();
             }
         }
@@ -70,9 +79,8 @@ namespace MRS.Presenters.Presenter
             }
         }
 
-        private void SaveSystemConfig(DatabaseConfig databaseConfig, List<TemplateCatalogNode> templateCatalogNodes)
+        private void SaveSystemConfig(List<TemplateCatalogNode> templateCatalogNodes)
         {
-            databaseConfigModel.UpdateOrAddDatabaseConfig(databaseConfig);
             if (templateCatalogNodes.Count == 0)
             {
                 templateCatalogModel.DeleteTemplateCatgalogNodes();
