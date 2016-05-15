@@ -27,7 +27,7 @@ namespace MRS.Model.Models
             }
         }
 
-        public bool InsertCasaHistory(CaseHistory caseHistory)
+        public bool InsertCaseHistory(CaseHistory caseHistory)
         {
             try
             {

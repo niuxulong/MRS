@@ -1,4 +1,5 @@
-﻿using MRS.Model.Interfaces;
+﻿using MRS.Entity.Entities;
+using MRS.Model.Interfaces;
 using MRS.Model.Models;
 using MRS.Presenters.Interface;
 using MRS.Views.Interface;
@@ -22,6 +23,13 @@ namespace MRS.Presenters.Presenter
         {
             this.View.RetriveCaseHistoriesByPatientIdEvent += HandleRetriveCaseHistoriesByPatientIdEvent;
             this.View.RetriveTemplateCatalogTree += HandleRetriveTemplateCatalogTree;
+            this.View.SaveCaseHistoryEvent += HandleSaveCaseHistoryEvent;
+        }
+
+        private void HandleSaveCaseHistoryEvent(object sender, CaseHistory caseHistory)
+        {
+            caseHistoryModel.InsertCaseHistory(caseHistory);
+            HandleRetriveCaseHistoriesByPatientIdEvent(sender, caseHistory.PatientId);
         }
 
         private void HandleRetriveTemplateCatalogTree(object sender, object e)

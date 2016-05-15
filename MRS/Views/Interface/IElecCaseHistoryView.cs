@@ -13,6 +13,8 @@ namespace MRS.Views.Interface
 
         event EventHandler RetriveTemplateCatalogTree;
 
+        event EventHandler<CaseHistory> SaveCaseHistoryEvent;
+
         void PopulateCaseHistoryRecords(List<CaseHistory> caseHistories);
 
         void PopulateTemplateCatalogTree(List<TemplateCatalogNode> nodes);
