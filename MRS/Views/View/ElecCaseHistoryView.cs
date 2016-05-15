@@ -15,9 +15,11 @@ namespace MRS.Views.View
         public event EventHandler<string> RetriveCaseHistoriesByPatientIdEvent;
         public event EventHandler RetriveTemplateCatalogTree;
         public event EventHandler<CaseHistory> SaveCaseHistoryEvent;
+        public event EventHandler<Template> SaveTemplateEvent;
         #endregion
 
         private Patient currentSelectedPatient;
+        private Template currentSelectedTemplate;
 
         public ElecCaseHistoryView()
 		{
@@ -103,9 +105,12 @@ namespace MRS.Views.View
 
 		private void btn_LoadTemplate_Click(object sender, EventArgs e)
 		{
-			LoadTemplateView form = new LoadTemplateView();
-            form.SelectTemplateEvent += HandleSelectTemplateEvent;
-            form.ShowDialog();
+            if (tv_TemplateCatalog.SelectedNode != null && tv_TemplateCatalog.SelectedNode.Level == 1)
+            {
+                LoadTemplateView form = new LoadTemplateView();
+                form.SelectTemplateEvent += HandleSelectTemplateEvent;
+                form.ShowDialog();
+            }
 		}
 
         private void HandleSelectTemplateEvent(object sender, Template args)
@@ -115,28 +120,25 @@ namespace MRS.Views.View
 
         private void HandleSaveTemplateEvent(object sender, string args)
         {
-            var template = new Template()
+            if (SaveTemplateEvent != null)
             {
-                RecordId = System.Guid.NewGuid(),
-                FileName = args,
-                FileTitle = string.Empty,//Temp set
-                FileContent = writerControl1.XMLText,
-                CreatedBy = "User1",//Temp Set
-            };
-            if (tv_TemplateCatalog.SelectedNode != null)
-            { 
-                
+                currentSelectedTemplate.CreatedBy = "User1";
+                currentSelectedTemplate.FileContent = writerControl1.XMLText;
+                currentSelectedTemplate.FileName = args;
+                SaveTemplateEvent(sender, currentSelectedTemplate);
             }
-            //template.ParentNodeId = tv_TemplateCatalog.SelectedNode.le
-
         }
 
         private void PopulateSelectedTemplateInfo(Template args)
         {
             if (args != null)
             {
-                //打开相应的树节点
-
+                currentSelectedTemplate = args;
+                if (currentSelectedTemplate.ParentNodeId == 0)
+                {
+                    currentSelectedTemplate.ParentNodeId = (int)tv_TemplateCatalog.SelectedNode.Tag;
+                }
+                
                 //显示到编辑控件
                 this.writerControl1.XMLText = args.FileContent;
             }
@@ -144,10 +146,34 @@ namespace MRS.Views.View
 
 		private void btn_SaveTemplate_Click(object sender, EventArgs e)
 		{
-			SaveTemplate form = new SaveTemplate();
-            form.SaveTemplateEvent += HandleSaveTemplateEvent;
-            form.ShowDialog();
+            if (currentSelectedTemplate != null)
+            {
+                SaveTemplate form = new SaveTemplate();
+                form.SaveTemplateEvent += HandleSaveTemplateEvent;
+                var node = GetTemplateNodeByParentId(currentSelectedTemplate.ParentNodeId);
+                if(node != null)
+                {
+                    form.PopulateSelectedTemplateInfo(currentSelectedTemplate.ParentNodeId, node.Text, currentSelectedTemplate.FileName, DateTime.Now.ToShortDateString());
+                    form.ShowDialog();
+                }
+            }
 		}
+
+        private TreeNode GetTemplateNodeByParentId(int parentId)
+        {
+            for (var index = 0; index < tv_TemplateCatalog.Nodes.Count; index++)
+            {
+                for (var subIndex = 0; subIndex < tv_TemplateCatalog.Nodes[index].Nodes.Count; subIndex++)
+                {
+                    if ((int)tv_TemplateCatalog.Nodes[index].Nodes[subIndex].Tag == parentId)
+                    {
+                        return tv_TemplateCatalog.Nodes[index].Nodes[subIndex];
+                    }
+                }
+            }
+
+            return null;
+        }
 
 		private void btn_ManageTemplate_Click(object sender, EventArgs e)
 		{
@@ -203,7 +229,6 @@ namespace MRS.Views.View
             }
         }
 
-        #region 待实现
         private void btn_SaveRecord_Click(object sender, EventArgs e)
         {
             var caseHistory = new CaseHistory()
@@ -246,7 +271,6 @@ namespace MRS.Views.View
         {
             MessageBox.Show("档案归档");
         }
-        #endregion
 
     }
 }

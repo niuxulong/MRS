@@ -1002,9 +1002,9 @@ namespace MRS.Views.View
             this.dgv_FinishedCaseHistory.Location = new System.Drawing.Point(0, 0);
             this.dgv_FinishedCaseHistory.Name = "dgv_FinishedCaseHistory";
             this.dgv_FinishedCaseHistory.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_FinishedCaseHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_FinishedCaseHistory.Size = new System.Drawing.Size(432, 198);
             this.dgv_FinishedCaseHistory.TabIndex = 0;
-            this.dgv_FinishedCaseHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
             // col_Complated_No
             // 

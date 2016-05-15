@@ -15,5 +15,7 @@
         public const string SP_INSERTCASEHISTORY = "Sp_InsertCaseHistory";
 
         public const string SP_SELECTCASEHISTORY = "Sp_SelectCaseHistory";
+
+        public const string SP_UPDATETEMPLATE = "Sp_UpdateTemplate";
     }
 }

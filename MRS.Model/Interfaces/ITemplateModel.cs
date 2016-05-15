@@ -10,5 +10,7 @@ namespace MRS.Model.Interfaces
     public interface ITemplateModel
     {
         List<Template> GetTemplatesByName(string name);
+
+        bool UpdateTemplate(Template template);
     }
 }

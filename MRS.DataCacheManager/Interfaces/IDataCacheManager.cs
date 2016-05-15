@@ -17,6 +17,8 @@ namespace MRS.DataCacheManager.Interfaces
 
         bool UpdateSystemSettingsCache(string key, string value);
 
+        bool UpdateTemplateCache(Template template);
+
         void DeleteSystemSettingsCache(string settingKey);
 
         bool CacheInitialized();

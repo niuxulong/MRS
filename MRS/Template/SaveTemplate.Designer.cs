@@ -33,14 +33,14 @@
             this.btn_Save = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_CreateDate = new System.Windows.Forms.TextBox();
             this.tb_TemplateName = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_ParentNodeName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_ParentNodeId = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -94,14 +94,14 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tb_CreateDate, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.tb_TemplateName, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tb_ParentNodeName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tb_ParentNodeId, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(37, 28);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -112,13 +112,13 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(270, 130);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // textBox4
+            // tb_CreateDate
             // 
-            this.textBox4.Location = new System.Drawing.Point(84, 99);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(183, 29);
-            this.textBox4.TabIndex = 7;
+            this.tb_CreateDate.Location = new System.Drawing.Point(84, 99);
+            this.tb_CreateDate.Name = "tb_CreateDate";
+            this.tb_CreateDate.ReadOnly = true;
+            this.tb_CreateDate.Size = new System.Drawing.Size(183, 29);
+            this.tb_CreateDate.TabIndex = 7;
             // 
             // tb_TemplateName
             // 
@@ -127,13 +127,13 @@
             this.tb_TemplateName.Size = new System.Drawing.Size(183, 29);
             this.tb_TemplateName.TabIndex = 6;
             // 
-            // textBox2
+            // tb_ParentNodeName
             // 
-            this.textBox2.Location = new System.Drawing.Point(84, 35);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(183, 29);
-            this.textBox2.TabIndex = 5;
+            this.tb_ParentNodeName.Location = new System.Drawing.Point(84, 35);
+            this.tb_ParentNodeName.Name = "tb_ParentNodeName";
+            this.tb_ParentNodeName.ReadOnly = true;
+            this.tb_ParentNodeName.Size = new System.Drawing.Size(183, 29);
+            this.tb_ParentNodeName.TabIndex = 5;
             // 
             // label1
             // 
@@ -171,13 +171,13 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "创建时间";
             // 
-            // textBox1
+            // tb_ParentNodeId
             // 
-            this.textBox1.Location = new System.Drawing.Point(84, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(183, 29);
-            this.textBox1.TabIndex = 4;
+            this.tb_ParentNodeId.Location = new System.Drawing.Point(84, 3);
+            this.tb_ParentNodeId.Name = "tb_ParentNodeId";
+            this.tb_ParentNodeId.ReadOnly = true;
+            this.tb_ParentNodeId.Size = new System.Drawing.Size(183, 29);
+            this.tb_ParentNodeId.TabIndex = 4;
             // 
             // SaveTemplate
             // 
@@ -207,14 +207,14 @@
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.TextBox tb_CreateDate;
 		private System.Windows.Forms.TextBox tb_TemplateName;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox tb_ParentNodeName;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox tb_ParentNodeId;
 		private System.Windows.Forms.Button btn_Reset;
 		private System.Windows.Forms.Button btn_Save;
 	}

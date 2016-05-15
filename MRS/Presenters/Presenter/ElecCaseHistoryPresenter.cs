@@ -12,11 +12,14 @@ namespace MRS.Presenters.Presenter
 
         public ITemplateCatalogModel templateCatalogModel { get; private set; }
 
+        public ITemplateModel templateModel { get; private set; }
+
         public ElecCaseHistoryPresenter(IElecCaseHistoryView view)
             : base(view)
         {
             caseHistoryModel = new CaseHistoryModel();
             templateCatalogModel = new TemplateCatalogModel();
+            templateModel = new TemplateModel();
         }
 
         protected override void OnViewSet()
@@ -24,6 +27,12 @@ namespace MRS.Presenters.Presenter
             this.View.RetriveCaseHistoriesByPatientIdEvent += HandleRetriveCaseHistoriesByPatientIdEvent;
             this.View.RetriveTemplateCatalogTree += HandleRetriveTemplateCatalogTree;
             this.View.SaveCaseHistoryEvent += HandleSaveCaseHistoryEvent;
+            this.View.SaveTemplateEvent += HandleSaveTemplateEvent;
+        }
+
+        private void HandleSaveTemplateEvent(object sender, Template template)
+        { 
+            templateModel.UpdateTemplate(template);
         }
 
         private void HandleSaveCaseHistoryEvent(object sender, CaseHistory caseHistory)

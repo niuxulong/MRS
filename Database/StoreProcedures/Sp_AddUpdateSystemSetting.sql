@@ -8,7 +8,7 @@ CREATE PROCEDURE [dbo].[Sp_AddUpdateSystemSetting]
 	@value nvarchar(max)
 AS
 	IF(EXISTS(SELECT * FROM EMR_SYSTEMSETTING WHERE Id = @Id))
-		UPDATE EMR_SYSTEMSETTING SET Value = @value
+		UPDATE EMR_SYSTEMSETTING SET Value = @value WHERE Id = @Id
 	ELSE
 		INSERT EMR_SYSTEMSETTING(Id, SettingKey, Value) VALUES (@Id, @key, @value)
 GO

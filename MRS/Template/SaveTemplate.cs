@@ -30,11 +30,21 @@ namespace MRS
             {
                 SaveTemplateEvent(sender, tb_TemplateName.Text.Trim());
             }
+
+            this.Close();
         }
 
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             tb_TemplateName.Text = string.Empty;
+        }
+
+        public void PopulateSelectedTemplateInfo(int parentNodeId, string parentNodeName, string fileName, string createdDate)
+        {
+            this.tb_ParentNodeId.Text = parentNodeId.ToString();
+            this.tb_ParentNodeName.Text = parentNodeName;
+            this.tb_TemplateName.Text = fileName;
+            this.tb_CreateDate.Text = createdDate;
         }
 	}
 }

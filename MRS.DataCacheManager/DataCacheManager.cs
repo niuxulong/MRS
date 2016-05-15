@@ -76,6 +76,13 @@ namespace MRS.DataCacheManager
             return dataCache.SystemSettingCache;
         }
 
+        public bool UpdateTemplateCache(Template template)
+        {
+            var pendingUpdateTemplate = dataCache.TemplateCache.Where(x => x.RecordId == template.RecordId).FirstOrDefault();
+            dataCache.TemplateCache[dataCache.TemplateCache.IndexOf(pendingUpdateTemplate)] = template;
+            return true;
+        }
+
         public bool UpdateSystemSettingsCache(string key, string value)
         {
             if (dataCache.SystemSettingCache.ContainsKey(key))

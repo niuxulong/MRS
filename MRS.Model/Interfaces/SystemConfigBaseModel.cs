@@ -27,7 +27,7 @@ namespace MRS.Model.Interfaces
                     updateCacheSuccess = DataCacheManager.DataCacheManager.GetCacheManagerInstance().UpdateSystemSettingsCache(settingKey.ToString(), configXml);
                 }
 
-                return updateCacheSuccess && rowAmount > 0;
+                return updateCacheSuccess;
             }
             catch(Exception ex)
             {

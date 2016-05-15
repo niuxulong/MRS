@@ -30,5 +30,28 @@ namespace MRS.Model.Models
                 return allTemplates.Where(t => t.FileName.Contains(name)).ToList();
             }
         }
+
+        public bool UpdateTemplate(Template template)
+        {
+            try
+            {
+                var updateCacheSuccess = false;
+                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_UPDATETEMPLATE, GetUpdateTemplateParams(template.RecordId.ToString(), template.ParentNodeId, template.FileName, template.FileContent));
+                if (rowAmount > 0)
+                {
+                    updateCacheSuccess = DataCacheManager.DataCacheManager.GetCacheManagerInstance().UpdateTemplateCache(template);
+                }
+                return updateCacheSuccess; 
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        private object[] GetUpdateTemplateParams(string recordId, int parentId, string fileName, string fileContent)
+        {
+            return new object[]{recordId, parentId, fileName, fileContent};
+        }
     }
 }
