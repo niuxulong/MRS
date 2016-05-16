@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace MRS.Presenters.Presenter
 {
-    public class SystemConfigPresenter: Presenter<ISystemConfigView>
+    public class SystemConfigPresenter : Presenter<ISystemConfigView>
     {
         public ITemplateCatalogModel templateCatalogModel { get; private set; }
 
@@ -58,11 +58,8 @@ namespace MRS.Presenters.Presenter
                 };
 
                 Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                if (config.ConnectionStrings.ConnectionStrings.IndexOf(settings)>0)
-                {
-                    config.ConnectionStrings.ConnectionStrings.Remove(settings);
-                    config.ConnectionStrings.ConnectionStrings.Add(settings);
-                }
+                config.ConnectionStrings.ConnectionStrings.Clear();
+                config.ConnectionStrings.ConnectionStrings.Add(settings);
 
                 config.Save(ConfigurationSaveMode.Modified);  
                 ConfigurationManager.RefreshSection("connectionStrings");
@@ -81,7 +78,7 @@ namespace MRS.Presenters.Presenter
                 if (templateTreeNodes != null)
                 {
                     this.View.PopulateTemplateCatalogConfigTree(templateTreeNodes);
-                }    
+                }
             }
         }
 

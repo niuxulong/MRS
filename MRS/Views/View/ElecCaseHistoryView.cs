@@ -1,3 +1,4 @@
+using DCSoft.Writer.Dom;
 using MRS.Entity.Entities;
 using MRS.Presenters.Presenter;
 using MRS.Views.Interface;
@@ -7,8 +8,8 @@ using System.Windows.Forms;
 
 namespace MRS.Views.View
 {
-	public partial class ElecCaseHistoryView : ViewBase, IElecCaseHistoryView
-	{
+    public partial class ElecCaseHistoryView : ViewBase, IElecCaseHistoryView
+    {
         Timer timer = new Timer();
 
         #region Event Handler
@@ -22,9 +23,11 @@ namespace MRS.Views.View
         private Template currentSelectedTemplate;
 
         public ElecCaseHistoryView()
-		{
-			InitializeComponent();
-		}
+        {
+            InitializeComponent();
+            this.writerControl1.CommandControler = this.writerCommandControler1;
+            this.writerCommandControler1.Start();
+        }
 
         private void ElecCaseHistoryView_Load(object sender, EventArgs e)
         {
@@ -47,7 +50,7 @@ namespace MRS.Views.View
         }
 
         private void ClearView()
-        { 
+        {
             //清空病人信息
             ClearPatientInfo();
             //清空病历信息
@@ -92,7 +95,7 @@ namespace MRS.Views.View
         }
 
         public void PopulatePatientInfo(Patient patient)
-        { 
+        {
             txt_Name.Text = patient.Name;
             txt_hospitalNo.Text = patient.BeinHospitalCode;
         }
@@ -103,15 +106,15 @@ namespace MRS.Views.View
             txt_hospitalNo.Text = string.Empty;
         }
 
-		private void btn_LoadTemplate_Click(object sender, EventArgs e)
-		{
+        private void btn_LoadTemplate_Click(object sender, EventArgs e)
+        {
             if (tv_TemplateCatalog.SelectedNode != null && tv_TemplateCatalog.SelectedNode.Level == 1)
             {
                 LoadTemplateView form = new LoadTemplateView();
                 form.SelectTemplateEvent += HandleSelectTemplateEvent;
                 form.ShowDialog();
             }
-		}
+        }
 
         private void HandleSelectTemplateEvent(object sender, Template args)
         {
@@ -138,26 +141,26 @@ namespace MRS.Views.View
                 {
                     currentSelectedTemplate.ParentNodeId = (int)tv_TemplateCatalog.SelectedNode.Tag;
                 }
-                
+
                 //显示到编辑控件
                 this.writerControl1.XMLText = args.FileContent;
             }
         }
 
-		private void btn_SaveTemplate_Click(object sender, EventArgs e)
-		{
+        private void btn_SaveTemplate_Click(object sender, EventArgs e)
+        {
             if (currentSelectedTemplate != null)
             {
                 SaveTemplate form = new SaveTemplate();
                 form.SaveTemplateEvent += HandleSaveTemplateEvent;
                 var node = GetTemplateNodeByParentId(currentSelectedTemplate.ParentNodeId);
-                if(node != null)
+                if (node != null)
                 {
                     form.PopulateSelectedTemplateInfo(currentSelectedTemplate.ParentNodeId, node.Text, currentSelectedTemplate.FileName, DateTime.Now.ToShortDateString());
                     form.ShowDialog();
                 }
             }
-		}
+        }
 
         private TreeNode GetTemplateNodeByParentId(int parentId)
         {
@@ -175,24 +178,24 @@ namespace MRS.Views.View
             return null;
         }
 
-		private void btn_ManageTemplate_Click(object sender, EventArgs e)
-		{
-			ManageTemplate form = new ManageTemplate();
-			form.ShowDialog();
-		}
+        private void btn_ManageTemplate_Click(object sender, EventArgs e)
+        {
+            ManageTemplate form = new ManageTemplate();
+            form.ShowDialog();
+        }
 
-		private void btn_Configure_Click(object sender, EventArgs e)
-		{
-			UserConfigView form = new UserConfigView();
-			form.ShowDialog();
-		}
+        private void btn_Configure_Click(object sender, EventArgs e)
+        {
+            UserConfigView form = new UserConfigView();
+            form.ShowDialog();
+        }
 
-		private void btn_Search_Click(object sender, EventArgs e)
-		{
-			SearchPatientView form = new SearchPatientView();
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            SearchPatientView form = new SearchPatientView();
             form.SelectPatientEvent += HandleSelectPatientEvent;
             form.ShowDialog();
-		}
+        }
 
         private void HandleSelectPatientEvent(object sender, Patient args)
         {
@@ -203,18 +206,18 @@ namespace MRS.Views.View
                 if (RetriveCaseHistoriesByPatientIdEvent != null)
                 {
                     RetriveCaseHistoriesByPatientIdEvent(sender, args.PatientId);
-                }    
+                }
             }
         }
 
-		private void btn_History_Click(object sender, EventArgs e)
-		{
-			SearchPatientView form = new SearchPatientView();
-			form.ShowDialog();
-		}
+        private void btn_History_Click(object sender, EventArgs e)
+        {
+            SearchPatientView form = new SearchPatientView();
+            form.ShowDialog();
+        }
 
-		private void btn_SystemConfigure_Click(object sender, EventArgs e)
-		{
+        private void btn_SystemConfigure_Click(object sender, EventArgs e)
+        {
             AdminValidationView form = new AdminValidationView();
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -262,7 +265,19 @@ namespace MRS.Views.View
 
         private void btn_Validate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("病历校验");
+            ValueValidateResultList list = (ValueValidateResultList)this.writerControl1.ExecuteCommand(
+                                            "DocumentValueValidate",
+                                             false,
+                                             null);
+            if (list != null && list.Count > 0)
+            {
+                //验证不通过
+            }
+            else
+            {
+                MessageBox.Show("验证通过");
+            }
+
         }
 
         private void btn_ElecSignature_Click(object sender, EventArgs e)
@@ -276,6 +291,11 @@ namespace MRS.Views.View
         }
 
         private void writerControl1_DocumentContentChanged(object eventSender, DCSoft.Writer.WriterEventArgs args)
+        {
+
+        }
+
+        private void btn_Temperature_Click(object sender, EventArgs e)
         {
 
         }

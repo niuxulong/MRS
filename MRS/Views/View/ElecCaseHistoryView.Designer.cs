@@ -30,9 +30,9 @@ namespace MRS.Views.View
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElecCaseHistoryView));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pl_info = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_User = new System.Windows.Forms.TextBox();
@@ -49,6 +49,8 @@ namespace MRS.Views.View
             this.label99 = new System.Windows.Forms.Label();
             this.pl_Menu = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btn_data = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btn_Temperature = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_LoadTemplate = new System.Windows.Forms.ToolStripLabel();
             this.btn_SaveTemplate = new System.Windows.Forms.ToolStripLabel();
             this.btn_ManageTemplate = new System.Windows.Forms.ToolStripLabel();
@@ -146,8 +148,8 @@ namespace MRS.Views.View
             this.btn_Italic = new System.Windows.Forms.ToolStripButton();
             this.btn_Bold = new System.Windows.Forms.ToolStripButton();
             this.btn_Font = new System.Windows.Forms.ToolStripButton();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
+            this.btn_FontName = new System.Windows.Forms.ToolStripComboBox();
+            this.btn_FontSize = new System.Windows.Forms.ToolStripComboBox();
             this.writerCommandControler1 = new DCSoft.Writer.Commands.WriterCommandControler(this.components);
             this.pl_info.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -199,7 +201,7 @@ namespace MRS.Views.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 338F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 465F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.txt_User, 9, 0);
@@ -384,6 +386,7 @@ namespace MRS.Views.View
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_data,
             this.btn_LoadTemplate,
             this.btn_SaveTemplate,
             this.btn_ManageTemplate,
@@ -407,9 +410,29 @@ namespace MRS.Views.View
             this.btn_SystemConfigure});
             this.toolStrip1.Location = new System.Drawing.Point(0, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1510, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1510, 29);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btn_data
+            // 
+            this.btn_data.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btn_data.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Temperature});
+            this.btn_data.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_data.ForeColor = System.Drawing.Color.Blue;
+            this.btn_data.Image = ((System.Drawing.Image)(resources.GetObject("btn_data.Image")));
+            this.btn_data.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_data.Name = "btn_data";
+            this.btn_data.Size = new System.Drawing.Size(87, 26);
+            this.btn_data.Text = "病人数据";
+            // 
+            // btn_Temperature
+            // 
+            this.btn_Temperature.Name = "btn_Temperature";
+            this.btn_Temperature.Size = new System.Drawing.Size(128, 26);
+            this.btn_Temperature.Text = "体温单";
+            this.btn_Temperature.Click += new System.EventHandler(this.btn_Temperature_Click);
             // 
             // btn_LoadTemplate
             // 
@@ -417,7 +440,7 @@ namespace MRS.Views.View
             this.btn_LoadTemplate.IsLink = true;
             this.btn_LoadTemplate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_LoadTemplate.Name = "btn_LoadTemplate";
-            this.btn_LoadTemplate.Size = new System.Drawing.Size(74, 22);
+            this.btn_LoadTemplate.Size = new System.Drawing.Size(74, 26);
             this.btn_LoadTemplate.Text = "加载模板";
             this.btn_LoadTemplate.Click += new System.EventHandler(this.btn_LoadTemplate_Click);
             // 
@@ -427,7 +450,7 @@ namespace MRS.Views.View
             this.btn_SaveTemplate.IsLink = true;
             this.btn_SaveTemplate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_SaveTemplate.Name = "btn_SaveTemplate";
-            this.btn_SaveTemplate.Size = new System.Drawing.Size(74, 22);
+            this.btn_SaveTemplate.Size = new System.Drawing.Size(74, 26);
             this.btn_SaveTemplate.Text = "保存模板";
             this.btn_SaveTemplate.Click += new System.EventHandler(this.btn_SaveTemplate_Click);
             // 
@@ -437,19 +460,19 @@ namespace MRS.Views.View
             this.btn_ManageTemplate.IsLink = true;
             this.btn_ManageTemplate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_ManageTemplate.Name = "btn_ManageTemplate";
-            this.btn_ManageTemplate.Size = new System.Drawing.Size(74, 22);
+            this.btn_ManageTemplate.Size = new System.Drawing.Size(74, 26);
             this.btn_ManageTemplate.Text = "模板维护";
             this.btn_ManageTemplate.Click += new System.EventHandler(this.btn_ManageTemplate_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 29);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 29);
             // 
             // btn_SaveRecord
             // 
@@ -457,7 +480,7 @@ namespace MRS.Views.View
             this.btn_SaveRecord.IsLink = true;
             this.btn_SaveRecord.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_SaveRecord.Name = "btn_SaveRecord";
-            this.btn_SaveRecord.Size = new System.Drawing.Size(74, 22);
+            this.btn_SaveRecord.Size = new System.Drawing.Size(74, 26);
             this.btn_SaveRecord.Text = "病历保存";
             this.btn_SaveRecord.Click += new System.EventHandler(this.btn_SaveRecord_Click);
             // 
@@ -467,19 +490,19 @@ namespace MRS.Views.View
             this.btn_ManageData.IsLink = true;
             this.btn_ManageData.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_ManageData.Name = "btn_ManageData";
-            this.btn_ManageData.Size = new System.Drawing.Size(74, 22);
+            this.btn_ManageData.Size = new System.Drawing.Size(74, 26);
             this.btn_ManageData.Text = "辅检数据";
             this.btn_ManageData.Click += new System.EventHandler(this.btn_ManageData_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 29);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 29);
             // 
             // btn_Eval
             // 
@@ -487,7 +510,7 @@ namespace MRS.Views.View
             this.btn_Eval.IsLink = true;
             this.btn_Eval.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_Eval.Name = "btn_Eval";
-            this.btn_Eval.Size = new System.Drawing.Size(74, 22);
+            this.btn_Eval.Size = new System.Drawing.Size(74, 26);
             this.btn_Eval.Text = "质控评分";
             this.btn_Eval.Click += new System.EventHandler(this.btn_Eval_Click);
             // 
@@ -497,19 +520,19 @@ namespace MRS.Views.View
             this.btn_Validate.IsLink = true;
             this.btn_Validate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_Validate.Name = "btn_Validate";
-            this.btn_Validate.Size = new System.Drawing.Size(74, 22);
+            this.btn_Validate.Size = new System.Drawing.Size(74, 26);
             this.btn_Validate.Text = "病历校验";
             this.btn_Validate.Click += new System.EventHandler(this.btn_Validate_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 29);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 29);
             // 
             // btn_ElecSignature
             // 
@@ -517,7 +540,7 @@ namespace MRS.Views.View
             this.btn_ElecSignature.IsLink = true;
             this.btn_ElecSignature.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_ElecSignature.Name = "btn_ElecSignature";
-            this.btn_ElecSignature.Size = new System.Drawing.Size(74, 22);
+            this.btn_ElecSignature.Size = new System.Drawing.Size(74, 26);
             this.btn_ElecSignature.Text = "电子签名";
             this.btn_ElecSignature.Click += new System.EventHandler(this.btn_ElecSignature_Click);
             // 
@@ -527,19 +550,19 @@ namespace MRS.Views.View
             this.btn_Finalize.IsLink = true;
             this.btn_Finalize.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_Finalize.Name = "btn_Finalize";
-            this.btn_Finalize.Size = new System.Drawing.Size(74, 22);
+            this.btn_Finalize.Size = new System.Drawing.Size(74, 26);
             this.btn_Finalize.Text = "病案归档";
             this.btn_Finalize.Click += new System.EventHandler(this.btn_Finalize_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 29);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 29);
             // 
             // btn_UserConfigure
             // 
@@ -547,7 +570,7 @@ namespace MRS.Views.View
             this.btn_UserConfigure.IsLink = true;
             this.btn_UserConfigure.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_UserConfigure.Name = "btn_UserConfigure";
-            this.btn_UserConfigure.Size = new System.Drawing.Size(74, 22);
+            this.btn_UserConfigure.Size = new System.Drawing.Size(74, 26);
             this.btn_UserConfigure.Text = "用户配置";
             this.btn_UserConfigure.Click += new System.EventHandler(this.btn_Configure_Click);
             // 
@@ -559,7 +582,7 @@ namespace MRS.Views.View
             this.btn_Search.IsLink = true;
             this.btn_Search.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(42, 22);
+            this.btn_Search.Size = new System.Drawing.Size(42, 26);
             this.btn_Search.Text = "查找";
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
@@ -572,7 +595,7 @@ namespace MRS.Views.View
             this.btn_History.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_History.LinkColor = System.Drawing.Color.Red;
             this.btn_History.Name = "btn_History";
-            this.btn_History.Size = new System.Drawing.Size(74, 22);
+            this.btn_History.Size = new System.Drawing.Size(74, 26);
             this.btn_History.Text = "历史病历";
             this.btn_History.Click += new System.EventHandler(this.btn_History_Click);
             // 
@@ -582,7 +605,7 @@ namespace MRS.Views.View
             this.btn_SystemConfigure.IsLink = true;
             this.btn_SystemConfigure.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_SystemConfigure.Name = "btn_SystemConfigure";
-            this.btn_SystemConfigure.Size = new System.Drawing.Size(74, 22);
+            this.btn_SystemConfigure.Size = new System.Drawing.Size(74, 26);
             this.btn_SystemConfigure.Text = "系统配置";
             this.btn_SystemConfigure.Click += new System.EventHandler(this.btn_SystemConfigure_Click);
             // 
@@ -695,8 +718,8 @@ namespace MRS.Views.View
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "序号";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1044,8 +1067,8 @@ namespace MRS.Views.View
             // 
             // col_Complated_No
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_Complated_No.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.col_Complated_No.DefaultCellStyle = dataGridViewCellStyle2;
             this.col_Complated_No.HeaderText = "序号";
             this.col_Complated_No.Name = "col_Complated_No";
             this.col_Complated_No.ReadOnly = true;
@@ -1151,8 +1174,8 @@ namespace MRS.Views.View
             this.btn_Italic,
             this.btn_Bold,
             this.btn_Font,
-            this.toolStripComboBox1,
-            this.toolStripComboBox2});
+            this.btn_FontName,
+            this.btn_FontSize});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(909, 25);
@@ -1163,13 +1186,13 @@ namespace MRS.Views.View
             // 
             this.toolStripLabel1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(100, 26);
+            this.toolStripLabel1.Size = new System.Drawing.Size(100, 22);
             this.toolStripLabel1.Text = "3、编辑病例";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_FileOpen
             // 
@@ -1188,7 +1211,7 @@ namespace MRS.Views.View
             this.btn_FileSave.Image = ((System.Drawing.Image)(resources.GetObject("btn_FileSave.Image")));
             this.btn_FileSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_FileSave.Name = "btn_FileSave";
-            this.btn_FileSave.Size = new System.Drawing.Size(23, 26);
+            this.btn_FileSave.Size = new System.Drawing.Size(23, 22);
             this.btn_FileSave.Text = "保存";
             // 
             // btn_Cut
@@ -1198,7 +1221,7 @@ namespace MRS.Views.View
             this.btn_Cut.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cut.Image")));
             this.btn_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Cut.Name = "btn_Cut";
-            this.btn_Cut.Size = new System.Drawing.Size(23, 26);
+            this.btn_Cut.Size = new System.Drawing.Size(23, 22);
             this.btn_Cut.Text = "剪切";
             // 
             // btn_Copy
@@ -1208,7 +1231,7 @@ namespace MRS.Views.View
             this.btn_Copy.Image = ((System.Drawing.Image)(resources.GetObject("btn_Copy.Image")));
             this.btn_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Copy.Name = "btn_Copy";
-            this.btn_Copy.Size = new System.Drawing.Size(23, 26);
+            this.btn_Copy.Size = new System.Drawing.Size(23, 22);
             this.btn_Copy.Text = "复制";
             // 
             // btn_Paste
@@ -1218,13 +1241,13 @@ namespace MRS.Views.View
             this.btn_Paste.Image = ((System.Drawing.Image)(resources.GetObject("btn_Paste.Image")));
             this.btn_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Paste.Name = "btn_Paste";
-            this.btn_Paste.Size = new System.Drawing.Size(23, 26);
+            this.btn_Paste.Size = new System.Drawing.Size(23, 22);
             this.btn_Paste.Text = "粘贴";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 29);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_Redo
             // 
@@ -1233,7 +1256,7 @@ namespace MRS.Views.View
             this.btn_Redo.Image = ((System.Drawing.Image)(resources.GetObject("btn_Redo.Image")));
             this.btn_Redo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Redo.Name = "btn_Redo";
-            this.btn_Redo.Size = new System.Drawing.Size(23, 26);
+            this.btn_Redo.Size = new System.Drawing.Size(23, 22);
             this.btn_Redo.Text = "重做";
             // 
             // btn_Undo
@@ -1243,7 +1266,7 @@ namespace MRS.Views.View
             this.btn_Undo.Image = ((System.Drawing.Image)(resources.GetObject("btn_Undo.Image")));
             this.btn_Undo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Undo.Name = "btn_Undo";
-            this.btn_Undo.Size = new System.Drawing.Size(23, 26);
+            this.btn_Undo.Size = new System.Drawing.Size(23, 22);
             this.btn_Undo.Text = "撤销";
             // 
             // btn_Print
@@ -1253,7 +1276,7 @@ namespace MRS.Views.View
             this.btn_Print.Image = ((System.Drawing.Image)(resources.GetObject("btn_Print.Image")));
             this.btn_Print.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Print.Name = "btn_Print";
-            this.btn_Print.Size = new System.Drawing.Size(23, 26);
+            this.btn_Print.Size = new System.Drawing.Size(23, 22);
             this.btn_Print.Text = "打印";
             // 
             // btn_PrintView
@@ -1263,13 +1286,13 @@ namespace MRS.Views.View
             this.btn_PrintView.Image = ((System.Drawing.Image)(resources.GetObject("btn_PrintView.Image")));
             this.btn_PrintView.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_PrintView.Name = "btn_PrintView";
-            this.btn_PrintView.Size = new System.Drawing.Size(23, 26);
+            this.btn_PrintView.Size = new System.Drawing.Size(23, 22);
             this.btn_PrintView.Text = "打印预览";
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 29);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_AlignCenter
             // 
@@ -1278,7 +1301,7 @@ namespace MRS.Views.View
             this.btn_AlignCenter.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignCenter.Image")));
             this.btn_AlignCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_AlignCenter.Name = "btn_AlignCenter";
-            this.btn_AlignCenter.Size = new System.Drawing.Size(23, 26);
+            this.btn_AlignCenter.Size = new System.Drawing.Size(23, 22);
             this.btn_AlignCenter.Text = "居中";
             // 
             // btn_AlignRight
@@ -1288,7 +1311,7 @@ namespace MRS.Views.View
             this.btn_AlignRight.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignRight.Image")));
             this.btn_AlignRight.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_AlignRight.Name = "btn_AlignRight";
-            this.btn_AlignRight.Size = new System.Drawing.Size(23, 26);
+            this.btn_AlignRight.Size = new System.Drawing.Size(23, 22);
             this.btn_AlignRight.Text = "右对齐";
             // 
             // btn_AlignLeft
@@ -1298,7 +1321,7 @@ namespace MRS.Views.View
             this.btn_AlignLeft.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignLeft.Image")));
             this.btn_AlignLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_AlignLeft.Name = "btn_AlignLeft";
-            this.btn_AlignLeft.Size = new System.Drawing.Size(23, 26);
+            this.btn_AlignLeft.Size = new System.Drawing.Size(23, 22);
             this.btn_AlignLeft.Text = "左对齐";
             // 
             // AlignJustify
@@ -1308,13 +1331,13 @@ namespace MRS.Views.View
             this.AlignJustify.Image = ((System.Drawing.Image)(resources.GetObject("AlignJustify.Image")));
             this.AlignJustify.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AlignJustify.Name = "AlignJustify";
-            this.AlignJustify.Size = new System.Drawing.Size(23, 26);
+            this.AlignJustify.Size = new System.Drawing.Size(23, 22);
             this.AlignJustify.Text = "toolStripButton3";
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 29);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_NumberList
             // 
@@ -1323,7 +1346,7 @@ namespace MRS.Views.View
             this.btn_NumberList.Image = ((System.Drawing.Image)(resources.GetObject("btn_NumberList.Image")));
             this.btn_NumberList.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_NumberList.Name = "btn_NumberList";
-            this.btn_NumberList.Size = new System.Drawing.Size(23, 26);
+            this.btn_NumberList.Size = new System.Drawing.Size(23, 22);
             this.btn_NumberList.Text = "toolStripButton1";
             // 
             // btn_Superscript
@@ -1333,7 +1356,7 @@ namespace MRS.Views.View
             this.btn_Superscript.Image = ((System.Drawing.Image)(resources.GetObject("btn_Superscript.Image")));
             this.btn_Superscript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Superscript.Name = "btn_Superscript";
-            this.btn_Superscript.Size = new System.Drawing.Size(23, 26);
+            this.btn_Superscript.Size = new System.Drawing.Size(23, 22);
             this.btn_Superscript.Text = "toolStripButton1";
             // 
             // btn_Subscript
@@ -1343,13 +1366,13 @@ namespace MRS.Views.View
             this.btn_Subscript.Image = ((System.Drawing.Image)(resources.GetObject("btn_Subscript.Image")));
             this.btn_Subscript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Subscript.Name = "btn_Subscript";
-            this.btn_Subscript.Size = new System.Drawing.Size(23, 26);
+            this.btn_Subscript.Size = new System.Drawing.Size(23, 22);
             this.btn_Subscript.Text = "toolStripButton1";
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 29);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_BackColor
             // 
@@ -1358,7 +1381,7 @@ namespace MRS.Views.View
             this.btn_BackColor.Image = ((System.Drawing.Image)(resources.GetObject("btn_BackColor.Image")));
             this.btn_BackColor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_BackColor.Name = "btn_BackColor";
-            this.btn_BackColor.Size = new System.Drawing.Size(23, 26);
+            this.btn_BackColor.Size = new System.Drawing.Size(23, 22);
             this.btn_BackColor.Text = "背景颜色";
             // 
             // btn_FontColor
@@ -1368,7 +1391,7 @@ namespace MRS.Views.View
             this.btn_FontColor.Image = ((System.Drawing.Image)(resources.GetObject("btn_FontColor.Image")));
             this.btn_FontColor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_FontColor.Name = "btn_FontColor";
-            this.btn_FontColor.Size = new System.Drawing.Size(23, 26);
+            this.btn_FontColor.Size = new System.Drawing.Size(23, 22);
             this.btn_FontColor.Text = "字体颜色";
             // 
             // btn_Underline
@@ -1378,7 +1401,7 @@ namespace MRS.Views.View
             this.btn_Underline.Image = ((System.Drawing.Image)(resources.GetObject("btn_Underline.Image")));
             this.btn_Underline.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Underline.Name = "btn_Underline";
-            this.btn_Underline.Size = new System.Drawing.Size(23, 26);
+            this.btn_Underline.Size = new System.Drawing.Size(23, 22);
             this.btn_Underline.Text = "下划线";
             // 
             // btn_Italic
@@ -1388,7 +1411,7 @@ namespace MRS.Views.View
             this.btn_Italic.Image = ((System.Drawing.Image)(resources.GetObject("btn_Italic.Image")));
             this.btn_Italic.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Italic.Name = "btn_Italic";
-            this.btn_Italic.Size = new System.Drawing.Size(23, 26);
+            this.btn_Italic.Size = new System.Drawing.Size(23, 22);
             this.btn_Italic.Text = "斜体";
             // 
             // btn_Bold
@@ -1398,7 +1421,7 @@ namespace MRS.Views.View
             this.btn_Bold.Image = ((System.Drawing.Image)(resources.GetObject("btn_Bold.Image")));
             this.btn_Bold.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Bold.Name = "btn_Bold";
-            this.btn_Bold.Size = new System.Drawing.Size(23, 26);
+            this.btn_Bold.Size = new System.Drawing.Size(23, 22);
             this.btn_Bold.Text = "加粗";
             // 
             // btn_Font
@@ -1408,19 +1431,20 @@ namespace MRS.Views.View
             this.btn_Font.Image = ((System.Drawing.Image)(resources.GetObject("btn_Font.Image")));
             this.btn_Font.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Font.Name = "btn_Font";
-            this.btn_Font.Size = new System.Drawing.Size(23, 26);
+            this.btn_Font.Size = new System.Drawing.Size(23, 22);
             this.btn_Font.Text = "字体";
             // 
-            // toolStripComboBox1
+            // btn_FontName
             // 
-            this.writerCommandControler1.SetCommandName(this.toolStripComboBox1, "FontName");
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            this.writerCommandControler1.SetCommandName(this.btn_FontName, "FontName");
+            this.btn_FontName.Name = "btn_FontName";
+            this.btn_FontName.Size = new System.Drawing.Size(121, 25);
             // 
-            // toolStripComboBox2
+            // btn_FontSize
             // 
-            this.toolStripComboBox2.Name = "toolStripComboBox2";
-            this.toolStripComboBox2.Size = new System.Drawing.Size(121, 25);
+            this.writerCommandControler1.SetCommandName(this.btn_FontSize, "FontSize");
+            this.btn_FontSize.Name = "btn_FontSize";
+            this.btn_FontSize.Size = new System.Drawing.Size(121, 25);
             // 
             // ElecCaseHistoryView
             // 
@@ -1585,8 +1609,10 @@ namespace MRS.Views.View
         private System.Windows.Forms.ToolStripButton btn_Italic;
         private System.Windows.Forms.ToolStripButton btn_Bold;
         private System.Windows.Forms.ToolStripButton btn_Font;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox2;
+        private System.Windows.Forms.ToolStripComboBox btn_FontName;
+        private System.Windows.Forms.ToolStripComboBox btn_FontSize;
+        private System.Windows.Forms.ToolStripDropDownButton btn_data;
+        private System.Windows.Forms.ToolStripMenuItem btn_Temperature;
 	}
 }
 
