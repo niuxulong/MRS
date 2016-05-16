@@ -56,8 +56,14 @@ namespace MRS.Presenters.Presenter
                     ConnectionString = SqlHelper.GenerateConnString(args.DatabaseConfig.Server, args.DatabaseConfig.Database, args.DatabaseConfig.User, args.DatabaseConfig.Password)
 
                 };
+
                 Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                config.ConnectionStrings.ConnectionStrings.Add(settings);  
+                if (config.ConnectionStrings.ConnectionStrings.IndexOf(settings)>0)
+                {
+                    config.ConnectionStrings.ConnectionStrings.Remove(settings);
+                    config.ConnectionStrings.ConnectionStrings.Add(settings);
+                }
+
                 config.Save(ConfigurationSaveMode.Modified);  
                 ConfigurationManager.RefreshSection("connectionStrings");
 

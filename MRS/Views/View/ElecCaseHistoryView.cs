@@ -275,5 +275,10 @@ namespace MRS.Views.View
             MessageBox.Show("档案归档");
         }
 
+        private void writerControl1_DocumentContentChanged(object eventSender, DCSoft.Writer.WriterEventArgs args)
+        {
+
+        }
+
     }
 }

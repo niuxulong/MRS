@@ -30,8 +30,9 @@ namespace MRS.Views.View
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElecCaseHistoryView));
             this.pl_info = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_User = new System.Windows.Forms.TextBox();
@@ -116,6 +117,38 @@ namespace MRS.Views.View
             this.MenuItem_CheckRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_RemoveCheck = new System.Windows.Forms.ToolStripMenuItem();
             this.writerControl1 = new DCSoft.Writer.Controls.WriterControl();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_FileOpen = new System.Windows.Forms.ToolStripButton();
+            this.btn_FileSave = new System.Windows.Forms.ToolStripButton();
+            this.btn_Cut = new System.Windows.Forms.ToolStripButton();
+            this.btn_Copy = new System.Windows.Forms.ToolStripButton();
+            this.btn_Paste = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_Redo = new System.Windows.Forms.ToolStripButton();
+            this.btn_Undo = new System.Windows.Forms.ToolStripButton();
+            this.btn_Print = new System.Windows.Forms.ToolStripButton();
+            this.btn_PrintView = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_AlignCenter = new System.Windows.Forms.ToolStripButton();
+            this.btn_AlignRight = new System.Windows.Forms.ToolStripButton();
+            this.btn_AlignLeft = new System.Windows.Forms.ToolStripButton();
+            this.AlignJustify = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_NumberList = new System.Windows.Forms.ToolStripButton();
+            this.btn_Superscript = new System.Windows.Forms.ToolStripButton();
+            this.btn_Subscript = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_BackColor = new System.Windows.Forms.ToolStripButton();
+            this.btn_FontColor = new System.Windows.Forms.ToolStripButton();
+            this.btn_Underline = new System.Windows.Forms.ToolStripButton();
+            this.btn_Italic = new System.Windows.Forms.ToolStripButton();
+            this.btn_Bold = new System.Windows.Forms.ToolStripButton();
+            this.btn_Font = new System.Windows.Forms.ToolStripButton();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
+            this.writerCommandControler1 = new DCSoft.Writer.Commands.WriterCommandControler(this.components);
             this.pl_info.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pl_Menu.SuspendLayout();
@@ -139,6 +172,8 @@ namespace MRS.Views.View
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FinishedCaseHistory)).BeginInit();
             this.ContextMenuSrip.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.writerCommandControler1)).BeginInit();
             this.SuspendLayout();
             // 
             // pl_info
@@ -147,7 +182,7 @@ namespace MRS.Views.View
             this.pl_info.Dock = System.Windows.Forms.DockStyle.Top;
             this.pl_info.Location = new System.Drawing.Point(0, 0);
             this.pl_info.Name = "pl_info";
-            this.pl_info.Size = new System.Drawing.Size(1383, 33);
+            this.pl_info.Size = new System.Drawing.Size(1510, 33);
             this.pl_info.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -185,14 +220,14 @@ namespace MRS.Views.View
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1383, 33);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1510, 33);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // txt_User
             // 
             this.txt_User.BackColor = System.Drawing.Color.White;
             this.txt_User.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_User.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_User.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_User.ForeColor = System.Drawing.Color.Silver;
             this.txt_User.Location = new System.Drawing.Point(777, 8);
             this.txt_User.Name = "txt_User";
@@ -205,7 +240,7 @@ namespace MRS.Views.View
             // 
             this.txt_hospitalNo.BackColor = System.Drawing.Color.White;
             this.txt_hospitalNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_hospitalNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_hospitalNo.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_hospitalNo.ForeColor = System.Drawing.Color.Silver;
             this.txt_hospitalNo.Location = new System.Drawing.Point(573, 8);
             this.txt_hospitalNo.Name = "txt_hospitalNo";
@@ -218,7 +253,7 @@ namespace MRS.Views.View
             // 
             this.txt_BedNo.BackColor = System.Drawing.Color.White;
             this.txt_BedNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_BedNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BedNo.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_BedNo.ForeColor = System.Drawing.Color.Silver;
             this.txt_BedNo.Location = new System.Drawing.Point(390, 8);
             this.txt_BedNo.Name = "txt_BedNo";
@@ -231,7 +266,7 @@ namespace MRS.Views.View
             // 
             this.txt_Subject.BackColor = System.Drawing.Color.White;
             this.txt_Subject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_Subject.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Subject.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Subject.ForeColor = System.Drawing.Color.Silver;
             this.txt_Subject.Location = new System.Drawing.Point(228, 8);
             this.txt_Subject.Name = "txt_Subject";
@@ -244,7 +279,7 @@ namespace MRS.Views.View
             // 
             this.txt_Name.BackColor = System.Drawing.Color.White;
             this.txt_Name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_Name.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Name.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Name.ForeColor = System.Drawing.Color.Silver;
             this.txt_Name.Location = new System.Drawing.Point(68, 8);
             this.txt_Name.Name = "txt_Name";
@@ -256,7 +291,7 @@ namespace MRS.Views.View
             // lb_SystemTime
             // 
             this.lb_SystemTime.AutoSize = true;
-            this.lb_SystemTime.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_SystemTime.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_SystemTime.Location = new System.Drawing.Point(1048, 10);
             this.lb_SystemTime.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_SystemTime.Name = "lb_SystemTime";
@@ -268,7 +303,7 @@ namespace MRS.Views.View
             // 
             this.lb_Name.AutoSize = true;
             this.lb_Name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_Name.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Name.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Name.Location = new System.Drawing.Point(3, 10);
             this.lb_Name.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_Name.Name = "lb_Name";
@@ -280,7 +315,7 @@ namespace MRS.Views.View
             // 
             this.lb_Department.AutoSize = true;
             this.lb_Department.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_Department.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Department.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Department.Location = new System.Drawing.Point(160, 10);
             this.lb_Department.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_Department.Name = "lb_Department";
@@ -292,7 +327,7 @@ namespace MRS.Views.View
             // 
             this.lb_BedNo.AutoSize = true;
             this.lb_BedNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_BedNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_BedNo.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_BedNo.Location = new System.Drawing.Point(321, 10);
             this.lb_BedNo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_BedNo.Name = "lb_BedNo";
@@ -304,7 +339,7 @@ namespace MRS.Views.View
             // 
             this.lb_HospitalizedNo.AutoSize = true;
             this.lb_HospitalizedNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_HospitalizedNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_HospitalizedNo.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_HospitalizedNo.Location = new System.Drawing.Point(492, 10);
             this.lb_HospitalizedNo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_HospitalizedNo.Name = "lb_HospitalizedNo";
@@ -316,7 +351,7 @@ namespace MRS.Views.View
             // 
             this.lb_User.AutoSize = true;
             this.lb_User.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_User.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_User.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_User.Location = new System.Drawing.Point(696, 10);
             this.lb_User.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.lb_User.Name = "lb_User";
@@ -328,7 +363,7 @@ namespace MRS.Views.View
             // 
             this.label99.AutoSize = true;
             this.label99.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label99.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label99.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label99.Location = new System.Drawing.Point(919, 10);
             this.label99.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label99.Name = "label99";
@@ -343,7 +378,7 @@ namespace MRS.Views.View
             this.pl_Menu.Location = new System.Drawing.Point(0, 33);
             this.pl_Menu.Name = "pl_Menu";
             this.pl_Menu.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.pl_Menu.Size = new System.Drawing.Size(1383, 28);
+            this.pl_Menu.Size = new System.Drawing.Size(1510, 28);
             this.pl_Menu.TabIndex = 1;
             // 
             // toolStrip1
@@ -372,13 +407,13 @@ namespace MRS.Views.View
             this.btn_SystemConfigure});
             this.toolStrip1.Location = new System.Drawing.Point(0, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1383, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1510, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btn_LoadTemplate
             // 
-            this.btn_LoadTemplate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LoadTemplate.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_LoadTemplate.IsLink = true;
             this.btn_LoadTemplate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_LoadTemplate.Name = "btn_LoadTemplate";
@@ -388,7 +423,7 @@ namespace MRS.Views.View
             // 
             // btn_SaveTemplate
             // 
-            this.btn_SaveTemplate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveTemplate.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SaveTemplate.IsLink = true;
             this.btn_SaveTemplate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_SaveTemplate.Name = "btn_SaveTemplate";
@@ -398,7 +433,7 @@ namespace MRS.Views.View
             // 
             // btn_ManageTemplate
             // 
-            this.btn_ManageTemplate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ManageTemplate.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ManageTemplate.IsLink = true;
             this.btn_ManageTemplate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_ManageTemplate.Name = "btn_ManageTemplate";
@@ -418,7 +453,7 @@ namespace MRS.Views.View
             // 
             // btn_SaveRecord
             // 
-            this.btn_SaveRecord.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveRecord.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SaveRecord.IsLink = true;
             this.btn_SaveRecord.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_SaveRecord.Name = "btn_SaveRecord";
@@ -428,7 +463,7 @@ namespace MRS.Views.View
             // 
             // btn_ManageData
             // 
-            this.btn_ManageData.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ManageData.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ManageData.IsLink = true;
             this.btn_ManageData.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_ManageData.Name = "btn_ManageData";
@@ -448,7 +483,7 @@ namespace MRS.Views.View
             // 
             // btn_Eval
             // 
-            this.btn_Eval.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Eval.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Eval.IsLink = true;
             this.btn_Eval.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_Eval.Name = "btn_Eval";
@@ -458,7 +493,7 @@ namespace MRS.Views.View
             // 
             // btn_Validate
             // 
-            this.btn_Validate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Validate.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Validate.IsLink = true;
             this.btn_Validate.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_Validate.Name = "btn_Validate";
@@ -478,7 +513,7 @@ namespace MRS.Views.View
             // 
             // btn_ElecSignature
             // 
-            this.btn_ElecSignature.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ElecSignature.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ElecSignature.IsLink = true;
             this.btn_ElecSignature.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_ElecSignature.Name = "btn_ElecSignature";
@@ -488,7 +523,7 @@ namespace MRS.Views.View
             // 
             // btn_Finalize
             // 
-            this.btn_Finalize.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Finalize.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Finalize.IsLink = true;
             this.btn_Finalize.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_Finalize.Name = "btn_Finalize";
@@ -508,7 +543,7 @@ namespace MRS.Views.View
             // 
             // btn_UserConfigure
             // 
-            this.btn_UserConfigure.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_UserConfigure.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_UserConfigure.IsLink = true;
             this.btn_UserConfigure.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_UserConfigure.Name = "btn_UserConfigure";
@@ -519,7 +554,7 @@ namespace MRS.Views.View
             // btn_Search
             // 
             this.btn_Search.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_Search.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Search.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Search.ForeColor = System.Drawing.Color.Blue;
             this.btn_Search.IsLink = true;
             this.btn_Search.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
@@ -531,7 +566,7 @@ namespace MRS.Views.View
             // btn_History
             // 
             this.btn_History.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_History.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_History.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_History.ForeColor = System.Drawing.Color.Red;
             this.btn_History.IsLink = true;
             this.btn_History.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
@@ -543,7 +578,7 @@ namespace MRS.Views.View
             // 
             // btn_SystemConfigure
             // 
-            this.btn_SystemConfigure.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SystemConfigure.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SystemConfigure.IsLink = true;
             this.btn_SystemConfigure.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btn_SystemConfigure.Name = "btn_SystemConfigure";
@@ -558,7 +593,7 @@ namespace MRS.Views.View
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 61);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1383, 644);
+            this.panel1.Size = new System.Drawing.Size(1510, 644);
             this.panel1.TabIndex = 2;
             // 
             // splitContainer1
@@ -575,18 +610,18 @@ namespace MRS.Views.View
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1379, 640);
-            this.splitContainer1.SplitterDistance = 233;
+            this.splitContainer1.Size = new System.Drawing.Size(1506, 640);
+            this.splitContainer1.SplitterDistance = 151;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tv_TemplateCatalog);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(233, 635);
+            this.groupBox1.Size = new System.Drawing.Size(151, 635);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1、病历目录";
@@ -594,10 +629,10 @@ namespace MRS.Views.View
             // tv_TemplateCatalog
             // 
             this.tv_TemplateCatalog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_TemplateCatalog.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tv_TemplateCatalog.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tv_TemplateCatalog.Location = new System.Drawing.Point(3, 25);
             this.tv_TemplateCatalog.Name = "tv_TemplateCatalog";
-            this.tv_TemplateCatalog.Size = new System.Drawing.Size(227, 607);
+            this.tv_TemplateCatalog.Size = new System.Drawing.Size(145, 607);
             this.tv_TemplateCatalog.TabIndex = 0;
             // 
             // splitContainer2
@@ -614,7 +649,8 @@ namespace MRS.Views.View
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.writerControl1);
-            this.splitContainer2.Size = new System.Drawing.Size(1142, 640);
+            this.splitContainer2.Panel2.Controls.Add(this.toolStrip2);
+            this.splitContainer2.Size = new System.Drawing.Size(1351, 640);
             this.splitContainer2.SplitterDistance = 438;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -625,7 +661,7 @@ namespace MRS.Views.View
             this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(438, 635);
@@ -659,8 +695,8 @@ namespace MRS.Views.View
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "序号";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -684,7 +720,7 @@ namespace MRS.Views.View
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
             this.label11.Location = new System.Drawing.Point(21, 9);
             this.label11.Name = "label11";
@@ -729,7 +765,7 @@ namespace MRS.Views.View
             this.tableLayoutPanel2.Controls.Add(this.label10, 2, 4);
             this.tableLayoutPanel2.Controls.Add(this.txt_CaseId, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanel2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
@@ -745,7 +781,7 @@ namespace MRS.Views.View
             // 
             this.textBox16.BackColor = System.Drawing.Color.White;
             this.textBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox16.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox16.ForeColor = System.Drawing.Color.Silver;
             this.textBox16.Location = new System.Drawing.Point(268, 115);
             this.textBox16.Name = "textBox16";
@@ -758,7 +794,7 @@ namespace MRS.Views.View
             // 
             this.textBox15.BackColor = System.Drawing.Color.White;
             this.textBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox15.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox15.ForeColor = System.Drawing.Color.Silver;
             this.textBox15.Location = new System.Drawing.Point(67, 115);
             this.textBox15.Name = "textBox15";
@@ -771,7 +807,7 @@ namespace MRS.Views.View
             // 
             this.textBox14.BackColor = System.Drawing.Color.White;
             this.textBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox14.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox14.ForeColor = System.Drawing.Color.Silver;
             this.textBox14.Location = new System.Drawing.Point(268, 87);
             this.textBox14.Name = "textBox14";
@@ -783,7 +819,7 @@ namespace MRS.Views.View
             // 
             this.textBox13.BackColor = System.Drawing.Color.White;
             this.textBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox13.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox13.ForeColor = System.Drawing.Color.Silver;
             this.textBox13.Location = new System.Drawing.Point(67, 87);
             this.textBox13.Name = "textBox13";
@@ -796,7 +832,7 @@ namespace MRS.Views.View
             // 
             this.textBox12.BackColor = System.Drawing.Color.White;
             this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.ForeColor = System.Drawing.Color.Silver;
             this.textBox12.Location = new System.Drawing.Point(268, 59);
             this.textBox12.Name = "textBox12";
@@ -809,7 +845,7 @@ namespace MRS.Views.View
             // 
             this.textBox11.BackColor = System.Drawing.Color.White;
             this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.ForeColor = System.Drawing.Color.Silver;
             this.textBox11.Location = new System.Drawing.Point(67, 59);
             this.textBox11.Name = "textBox11";
@@ -822,7 +858,7 @@ namespace MRS.Views.View
             // 
             this.textBox10.BackColor = System.Drawing.Color.White;
             this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox10.ForeColor = System.Drawing.Color.Silver;
             this.textBox10.Location = new System.Drawing.Point(268, 31);
             this.textBox10.Name = "textBox10";
@@ -835,7 +871,7 @@ namespace MRS.Views.View
             // 
             this.txt_Creator.BackColor = System.Drawing.Color.White;
             this.txt_Creator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_Creator.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Creator.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Creator.ForeColor = System.Drawing.Color.Silver;
             this.txt_Creator.Location = new System.Drawing.Point(67, 31);
             this.txt_Creator.Name = "txt_Creator";
@@ -848,7 +884,7 @@ namespace MRS.Views.View
             // 
             this.txt_CaseName.BackColor = System.Drawing.Color.White;
             this.txt_CaseName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_CaseName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_CaseName.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CaseName.ForeColor = System.Drawing.Color.Silver;
             this.txt_CaseName.Location = new System.Drawing.Point(268, 3);
             this.txt_CaseName.Name = "txt_CaseName";
@@ -860,7 +896,7 @@ namespace MRS.Views.View
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label1.Name = "label1";
@@ -871,7 +907,7 @@ namespace MRS.Views.View
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(186, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label2.Name = "label2";
@@ -882,7 +918,7 @@ namespace MRS.Views.View
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 33);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label3.Name = "label3";
@@ -893,7 +929,7 @@ namespace MRS.Views.View
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(186, 33);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label4.Name = "label4";
@@ -904,7 +940,7 @@ namespace MRS.Views.View
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 61);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label5.Name = "label5";
@@ -915,7 +951,7 @@ namespace MRS.Views.View
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(186, 61);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label6.Name = "label6";
@@ -936,7 +972,7 @@ namespace MRS.Views.View
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(186, 89);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label8.Name = "label8";
@@ -947,7 +983,7 @@ namespace MRS.Views.View
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 117);
             this.label9.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label9.Name = "label9";
@@ -958,7 +994,7 @@ namespace MRS.Views.View
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(186, 117);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label10.Name = "label10";
@@ -970,7 +1006,7 @@ namespace MRS.Views.View
             // 
             this.txt_CaseId.BackColor = System.Drawing.Color.White;
             this.txt_CaseId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_CaseId.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_CaseId.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CaseId.ForeColor = System.Drawing.Color.Silver;
             this.txt_CaseId.Location = new System.Drawing.Point(67, 3);
             this.txt_CaseId.Name = "txt_CaseId";
@@ -1008,8 +1044,8 @@ namespace MRS.Views.View
             // 
             // col_Complated_No
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_Complated_No.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.col_Complated_No.DefaultCellStyle = dataGridViewCellStyle4;
             this.col_Complated_No.HeaderText = "序号";
             this.col_Complated_No.Name = "col_Complated_No";
             this.col_Complated_No.ReadOnly = true;
@@ -1076,17 +1112,321 @@ namespace MRS.Views.View
             // 
             // writerControl1
             // 
+            this.writerControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.writerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.writerControl1.Location = new System.Drawing.Point(0, 0);
+            this.writerControl1.Location = new System.Drawing.Point(0, 25);
             this.writerControl1.Name = "writerControl1";
-            this.writerControl1.Size = new System.Drawing.Size(700, 640);
+            this.writerControl1.Size = new System.Drawing.Size(909, 615);
             this.writerControl1.TabIndex = 0;
+            this.writerControl1.DocumentContentChanged += new DCSoft.Writer.WriterEventHandler(this.writerControl1_DocumentContentChanged);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripSeparator1,
+            this.btn_FileOpen,
+            this.btn_FileSave,
+            this.btn_Cut,
+            this.btn_Copy,
+            this.btn_Paste,
+            this.toolStripSeparator2,
+            this.btn_Redo,
+            this.btn_Undo,
+            this.btn_Print,
+            this.btn_PrintView,
+            this.toolStripSeparator11,
+            this.btn_AlignCenter,
+            this.btn_AlignRight,
+            this.btn_AlignLeft,
+            this.AlignJustify,
+            this.toolStripSeparator12,
+            this.btn_NumberList,
+            this.btn_Superscript,
+            this.btn_Subscript,
+            this.toolStripSeparator13,
+            this.btn_BackColor,
+            this.btn_FontColor,
+            this.btn_Underline,
+            this.btn_Italic,
+            this.btn_Bold,
+            this.btn_Font,
+            this.toolStripComboBox1,
+            this.toolStripComboBox2});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(909, 25);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(100, 26);
+            this.toolStripLabel1.Text = "3、编辑病例";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
+            // 
+            // btn_FileOpen
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_FileOpen, "FileOpen");
+            this.btn_FileOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_FileOpen.Image = ((System.Drawing.Image)(resources.GetObject("btn_FileOpen.Image")));
+            this.btn_FileOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_FileOpen.Name = "btn_FileOpen";
+            this.btn_FileOpen.Size = new System.Drawing.Size(23, 22);
+            this.btn_FileOpen.Text = "打开";
+            // 
+            // btn_FileSave
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_FileSave, "FileSave");
+            this.btn_FileSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_FileSave.Image = ((System.Drawing.Image)(resources.GetObject("btn_FileSave.Image")));
+            this.btn_FileSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_FileSave.Name = "btn_FileSave";
+            this.btn_FileSave.Size = new System.Drawing.Size(23, 26);
+            this.btn_FileSave.Text = "保存";
+            // 
+            // btn_Cut
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Cut, "Cut");
+            this.btn_Cut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Cut.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cut.Image")));
+            this.btn_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Cut.Name = "btn_Cut";
+            this.btn_Cut.Size = new System.Drawing.Size(23, 26);
+            this.btn_Cut.Text = "剪切";
+            // 
+            // btn_Copy
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Copy, "Copy");
+            this.btn_Copy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Copy.Image = ((System.Drawing.Image)(resources.GetObject("btn_Copy.Image")));
+            this.btn_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Copy.Name = "btn_Copy";
+            this.btn_Copy.Size = new System.Drawing.Size(23, 26);
+            this.btn_Copy.Text = "复制";
+            // 
+            // btn_Paste
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Paste, "Paste");
+            this.btn_Paste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Paste.Image = ((System.Drawing.Image)(resources.GetObject("btn_Paste.Image")));
+            this.btn_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Paste.Name = "btn_Paste";
+            this.btn_Paste.Size = new System.Drawing.Size(23, 26);
+            this.btn_Paste.Text = "粘贴";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 29);
+            // 
+            // btn_Redo
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Redo, "Redo");
+            this.btn_Redo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Redo.Image = ((System.Drawing.Image)(resources.GetObject("btn_Redo.Image")));
+            this.btn_Redo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Redo.Name = "btn_Redo";
+            this.btn_Redo.Size = new System.Drawing.Size(23, 26);
+            this.btn_Redo.Text = "重做";
+            // 
+            // btn_Undo
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Undo, "Undo");
+            this.btn_Undo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Undo.Image = ((System.Drawing.Image)(resources.GetObject("btn_Undo.Image")));
+            this.btn_Undo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Undo.Name = "btn_Undo";
+            this.btn_Undo.Size = new System.Drawing.Size(23, 26);
+            this.btn_Undo.Text = "撤销";
+            // 
+            // btn_Print
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Print, "FileCleanPrint");
+            this.btn_Print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Print.Image = ((System.Drawing.Image)(resources.GetObject("btn_Print.Image")));
+            this.btn_Print.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Print.Name = "btn_Print";
+            this.btn_Print.Size = new System.Drawing.Size(23, 26);
+            this.btn_Print.Text = "打印";
+            // 
+            // btn_PrintView
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_PrintView, "FilePrintPreview");
+            this.btn_PrintView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_PrintView.Image = ((System.Drawing.Image)(resources.GetObject("btn_PrintView.Image")));
+            this.btn_PrintView.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_PrintView.Name = "btn_PrintView";
+            this.btn_PrintView.Size = new System.Drawing.Size(23, 26);
+            this.btn_PrintView.Text = "打印预览";
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 29);
+            // 
+            // btn_AlignCenter
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_AlignCenter, "AlignCenter");
+            this.btn_AlignCenter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_AlignCenter.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignCenter.Image")));
+            this.btn_AlignCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_AlignCenter.Name = "btn_AlignCenter";
+            this.btn_AlignCenter.Size = new System.Drawing.Size(23, 26);
+            this.btn_AlignCenter.Text = "居中";
+            // 
+            // btn_AlignRight
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_AlignRight, "AlignRight");
+            this.btn_AlignRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_AlignRight.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignRight.Image")));
+            this.btn_AlignRight.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_AlignRight.Name = "btn_AlignRight";
+            this.btn_AlignRight.Size = new System.Drawing.Size(23, 26);
+            this.btn_AlignRight.Text = "右对齐";
+            // 
+            // btn_AlignLeft
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_AlignLeft, "AlignLeft");
+            this.btn_AlignLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_AlignLeft.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignLeft.Image")));
+            this.btn_AlignLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_AlignLeft.Name = "btn_AlignLeft";
+            this.btn_AlignLeft.Size = new System.Drawing.Size(23, 26);
+            this.btn_AlignLeft.Text = "左对齐";
+            // 
+            // AlignJustify
+            // 
+            this.writerCommandControler1.SetCommandName(this.AlignJustify, "AlignJustify");
+            this.AlignJustify.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AlignJustify.Image = ((System.Drawing.Image)(resources.GetObject("AlignJustify.Image")));
+            this.AlignJustify.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AlignJustify.Name = "AlignJustify";
+            this.AlignJustify.Size = new System.Drawing.Size(23, 26);
+            this.AlignJustify.Text = "toolStripButton3";
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 29);
+            // 
+            // btn_NumberList
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_NumberList, "NumberedList");
+            this.btn_NumberList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_NumberList.Image = ((System.Drawing.Image)(resources.GetObject("btn_NumberList.Image")));
+            this.btn_NumberList.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_NumberList.Name = "btn_NumberList";
+            this.btn_NumberList.Size = new System.Drawing.Size(23, 26);
+            this.btn_NumberList.Text = "toolStripButton1";
+            // 
+            // btn_Superscript
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Superscript, "Superscript");
+            this.btn_Superscript.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Superscript.Image = ((System.Drawing.Image)(resources.GetObject("btn_Superscript.Image")));
+            this.btn_Superscript.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Superscript.Name = "btn_Superscript";
+            this.btn_Superscript.Size = new System.Drawing.Size(23, 26);
+            this.btn_Superscript.Text = "toolStripButton1";
+            // 
+            // btn_Subscript
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Subscript, "Subscript");
+            this.btn_Subscript.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Subscript.Image = ((System.Drawing.Image)(resources.GetObject("btn_Subscript.Image")));
+            this.btn_Subscript.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Subscript.Name = "btn_Subscript";
+            this.btn_Subscript.Size = new System.Drawing.Size(23, 26);
+            this.btn_Subscript.Text = "toolStripButton1";
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 29);
+            // 
+            // btn_BackColor
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_BackColor, "BackColor");
+            this.btn_BackColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_BackColor.Image = ((System.Drawing.Image)(resources.GetObject("btn_BackColor.Image")));
+            this.btn_BackColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_BackColor.Name = "btn_BackColor";
+            this.btn_BackColor.Size = new System.Drawing.Size(23, 26);
+            this.btn_BackColor.Text = "背景颜色";
+            // 
+            // btn_FontColor
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_FontColor, "Color");
+            this.btn_FontColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_FontColor.Image = ((System.Drawing.Image)(resources.GetObject("btn_FontColor.Image")));
+            this.btn_FontColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_FontColor.Name = "btn_FontColor";
+            this.btn_FontColor.Size = new System.Drawing.Size(23, 26);
+            this.btn_FontColor.Text = "字体颜色";
+            // 
+            // btn_Underline
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Underline, "Underline");
+            this.btn_Underline.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Underline.Image = ((System.Drawing.Image)(resources.GetObject("btn_Underline.Image")));
+            this.btn_Underline.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Underline.Name = "btn_Underline";
+            this.btn_Underline.Size = new System.Drawing.Size(23, 26);
+            this.btn_Underline.Text = "下划线";
+            // 
+            // btn_Italic
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Italic, "Italic");
+            this.btn_Italic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Italic.Image = ((System.Drawing.Image)(resources.GetObject("btn_Italic.Image")));
+            this.btn_Italic.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Italic.Name = "btn_Italic";
+            this.btn_Italic.Size = new System.Drawing.Size(23, 26);
+            this.btn_Italic.Text = "斜体";
+            // 
+            // btn_Bold
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Bold, "Bold");
+            this.btn_Bold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Bold.Image = ((System.Drawing.Image)(resources.GetObject("btn_Bold.Image")));
+            this.btn_Bold.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Bold.Name = "btn_Bold";
+            this.btn_Bold.Size = new System.Drawing.Size(23, 26);
+            this.btn_Bold.Text = "加粗";
+            // 
+            // btn_Font
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_Font, "Font");
+            this.btn_Font.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Font.Image = ((System.Drawing.Image)(resources.GetObject("btn_Font.Image")));
+            this.btn_Font.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Font.Name = "btn_Font";
+            this.btn_Font.Size = new System.Drawing.Size(23, 26);
+            this.btn_Font.Text = "字体";
+            // 
+            // toolStripComboBox1
+            // 
+            this.writerCommandControler1.SetCommandName(this.toolStripComboBox1, "FontName");
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            // 
+            // toolStripComboBox2
+            // 
+            this.toolStripComboBox2.Name = "toolStripComboBox2";
+            this.toolStripComboBox2.Size = new System.Drawing.Size(121, 25);
             // 
             // ElecCaseHistoryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1383, 705);
+            this.ClientSize = new System.Drawing.Size(1510, 705);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pl_Menu);
             this.Controls.Add(this.pl_info);
@@ -1108,6 +1448,7 @@ namespace MRS.Views.View
             this.groupBox1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1121,6 +1462,9 @@ namespace MRS.Views.View
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FinishedCaseHistory)).EndInit();
             this.ContextMenuSrip.ResumeLayout(false);
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.writerCommandControler1)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -1211,6 +1555,38 @@ namespace MRS.Views.View
 		private System.Windows.Forms.ToolStripMenuItem MenuItem_CheckRecord;
 		private System.Windows.Forms.ToolStripMenuItem MenuItem_RemoveCheck;
 		private System.Windows.Forms.ToolStripLabel btn_SystemConfigure;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton btn_FileOpen;
+        private DCSoft.Writer.Commands.WriterCommandControler writerCommandControler1;
+        private System.Windows.Forms.ToolStripButton btn_FileSave;
+        private System.Windows.Forms.ToolStripButton btn_Cut;
+        private System.Windows.Forms.ToolStripButton btn_Copy;
+        private System.Windows.Forms.ToolStripButton btn_Paste;
+        private System.Windows.Forms.ToolStripButton btn_Redo;
+        private System.Windows.Forms.ToolStripButton btn_Undo;
+        private System.Windows.Forms.ToolStripButton btn_Print;
+        private System.Windows.Forms.ToolStripButton btn_PrintView;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripButton btn_AlignCenter;
+        private System.Windows.Forms.ToolStripButton btn_AlignRight;
+        private System.Windows.Forms.ToolStripButton AlignJustify;
+        private System.Windows.Forms.ToolStripButton btn_AlignLeft;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripButton btn_NumberList;
+        private System.Windows.Forms.ToolStripButton btn_Superscript;
+        private System.Windows.Forms.ToolStripButton btn_Subscript;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripButton btn_BackColor;
+        private System.Windows.Forms.ToolStripButton btn_FontColor;
+        private System.Windows.Forms.ToolStripButton btn_Underline;
+        private System.Windows.Forms.ToolStripButton btn_Italic;
+        private System.Windows.Forms.ToolStripButton btn_Bold;
+        private System.Windows.Forms.ToolStripButton btn_Font;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox2;
 	}
 }
 
