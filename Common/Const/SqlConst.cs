@@ -17,5 +17,7 @@
         public const string SP_SELECTCASEHISTORY = "Sp_SelectCaseHistory";
 
         public const string SP_UPDATETEMPLATE = "Sp_UpdateTemplate";
+
+        public const string SP_DELETETETEMPLATE = "Sp_DeleteTemplates";
     }
 }

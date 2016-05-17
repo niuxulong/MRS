@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MRS.Presenters.Presenter
 {
-    public class LoadTemplatePresenter: Presenter<ILoadTemplateView>
+    public class LoadTemplatePresenter : Presenter<ILoadTemplateView>
     {
         public ITemplateModel templateModel { get; private set; }
 
@@ -25,12 +25,16 @@ namespace MRS.Presenters.Presenter
             this.View.SearchTemplatesEvent += HandleSearchTemplatesEvent;
         }
 
-        private void HandleSearchTemplatesEvent(object sender, string args)
+        private void HandleSearchTemplatesEvent(object sender, Tuple<string, int, bool> args)
         {
-            var templates = templateModel.GetTemplatesByName(args);
+            var name = args.Item1;
+            var templateId = args.Item2;
+            var isCommon = args.Item3;
+            var templateAttr = isCommon ? 0 : 1;
+            var templates = templateModel.GetTemplatesByName(name);
             if (templates != null && templates.Count > 0)
             {
-                this.View.PopulateTemlatesInfo(templates);
+                this.View.PopulateTemlatesInfo(templates.Where(t => t.ParentNodeId == templateId && t.TemplateAttr == templateAttr).ToList());
             }
         }
     }

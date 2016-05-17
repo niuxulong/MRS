@@ -1,0 +1,10 @@
+﻿IF(EXISTS(SELECT * FROM SYSOBJECTS WHERE XTYPE='P' AND NAME='Sp_DeleteTemplates'))
+	DROP PROCEDURE Sp_DeleteTemplates
+GO
+
+CREATE PROCEDURE [dbo].Sp_DeleteTemplates
+	@Id int
+AS
+	DELETE FROM EMR_TEMPLATE WHERE Id = @Id
+GO
+ 

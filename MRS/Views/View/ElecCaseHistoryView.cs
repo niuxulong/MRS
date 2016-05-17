@@ -110,7 +110,7 @@ namespace MRS.Views.View
         {
             if (tv_TemplateCatalog.SelectedNode != null && tv_TemplateCatalog.SelectedNode.Level == 1)
             {
-                LoadTemplateView form = new LoadTemplateView();
+                LoadTemplateView form = new LoadTemplateView((TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag);
                 form.SelectTemplateEvent += HandleSelectTemplateEvent;
                 form.ShowDialog();
             }
@@ -139,7 +139,7 @@ namespace MRS.Views.View
                 currentSelectedTemplate = args;
                 if (currentSelectedTemplate.ParentNodeId == 0)
                 {
-                    currentSelectedTemplate.ParentNodeId = (int)tv_TemplateCatalog.SelectedNode.Tag;
+                    currentSelectedTemplate.ParentNodeId = ((TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag).TemplateNodeId;
                 }
 
                 //显示到编辑控件
@@ -297,6 +297,8 @@ namespace MRS.Views.View
 
         private void btn_Temperature_Click(object sender, EventArgs e)
         {
+            TemperatureView form = new TemperatureView();
+            form.Show();
 
         }
 

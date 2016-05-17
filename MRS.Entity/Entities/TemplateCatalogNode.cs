@@ -23,25 +23,24 @@ namespace MRS.Entity.Entities
 
         public TreeNode ToTreeNode()
         {
-            var parentNode = new TreeNode()
+            var currentNode = new TreeNode()
             {
-                Tag = this.TemplateNodeId,
                 Name = this.TemplateNodeName,
                 Text = this.TemplateNodeName
             };
+            currentNode.Tag = this;
             foreach (var cNode in this.ChildTemplateNodeList)
             {
                 var childNode = new TreeNode()
                 {
-                    Tag = cNode.TemplateNodeId,
                     Name = cNode.TemplateNodeName,
                     Text = cNode.TemplateNodeName
                 };
-
-                parentNode.Nodes.Add(childNode);
+                childNode.Tag = cNode;
+                currentNode.Nodes.Add(childNode);
             }
 
-            return parentNode;
+            return currentNode;
         }
     }
 }

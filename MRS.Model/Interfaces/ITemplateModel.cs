@@ -12,5 +12,7 @@ namespace MRS.Model.Interfaces
         List<Template> GetTemplatesByName(string name);
 
         bool UpdateTemplate(Template template);
+
+        bool RemoveTemplates(Template template);
     }
 }

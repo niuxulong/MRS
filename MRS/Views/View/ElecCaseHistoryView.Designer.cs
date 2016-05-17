@@ -30,9 +30,9 @@ namespace MRS.Views.View
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElecCaseHistoryView));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElecCaseHistoryView));
             this.pl_info = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_User = new System.Windows.Forms.TextBox();
@@ -49,8 +49,6 @@ namespace MRS.Views.View
             this.label99 = new System.Windows.Forms.Label();
             this.pl_Menu = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btn_data = new System.Windows.Forms.ToolStripDropDownButton();
-            this.btn_Temperature = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_LoadTemplate = new System.Windows.Forms.ToolStripLabel();
             this.btn_SaveTemplate = new System.Windows.Forms.ToolStripLabel();
             this.btn_ManageTemplate = new System.Windows.Forms.ToolStripLabel();
@@ -122,35 +120,37 @@ namespace MRS.Views.View
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_FontName = new System.Windows.Forms.ToolStripComboBox();
+            this.btn_FontSize = new System.Windows.Forms.ToolStripComboBox();
+            this.writerCommandControler1 = new DCSoft.Writer.Commands.WriterCommandControler(this.components);
             this.btn_FileOpen = new System.Windows.Forms.ToolStripButton();
             this.btn_FileSave = new System.Windows.Forms.ToolStripButton();
             this.btn_Cut = new System.Windows.Forms.ToolStripButton();
             this.btn_Copy = new System.Windows.Forms.ToolStripButton();
             this.btn_Paste = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_Redo = new System.Windows.Forms.ToolStripButton();
             this.btn_Undo = new System.Windows.Forms.ToolStripButton();
             this.btn_Print = new System.Windows.Forms.ToolStripButton();
             this.btn_PrintView = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_AlignCenter = new System.Windows.Forms.ToolStripButton();
             this.btn_AlignRight = new System.Windows.Forms.ToolStripButton();
             this.btn_AlignLeft = new System.Windows.Forms.ToolStripButton();
             this.AlignJustify = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_NumberList = new System.Windows.Forms.ToolStripButton();
             this.btn_Superscript = new System.Windows.Forms.ToolStripButton();
             this.btn_Subscript = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_BackColor = new System.Windows.Forms.ToolStripButton();
             this.btn_FontColor = new System.Windows.Forms.ToolStripButton();
             this.btn_Underline = new System.Windows.Forms.ToolStripButton();
             this.btn_Italic = new System.Windows.Forms.ToolStripButton();
             this.btn_Bold = new System.Windows.Forms.ToolStripButton();
             this.btn_Font = new System.Windows.Forms.ToolStripButton();
-            this.btn_FontName = new System.Windows.Forms.ToolStripComboBox();
-            this.btn_FontSize = new System.Windows.Forms.ToolStripComboBox();
-            this.writerCommandControler1 = new DCSoft.Writer.Commands.WriterCommandControler(this.components);
+            this.btn_data = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btn_Temperature = new System.Windows.Forms.ToolStripMenuItem();
             this.pl_info.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pl_Menu.SuspendLayout();
@@ -413,26 +413,6 @@ namespace MRS.Views.View
             this.toolStrip1.Size = new System.Drawing.Size(1510, 29);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btn_data
-            // 
-            this.btn_data.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btn_data.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_Temperature});
-            this.btn_data.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_data.ForeColor = System.Drawing.Color.Blue;
-            this.btn_data.Image = ((System.Drawing.Image)(resources.GetObject("btn_data.Image")));
-            this.btn_data.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_data.Name = "btn_data";
-            this.btn_data.Size = new System.Drawing.Size(87, 26);
-            this.btn_data.Text = "病人数据";
-            // 
-            // btn_Temperature
-            // 
-            this.btn_Temperature.Name = "btn_Temperature";
-            this.btn_Temperature.Size = new System.Drawing.Size(128, 26);
-            this.btn_Temperature.Text = "体温单";
-            this.btn_Temperature.Click += new System.EventHandler(this.btn_Temperature_Click);
             // 
             // btn_LoadTemplate
             // 
@@ -1194,6 +1174,38 @@ namespace MRS.Views.View
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btn_FontName
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_FontName, "FontName");
+            this.btn_FontName.Name = "btn_FontName";
+            this.btn_FontName.Size = new System.Drawing.Size(121, 25);
+            // 
+            // btn_FontSize
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_FontSize, "FontSize");
+            this.btn_FontSize.Name = "btn_FontSize";
+            this.btn_FontSize.Size = new System.Drawing.Size(121, 25);
+            // 
             // btn_FileOpen
             // 
             this.writerCommandControler1.SetCommandName(this.btn_FileOpen, "FileOpen");
@@ -1244,11 +1256,6 @@ namespace MRS.Views.View
             this.btn_Paste.Size = new System.Drawing.Size(23, 22);
             this.btn_Paste.Text = "粘贴";
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
             // btn_Redo
             // 
             this.writerCommandControler1.SetCommandName(this.btn_Redo, "Redo");
@@ -1288,11 +1295,6 @@ namespace MRS.Views.View
             this.btn_PrintView.Name = "btn_PrintView";
             this.btn_PrintView.Size = new System.Drawing.Size(23, 22);
             this.btn_PrintView.Text = "打印预览";
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_AlignCenter
             // 
@@ -1334,11 +1336,6 @@ namespace MRS.Views.View
             this.AlignJustify.Size = new System.Drawing.Size(23, 22);
             this.AlignJustify.Text = "toolStripButton3";
             // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
-            // 
             // btn_NumberList
             // 
             this.writerCommandControler1.SetCommandName(this.btn_NumberList, "NumberedList");
@@ -1368,11 +1365,6 @@ namespace MRS.Views.View
             this.btn_Subscript.Name = "btn_Subscript";
             this.btn_Subscript.Size = new System.Drawing.Size(23, 22);
             this.btn_Subscript.Text = "toolStripButton1";
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_BackColor
             // 
@@ -1434,17 +1426,25 @@ namespace MRS.Views.View
             this.btn_Font.Size = new System.Drawing.Size(23, 22);
             this.btn_Font.Text = "字体";
             // 
-            // btn_FontName
+            // btn_data
             // 
-            this.writerCommandControler1.SetCommandName(this.btn_FontName, "FontName");
-            this.btn_FontName.Name = "btn_FontName";
-            this.btn_FontName.Size = new System.Drawing.Size(121, 25);
+            this.btn_data.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btn_data.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Temperature});
+            this.btn_data.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_data.ForeColor = System.Drawing.Color.Blue;
+            this.btn_data.Image = ((System.Drawing.Image)(resources.GetObject("btn_data.Image")));
+            this.btn_data.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_data.Name = "btn_data";
+            this.btn_data.Size = new System.Drawing.Size(87, 26);
+            this.btn_data.Text = "病人数据";
             // 
-            // btn_FontSize
+            // btn_Temperature
             // 
-            this.writerCommandControler1.SetCommandName(this.btn_FontSize, "FontSize");
-            this.btn_FontSize.Name = "btn_FontSize";
-            this.btn_FontSize.Size = new System.Drawing.Size(121, 25);
+            this.btn_Temperature.Name = "btn_Temperature";
+            this.btn_Temperature.Size = new System.Drawing.Size(128, 26);
+            this.btn_Temperature.Text = "体温单";
+            this.btn_Temperature.Click += new System.EventHandler(this.btn_Temperature_Click);
             // 
             // ElecCaseHistoryView
             // 

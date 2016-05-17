@@ -83,6 +83,11 @@ namespace MRS.DataCacheManager
             return true;
         }
 
+        public void RemoveTemplateFromCache(Template template)
+        {
+             dataCache.TemplateCache.Remove(template);
+        }
+
         public bool UpdateSystemSettingsCache(string key, string value)
         {
             if (dataCache.SystemSettingCache.ContainsKey(key))

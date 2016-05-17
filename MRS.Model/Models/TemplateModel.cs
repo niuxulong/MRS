@@ -49,6 +49,24 @@ namespace MRS.Model.Models
             }
         }
 
+        public bool RemoveTemplates(Template template)
+        {
+            try
+            {
+                var updateCacheSuccess = false;
+                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_DELETETETEMPLATE, new object[] { template.RecordId });
+                if (rowAmount > 0)
+                {
+                     DataCacheManager.DataCacheManager.GetCacheManagerInstance().RemoveTemplateFromCache(template);
+                }
+                return updateCacheSuccess;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         private object[] GetUpdateTemplateParams(string recordId, int parentId, string fileName, string fileContent)
         {
             return new object[]{recordId, parentId, fileName, fileContent};

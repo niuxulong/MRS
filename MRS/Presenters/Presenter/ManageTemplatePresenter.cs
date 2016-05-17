@@ -23,6 +23,12 @@ namespace MRS.Presenters.Presenter
         protected override void OnViewSet()
         {
             this.View.SearchTemplatesEvent += HandleSearchTemplatesEvent;
+            this.View.DeleteTemplateEvent += View_DeleteTemplateEvent;
+        }
+
+        void View_DeleteTemplateEvent(object sender, Entity.Entities.Template template)
+        {
+            templateModel.RemoveTemplates(template);
         }
 
         private void HandleSearchTemplatesEvent(object sender, string args)

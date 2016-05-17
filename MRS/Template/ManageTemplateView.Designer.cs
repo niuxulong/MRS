@@ -29,8 +29,8 @@ namespace MRS
 		private void InitializeComponent()
 		{
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,8 +40,8 @@ namespace MRS
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btn_Save);
+            this.panel1.Controls.Add(this.btn_Delete);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label1);
@@ -49,32 +49,34 @@ namespace MRS
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10, 9, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(1206, 33);
+            this.panel1.Size = new System.Drawing.Size(1206, 40);
             this.panel1.TabIndex = 1;
             // 
-            // button3
+            // btn_Save
             // 
-            this.button3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(535, 7);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 28);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "保存";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_Save.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Save.Location = new System.Drawing.Point(535, 7);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(75, 28);
+            this.btn_Save.TabIndex = 7;
+            this.btn_Save.Text = "保存";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
-            // button2
+            // btn_Delete
             // 
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(439, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 28);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "删除";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Delete.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Delete.Location = new System.Drawing.Point(439, 7);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(75, 28);
+            this.btn_Delete.TabIndex = 6;
+            this.btn_Delete.Text = "删除";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(339, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 28);
@@ -84,7 +86,7 @@ namespace MRS
             // 
             // comboBox1
             // 
-            this.comboBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(107, 9);
             this.comboBox1.Name = "comboBox1";
@@ -95,7 +97,7 @@ namespace MRS
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(10, 9);
             this.label1.Name = "label1";
@@ -106,9 +108,10 @@ namespace MRS
             // baseTemplateControl
             // 
             this.baseTemplateControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.baseTemplateControl.Location = new System.Drawing.Point(0, 33);
+            this.baseTemplateControl.Location = new System.Drawing.Point(0, 40);
             this.baseTemplateControl.Name = "baseTemplateControl";
-            this.baseTemplateControl.Size = new System.Drawing.Size(1206, 569);
+            this.baseTemplateControl.ShowSelectButton = true;
+            this.baseTemplateControl.Size = new System.Drawing.Size(1206, 562);
             this.baseTemplateControl.TabIndex = 2;
             // 
             // ManageTemplate
@@ -133,8 +136,8 @@ namespace MRS
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label1;
 		private Common.UserControls.BaseTemplateControl baseTemplateControl;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button btn_Save;
+		private System.Windows.Forms.Button btn_Delete;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.ComboBox comboBox1;
 

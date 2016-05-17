@@ -78,5 +78,6 @@
     <None Include="StoreProcedures\Sp_SelectCaseHistory.sql" />
     <None Include="StoreProcedures\Sp_DeleteSystemSetting.sql" />
     <None Include="StoreProcedures\Sp_UpdateTemplate.sql" />
+    <None Include="StoreProcedures\Sp_DeleteTemplates.sql" />
   </ItemGroup>
 </Project>

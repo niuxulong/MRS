@@ -9,7 +9,7 @@ namespace MRS.Views.Interface
 {
     public interface ILoadTemplateView
     {
-        event EventHandler<string> SearchTemplatesEvent;
+        event EventHandler<Tuple<string, int, bool>> SearchTemplatesEvent;
 
         void PopulateTemlatesInfo(List<Template> templates);
 

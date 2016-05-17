@@ -13,14 +13,16 @@ using System.Windows.Forms;
 
 namespace MRS
 {
-	public partial class ManageTemplate : ViewBase, IManageTemplateView
-	{
+    public partial class ManageTemplate : ViewBase, IManageTemplateView
+    {
         public event EventHandler<string> SearchTemplatesEvent;
+        public event EventHandler<Template> DeleteTemplateEvent;
 
-		public ManageTemplate()
-		{
-			InitializeComponent();
-		}
+        public ManageTemplate()
+        {
+            InitializeComponent();
+            this.baseTemplateControl.ShowSelectButton = false;
+        }
 
         protected override object CreatePresenter()
         {
@@ -44,5 +46,17 @@ namespace MRS
         {
             baseTemplateControl.PopulateTemlatesInfo(templates);
         }
-	}
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            if (this.baseTemplateControl.SelectedTemplate != null)
+                if (DeleteTemplateEvent != null)
+                    DeleteTemplateEvent(sender, this.baseTemplateControl.SelectedTemplate);
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
