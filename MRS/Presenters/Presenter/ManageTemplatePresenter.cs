@@ -1,4 +1,4 @@
-﻿using MRS.Model.Interfaces;
+using MRS.Model.Interfaces;
 using MRS.Model.Models;
 using MRS.Presenters.Interface;
 using MRS.Views.Interface;
@@ -24,7 +24,13 @@ namespace MRS.Presenters.Presenter
         {
             this.View.SearchTemplatesEvent += HandleSearchTemplatesEvent;
             this.View.DeleteTemplateEvent += View_DeleteTemplateEvent;
+			this.View.SaveTemplateEvent += View_SaveTemplateEvent;
         }
+
+		void View_SaveTemplateEvent(object sender, Entity.Entities.Template template)
+		{
+			templateModel.UpdateTemplate(template);
+		}
 
         void View_DeleteTemplateEvent(object sender, Entity.Entities.Template template)
         {

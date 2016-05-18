@@ -17,6 +17,7 @@ namespace MRS
     {
         public event EventHandler<string> SearchTemplatesEvent;
         public event EventHandler<Template> DeleteTemplateEvent;
+		public event EventHandler<Template> SaveTemplateEvent;
 
         public ManageTemplate()
         {
@@ -56,7 +57,9 @@ namespace MRS
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-
+			if (this.baseTemplateControl.SelectedTemplate != null)
+				if (SaveTemplateEvent != null)
+					SaveTemplateEvent(sender, this.baseTemplateControl.SelectedTemplate);
         }
     }
 }

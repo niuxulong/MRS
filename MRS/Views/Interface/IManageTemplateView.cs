@@ -1,4 +1,4 @@
-﻿using MRS.Entity.Entities;
+using MRS.Entity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,7 @@ namespace MRS.Views.Interface
 
         event EventHandler<string> SearchTemplatesEvent;
         event EventHandler<Template> DeleteTemplateEvent;
+		event EventHandler<Template> SaveTemplateEvent;
         void PopulateTemlatesInfo(List<Template> templates);
     }
 }

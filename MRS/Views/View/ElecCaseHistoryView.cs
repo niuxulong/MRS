@@ -25,12 +25,12 @@ namespace MRS.Views.View
         public ElecCaseHistoryView()
         {
             InitializeComponent();
-            this.writerControl1.CommandControler = this.writerCommandControler1;
-            this.writerCommandControler1.Start();
         }
 
         private void ElecCaseHistoryView_Load(object sender, EventArgs e)
         {
+			this.writerControl1.CommandControler = this.writerCommandControler1;
+			this.writerCommandControler1.Start();
             ConfigDgvFinishedCaseHistoryColumns();
             InitilizeTimer();
 
