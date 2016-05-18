@@ -29,6 +29,8 @@ namespace MRS
 
         private void LoadTemplateView_Load(object sender, System.EventArgs e)
         {
+            this.lb_TemplateId.Text = "¡¾" + this.templateCatalog.TemplateNodeId.ToString() + "¡¿";
+            this.lb_TemplateName.Text = this.templateCatalog.TemplateNodeName;
             this.baseTemplateControl.EditorReadonly = true;
             baseTemplateControl.SearchButtonClickEvent += HandleSearchButtonClickEvent;
             baseTemplateControl.SelectButtonClickEvent += HandleSelectButtonClickEvent;

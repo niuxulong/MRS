@@ -10,6 +10,9 @@ namespace MRS.Views.View
 {
     public partial class ElecCaseHistoryView : ViewBase, IElecCaseHistoryView
     {
+        //this.MyWriterControl.DocumentOptions.SecurityOptions.AutoEnablePermissionWhenUserLogin = true;
+        //MyWriterControl.UserLoginByParameter("108","张三医生",0);
+
         Timer timer = new Timer();
 
         #region Event Handler
@@ -214,7 +217,7 @@ namespace MRS.Views.View
         {
             SearchPatientView form = new SearchPatientView();
             form.ShowDialog();
-        }
+        }      
 
         private void btn_SystemConfigure_Click(object sender, EventArgs e)
         {
@@ -226,7 +229,7 @@ namespace MRS.Views.View
                 {
                     //加载模板树节点
                     SetupTemplateCatalogTree();
-                    //系统配置更新后清空页面信息
+                    //系统配置更新后清空页面信息   
                     ClearView();
                 }
             }
@@ -297,8 +300,8 @@ namespace MRS.Views.View
 
         private void btn_Temperature_Click(object sender, EventArgs e)
         {
-            TemperatureView form = new TemperatureView();
-            form.Show();
+            //TemperatureView form = new TemperatureView();
+            //form.Show();
 
         }
 

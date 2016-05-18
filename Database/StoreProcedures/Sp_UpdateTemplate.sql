@@ -8,5 +8,5 @@ CREATE PROCEDURE [dbo].[Sp_UpdateTemplate]
 	@fileName nvarchar(max),
 	@fileContent nvarchar(max)
 AS
-		UPDATE EMR_TEMPLATE SET ParentId = @parentId, FILENAME=@fileName, FILECONTENT=@fileContent WHERE RECORDID = @recordId
+		UPDATE EMR_TEMPLATE SET FILENAME=@fileName, FILECONTENT=@fileContent WHERE RECORDID = @recordId
 GO

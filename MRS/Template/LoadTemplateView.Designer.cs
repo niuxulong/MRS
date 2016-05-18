@@ -55,7 +55,7 @@ namespace MRS
             // chb_private
             // 
             this.chb_private.AutoSize = true;
-            this.chb_private.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_private.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chb_private.Location = new System.Drawing.Point(456, 8);
             this.chb_private.Name = "chb_private";
             this.chb_private.Size = new System.Drawing.Size(93, 25);
@@ -67,7 +67,7 @@ namespace MRS
             // chb_Common
             // 
             this.chb_Common.AutoSize = true;
-            this.chb_Common.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_Common.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chb_Common.Location = new System.Drawing.Point(357, 8);
             this.chb_Common.Name = "chb_Common";
             this.chb_Common.Size = new System.Drawing.Size(93, 25);
@@ -80,7 +80,7 @@ namespace MRS
             // 
             this.lb_TemplateName.AutoSize = true;
             this.lb_TemplateName.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lb_TemplateName.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TemplateName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_TemplateName.ForeColor = System.Drawing.Color.Blue;
             this.lb_TemplateName.Location = new System.Drawing.Point(169, 9);
             this.lb_TemplateName.Name = "lb_TemplateName";
@@ -92,7 +92,7 @@ namespace MRS
             // 
             this.lb_TemplateId.AutoSize = true;
             this.lb_TemplateId.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lb_TemplateId.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TemplateId.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_TemplateId.ForeColor = System.Drawing.Color.Blue;
             this.lb_TemplateId.Location = new System.Drawing.Point(100, 9);
             this.lb_TemplateId.Name = "lb_TemplateId";
@@ -104,7 +104,7 @@ namespace MRS
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(10, 9);
             this.label1.Name = "label1";
@@ -115,8 +115,10 @@ namespace MRS
             // baseTemplateControl
             // 
             this.baseTemplateControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.baseTemplateControl.EditorReadonly = false;
             this.baseTemplateControl.Location = new System.Drawing.Point(0, 39);
             this.baseTemplateControl.Name = "baseTemplateControl";
+            this.baseTemplateControl.ShowSelectButton = true;
             this.baseTemplateControl.Size = new System.Drawing.Size(1206, 563);
             this.baseTemplateControl.TabIndex = 2;
             this.baseTemplateControl.Load += new System.EventHandler(this.baseTemplateControl_Load);

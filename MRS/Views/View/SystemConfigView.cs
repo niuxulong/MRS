@@ -205,7 +205,8 @@ namespace MRS.Views.View
                 {
                     var childNode = new TemplateCatalogNode()
                     {
-                        TemplateNodeId = ++subChildId,
+                        // ½ÚµãIDÃüÃû101£¬ 102£¬ 103......201, 202, 203
+                        TemplateNodeId = (++subChildId) + 100 * (index + 1),
                         TemplateNodeName = node.Nodes[subIndex].Text,
                         TemplateParentNodeId = index + 1
                     };

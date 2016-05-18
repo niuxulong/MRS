@@ -35,6 +35,8 @@ namespace MRS.Presenters.Presenter
         void View_DeleteTemplateEvent(object sender, Entity.Entities.Template template)
         {
             templateModel.RemoveTemplates(template);
+            HandleSearchTemplatesEvent(null, null);
+
         }
 
         private void HandleSearchTemplatesEvent(object sender, string args)

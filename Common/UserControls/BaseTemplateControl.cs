@@ -64,6 +64,7 @@ namespace Common.UserControls
 
         public void PopulateTemlatesInfo(List<Template> templates)
         {
+            dgv_templateList.DataSource = null;
             dgv_templateList.DataSource = templates;
         }
 

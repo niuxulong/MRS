@@ -54,7 +54,7 @@ namespace MRS.Model.Models
             try
             {
                 var updateCacheSuccess = false;
-                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_DELETETETEMPLATE, new object[] { template.RecordId });
+                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_DELETETETEMPLATE, new object[] { template.RecordId.ToString() });
                 if (rowAmount > 0)
                 {
                      DataCacheManager.DataCacheManager.GetCacheManagerInstance().RemoveTemplateFromCache(template);
