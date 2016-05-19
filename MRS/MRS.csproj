@@ -138,6 +138,12 @@
     <Compile Include="Views\Interface\ViewBase.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Views\View\ＰrogressＮoteTypeSelectionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\View\ＰrogressＮoteTypeSelectionView.Designer.cs">
+      <DependentUpon>ＰrogressＮoteTypeSelectionView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\View\AdminValidationView.resx">
       <DependentUpon>AdminValidationView.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Template\LoadTemplateView.resx">
       <DependentUpon>LoadTemplateView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\View\ＰrogressＮoteTypeSelectionView.resx">
+      <DependentUpon>ＰrogressＮoteTypeSelectionView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
