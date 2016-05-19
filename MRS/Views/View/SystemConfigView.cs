@@ -191,7 +191,6 @@ namespace MRS.Views.View
 
         private List<TemplateCatalogNode> GetTemplateCatalogTreeInfo()
         {
-            int subChildId = 0;
             var results = new List<TemplateCatalogNode>();
             if (tv_ConfigTemplateTree.Nodes.Count == 1 && tv_ConfigTemplateTree.Nodes[0].Text == InitialNode)
             {
@@ -201,12 +200,13 @@ namespace MRS.Views.View
             {
                 var node = tv_ConfigTemplateTree.Nodes[index];
                 var childNodeList = new List<TemplateCatalogNode>();
+                var childSubId = 0;
                 for(int subIndex = 0; subIndex < node.Nodes.Count; subIndex++)
                 {
                     var childNode = new TemplateCatalogNode()
                     {
                         // ½ÚµãIDÃüÃû101£¬ 102£¬ 103......201, 202, 203
-                        TemplateNodeId = (++subChildId) + 100 * (index + 1),
+                        TemplateNodeId = (++childSubId) + 100 * (index + 1),
                         TemplateNodeName = node.Nodes[subIndex].Text,
                         TemplateParentNodeId = index + 1
                     };

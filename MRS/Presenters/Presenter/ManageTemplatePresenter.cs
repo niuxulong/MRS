@@ -1,3 +1,4 @@
+using Common.Enums;
 using MRS.Model.Interfaces;
 using MRS.Model.Models;
 using MRS.Presenters.Interface;
@@ -41,7 +42,7 @@ namespace MRS.Presenters.Presenter
 
         private void HandleSearchTemplatesEvent(object sender, string args)
         {
-            var templates = templateModel.GetTemplatesByName(args);
+            var templates = templateModel.GetTemplatesByFilter(args, 0, Enums.TemplateAttrEnum.Undefined);
             if (templates != null && templates.Count > 0)
             {
                 this.View.PopulateTemlatesInfo(templates);

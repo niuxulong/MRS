@@ -1,3 +1,4 @@
+using Common.Enums;
 using MRS.Entity.Entities;
 using MRS.Presenters.Presenter;
 using MRS.Views.Interface;
@@ -9,7 +10,7 @@ namespace MRS
     public partial class LoadTemplateView : ViewBase, ILoadTemplateView
     {
         #region Event Handler
-        public event EventHandler<Tuple<string, int, bool>> SearchTemplatesEvent;
+        public event EventHandler<Tuple<string, int, Enums.TemplateAttrEnum>> SearchTemplatesEvent;
         public event EventHandler<Template> SelectTemplateEvent;
         #endregion
 
@@ -45,15 +46,24 @@ namespace MRS
         private void HandleSearchButtonClickEvent(object sender, string name)
         {
             this.name = name;
-            PopupTemplates(sender);
+            PopupTemplates();
         }
 
-        private void PopupTemplates(object sender)
+        private void PopupTemplates()
         {
             if (SearchTemplatesEvent != null)
             {
-                Tuple<string, int, bool> args = new Tuple<string, int, bool>(this.name, templateCatalog.TemplateNodeId, this.chb_Common.Checked == this.chb_private.Checked == false ? true : this.chb_Common.Checked);
-                SearchTemplatesEvent(sender, args);
+                var templateAttr = Enums.TemplateAttrEnum.Undefined;
+                if(this.chb_Common.Checked)
+                {
+                    templateAttr = Enums.TemplateAttrEnum.Common;
+                }
+                else if(this.chb_private.Checked)
+                {
+                    templateAttr = Enums.TemplateAttrEnum.Personal;
+                }
+                var args = new Tuple<string, int, Enums.TemplateAttrEnum>(this.name, templateCatalog.TemplateNodeId, templateAttr);
+                SearchTemplatesEvent(null, args);
             }
         }
 
@@ -77,7 +87,7 @@ namespace MRS
             if (this.chb_Common.Checked)
             {
                 this.chb_private.Checked = false;
-                PopupTemplates(null);
+                PopupTemplates();
             }
         }
 
@@ -87,7 +97,7 @@ namespace MRS
             if (this.chb_private.Checked)
             {
                 this.chb_Common.Checked = false;
-                PopupTemplates(null);
+                PopupTemplates();
             }
         }
     }
