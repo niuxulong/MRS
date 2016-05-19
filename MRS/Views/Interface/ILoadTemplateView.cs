@@ -1,4 +1,5 @@
-﻿using MRS.Entity.Entities;
+﻿using Common.Enums;
+using MRS.Entity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace MRS.Views.Interface
 {
     public interface ILoadTemplateView
     {
-        event EventHandler<Tuple<string, int, bool>> SearchTemplatesEvent;
+        event EventHandler<Tuple<string, int, Enums.TemplateAttrEnum>> SearchTemplatesEvent;
 
         void PopulateTemlatesInfo(List<Template> templates);
 

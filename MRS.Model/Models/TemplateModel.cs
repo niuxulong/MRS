@@ -1,5 +1,6 @@
 ﻿using Common.Const;
 using Common.DataBaseAccessor;
+using Common.Enums;
 using MRS.Entity.Entities;
 using MRS.Model.Interfaces;
 using System;
@@ -18,17 +19,25 @@ namespace MRS.Model.Models
         
         }
 
-        public List<Template> GetTemplatesByName(string name)
+        public List<Template> GetTemplatesByFilter(string name, int parentNodeId, Enums.TemplateAttrEnum templateAttr)
         {
             var allTemplates = DataCacheManager.DataCacheManager.GetCacheManagerInstance().GetTemplatesFromCache();
-            if (string.IsNullOrEmpty(name))
+            if(!string.IsNullOrEmpty(name))
             {
-                return allTemplates;
+                allTemplates = allTemplates.Where(t=>t.FileName.Contains(name)).ToList();
             }
-            else
+
+            if(parentNodeId != 0)
             {
-                return allTemplates.Where(t => t.FileName.Contains(name)).ToList();
+                allTemplates = allTemplates.Where(t=>t.ParentNodeId == parentNodeId).ToList();
             }
+
+            if (templateAttr == Enums.TemplateAttrEnum.Common || templateAttr == Enums.TemplateAttrEnum.Personal)
+            {
+                allTemplates = allTemplates.Where(t => t.TemplateAttr == (int)templateAttr).ToList();
+            }
+
+            return allTemplates;
         }
 
         public bool UpdateTemplate(Template template)

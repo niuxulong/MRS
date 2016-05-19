@@ -15,5 +15,14 @@
 
             TemplateCatalogNodeId = 1
         }
+
+        public enum TemplateAttrEnum
+        { 
+            Common = 0,
+
+            Personal = 1,
+
+            Undefined = 3
+        }
     }
 }

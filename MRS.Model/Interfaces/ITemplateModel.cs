@@ -1,4 +1,5 @@
-﻿using MRS.Entity.Entities;
+﻿using Common.Enums;
+using MRS.Entity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace MRS.Model.Interfaces
 {
     public interface ITemplateModel
     {
-        List<Template> GetTemplatesByName(string name);
+        List<Template> GetTemplatesByFilter(string name, int parentNodeId, Enums.TemplateAttrEnum templateAttr);
 
         bool UpdateTemplate(Template template);
 
