@@ -1,4 +1,5 @@
 using Common.Enums;
+using MRS.Entity.Entities;
 using MRS.Model.Interfaces;
 using MRS.Model.Models;
 using MRS.Presenters.Interface;
@@ -13,27 +14,41 @@ namespace MRS.Presenters.Presenter
 {
     public class ManageTemplatePresenter: Presenter<IManageTemplateView>
     {
-        public ITemplateModel templateModel { get; private set; }
+        private ITemplateModel templateModel;
+        private ITemplateCatalogModel templateCatalogModel;
 
         public ManageTemplatePresenter(IManageTemplateView view)
             : base(view)
         {
             this.templateModel = new TemplateModel();
+            this.templateCatalogModel = new TemplateCatalogModel();
         }
 
         protected override void OnViewSet()
         {
             this.View.SearchTemplatesEvent += HandleSearchTemplatesEvent;
-            this.View.DeleteTemplateEvent += View_DeleteTemplateEvent;
-			this.View.SaveTemplateEvent += View_SaveTemplateEvent;
+            this.View.DeleteTemplateEvent += HandleDeleteTemplateEvent;
+            this.View.SaveTemplateEvent += HandleSaveTemplateEvent;
+            this.View.RetriveTemplateParentNodes += HandleRetriveTemplateParentNodes;
         }
 
-		void View_SaveTemplateEvent(object sender, Entity.Entities.Template template)
+        private void HandleRetriveTemplateParentNodes(object sender, object e)
+        {
+            var nodes = templateCatalogModel.GetTemplateCatalogNodes();
+            var parentNodes = new List<TemplateCatalogNode>();
+            foreach (var node in nodes)
+            {
+                parentNodes.AddRange(node.ChildTemplateNodeList);
+            }
+            this.View.PopulateTemplatesParentNodes(parentNodes);
+        }
+
+        void HandleSaveTemplateEvent(object sender, Entity.Entities.Template template)
 		{
 			templateModel.UpdateTemplate(template);
 		}
 
-        void View_DeleteTemplateEvent(object sender, Entity.Entities.Template template)
+        void HandleDeleteTemplateEvent(object sender, Entity.Entities.Template template)
         {
             templateModel.RemoveTemplates(template);
             HandleSearchTemplatesEvent(null, null);
