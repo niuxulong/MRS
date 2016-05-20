@@ -71,6 +71,12 @@
     </Compile>
     <Compile Include="Presenters\Interface\Presenter.cs" />
     <Compile Include="Presenters\Presenter\ElecCaseHistoryPresenter.cs" />
+    <Compile Include="Views\View\ProgressNoteTypeSelectionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\View\ProgressNoteTypeSelectionView.Designer.cs">
+      <DependentUpon>ProgressNoteTypeSelectionView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\View\SearchCaseView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,14 +144,11 @@
     <Compile Include="Views\Interface\ViewBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\View\ＰrogressＮoteTypeSelectionView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\View\ＰrogressＮoteTypeSelectionView.Designer.cs">
-      <DependentUpon>ＰrogressＮoteTypeSelectionView.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Views\View\AdminValidationView.resx">
       <DependentUpon>AdminValidationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\View\ProgressNoteTypeSelectionView.resx">
+      <DependentUpon>ProgressNoteTypeSelectionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\View\SearchCaseView.resx">
       <DependentUpon>SearchCaseView.cs</DependentUpon>
@@ -186,9 +189,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Template\LoadTemplateView.resx">
       <DependentUpon>LoadTemplateView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\View\ＰrogressＮoteTypeSelectionView.resx">
-      <DependentUpon>ＰrogressＮoteTypeSelectionView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

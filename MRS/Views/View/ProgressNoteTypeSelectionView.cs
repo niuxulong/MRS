@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MRS.Views.View
 {
-    public partial class ＰrogressＮoteTypeSelectionView : Form
+    public partial class ProgressNoteTypeSelectionView : Form
     {
-        public ＰrogressＮoteTypeSelectionView()
+        public ProgressNoteTypeSelectionView()
         {
             InitializeComponent();
         }

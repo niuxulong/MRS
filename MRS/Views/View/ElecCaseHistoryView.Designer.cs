@@ -29,10 +29,9 @@ namespace MRS.Views.View
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElecCaseHistoryView));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElecCaseHistoryView));
             this.pl_info = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_User = new System.Windows.Forms.TextBox();
@@ -49,6 +48,8 @@ namespace MRS.Views.View
             this.label99 = new System.Windows.Forms.Label();
             this.pl_Menu = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btn_data = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btn_Temperature = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_LoadTemplate = new System.Windows.Forms.ToolStripLabel();
             this.btn_SaveTemplate = new System.Windows.Forms.ToolStripLabel();
             this.btn_ManageTemplate = new System.Windows.Forms.ToolStripLabel();
@@ -104,56 +105,25 @@ namespace MRS.Views.View
             this.label10 = new System.Windows.Forms.Label();
             this.txt_CaseId = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.dgv_FinishedCaseHistory = new System.Windows.Forms.DataGridView();
             this.col_Complated_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Complated_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Complated_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Complated_Check = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContextMenuSrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ContextMenuSrip = new System.Windows.Forms.ContextMenuStrip();
             this.MenuItem_Commit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_RollbackCommit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_RemoveRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_CheckRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_RemoveCheck = new System.Windows.Forms.ToolStripMenuItem();
-            this.writerControl1 = new DCSoft.Writer.Controls.WriterControl();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.btn_FontName = new System.Windows.Forms.ToolStripComboBox();
-            this.btn_FontSize = new System.Windows.Forms.ToolStripComboBox();
-            this.writerCommandControler1 = new DCSoft.Writer.Commands.WriterCommandControler(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MenuItem_AppendRecord = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.btn_History = new System.Windows.Forms.ToolStripLabel();
-            this.btn_FileOpen = new System.Windows.Forms.ToolStripButton();
-            this.btn_FileSave = new System.Windows.Forms.ToolStripButton();
-            this.btn_Cut = new System.Windows.Forms.ToolStripButton();
-            this.btn_Copy = new System.Windows.Forms.ToolStripButton();
-            this.btn_Paste = new System.Windows.Forms.ToolStripButton();
-            this.btn_Redo = new System.Windows.Forms.ToolStripButton();
-            this.btn_Undo = new System.Windows.Forms.ToolStripButton();
-            this.btn_Print = new System.Windows.Forms.ToolStripButton();
-            this.btn_PrintView = new System.Windows.Forms.ToolStripButton();
-            this.btn_AlignCenter = new System.Windows.Forms.ToolStripButton();
-            this.btn_AlignRight = new System.Windows.Forms.ToolStripButton();
-            this.btn_AlignLeft = new System.Windows.Forms.ToolStripButton();
-            this.AlignJustify = new System.Windows.Forms.ToolStripButton();
-            this.btn_NumberList = new System.Windows.Forms.ToolStripButton();
-            this.btn_Superscript = new System.Windows.Forms.ToolStripButton();
-            this.btn_Subscript = new System.Windows.Forms.ToolStripButton();
-            this.btn_BackColor = new System.Windows.Forms.ToolStripButton();
-            this.btn_FontColor = new System.Windows.Forms.ToolStripButton();
-            this.btn_Underline = new System.Windows.Forms.ToolStripButton();
-            this.btn_Italic = new System.Windows.Forms.ToolStripButton();
-            this.btn_Bold = new System.Windows.Forms.ToolStripButton();
-            this.btn_Font = new System.Windows.Forms.ToolStripButton();
-            this.btn_data = new System.Windows.Forms.ToolStripDropDownButton();
-            this.btn_Temperature = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.editorControl = new Common.UserControls.EditorControl();
+            this.writerCommandControler1 = new DCSoft.Writer.Commands.WriterCommandControler();
             this.pl_info.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pl_Menu.SuspendLayout();
@@ -175,10 +145,11 @@ namespace MRS.Views.View
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FinishedCaseHistory)).BeginInit();
             this.ContextMenuSrip.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.writerCommandControler1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -419,13 +390,32 @@ namespace MRS.Views.View
             this.toolStripSeparator10,
             this.btn_UserConfigure,
             this.btn_Search,
-            this.btn_History,
             this.btn_SystemConfigure});
             this.toolStrip1.Location = new System.Drawing.Point(0, 4);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1914, 34);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btn_data
+            // 
+            this.btn_data.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btn_data.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Temperature});
+            this.btn_data.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_data.ForeColor = System.Drawing.Color.Blue;
+            this.btn_data.Image = ((System.Drawing.Image)(resources.GetObject("btn_data.Image")));
+            this.btn_data.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_data.Name = "btn_data";
+            this.btn_data.Size = new System.Drawing.Size(106, 31);
+            this.btn_data.Text = "病人数据";
+            // 
+            // btn_Temperature
+            // 
+            this.btn_Temperature.Name = "btn_Temperature";
+            this.btn_Temperature.Size = new System.Drawing.Size(150, 32);
+            this.btn_Temperature.Text = "体温单";
+            this.btn_Temperature.Click += new System.EventHandler(this.btn_Temperature_Click);
             // 
             // btn_LoadTemplate
             // 
@@ -658,8 +648,7 @@ namespace MRS.Views.View
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.writerControl1);
-            this.splitContainer2.Panel2.Controls.Add(this.toolStrip2);
+            this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer2.Size = new System.Drawing.Size(1714, 801);
             this.splitContainer2.SplitterDistance = 555;
             this.splitContainer2.SplitterWidth = 5;
@@ -1055,16 +1044,6 @@ namespace MRS.Views.View
             this.panel2.Size = new System.Drawing.Size(547, 248);
             this.panel2.TabIndex = 0;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.button1);
-            this.panel6.Controls.Add(this.textBox1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(547, 42);
-            this.panel6.TabIndex = 1;
-            // 
             // dgv_FinishedCaseHistory
             // 
             this.dgv_FinishedCaseHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1118,9 +1097,10 @@ namespace MRS.Views.View
             this.MenuItem_RollbackCommit,
             this.MenuItem_RemoveRecord,
             this.MenuItem_CheckRecord,
-            this.MenuItem_RemoveCheck});
+            this.MenuItem_RemoveCheck,
+            this.MenuItem_AppendRecord});
             this.ContextMenuSrip.Name = "ContextMenuSrip";
-            this.ContextMenuSrip.Size = new System.Drawing.Size(145, 134);
+            this.ContextMenuSrip.Size = new System.Drawing.Size(145, 160);
             this.ContextMenuSrip.Text = "提交受审";
             // 
             // MenuItem_Commit
@@ -1140,6 +1120,7 @@ namespace MRS.Views.View
             this.MenuItem_RemoveRecord.Name = "MenuItem_RemoveRecord";
             this.MenuItem_RemoveRecord.Size = new System.Drawing.Size(144, 26);
             this.MenuItem_RemoveRecord.Text = "删除病历";
+            this.MenuItem_RemoveRecord.Click += new System.EventHandler(this.MenuItem_RemoveRecord_Click);
             // 
             // MenuItem_CheckRecord
             // 
@@ -1153,108 +1134,21 @@ namespace MRS.Views.View
             this.MenuItem_RemoveCheck.Size = new System.Drawing.Size(144, 26);
             this.MenuItem_RemoveCheck.Text = "撤销审核";
             // 
-            // writerControl1
+            // MenuItem_AppendRecord
             // 
-            this.writerControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.writerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.writerControl1.Location = new System.Drawing.Point(0, 30);
-            this.writerControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.writerControl1.Name = "writerControl1";
-            this.writerControl1.Size = new System.Drawing.Size(1154, 771);
-            this.writerControl1.TabIndex = 0;
-            this.writerControl1.DocumentContentChanged += new DCSoft.Writer.WriterEventHandler(this.writerControl1_DocumentContentChanged);
+            this.MenuItem_AppendRecord.Name = "MenuItem_AppendRecord";
+            this.MenuItem_AppendRecord.Size = new System.Drawing.Size(144, 26);
+            this.MenuItem_AppendRecord.Text = "追加病程";
             // 
-            // toolStrip2
+            // panel6
             // 
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.toolStripSeparator1,
-            this.btn_FileOpen,
-            this.btn_FileSave,
-            this.btn_Cut,
-            this.btn_Copy,
-            this.btn_Paste,
-            this.toolStripSeparator2,
-            this.btn_Redo,
-            this.btn_Undo,
-            this.btn_Print,
-            this.btn_PrintView,
-            this.toolStripSeparator11,
-            this.btn_AlignCenter,
-            this.btn_AlignRight,
-            this.btn_AlignLeft,
-            this.AlignJustify,
-            this.toolStripSeparator12,
-            this.btn_NumberList,
-            this.btn_Superscript,
-            this.btn_Subscript,
-            this.toolStripSeparator13,
-            this.btn_BackColor,
-            this.btn_FontColor,
-            this.btn_Underline,
-            this.btn_Italic,
-            this.btn_Bold,
-            this.btn_Font,
-            this.btn_FontName,
-            this.btn_FontSize});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1154, 30);
-            this.toolStrip2.TabIndex = 1;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(124, 27);
-            this.toolStripLabel1.Text = "3、编辑病例";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 30);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 30);
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 30);
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 30);
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 30);
-            // 
-            // btn_FontName
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_FontName, "FontName");
-            this.btn_FontName.Name = "btn_FontName";
-            this.btn_FontName.Size = new System.Drawing.Size(160, 30);
-            // 
-            // btn_FontSize
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_FontSize, "FontSize");
-            this.btn_FontSize.Name = "btn_FontSize";
-            this.btn_FontSize.Size = new System.Drawing.Size(121, 30);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 34);
-            this.textBox1.TabIndex = 0;
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.textBox1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(547, 42);
+            this.panel6.TabIndex = 1;
             // 
             // button1
             // 
@@ -1266,258 +1160,46 @@ namespace MRS.Views.View
             this.button1.Text = "检索";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // btn_History
+            // textBox1
             // 
-            this.btn_History.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_History.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_History.ForeColor = System.Drawing.Color.Red;
-            this.btn_History.IsLink = true;
-            this.btn_History.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.btn_History.LinkColor = System.Drawing.Color.Red;
-            this.btn_History.Name = "btn_History";
-            this.btn_History.Size = new System.Drawing.Size(92, 31);
-            this.btn_History.Text = "历史病历";
-            this.btn_History.Click += new System.EventHandler(this.btn_History_Click);
+            this.textBox1.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox1.Location = new System.Drawing.Point(3, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(229, 34);
+            this.textBox1.TabIndex = 0;
             // 
-            // btn_FileOpen
+            // tabControl1
             // 
-            this.writerCommandControler1.SetCommandName(this.btn_FileOpen, "FileOpen");
-            this.btn_FileOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_FileOpen.Image = ((System.Drawing.Image)(resources.GetObject("btn_FileOpen.Image")));
-            this.btn_FileOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_FileOpen.Name = "btn_FileOpen";
-            this.btn_FileOpen.Size = new System.Drawing.Size(24, 27);
-            this.btn_FileOpen.Text = "打开";
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1154, 801);
+            this.tabControl1.TabIndex = 1;
             // 
-            // btn_FileSave
+            // tabPage1
             // 
-            this.writerCommandControler1.SetCommandName(this.btn_FileSave, "FileSave");
-            this.btn_FileSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_FileSave.Image = ((System.Drawing.Image)(resources.GetObject("btn_FileSave.Image")));
-            this.btn_FileSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_FileSave.Name = "btn_FileSave";
-            this.btn_FileSave.Size = new System.Drawing.Size(24, 27);
-            this.btn_FileSave.Text = "保存";
+            this.tabPage1.Controls.Add(this.editorControl);
+            this.tabPage1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1146, 772);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "操作页";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btn_Cut
+            // editorControl
             // 
-            this.writerCommandControler1.SetCommandName(this.btn_Cut, "Cut");
-            this.btn_Cut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Cut.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cut.Image")));
-            this.btn_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Cut.Name = "btn_Cut";
-            this.btn_Cut.Size = new System.Drawing.Size(24, 27);
-            this.btn_Cut.Text = "剪切";
-            // 
-            // btn_Copy
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Copy, "Copy");
-            this.btn_Copy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Copy.Image = ((System.Drawing.Image)(resources.GetObject("btn_Copy.Image")));
-            this.btn_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Copy.Name = "btn_Copy";
-            this.btn_Copy.Size = new System.Drawing.Size(24, 27);
-            this.btn_Copy.Text = "复制";
-            // 
-            // btn_Paste
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Paste, "Paste");
-            this.btn_Paste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Paste.Image = ((System.Drawing.Image)(resources.GetObject("btn_Paste.Image")));
-            this.btn_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Paste.Name = "btn_Paste";
-            this.btn_Paste.Size = new System.Drawing.Size(24, 27);
-            this.btn_Paste.Text = "粘贴";
-            // 
-            // btn_Redo
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Redo, "Redo");
-            this.btn_Redo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Redo.Image = ((System.Drawing.Image)(resources.GetObject("btn_Redo.Image")));
-            this.btn_Redo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Redo.Name = "btn_Redo";
-            this.btn_Redo.Size = new System.Drawing.Size(24, 27);
-            this.btn_Redo.Text = "重做";
-            // 
-            // btn_Undo
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Undo, "Undo");
-            this.btn_Undo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Undo.Image = ((System.Drawing.Image)(resources.GetObject("btn_Undo.Image")));
-            this.btn_Undo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Undo.Name = "btn_Undo";
-            this.btn_Undo.Size = new System.Drawing.Size(24, 27);
-            this.btn_Undo.Text = "撤销";
-            // 
-            // btn_Print
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Print, "FileCleanPrint");
-            this.btn_Print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Print.Image = ((System.Drawing.Image)(resources.GetObject("btn_Print.Image")));
-            this.btn_Print.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Print.Name = "btn_Print";
-            this.btn_Print.Size = new System.Drawing.Size(24, 27);
-            this.btn_Print.Text = "打印";
-            // 
-            // btn_PrintView
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_PrintView, "FilePrintPreview");
-            this.btn_PrintView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_PrintView.Image = ((System.Drawing.Image)(resources.GetObject("btn_PrintView.Image")));
-            this.btn_PrintView.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_PrintView.Name = "btn_PrintView";
-            this.btn_PrintView.Size = new System.Drawing.Size(24, 27);
-            this.btn_PrintView.Text = "打印预览";
-            // 
-            // btn_AlignCenter
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_AlignCenter, "AlignCenter");
-            this.btn_AlignCenter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_AlignCenter.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignCenter.Image")));
-            this.btn_AlignCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_AlignCenter.Name = "btn_AlignCenter";
-            this.btn_AlignCenter.Size = new System.Drawing.Size(24, 27);
-            this.btn_AlignCenter.Text = "居中";
-            // 
-            // btn_AlignRight
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_AlignRight, "AlignRight");
-            this.btn_AlignRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_AlignRight.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignRight.Image")));
-            this.btn_AlignRight.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_AlignRight.Name = "btn_AlignRight";
-            this.btn_AlignRight.Size = new System.Drawing.Size(24, 27);
-            this.btn_AlignRight.Text = "右对齐";
-            // 
-            // btn_AlignLeft
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_AlignLeft, "AlignLeft");
-            this.btn_AlignLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_AlignLeft.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignLeft.Image")));
-            this.btn_AlignLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_AlignLeft.Name = "btn_AlignLeft";
-            this.btn_AlignLeft.Size = new System.Drawing.Size(24, 27);
-            this.btn_AlignLeft.Text = "左对齐";
-            // 
-            // AlignJustify
-            // 
-            this.writerCommandControler1.SetCommandName(this.AlignJustify, "AlignJustify");
-            this.AlignJustify.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AlignJustify.Image = ((System.Drawing.Image)(resources.GetObject("AlignJustify.Image")));
-            this.AlignJustify.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AlignJustify.Name = "AlignJustify";
-            this.AlignJustify.Size = new System.Drawing.Size(24, 27);
-            this.AlignJustify.Text = "toolStripButton3";
-            // 
-            // btn_NumberList
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_NumberList, "NumberedList");
-            this.btn_NumberList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_NumberList.Image = ((System.Drawing.Image)(resources.GetObject("btn_NumberList.Image")));
-            this.btn_NumberList.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_NumberList.Name = "btn_NumberList";
-            this.btn_NumberList.Size = new System.Drawing.Size(24, 27);
-            this.btn_NumberList.Text = "toolStripButton1";
-            // 
-            // btn_Superscript
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Superscript, "Superscript");
-            this.btn_Superscript.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Superscript.Image = ((System.Drawing.Image)(resources.GetObject("btn_Superscript.Image")));
-            this.btn_Superscript.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Superscript.Name = "btn_Superscript";
-            this.btn_Superscript.Size = new System.Drawing.Size(24, 27);
-            this.btn_Superscript.Text = "toolStripButton1";
-            // 
-            // btn_Subscript
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Subscript, "Subscript");
-            this.btn_Subscript.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Subscript.Image = ((System.Drawing.Image)(resources.GetObject("btn_Subscript.Image")));
-            this.btn_Subscript.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Subscript.Name = "btn_Subscript";
-            this.btn_Subscript.Size = new System.Drawing.Size(24, 27);
-            this.btn_Subscript.Text = "toolStripButton1";
-            // 
-            // btn_BackColor
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_BackColor, "BackColor");
-            this.btn_BackColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_BackColor.Image = ((System.Drawing.Image)(resources.GetObject("btn_BackColor.Image")));
-            this.btn_BackColor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_BackColor.Name = "btn_BackColor";
-            this.btn_BackColor.Size = new System.Drawing.Size(24, 27);
-            this.btn_BackColor.Text = "背景颜色";
-            // 
-            // btn_FontColor
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_FontColor, "Color");
-            this.btn_FontColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_FontColor.Image = ((System.Drawing.Image)(resources.GetObject("btn_FontColor.Image")));
-            this.btn_FontColor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_FontColor.Name = "btn_FontColor";
-            this.btn_FontColor.Size = new System.Drawing.Size(24, 27);
-            this.btn_FontColor.Text = "字体颜色";
-            // 
-            // btn_Underline
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Underline, "Underline");
-            this.btn_Underline.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Underline.Image = ((System.Drawing.Image)(resources.GetObject("btn_Underline.Image")));
-            this.btn_Underline.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Underline.Name = "btn_Underline";
-            this.btn_Underline.Size = new System.Drawing.Size(24, 27);
-            this.btn_Underline.Text = "下划线";
-            // 
-            // btn_Italic
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Italic, "Italic");
-            this.btn_Italic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Italic.Image = ((System.Drawing.Image)(resources.GetObject("btn_Italic.Image")));
-            this.btn_Italic.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Italic.Name = "btn_Italic";
-            this.btn_Italic.Size = new System.Drawing.Size(24, 27);
-            this.btn_Italic.Text = "斜体";
-            // 
-            // btn_Bold
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Bold, "Bold");
-            this.btn_Bold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Bold.Image = ((System.Drawing.Image)(resources.GetObject("btn_Bold.Image")));
-            this.btn_Bold.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Bold.Name = "btn_Bold";
-            this.btn_Bold.Size = new System.Drawing.Size(24, 27);
-            this.btn_Bold.Text = "加粗";
-            // 
-            // btn_Font
-            // 
-            this.writerCommandControler1.SetCommandName(this.btn_Font, "Font");
-            this.btn_Font.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Font.Image = ((System.Drawing.Image)(resources.GetObject("btn_Font.Image")));
-            this.btn_Font.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Font.Name = "btn_Font";
-            this.btn_Font.Size = new System.Drawing.Size(24, 27);
-            this.btn_Font.Text = "字体";
-            // 
-            // btn_data
-            // 
-            this.btn_data.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btn_data.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_Temperature});
-            this.btn_data.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_data.ForeColor = System.Drawing.Color.Blue;
-            this.btn_data.Image = ((System.Drawing.Image)(resources.GetObject("btn_data.Image")));
-            this.btn_data.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_data.Name = "btn_data";
-            this.btn_data.Size = new System.Drawing.Size(106, 31);
-            this.btn_data.Text = "病人数据";
-            // 
-            // btn_Temperature
-            // 
-            this.btn_Temperature.Name = "btn_Temperature";
-            this.btn_Temperature.Size = new System.Drawing.Size(150, 32);
-            this.btn_Temperature.Text = "体温单";
-            this.btn_Temperature.Click += new System.EventHandler(this.btn_Temperature_Click);
+            this.editorControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editorControl.FileContent = resources.GetString("editorControl.FileContent");
+            this.editorControl.Location = new System.Drawing.Point(3, 3);
+            this.editorControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editorControl.Name = "editorControl";
+            this.editorControl.Size = new System.Drawing.Size(1140, 766);
+            this.editorControl.TabIndex = 0;
+            this.editorControl.Title = "";
             // 
             // ElecCaseHistoryView
             // 
@@ -1546,7 +1228,6 @@ namespace MRS.Views.View
             this.groupBox1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1558,12 +1239,12 @@ namespace MRS.Views.View
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FinishedCaseHistory)).EndInit();
             this.ContextMenuSrip.ResumeLayout(false);
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.writerCommandControler1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1644,8 +1325,7 @@ namespace MRS.Views.View
 		private System.Windows.Forms.DataGridViewTextBoxColumn col_Complated_No;
 		private System.Windows.Forms.DataGridViewTextBoxColumn col_Complated_ID;
 		private System.Windows.Forms.DataGridViewTextBoxColumn col_Complated_Name;
-		private System.Windows.Forms.DataGridViewTextBoxColumn col_Complated_Check;
-		private DCSoft.Writer.Controls.WriterControl writerControl1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Complated_Check;
 		private System.Windows.Forms.ToolStripLabel btn_Search;
 		private System.Windows.Forms.ContextMenuStrip ContextMenuSrip;
 		private System.Windows.Forms.ToolStripMenuItem MenuItem_Commit;
@@ -1653,45 +1333,17 @@ namespace MRS.Views.View
 		private System.Windows.Forms.ToolStripMenuItem MenuItem_RemoveRecord;
 		private System.Windows.Forms.ToolStripMenuItem MenuItem_CheckRecord;
 		private System.Windows.Forms.ToolStripMenuItem MenuItem_RemoveCheck;
-		private System.Windows.Forms.ToolStripLabel btn_SystemConfigure;
-        private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripButton btn_FileOpen;
+        private System.Windows.Forms.ToolStripLabel btn_SystemConfigure;
         private DCSoft.Writer.Commands.WriterCommandControler writerCommandControler1;
-        private System.Windows.Forms.ToolStripButton btn_FileSave;
-        private System.Windows.Forms.ToolStripButton btn_Cut;
-        private System.Windows.Forms.ToolStripButton btn_Copy;
-        private System.Windows.Forms.ToolStripButton btn_Paste;
-        private System.Windows.Forms.ToolStripButton btn_Redo;
-        private System.Windows.Forms.ToolStripButton btn_Undo;
-        private System.Windows.Forms.ToolStripButton btn_Print;
-        private System.Windows.Forms.ToolStripButton btn_PrintView;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
-        private System.Windows.Forms.ToolStripButton btn_AlignCenter;
-        private System.Windows.Forms.ToolStripButton btn_AlignRight;
-        private System.Windows.Forms.ToolStripButton AlignJustify;
-        private System.Windows.Forms.ToolStripButton btn_AlignLeft;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
-        private System.Windows.Forms.ToolStripButton btn_NumberList;
-        private System.Windows.Forms.ToolStripButton btn_Superscript;
-        private System.Windows.Forms.ToolStripButton btn_Subscript;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
-        private System.Windows.Forms.ToolStripButton btn_BackColor;
-        private System.Windows.Forms.ToolStripButton btn_FontColor;
-        private System.Windows.Forms.ToolStripButton btn_Underline;
-        private System.Windows.Forms.ToolStripButton btn_Italic;
-        private System.Windows.Forms.ToolStripButton btn_Bold;
-        private System.Windows.Forms.ToolStripButton btn_Font;
-        private System.Windows.Forms.ToolStripComboBox btn_FontName;
-        private System.Windows.Forms.ToolStripComboBox btn_FontSize;
         private System.Windows.Forms.ToolStripDropDownButton btn_data;
         private System.Windows.Forms.ToolStripMenuItem btn_Temperature;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ToolStripLabel btn_History;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_AppendRecord;
+        private Common.UserControls.EditorControl editorControl;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
 	}
 }
 

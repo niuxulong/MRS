@@ -68,6 +68,12 @@
     <Compile Include="UserControls\BaseTemplateControl.Designer.cs">
       <DependentUpon>BaseTemplateControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\EditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EditorControl.Designer.cs">
+      <DependentUpon>EditorControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\WaterMarkTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\BaseTemplateControl.resx">
       <DependentUpon>BaseTemplateControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\EditorControl.resx">
+      <DependentUpon>EditorControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

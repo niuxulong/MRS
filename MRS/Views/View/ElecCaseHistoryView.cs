@@ -1,3 +1,4 @@
+using Common.UserControls;
 using DCSoft.Writer.Dom;
 using MRS.Entity.Entities;
 using MRS.Presenters.Presenter;
@@ -32,8 +33,6 @@ namespace MRS.Views.View
 
         private void ElecCaseHistoryView_Load(object sender, EventArgs e)
         {
-			this.writerControl1.CommandControler = this.writerCommandControler1;
-			this.writerCommandControler1.Start();
             ConfigDgvFinishedCaseHistoryColumns();
             InitilizeTimer();
 
@@ -58,8 +57,7 @@ namespace MRS.Views.View
             ClearPatientInfo();
             //清空病历信息
             dgv_FinishedCaseHistory.DataSource = null;
-            //清空编辑信息
-            writerControl1.XMLText = null;
+          
         }
 
         private void ConfigDgvFinishedCaseHistoryColumns()
@@ -129,7 +127,7 @@ namespace MRS.Views.View
             if (SaveTemplateEvent != null)
             {
                 currentSelectedTemplate.CreatedBy = "User1";
-                currentSelectedTemplate.FileContent = writerControl1.XMLText;
+                currentSelectedTemplate.FileContent = this.editorControl.FileContent;
                 currentSelectedTemplate.FileName = args;
                 SaveTemplateEvent(sender, currentSelectedTemplate);
             }
@@ -139,14 +137,27 @@ namespace MRS.Views.View
         {
             if (args != null)
             {
+                if (this.tabControl1.TabPages.Count > 0)
+                {
+                    this.tabControl1.TabPages.Add("操做页");
+                    var newPage = this.tabControl1.TabPages[this.tabControl1.TabPages.Count - 1];
+                    var editorControl = new EditorControl();
+                    editorControl.Dock = DockStyle.Fill;
+                    newPage.Controls.Add(editorControl);
+                    tabControl1.SelectTab(newPage);
+                    editorControl.FileContent = args.FileContent;
+                }
+                else
+                {
+                    //显示到编辑控件
+                    this.editorControl.FileContent = args.FileContent;
+                }
+
                 currentSelectedTemplate = args;
                 if (currentSelectedTemplate.ParentNodeId == 0)
                 {
                     currentSelectedTemplate.ParentNodeId = ((TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag).TemplateNodeId;
                 }
-
-                //显示到编辑控件
-                this.writerControl1.XMLText = args.FileContent;
             }
         }
 
@@ -245,7 +256,7 @@ namespace MRS.Views.View
                     PatientId = currentSelectedPatient.PatientId,
                     FileName = string.Empty,
                     FileTitle = string.Empty,
-                    FileContent = writerControl1.XMLText,
+                    FileContent = this.editorControl.FileContent,
                     CreatedBy = "User1"
                 };
                 if (SaveCaseHistoryEvent != null)
@@ -268,7 +279,7 @@ namespace MRS.Views.View
 
         private void btn_Validate_Click(object sender, EventArgs e)
         {
-            ValueValidateResultList list = (ValueValidateResultList)this.writerControl1.ExecuteCommand(
+            ValueValidateResultList list = (ValueValidateResultList)this.editorControl.ExecuteCommand(
                                             "DocumentValueValidate",
                                              false,
                                              null);
@@ -302,6 +313,11 @@ namespace MRS.Views.View
         {
             //TemperatureView form = new TemperatureView();
             //form.Show();
+
+        }
+
+        private void MenuItem_RemoveRecord_Click(object sender, EventArgs e)
+        {
 
         }
 
