@@ -47,17 +47,19 @@ namespace MRS
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10, 9, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(1206, 40);
+            this.panel1.Padding = new System.Windows.Forms.Padding(13, 11, 0, 0);
+            this.panel1.Size = new System.Drawing.Size(1608, 50);
             this.panel1.TabIndex = 1;
             // 
             // btn_Save
             // 
             this.btn_Save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.Location = new System.Drawing.Point(535, 7);
+            this.btn_Save.Location = new System.Drawing.Point(713, 9);
+            this.btn_Save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(75, 28);
+            this.btn_Save.Size = new System.Drawing.Size(100, 35);
             this.btn_Save.TabIndex = 7;
             this.btn_Save.Text = "保存";
             this.btn_Save.UseVisualStyleBackColor = true;
@@ -66,9 +68,10 @@ namespace MRS
             // btn_Delete
             // 
             this.btn_Delete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Delete.Location = new System.Drawing.Point(439, 7);
+            this.btn_Delete.Location = new System.Drawing.Point(585, 9);
+            this.btn_Delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(75, 28);
+            this.btn_Delete.Size = new System.Drawing.Size(100, 35);
             this.btn_Delete.TabIndex = 6;
             this.btn_Delete.Text = "删除";
             this.btn_Delete.UseVisualStyleBackColor = true;
@@ -77,9 +80,10 @@ namespace MRS
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(339, 8);
+            this.button1.Location = new System.Drawing.Point(452, 10);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
+            this.button1.Size = new System.Drawing.Size(100, 35);
             this.button1.TabIndex = 5;
             this.button1.Text = "修改";
             this.button1.UseVisualStyleBackColor = true;
@@ -88,9 +92,10 @@ namespace MRS
             // 
             this.comboBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(107, 9);
+            this.comboBox1.Location = new System.Drawing.Point(143, 11);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(189, 29);
+            this.comboBox1.Size = new System.Drawing.Size(251, 35);
             this.comboBox1.TabIndex = 4;
             // 
             // label1
@@ -99,9 +104,10 @@ namespace MRS
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(10, 9);
+            this.label1.Location = new System.Drawing.Point(13, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 21);
+            this.label1.Size = new System.Drawing.Size(112, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "父级模板：";
             // 
@@ -109,19 +115,21 @@ namespace MRS
             // 
             this.baseTemplateControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.baseTemplateControl.EditorReadonly = false;
-            this.baseTemplateControl.Location = new System.Drawing.Point(0, 40);
+            this.baseTemplateControl.Location = new System.Drawing.Point(0, 50);
+            this.baseTemplateControl.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.baseTemplateControl.Name = "baseTemplateControl";
             this.baseTemplateControl.ShowSelectButton = true;
-            this.baseTemplateControl.Size = new System.Drawing.Size(1206, 562);
+            this.baseTemplateControl.Size = new System.Drawing.Size(1608, 702);
             this.baseTemplateControl.TabIndex = 2;
             // 
             // ManageTemplate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1206, 602);
+            this.ClientSize = new System.Drawing.Size(1608, 752);
             this.Controls.Add(this.baseTemplateControl);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ManageTemplate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "模板维护";
