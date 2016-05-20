@@ -17,5 +17,7 @@ namespace MRS.Entity.Entities
         public string CreatedById { get; set; }
 
         public string CreatedBy { get; set; }
+
+        public int Status { get; set; }
     }
 }

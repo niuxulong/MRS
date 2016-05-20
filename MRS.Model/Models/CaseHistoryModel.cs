@@ -1,5 +1,6 @@
 ﻿using Common.Const;
 using Common.DataBaseAccessor;
+using Common.Enums;
 using MRS.Entity.Entities;
 using MRS.Model.Interfaces;
 using System;
@@ -13,6 +14,19 @@ namespace MRS.Model.Models
 {
     public class CaseHistoryModel : ICaseHistoryModel 
     {
+        public bool UpdateCaseHistoryStatus(Guid caseHistoryId, Enums.CaseHistoryStatus status)
+        {
+            try
+            {
+                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_UPDATECASEHISTORYSTATUS, new object[] { caseHistoryId.ToString(), (int)status });
+                return rowAmount > 0;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public List<CaseHistory> GetCaseHistoryByPatientId(string patientId)
         {
             try
@@ -67,6 +81,7 @@ namespace MRS.Model.Models
                 caseHistory.FileContent = dataRow.ItemArray[4].ToString();
                 caseHistory.CreatedById = dataRow.ItemArray[12].ToString();
                 caseHistory.CreatedBy = dataRow.ItemArray[13].ToString();
+                caseHistory.Status = (int)dataRow.ItemArray[14];
                 results.Add(caseHistory);
             }
 

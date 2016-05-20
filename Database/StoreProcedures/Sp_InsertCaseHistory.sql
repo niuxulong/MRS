@@ -11,5 +11,22 @@ CREATE PROCEDURE [dbo].[Sp_InsertCaseHistory]
 	@CreatedById nvarchar(100),
 	@CreatedBy nvarchar(100)
 AS
-		INSERT EMR_CASEHISTORY(RECORDID, PA_ID, FILENAME, FILETITLE, FILECONTENT, CREATEDBYID, CREATEDBY) VALUES (@RecordId, @PatientId, @FileName, @FileTitle, @FileContent, @CreatedById, @CreatedBy)
+		INSERT EMR_CASEHISTORY(
+			RECORDID, 
+			PA_ID, 
+			FILENAME, 
+			FILETITLE, 
+			FILECONTENT, 
+			CREATEDBYID, 
+			CREATEDBY,
+			STATUS) 
+		VALUES (
+		@RecordId, 
+		@PatientId, 
+		@FileName, 
+		@FileTitle, 
+		@FileContent, 
+		@CreatedById, 
+		@CreatedBy,
+		0)
 GO

@@ -61,6 +61,7 @@
     <Compile Include="DatabaseAccessor\SqlHelper.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="EventArguments\SystemConfigEventArgs.cs" />
+    <Compile Include="EventArguments\UpdateCaseHistoryStatusEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\BaseTemplateControl.cs">
       <SubType>UserControl</SubType>
