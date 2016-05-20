@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace MRS.Entity.Entities
 {
     public class CaseHistory
@@ -17,5 +16,8 @@ namespace MRS.Entity.Entities
         public string CreatedById { get; set; }
 
         public string CreatedBy { get; set; }
+
+        public int CaseType { get; set; }
+
     }
 }

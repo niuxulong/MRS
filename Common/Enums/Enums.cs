@@ -24,5 +24,12 @@
 
             Undefined = 3
         }
+
+        public enum CaseType
+        {
+            Common = 0,
+            ProgressNote = 1,
+            FirstProgressNote = 2
+        }
     }
 }
