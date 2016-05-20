@@ -29,6 +29,7 @@ namespace MRS.Views.View
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElecCaseHistoryView));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -110,7 +111,7 @@ namespace MRS.Views.View
             this.col_Complated_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Complated_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Complated_Check = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContextMenuSrip = new System.Windows.Forms.ContextMenuStrip();
+            this.ContextMenuSrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuItem_Commit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_RollbackCommit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_RemoveRecord = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,7 +124,7 @@ namespace MRS.Views.View
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.editorControl = new Common.UserControls.EditorControl();
-            this.writerCommandControler1 = new DCSoft.Writer.Commands.WriterCommandControler();
+            this.writerCommandControler1 = new DCSoft.Writer.Commands.WriterCommandControler(this.components);
             this.pl_info.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pl_Menu.SuspendLayout();
@@ -650,7 +651,7 @@ namespace MRS.Views.View
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer2.Size = new System.Drawing.Size(1714, 801);
-            this.splitContainer2.SplitterDistance = 555;
+            this.splitContainer2.SplitterDistance = 536;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -666,7 +667,7 @@ namespace MRS.Views.View
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(555, 795);
+            this.groupBox2.Size = new System.Drawing.Size(536, 795);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "2、已完成病历";
@@ -678,7 +679,7 @@ namespace MRS.Views.View
             this.panel4.Location = new System.Drawing.Point(4, 499);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(547, 292);
+            this.panel4.Size = new System.Drawing.Size(528, 292);
             this.panel4.TabIndex = 2;
             // 
             // dataGridView2
@@ -693,7 +694,7 @@ namespace MRS.Views.View
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView2.Size = new System.Drawing.Size(547, 292);
+            this.dataGridView2.Size = new System.Drawing.Size(528, 292);
             this.dataGridView2.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -719,7 +720,7 @@ namespace MRS.Views.View
             this.panel5.Location = new System.Drawing.Point(4, 457);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(547, 42);
+            this.panel5.Size = new System.Drawing.Size(528, 42);
             this.panel5.TabIndex = 3;
             // 
             // label11
@@ -741,7 +742,7 @@ namespace MRS.Views.View
             this.panel3.Location = new System.Drawing.Point(4, 279);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(547, 178);
+            this.panel3.Size = new System.Drawing.Size(528, 178);
             this.panel3.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -782,7 +783,7 @@ namespace MRS.Views.View
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(547, 178);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(528, 178);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // textBox16
@@ -791,11 +792,11 @@ namespace MRS.Views.View
             this.textBox16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox16.ForeColor = System.Drawing.Color.Silver;
-            this.textBox16.Location = new System.Drawing.Point(340, 144);
+            this.textBox16.Location = new System.Drawing.Point(328, 144);
             this.textBox16.Margin = new System.Windows.Forms.Padding(4);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(203, 34);
+            this.textBox16.Size = new System.Drawing.Size(196, 34);
             this.textBox16.TabIndex = 19;
             this.textBox16.Text = "100";
             // 
@@ -805,11 +806,11 @@ namespace MRS.Views.View
             this.textBox15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox15.ForeColor = System.Drawing.Color.Silver;
-            this.textBox15.Location = new System.Drawing.Point(85, 144);
+            this.textBox15.Location = new System.Drawing.Point(82, 144);
             this.textBox15.Margin = new System.Windows.Forms.Padding(4);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(143, 34);
+            this.textBox15.Size = new System.Drawing.Size(138, 34);
             this.textBox15.TabIndex = 18;
             this.textBox15.Text = "已完成";
             // 
@@ -819,11 +820,11 @@ namespace MRS.Views.View
             this.textBox14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox14.ForeColor = System.Drawing.Color.Silver;
-            this.textBox14.Location = new System.Drawing.Point(340, 109);
+            this.textBox14.Location = new System.Drawing.Point(328, 109);
             this.textBox14.Margin = new System.Windows.Forms.Padding(4);
             this.textBox14.Name = "textBox14";
             this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(203, 34);
+            this.textBox14.Size = new System.Drawing.Size(196, 34);
             this.textBox14.TabIndex = 17;
             // 
             // textBox13
@@ -832,11 +833,11 @@ namespace MRS.Views.View
             this.textBox13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox13.ForeColor = System.Drawing.Color.Silver;
-            this.textBox13.Location = new System.Drawing.Point(85, 109);
+            this.textBox13.Location = new System.Drawing.Point(82, 109);
             this.textBox13.Margin = new System.Windows.Forms.Padding(4);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(143, 34);
+            this.textBox13.Size = new System.Drawing.Size(138, 34);
             this.textBox13.TabIndex = 16;
             this.textBox13.Text = "未打印";
             // 
@@ -846,11 +847,11 @@ namespace MRS.Views.View
             this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.ForeColor = System.Drawing.Color.Silver;
-            this.textBox12.Location = new System.Drawing.Point(340, 74);
+            this.textBox12.Location = new System.Drawing.Point(328, 74);
             this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(203, 34);
+            this.textBox12.Size = new System.Drawing.Size(196, 34);
             this.textBox12.TabIndex = 15;
             this.textBox12.Text = "2016-03-18 18：30";
             // 
@@ -860,11 +861,11 @@ namespace MRS.Views.View
             this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.ForeColor = System.Drawing.Color.Silver;
-            this.textBox11.Location = new System.Drawing.Point(85, 74);
+            this.textBox11.Location = new System.Drawing.Point(82, 74);
             this.textBox11.Margin = new System.Windows.Forms.Padding(4);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(143, 34);
+            this.textBox11.Size = new System.Drawing.Size(138, 34);
             this.textBox11.TabIndex = 14;
             this.textBox11.Text = "李主任";
             // 
@@ -874,11 +875,11 @@ namespace MRS.Views.View
             this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox10.ForeColor = System.Drawing.Color.Silver;
-            this.textBox10.Location = new System.Drawing.Point(340, 39);
+            this.textBox10.Location = new System.Drawing.Point(328, 39);
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(203, 34);
+            this.textBox10.Size = new System.Drawing.Size(196, 34);
             this.textBox10.TabIndex = 13;
             this.textBox10.Text = "2016-03-18 18：30";
             // 
@@ -888,11 +889,11 @@ namespace MRS.Views.View
             this.txt_Creator.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_Creator.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Creator.ForeColor = System.Drawing.Color.Silver;
-            this.txt_Creator.Location = new System.Drawing.Point(85, 39);
+            this.txt_Creator.Location = new System.Drawing.Point(82, 39);
             this.txt_Creator.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Creator.Name = "txt_Creator";
             this.txt_Creator.ReadOnly = true;
-            this.txt_Creator.Size = new System.Drawing.Size(143, 34);
+            this.txt_Creator.Size = new System.Drawing.Size(138, 34);
             this.txt_Creator.TabIndex = 12;
             this.txt_Creator.Text = "系统管理员";
             // 
@@ -902,11 +903,11 @@ namespace MRS.Views.View
             this.txt_CaseName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_CaseName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CaseName.ForeColor = System.Drawing.Color.Silver;
-            this.txt_CaseName.Location = new System.Drawing.Point(340, 4);
+            this.txt_CaseName.Location = new System.Drawing.Point(328, 4);
             this.txt_CaseName.Margin = new System.Windows.Forms.Padding(4);
             this.txt_CaseName.Name = "txt_CaseName";
             this.txt_CaseName.ReadOnly = true;
-            this.txt_CaseName.Size = new System.Drawing.Size(203, 34);
+            this.txt_CaseName.Size = new System.Drawing.Size(196, 34);
             this.txt_CaseName.TabIndex = 11;
             this.txt_CaseName.Text = "入院记录";
             // 
@@ -917,7 +918,7 @@ namespace MRS.Views.View
             this.label1.Location = new System.Drawing.Point(4, 6);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 27);
+            this.label1.Size = new System.Drawing.Size(52, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "病历ID";
             // 
@@ -925,7 +926,7 @@ namespace MRS.Views.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(236, 6);
+            this.label2.Location = new System.Drawing.Point(228, 6);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 27);
@@ -939,7 +940,7 @@ namespace MRS.Views.View
             this.label3.Location = new System.Drawing.Point(4, 41);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 27);
+            this.label3.Size = new System.Drawing.Size(52, 29);
             this.label3.TabIndex = 2;
             this.label3.Text = "创建人";
             // 
@@ -947,7 +948,7 @@ namespace MRS.Views.View
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(236, 41);
+            this.label4.Location = new System.Drawing.Point(228, 41);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 27);
@@ -961,7 +962,7 @@ namespace MRS.Views.View
             this.label5.Location = new System.Drawing.Point(4, 76);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 27);
+            this.label5.Size = new System.Drawing.Size(52, 29);
             this.label5.TabIndex = 4;
             this.label5.Text = "审核人";
             // 
@@ -969,7 +970,7 @@ namespace MRS.Views.View
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(236, 76);
+            this.label6.Location = new System.Drawing.Point(228, 76);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 27);
@@ -982,7 +983,7 @@ namespace MRS.Views.View
             this.label7.Location = new System.Drawing.Point(4, 111);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 27);
+            this.label7.Size = new System.Drawing.Size(52, 29);
             this.label7.TabIndex = 6;
             this.label7.Text = "打印否";
             // 
@@ -990,7 +991,7 @@ namespace MRS.Views.View
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(236, 111);
+            this.label8.Location = new System.Drawing.Point(228, 111);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(92, 27);
@@ -1012,7 +1013,7 @@ namespace MRS.Views.View
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(236, 146);
+            this.label10.Location = new System.Drawing.Point(228, 146);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 27);
@@ -1025,11 +1026,11 @@ namespace MRS.Views.View
             this.txt_CaseId.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_CaseId.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CaseId.ForeColor = System.Drawing.Color.Silver;
-            this.txt_CaseId.Location = new System.Drawing.Point(85, 4);
+            this.txt_CaseId.Location = new System.Drawing.Point(82, 4);
             this.txt_CaseId.Margin = new System.Windows.Forms.Padding(4);
             this.txt_CaseId.Name = "txt_CaseId";
             this.txt_CaseId.ReadOnly = true;
-            this.txt_CaseId.Size = new System.Drawing.Size(143, 34);
+            this.txt_CaseId.Size = new System.Drawing.Size(138, 34);
             this.txt_CaseId.TabIndex = 10;
             this.txt_CaseId.Text = "10";
             // 
@@ -1041,7 +1042,7 @@ namespace MRS.Views.View
             this.panel2.Location = new System.Drawing.Point(4, 31);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(547, 248);
+            this.panel2.Size = new System.Drawing.Size(528, 248);
             this.panel2.TabIndex = 0;
             // 
             // dgv_FinishedCaseHistory
@@ -1060,7 +1061,7 @@ namespace MRS.Views.View
             this.dgv_FinishedCaseHistory.Name = "dgv_FinishedCaseHistory";
             this.dgv_FinishedCaseHistory.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_FinishedCaseHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_FinishedCaseHistory.Size = new System.Drawing.Size(547, 206);
+            this.dgv_FinishedCaseHistory.Size = new System.Drawing.Size(528, 206);
             this.dgv_FinishedCaseHistory.TabIndex = 0;
             // 
             // col_Complated_No
@@ -1147,7 +1148,7 @@ namespace MRS.Views.View
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(547, 42);
+            this.panel6.Size = new System.Drawing.Size(528, 42);
             this.panel6.TabIndex = 1;
             // 
             // button1
@@ -1175,7 +1176,7 @@ namespace MRS.Views.View
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1154, 801);
+            this.tabControl1.Size = new System.Drawing.Size(1173, 801);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -1185,7 +1186,7 @@ namespace MRS.Views.View
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1146, 772);
+            this.tabPage1.Size = new System.Drawing.Size(1165, 772);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "操作页";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1197,7 +1198,7 @@ namespace MRS.Views.View
             this.editorControl.Location = new System.Drawing.Point(3, 3);
             this.editorControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.editorControl.Name = "editorControl";
-            this.editorControl.Size = new System.Drawing.Size(1140, 766);
+            this.editorControl.Size = new System.Drawing.Size(1159, 766);
             this.editorControl.TabIndex = 0;
             this.editorControl.Title = "";
             // 

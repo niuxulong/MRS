@@ -50,9 +50,12 @@ namespace MRS
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (this.baseTemplateControl.SelectedTemplate != null)
-                if (DeleteTemplateEvent != null)
-                    DeleteTemplateEvent(sender, this.baseTemplateControl.SelectedTemplate);
+            if (MessageBox.Show(this, "È·¶¨É¾³ýÄ£°å£¿", "É¾³ý", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                if (this.baseTemplateControl.SelectedTemplate != null)
+                    if (DeleteTemplateEvent != null)
+                        DeleteTemplateEvent(sender, this.baseTemplateControl.SelectedTemplate);
+            }
         }
 
         private void btn_Save_Click(object sender, EventArgs e)

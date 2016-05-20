@@ -33,36 +33,36 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_FontName = new System.Windows.Forms.ToolStripComboBox();
+            this.btn_FontSize = new System.Windows.Forms.ToolStripComboBox();
+            this.writerControl1 = new DCSoft.Writer.Controls.WriterControl();
+            this.writerCommandControler1 = new DCSoft.Writer.Commands.WriterCommandControler(this.components);
             this.btn_FileOpen = new System.Windows.Forms.ToolStripButton();
             this.btn_FileSave = new System.Windows.Forms.ToolStripButton();
             this.btn_Cut = new System.Windows.Forms.ToolStripButton();
             this.btn_Copy = new System.Windows.Forms.ToolStripButton();
             this.btn_Paste = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_Redo = new System.Windows.Forms.ToolStripButton();
             this.btn_Undo = new System.Windows.Forms.ToolStripButton();
             this.btn_Print = new System.Windows.Forms.ToolStripButton();
             this.btn_PrintView = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_AlignCenter = new System.Windows.Forms.ToolStripButton();
             this.btn_AlignRight = new System.Windows.Forms.ToolStripButton();
             this.btn_AlignLeft = new System.Windows.Forms.ToolStripButton();
             this.AlignJustify = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_NumberList = new System.Windows.Forms.ToolStripButton();
             this.btn_Superscript = new System.Windows.Forms.ToolStripButton();
             this.btn_Subscript = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_BackColor = new System.Windows.Forms.ToolStripButton();
             this.btn_FontColor = new System.Windows.Forms.ToolStripButton();
             this.btn_Underline = new System.Windows.Forms.ToolStripButton();
             this.btn_Italic = new System.Windows.Forms.ToolStripButton();
             this.btn_Bold = new System.Windows.Forms.ToolStripButton();
             this.btn_Font = new System.Windows.Forms.ToolStripButton();
-            this.btn_FontName = new System.Windows.Forms.ToolStripComboBox();
-            this.btn_FontSize = new System.Windows.Forms.ToolStripComboBox();
-            this.writerControl1 = new DCSoft.Writer.Controls.WriterControl();
-            this.writerCommandControler1 = new DCSoft.Writer.Commands.WriterCommandControler(this.components);
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.writerCommandControler1)).BeginInit();
             this.SuspendLayout();
@@ -103,7 +103,7 @@
             this.btn_FontSize});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(928, 32);
+            this.toolStrip2.Size = new System.Drawing.Size(1005, 30);
             this.toolStrip2.TabIndex = 3;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -119,17 +119,61 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 32);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 32);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 32);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 32);
+            // 
+            // btn_FontName
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_FontName, "FontName");
+            this.btn_FontName.Name = "btn_FontName";
+            this.btn_FontName.Size = new System.Drawing.Size(160, 30);
+            // 
+            // btn_FontSize
+            // 
+            this.writerCommandControler1.SetCommandName(this.btn_FontSize, "FontSize");
+            this.btn_FontSize.Name = "btn_FontSize";
+            this.btn_FontSize.Size = new System.Drawing.Size(121, 30);
+            // 
+            // writerControl1
+            // 
+            this.writerControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.writerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.writerControl1.Location = new System.Drawing.Point(0, 30);
+            this.writerControl1.Margin = new System.Windows.Forms.Padding(5);
+            this.writerControl1.Name = "writerControl1";
+            this.writerControl1.Size = new System.Drawing.Size(1005, 556);
+            this.writerControl1.TabIndex = 4;
+            // 
             // btn_FileOpen
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_FileOpen, "FileOpen");
             this.btn_FileOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_FileOpen.Image = ((System.Drawing.Image)(resources.GetObject("btn_FileOpen.Image")));
             this.btn_FileOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_FileOpen.Name = "btn_FileOpen";
-            this.btn_FileOpen.Size = new System.Drawing.Size(24, 29);
+            this.btn_FileOpen.Size = new System.Drawing.Size(24, 27);
             this.btn_FileOpen.Text = "打开";
             // 
             // btn_FileSave
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_FileSave, "FileSave");
             this.btn_FileSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_FileSave.Image = ((System.Drawing.Image)(resources.GetObject("btn_FileSave.Image")));
             this.btn_FileSave.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -139,6 +183,7 @@
             // 
             // btn_Cut
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Cut, "Cut");
             this.btn_Cut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Cut.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cut.Image")));
             this.btn_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -148,6 +193,7 @@
             // 
             // btn_Copy
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Copy, "Copy");
             this.btn_Copy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Copy.Image = ((System.Drawing.Image)(resources.GetObject("btn_Copy.Image")));
             this.btn_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -157,6 +203,7 @@
             // 
             // btn_Paste
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Paste, "Paste");
             this.btn_Paste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Paste.Image = ((System.Drawing.Image)(resources.GetObject("btn_Paste.Image")));
             this.btn_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -164,13 +211,9 @@
             this.btn_Paste.Size = new System.Drawing.Size(24, 29);
             this.btn_Paste.Text = "粘贴";
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
-            // 
             // btn_Redo
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Redo, "Redo");
             this.btn_Redo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Redo.Image = ((System.Drawing.Image)(resources.GetObject("btn_Redo.Image")));
             this.btn_Redo.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -180,6 +223,7 @@
             // 
             // btn_Undo
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Undo, "Undo");
             this.btn_Undo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Undo.Image = ((System.Drawing.Image)(resources.GetObject("btn_Undo.Image")));
             this.btn_Undo.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -189,6 +233,7 @@
             // 
             // btn_Print
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Print, "FilePrint");
             this.btn_Print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Print.Image = ((System.Drawing.Image)(resources.GetObject("btn_Print.Image")));
             this.btn_Print.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -198,164 +243,143 @@
             // 
             // btn_PrintView
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_PrintView, "FilePrintPreview");
             this.btn_PrintView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_PrintView.Image = ((System.Drawing.Image)(resources.GetObject("btn_PrintView.Image")));
             this.btn_PrintView.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_PrintView.Name = "btn_PrintView";
-            this.btn_PrintView.Size = new System.Drawing.Size(24, 29);
+            this.btn_PrintView.Size = new System.Drawing.Size(24, 27);
             this.btn_PrintView.Text = "打印预览";
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 32);
             // 
             // btn_AlignCenter
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_AlignCenter, "AlignCenter");
             this.btn_AlignCenter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_AlignCenter.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignCenter.Image")));
             this.btn_AlignCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_AlignCenter.Name = "btn_AlignCenter";
-            this.btn_AlignCenter.Size = new System.Drawing.Size(24, 29);
+            this.btn_AlignCenter.Size = new System.Drawing.Size(24, 27);
             this.btn_AlignCenter.Text = "居中";
             // 
             // btn_AlignRight
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_AlignRight, "AlignRight");
             this.btn_AlignRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_AlignRight.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignRight.Image")));
             this.btn_AlignRight.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_AlignRight.Name = "btn_AlignRight";
-            this.btn_AlignRight.Size = new System.Drawing.Size(24, 29);
+            this.btn_AlignRight.Size = new System.Drawing.Size(24, 27);
             this.btn_AlignRight.Text = "右对齐";
             // 
             // btn_AlignLeft
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_AlignLeft, "AlignLeft");
             this.btn_AlignLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_AlignLeft.Image = ((System.Drawing.Image)(resources.GetObject("btn_AlignLeft.Image")));
             this.btn_AlignLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_AlignLeft.Name = "btn_AlignLeft";
-            this.btn_AlignLeft.Size = new System.Drawing.Size(24, 29);
+            this.btn_AlignLeft.Size = new System.Drawing.Size(24, 27);
             this.btn_AlignLeft.Text = "左对齐";
             // 
             // AlignJustify
             // 
+            this.writerCommandControler1.SetCommandName(this.AlignJustify, "AlignJustify");
             this.AlignJustify.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.AlignJustify.Image = ((System.Drawing.Image)(resources.GetObject("AlignJustify.Image")));
             this.AlignJustify.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AlignJustify.Name = "AlignJustify";
-            this.AlignJustify.Size = new System.Drawing.Size(24, 29);
+            this.AlignJustify.Size = new System.Drawing.Size(24, 27);
             this.AlignJustify.Text = "toolStripButton3";
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 32);
             // 
             // btn_NumberList
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_NumberList, "NumberedList");
             this.btn_NumberList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_NumberList.Image = ((System.Drawing.Image)(resources.GetObject("btn_NumberList.Image")));
             this.btn_NumberList.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_NumberList.Name = "btn_NumberList";
-            this.btn_NumberList.Size = new System.Drawing.Size(24, 29);
+            this.btn_NumberList.Size = new System.Drawing.Size(24, 27);
             this.btn_NumberList.Text = "toolStripButton1";
             // 
             // btn_Superscript
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Superscript, "Superscript");
             this.btn_Superscript.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Superscript.Image = ((System.Drawing.Image)(resources.GetObject("btn_Superscript.Image")));
             this.btn_Superscript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Superscript.Name = "btn_Superscript";
-            this.btn_Superscript.Size = new System.Drawing.Size(24, 29);
+            this.btn_Superscript.Size = new System.Drawing.Size(24, 27);
             this.btn_Superscript.Text = "toolStripButton1";
             // 
             // btn_Subscript
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Subscript, "Subscript");
             this.btn_Subscript.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Subscript.Image = ((System.Drawing.Image)(resources.GetObject("btn_Subscript.Image")));
             this.btn_Subscript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Subscript.Name = "btn_Subscript";
-            this.btn_Subscript.Size = new System.Drawing.Size(24, 29);
+            this.btn_Subscript.Size = new System.Drawing.Size(24, 27);
             this.btn_Subscript.Text = "toolStripButton1";
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 32);
             // 
             // btn_BackColor
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_BackColor, "BackColor");
             this.btn_BackColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_BackColor.Image = ((System.Drawing.Image)(resources.GetObject("btn_BackColor.Image")));
             this.btn_BackColor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_BackColor.Name = "btn_BackColor";
-            this.btn_BackColor.Size = new System.Drawing.Size(24, 29);
+            this.btn_BackColor.Size = new System.Drawing.Size(24, 27);
             this.btn_BackColor.Text = "背景颜色";
             // 
             // btn_FontColor
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_FontColor, "Color");
             this.btn_FontColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_FontColor.Image = ((System.Drawing.Image)(resources.GetObject("btn_FontColor.Image")));
             this.btn_FontColor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_FontColor.Name = "btn_FontColor";
-            this.btn_FontColor.Size = new System.Drawing.Size(24, 29);
+            this.btn_FontColor.Size = new System.Drawing.Size(24, 27);
             this.btn_FontColor.Text = "字体颜色";
             // 
             // btn_Underline
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Underline, "Underline");
             this.btn_Underline.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Underline.Image = ((System.Drawing.Image)(resources.GetObject("btn_Underline.Image")));
             this.btn_Underline.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Underline.Name = "btn_Underline";
-            this.btn_Underline.Size = new System.Drawing.Size(24, 29);
+            this.btn_Underline.Size = new System.Drawing.Size(24, 27);
             this.btn_Underline.Text = "下划线";
             // 
             // btn_Italic
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Italic, "Italic");
             this.btn_Italic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Italic.Image = ((System.Drawing.Image)(resources.GetObject("btn_Italic.Image")));
             this.btn_Italic.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Italic.Name = "btn_Italic";
-            this.btn_Italic.Size = new System.Drawing.Size(24, 29);
+            this.btn_Italic.Size = new System.Drawing.Size(24, 27);
             this.btn_Italic.Text = "斜体";
             // 
             // btn_Bold
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Bold, "Bold");
             this.btn_Bold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Bold.Image = ((System.Drawing.Image)(resources.GetObject("btn_Bold.Image")));
             this.btn_Bold.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Bold.Name = "btn_Bold";
-            this.btn_Bold.Size = new System.Drawing.Size(24, 29);
+            this.btn_Bold.Size = new System.Drawing.Size(24, 27);
             this.btn_Bold.Text = "加粗";
             // 
             // btn_Font
             // 
+            this.writerCommandControler1.SetCommandName(this.btn_Font, "Font");
             this.btn_Font.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btn_Font.Image = ((System.Drawing.Image)(resources.GetObject("btn_Font.Image")));
             this.btn_Font.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Font.Name = "btn_Font";
-            this.btn_Font.Size = new System.Drawing.Size(24, 29);
+            this.btn_Font.Size = new System.Drawing.Size(24, 27);
             this.btn_Font.Text = "字体";
-            // 
-            // btn_FontName
-            // 
-            this.btn_FontName.Name = "btn_FontName";
-            this.btn_FontName.Size = new System.Drawing.Size(160, 32);
-            // 
-            // btn_FontSize
-            // 
-            this.btn_FontSize.Name = "btn_FontSize";
-            this.btn_FontSize.Size = new System.Drawing.Size(121, 28);
-            // 
-            // writerControl1
-            // 
-            this.writerControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.writerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.writerControl1.Location = new System.Drawing.Point(0, 32);
-            this.writerControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.writerControl1.Name = "writerControl1";
-            this.writerControl1.Size = new System.Drawing.Size(928, 554);
-            this.writerControl1.TabIndex = 4;
             // 
             // EditorControl
             // 
@@ -364,7 +388,7 @@
             this.Controls.Add(this.writerControl1);
             this.Controls.Add(this.toolStrip2);
             this.Name = "EditorControl";
-            this.Size = new System.Drawing.Size(928, 586);
+            this.Size = new System.Drawing.Size(1005, 586);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.writerCommandControler1)).EndInit();
