@@ -33,6 +33,7 @@ namespace MRS.Views.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElecCaseHistoryView));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pl_info = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_User = new System.Windows.Forms.TextBox();
@@ -1047,6 +1048,8 @@ namespace MRS.Views.View
             // 
             // dgv_FinishedCaseHistory
             // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgv_FinishedCaseHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_FinishedCaseHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_FinishedCaseHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_FinishedCaseHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1063,11 +1066,12 @@ namespace MRS.Views.View
             this.dgv_FinishedCaseHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_FinishedCaseHistory.Size = new System.Drawing.Size(528, 206);
             this.dgv_FinishedCaseHistory.TabIndex = 0;
+            this.dgv_FinishedCaseHistory.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_FinishedCaseHistory_CellDoubleClick);
             // 
             // col_Complated_No
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_Complated_No.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.col_Complated_No.DefaultCellStyle = dataGridViewCellStyle3;
             this.col_Complated_No.HeaderText = "序号";
             this.col_Complated_No.Name = "col_Complated_No";
             this.col_Complated_No.ReadOnly = true;
@@ -1173,6 +1177,7 @@ namespace MRS.Views.View
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1183,10 +1188,10 @@ namespace MRS.Views.View
             // 
             this.tabPage1.Controls.Add(this.editorControl);
             this.tabPage1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 36);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1165, 772);
+            this.tabPage1.Size = new System.Drawing.Size(1165, 761);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "操作页";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1198,7 +1203,7 @@ namespace MRS.Views.View
             this.editorControl.Location = new System.Drawing.Point(3, 3);
             this.editorControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.editorControl.Name = "editorControl";
-            this.editorControl.Size = new System.Drawing.Size(1159, 766);
+            this.editorControl.Size = new System.Drawing.Size(1159, 755);
             this.editorControl.TabIndex = 0;
             this.editorControl.Title = "";
             // 

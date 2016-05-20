@@ -1,7 +1,7 @@
 ﻿using System;
 namespace MRS.Entity.Entities
 {
-    public class CaseHistory
+    public class CaseHistory : ICloneable
     {
         public Guid Id { get; set; }
 
@@ -19,5 +19,22 @@ namespace MRS.Entity.Entities
 
         public int CaseType { get; set; }
 
+        // 用于UI
+        public object Tag { get; set; }
+
+
+        public object Clone()
+        {
+            CaseHistory newCaseHistory = new CaseHistory();
+            newCaseHistory.Id = Id;
+            newCaseHistory.PatientId = PatientId;
+            newCaseHistory.FileName = FileName;
+            newCaseHistory.FileTitle = FileTitle;
+            newCaseHistory.FileContent = FileContent;
+            newCaseHistory.CaseType = CaseType;
+            newCaseHistory.CreatedById = CreatedById;
+            newCaseHistory.CreatedBy = CreatedBy;
+            return newCaseHistory;
+        }
     }
 }

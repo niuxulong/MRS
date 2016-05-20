@@ -6,6 +6,8 @@ using MRS.Views.Interface;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
+using DCSoft.Writer.Controls;
 
 namespace MRS.Views.View
 {
@@ -25,6 +27,16 @@ namespace MRS.Views.View
 
         private Patient currentSelectedPatient;
         private Template currentSelectedTemplate;
+
+        private EditorControl ActiveEditorControl
+        {
+            get
+            {
+                if (this.tabControl1.SelectedTab.Controls.Count > 0)
+                    return ((EditorControl)this.tabControl1.SelectedTab.Controls[0]);
+                return this.editorControl;
+            }
+        }
 
         public ElecCaseHistoryView()
         {
@@ -84,7 +96,28 @@ namespace MRS.Views.View
 
         public void PopulateCaseHistoryRecords(List<CaseHistory> caseHistories)
         {
-            dgv_FinishedCaseHistory.DataSource = caseHistories;
+            var baseProgressNote = caseHistories.Where(c => c.CaseType == (int)Common.Enums.Enums.CaseType.ProgressNote).ToList();
+            List<CaseHistory> tempList = new List<CaseHistory>();
+            if (baseProgressNote.Count() > 0)
+            {
+                WriterControl tempControl = new WriterControl();
+                tempControl.XMLText = baseProgressNote[0].FileContent;
+                foreach (XTextSubDocumentElement document in tempControl.SubDocuments)
+                {
+                    string title = document.Title;
+                    if (string.IsNullOrEmpty(title))
+                    {
+                        title = System.IO.Path.GetFileNameWithoutExtension(document.FileName);
+                    }
+                    var newCase = (CaseHistory)baseProgressNote[0].Clone();
+                    newCase.FileContent = title;
+                    newCase.Tag = document;
+                    tempList.Add(newCase);
+                }
+            }
+            var dataSource = caseHistories.Where(c => c.CaseType != (int)Common.Enums.Enums.CaseType.ProgressNote).ToList();
+            dataSource.AddRange(tempList);
+            dgv_FinishedCaseHistory.DataSource = dataSource;
         }
 
         public void PopulateTemplateCatalogTree(List<TemplateCatalogNode> nodes)
@@ -145,13 +178,9 @@ namespace MRS.Views.View
                     editorControl.Dock = DockStyle.Fill;
                     newPage.Controls.Add(editorControl);
                     tabControl1.SelectTab(newPage);
-                    editorControl.FileContent = args.FileContent;
                 }
-                else
-                {
-                    //显示到编辑控件
-                    this.editorControl.FileContent = args.FileContent;
-                }
+                //显示到编辑控件
+                this.ActiveEditorControl.FileContent = args.FileContent;
 
                 currentSelectedTemplate = args;
                 if (currentSelectedTemplate.ParentNodeId == 0)
@@ -319,6 +348,28 @@ namespace MRS.Views.View
         private void MenuItem_RemoveRecord_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgv_FinishedCaseHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = dgv_FinishedCaseHistory.Rows[e.RowIndex];
+            var caseHistory = (CaseHistory)row.DataBoundItem;
+
+            if (caseHistory.CaseType == (int)Common.Enums.Enums.CaseType.ProgressNote)
+            {
+                XTextSubDocumentElement record = (XTextSubDocumentElement)caseHistory.Tag;
+                if (record != null)
+                {
+                    record.Focus();
+                    record.SelectFirstLine();
+                    this.ActiveEditorControl.WriteControl.Focus();
+                    this.ActiveEditorControl.WriteControl.ScrollToCaretExt(DCSoft.WinForms.ScrollToViewStyle.Top);
+                }
+            }
+            else
+            {
+ 
+            }
         }
 
     }
