@@ -1,0 +1,9 @@
+﻿IF(EXISTS(SELECT * FROM SYSOBJECTS WHERE XTYPE='P' AND NAME='Sp_DeleteCaseHistory'))
+	DROP PROCEDURE Sp_DeleteCaseHistory
+GO
+
+CREATE PROCEDURE [dbo].[Sp_DeleteCaseHistory]
+	@Id nvarchar(max)
+AS
+	DELETE FROM EMR_CASEHISTORY WHERE RECORDID = @Id
+GO

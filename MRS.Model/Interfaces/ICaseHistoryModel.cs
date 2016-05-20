@@ -10,6 +10,7 @@ namespace MRS.Model.Interfaces
 {
     public interface ICaseHistoryModel
     {
+        bool DeleteCaseHistory(Guid caseHistoryId);
         bool UpdateCaseHistoryStatus(Guid caseHistoryId, Enums.CaseHistoryStatus status);
 
         bool InsertCaseHistory(CaseHistory caseHistory);

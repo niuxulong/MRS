@@ -23,6 +23,7 @@ namespace MRS.Views.View
         public event EventHandler RetriveTemplateCatalogTree;
         public event EventHandler<CaseHistory> SaveCaseHistoryEvent;
         public event EventHandler<UpdateCaseHistoryStatusEventArgs> UpdateCasetoryStatusEvent;
+        public event EventHandler<UpdateCaseHistoryStatusEventArgs> DeleteCaseHistoryEvent;
         public event EventHandler<Template> SaveTemplateEvent;
         #endregion
 
@@ -335,7 +336,28 @@ namespace MRS.Views.View
         //删除病历
         private void CaseHistory_MenuItem_RemoveRecord_Click(object sender, EventArgs e)
         {
+            if (dgv_FinishedCaseHistory.SelectedRows.Count > 0)
+            {
+                var selectedCaseHistory = this.dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
+                if (selectedCaseHistory != null)
+                {
 
+                    if (selectedCaseHistory.Status == (int)Enums.CaseHistoryStatus.New)
+                    {
+                        if (DeleteCaseHistoryEvent != null)
+                        {
+                            if (MessageBox.Show("确定要删除所选病例吗？", "删除病历", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                            {
+                                DeleteCaseHistoryEvent(null, new UpdateCaseHistoryStatusEventArgs() { caseHistoryId = selectedCaseHistory.Id, status = Enums.CaseHistoryStatus.New, PatientId = selectedCaseHistory.PatientId });
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(string.Format("所选病例为{0}状态，不可删除。", GetCaseHistoryStatusString(selectedCaseHistory.Status)));
+                    }
+                }
+            }
         }
 
         //审核病历

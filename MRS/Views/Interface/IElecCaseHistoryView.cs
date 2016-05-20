@@ -20,6 +20,8 @@ namespace MRS.Views.Interface
 
         event EventHandler<UpdateCaseHistoryStatusEventArgs> UpdateCasetoryStatusEvent;
 
+        event EventHandler<UpdateCaseHistoryStatusEventArgs> DeleteCaseHistoryEvent;
+
         void PopulateCaseHistoryRecords(List<CaseHistory> caseHistories);
 
         void PopulateTemplateCatalogTree(List<TemplateCatalogNode> nodes);

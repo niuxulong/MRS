@@ -18,6 +18,8 @@
 
         public const string SP_UPDATECASEHISTORYSTATUS = "Sp_UpdateCaseHistoryStatus";
 
+        public const string SP_DELETECASEHISTORY = "Sp_DeleteCaseHistory";
+
         public const string SP_UPDATETEMPLATE = "Sp_UpdateTemplate";
 
         public const string SP_DELETETETEMPLATE = "Sp_DeleteTemplates";

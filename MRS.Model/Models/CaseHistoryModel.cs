@@ -14,6 +14,19 @@ namespace MRS.Model.Models
 {
     public class CaseHistoryModel : ICaseHistoryModel 
     {
+        public bool DeleteCaseHistory(Guid caseHistoryId)
+        {
+            try
+            {
+                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_DELETECASEHISTORY, caseHistoryId.ToString());
+                return rowAmount > 0;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public bool UpdateCaseHistoryStatus(Guid caseHistoryId, Enums.CaseHistoryStatus status)
         {
             try

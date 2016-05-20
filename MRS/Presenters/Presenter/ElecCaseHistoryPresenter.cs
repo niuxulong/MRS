@@ -30,6 +30,13 @@ namespace MRS.Presenters.Presenter
             this.View.SaveCaseHistoryEvent += HandleSaveCaseHistoryEvent;
             this.View.SaveTemplateEvent += HandleSaveTemplateEvent;
             this.View.UpdateCasetoryStatusEvent += HandleUpdateCasetoryStatusEvent;
+            this.View.DeleteCaseHistoryEvent += HandleDeleteCaseHistoryEvent;
+        }
+
+        private void HandleDeleteCaseHistoryEvent(object sender, UpdateCaseHistoryStatusEventArgs args)
+        {
+            caseHistoryModel.DeleteCaseHistory(args.caseHistoryId);
+            HandleRetriveCaseHistoriesByPatientIdEvent(sender, args.PatientId);
         }
 
         private void HandleUpdateCasetoryStatusEvent(object sender, UpdateCaseHistoryStatusEventArgs args)
