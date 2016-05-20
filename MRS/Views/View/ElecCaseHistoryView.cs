@@ -1,3 +1,5 @@
+using Common.Enums;
+using Common.EventArguments;
 using Common.UserControls;
 using DCSoft.Writer.Dom;
 using MRS.Entity.Entities;
@@ -22,6 +24,8 @@ namespace MRS.Views.View
         public event EventHandler<string> RetriveCaseHistoriesByPatientIdEvent;
         public event EventHandler RetriveTemplateCatalogTree;
         public event EventHandler<CaseHistory> SaveCaseHistoryEvent;
+        public event EventHandler<UpdateCaseHistoryStatusEventArgs> UpdateCasetoryStatusEvent;
+        public event EventHandler<UpdateCaseHistoryStatusEventArgs> DeleteCaseHistoryEvent;
         public event EventHandler<Template> SaveTemplateEvent;
         #endregion
 
@@ -179,7 +183,7 @@ namespace MRS.Views.View
                     newPage.Controls.Add(editorControl);
                     tabControl1.SelectTab(newPage);
                 }
-                //显示到编辑控件
+                    //显示到编辑控件
                 this.ActiveEditorControl.FileContent = args.FileContent;
 
                 currentSelectedTemplate = args;
@@ -330,7 +334,8 @@ namespace MRS.Views.View
 
         private void btn_Finalize_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("档案归档");
+            UpdateCaseHistoryStatus("档案归档", Enums.CaseHistoryStatus.Checked, Enums.CaseHistoryStatus.Finalized);
+            MessageBox.Show("归档成功");
         }
 
         private void writerControl1_DocumentContentChanged(object eventSender, DCSoft.Writer.WriterEventArgs args)
@@ -345,7 +350,53 @@ namespace MRS.Views.View
 
         }
 
-        private void MenuItem_RemoveRecord_Click(object sender, EventArgs e)
+        //提交审核
+        private void CaseHistory_MenuItem_Commit_Click(object sender, EventArgs e)
+        {
+            UpdateCaseHistoryStatus("提交审核", Enums.CaseHistoryStatus.New, Enums.CaseHistoryStatus.Checking);
+        }
+
+        //撤销受审
+        private void CaseHistory_MenuItem_RollbackCommit_Click(object sender, EventArgs e)
+        {
+            UpdateCaseHistoryStatus("撤销审核", Enums.CaseHistoryStatus.Checking, Enums.CaseHistoryStatus.New);
+        }
+
+        //删除病历
+        private void CaseHistory_MenuItem_RemoveRecord_Click(object sender, EventArgs e)
+        {
+            if (dgv_FinishedCaseHistory.SelectedRows.Count > 0)
+            {
+                var selectedCaseHistory = this.dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
+                if (selectedCaseHistory != null)
+                {
+
+                    if (selectedCaseHistory.Status == (int)Enums.CaseHistoryStatus.New)
+                    {
+                        if (DeleteCaseHistoryEvent != null)
+                        {
+                            if (MessageBox.Show("确定要删除所选病例吗？", "删除病历", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                            {
+                                DeleteCaseHistoryEvent(null, new UpdateCaseHistoryStatusEventArgs() { caseHistoryId = selectedCaseHistory.Id, status = Enums.CaseHistoryStatus.New, PatientId = selectedCaseHistory.PatientId });
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(string.Format("所选病例为{0}状态，不可删除。", GetCaseHistoryStatusString(selectedCaseHistory.Status)));
+                    }
+                }
+            }
+        }
+
+        //审核病历
+        private void CaseHistory_MenuItem_CheckRecord_Click(object sender, EventArgs e)
+        {
+            UpdateCaseHistoryStatus("审核病历", Enums.CaseHistoryStatus.Checking, Enums.CaseHistoryStatus.Checked);
+        }
+
+        //追加病程
+        private void CaseHistory_MenuItem_AppendRecord_Click(object sender, EventArgs e)
         {
 
         }
@@ -369,8 +420,56 @@ namespace MRS.Views.View
             else
             {
  
-            }
+        }
         }
 
+        //撤销审核
+        private void CaseHistory_MenuItem_RemoveCheck_Click(object sender, EventArgs e)
+        {
+            UpdateCaseHistoryStatus("审核病历", Enums.CaseHistoryStatus.Checked, Enums.CaseHistoryStatus.Checking);
+        }
+
+        private string GetCaseHistoryStatusString(int status)
+        {
+            var result = string.Empty;
+            switch (status)
+            { 
+                case (int)Enums.CaseHistoryStatus.New:
+                    result = "新建";
+                    break;
+                case (int)Enums.CaseHistoryStatus.Checking:
+                    result = "审核";
+                    break;
+                case (int)Enums.CaseHistoryStatus.Checked:
+                    result = "审核完毕";
+                    break;
+                case (int)Enums.CaseHistoryStatus.Finalized:
+                    result = "归档";
+                    break;
+            }
+            return result;
+        }
+
+        private void UpdateCaseHistoryStatus(string actionName, Enums.CaseHistoryStatus allowedStatus, Enums.CaseHistoryStatus targetStatus)
+        {
+            if (dgv_FinishedCaseHistory.SelectedRows.Count > 0)
+            {
+                var selectedCaseHistory = this.dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
+                if (selectedCaseHistory != null)
+                {
+                    if (selectedCaseHistory.Status == (int)allowedStatus)
+                    {
+                        if (UpdateCasetoryStatusEvent != null)
+                        {
+                            UpdateCasetoryStatusEvent(null, new UpdateCaseHistoryStatusEventArgs() { caseHistoryId = selectedCaseHistory.Id, status = targetStatus, PatientId = selectedCaseHistory.PatientId });
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(string.Format("所选病例为{0}状态，不可{1}。", GetCaseHistoryStatusString(selectedCaseHistory.Status), actionName));
+                    }
+                }
+            }
+        }
     }
 }

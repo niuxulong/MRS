@@ -32,7 +32,7 @@ namespace MRS
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbb_ParentNodes = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.baseTemplateControl = new Common.UserControls.BaseTemplateControl();
             this.panel1.SuspendLayout();
@@ -43,7 +43,7 @@ namespace MRS
             this.panel1.Controls.Add(this.btn_Save);
             this.panel1.Controls.Add(this.btn_Delete);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cbb_ParentNodes);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -90,13 +90,13 @@ namespace MRS
             // 
             // comboBox1
             // 
-            this.comboBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(143, 11);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(251, 35);
-            this.comboBox1.TabIndex = 4;
+            this.cbb_ParentNodes.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_ParentNodes.FormattingEnabled = true;
+            this.cbb_ParentNodes.Location = new System.Drawing.Point(143, 11);
+            this.cbb_ParentNodes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbb_ParentNodes.Name = "comboBox1";
+            this.cbb_ParentNodes.Size = new System.Drawing.Size(251, 35);
+            this.cbb_ParentNodes.TabIndex = 4;
             // 
             // label1
             // 
@@ -148,7 +148,7 @@ namespace MRS
 		private System.Windows.Forms.Button btn_Save;
 		private System.Windows.Forms.Button btn_Delete;
 		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox cbb_ParentNodes;
 
 	}
 }

@@ -26,6 +26,7 @@ namespace Common.UserControls
         public Template SelectedTemplate
         {
             get { return dgv_templateList.SelectedRows[0].DataBoundItem as Template; }
+            set {}
         }
 
         public BaseTemplateControl()
@@ -96,6 +97,11 @@ namespace Common.UserControls
                     this.writerControl.XMLText = selectedTemplate.FileContent;
                 }
             }
+        }
+
+        private void writerControl_DocumentContentChanged(object eventSender, DCSoft.Writer.WriterEventArgs args)
+        {
+            SelectedTemplate.FileContent = writerControl.XMLText;
         }
     }
 }

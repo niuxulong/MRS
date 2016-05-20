@@ -1,4 +1,5 @@
-﻿using MRS.Entity.Entities;
+﻿using Common.Enums;
+using MRS.Entity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace MRS.Model.Interfaces
 {
     public interface ICaseHistoryModel
     {
+        bool DeleteCaseHistory(Guid caseHistoryId);
+        bool UpdateCaseHistoryStatus(Guid caseHistoryId, Enums.CaseHistoryStatus status);
+
         bool InsertCaseHistory(CaseHistory caseHistory);
 
         List<CaseHistory> GetCaseHistoryByPatientId(string patientId);

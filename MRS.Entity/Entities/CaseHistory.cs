@@ -36,5 +36,7 @@ namespace MRS.Entity.Entities
             newCaseHistory.CreatedBy = CreatedBy;
             return newCaseHistory;
         }
+
+        public int Status { get; set; }
     }
 }

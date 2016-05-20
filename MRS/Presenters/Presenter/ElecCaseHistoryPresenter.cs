@@ -1,4 +1,5 @@
-﻿using MRS.Entity.Entities;
+﻿using Common.EventArguments;
+using MRS.Entity.Entities;
 using MRS.Model.Interfaces;
 using MRS.Model.Models;
 using MRS.Presenters.Interface;
@@ -28,6 +29,20 @@ namespace MRS.Presenters.Presenter
             this.View.RetriveTemplateCatalogTree += HandleRetriveTemplateCatalogTree;
             this.View.SaveCaseHistoryEvent += HandleSaveCaseHistoryEvent;
             this.View.SaveTemplateEvent += HandleSaveTemplateEvent;
+            this.View.UpdateCasetoryStatusEvent += HandleUpdateCasetoryStatusEvent;
+            this.View.DeleteCaseHistoryEvent += HandleDeleteCaseHistoryEvent;
+        }
+
+        private void HandleDeleteCaseHistoryEvent(object sender, UpdateCaseHistoryStatusEventArgs args)
+        {
+            caseHistoryModel.DeleteCaseHistory(args.caseHistoryId);
+            HandleRetriveCaseHistoriesByPatientIdEvent(sender, args.PatientId);
+        }
+
+        private void HandleUpdateCasetoryStatusEvent(object sender, UpdateCaseHistoryStatusEventArgs args)
+        {
+            caseHistoryModel.UpdateCaseHistoryStatus(args.caseHistoryId, args.status);
+            HandleRetriveCaseHistoriesByPatientIdEvent(sender, args.PatientId);
         }
 
         private void HandleSaveTemplateEvent(object sender, Template template)

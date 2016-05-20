@@ -1,4 +1,5 @@
-﻿using MRS.Entity.Entities;
+﻿using Common.EventArguments;
+using MRS.Entity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,10 @@ namespace MRS.Views.Interface
         event EventHandler<CaseHistory> SaveCaseHistoryEvent;
 
         event EventHandler<Template> SaveTemplateEvent;
+
+        event EventHandler<UpdateCaseHistoryStatusEventArgs> UpdateCasetoryStatusEvent;
+
+        event EventHandler<UpdateCaseHistoryStatusEventArgs> DeleteCaseHistoryEvent;
 
         void PopulateCaseHistoryRecords(List<CaseHistory> caseHistories);
 

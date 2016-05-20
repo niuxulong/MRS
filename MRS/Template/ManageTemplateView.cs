@@ -15,9 +15,12 @@ namespace MRS
 {
     public partial class ManageTemplate : ViewBase, IManageTemplateView
     {
+        #region 事件
         public event EventHandler<string> SearchTemplatesEvent;
         public event EventHandler<Template> DeleteTemplateEvent;
 		public event EventHandler<Template> SaveTemplateEvent;
+        public event EventHandler RetriveTemplateParentNodes;
+        #endregion
 
         public ManageTemplate()
         {
@@ -33,6 +36,10 @@ namespace MRS
         private void ManageTemplate_Load(object sender, EventArgs e)
         {
             baseTemplateControl.SearchButtonClickEvent += HandleSearchButtonClickEvent;
+            if (RetriveTemplateParentNodes != null)
+            {
+                RetriveTemplateParentNodes(null, null);
+            }
         }
 
         private void HandleSearchButtonClickEvent(object sender, string args)
@@ -43,6 +50,11 @@ namespace MRS
             }
         }
 
+        public void PopulateTemplatesParentNodes(List<TemplateCatalogNode> nodes)
+        {
+            this.cbb_ParentNodes.DataSource = nodes.Select(n=>n.TemplateNodeName).ToList();
+        }
+
         public void PopulateTemlatesInfo(List<Template> templates)
         {
             baseTemplateControl.PopulateTemlatesInfo(templates);
@@ -50,7 +62,7 @@ namespace MRS
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(this, "确定删除模板？", "删除", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show(this, "确定删除模板？", "删除模板", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
                 if (this.baseTemplateControl.SelectedTemplate != null)
                     if (DeleteTemplateEvent != null)
