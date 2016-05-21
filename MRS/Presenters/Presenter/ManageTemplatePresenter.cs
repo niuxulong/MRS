@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MRS.Presenters.Presenter
 {
-    public class ManageTemplatePresenter: Presenter<IManageTemplateView>
+    public class ManageTemplatePresenter : Presenter<IManageTemplateView>
     {
         private ITemplateModel templateModel;
         private ITemplateCatalogModel templateCatalogModel;
@@ -35,29 +35,31 @@ namespace MRS.Presenters.Presenter
         private void HandleRetriveTemplateParentNodes(object sender, object e)
         {
             var nodes = templateCatalogModel.GetTemplateCatalogNodes();
-            var parentNodes = new List<TemplateCatalogNode>();
-            foreach (var node in nodes)
+            if (nodes != null)
             {
-                parentNodes.AddRange(node.ChildTemplateNodeList);
+                var parentNodes = new List<TemplateCatalogNode>();
+                foreach (var node in nodes)
+                {
+                    parentNodes.AddRange(node.ChildTemplateNodeList);
+                }
+                this.View.PopulateTemplatesParentNodes(parentNodes);
             }
-            this.View.PopulateTemplatesParentNodes(parentNodes);
         }
 
         void HandleSaveTemplateEvent(object sender, Entity.Entities.Template template)
-		{
-			templateModel.UpdateTemplate(template);
-		}
+        {
+            templateModel.UpdateTemplate(template);
+        }
 
         void HandleDeleteTemplateEvent(object sender, Entity.Entities.Template template)
         {
             templateModel.RemoveTemplates(template);
-            HandleSearchTemplatesEvent(null, null);
-
+            HandleSearchTemplatesEvent(null, 0);
         }
 
-        private void HandleSearchTemplatesEvent(object sender, string args)
+        private void HandleSearchTemplatesEvent(string args, int parentNodeId)
         {
-            var templates = templateModel.GetTemplatesByFilter(args, 0, Enums.TemplateAttrEnum.Undefined);
+            var templates = templateModel.GetTemplatesByFilter(args, parentNodeId, Enums.TemplateAttrEnum.Undefined);
             if (templates != null && templates.Count > 0)
             {
                 this.View.PopulateTemlatesInfo(templates);

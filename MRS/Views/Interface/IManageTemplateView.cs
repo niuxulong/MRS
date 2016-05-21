@@ -9,7 +9,7 @@ namespace MRS.Views.Interface
 {
     public interface IManageTemplateView
     {
-        event EventHandler<string> SearchTemplatesEvent;
+        event SearchTemplateEventHandler SearchTemplatesEvent;
         
         event EventHandler<Template> DeleteTemplateEvent;
 		

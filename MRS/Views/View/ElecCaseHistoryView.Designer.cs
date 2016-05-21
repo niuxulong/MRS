@@ -1157,14 +1157,14 @@ namespace MRS.Views.View
             this.textBox1.Size = new System.Drawing.Size(173, 29);
             this.textBox1.TabIndex = 0;
             // 
-            // tabControl1
+            // editorTabPageControl
             // 
             this.editorTabPageControl.Controls.Add(this.tabPage1);
             this.editorTabPageControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editorTabPageControl.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.editorTabPageControl.Location = new System.Drawing.Point(0, 0);
             this.editorTabPageControl.Margin = new System.Windows.Forms.Padding(2);
-            this.editorTabPageControl.Name = "tabControl1";
+            this.editorTabPageControl.Name = "editorTabPageControl";
             this.editorTabPageControl.SelectedIndex = 0;
             this.editorTabPageControl.Size = new System.Drawing.Size(879, 640);
             this.editorTabPageControl.TabIndex = 1;
@@ -1178,8 +1178,8 @@ namespace MRS.Views.View
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(871, 606);
             this.tabPage1.TabIndex = 0;
+            this.tabPage1.Tag = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.tabPage1.Text = "操作页";
-            this.tabPage1.Tag = new System.Guid();
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // editorControl

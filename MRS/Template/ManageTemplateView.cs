@@ -8,10 +8,11 @@ using System.Windows.Forms;
 
 namespace MRS
 {
+    public delegate void SearchTemplateEventHandler(string name,int parentId);
     public partial class ManageTemplate : ViewBase, IManageTemplateView
     {
         #region 事件
-        public event EventHandler<string> SearchTemplatesEvent;
+        public event SearchTemplateEventHandler SearchTemplatesEvent;
         public event EventHandler<Template> DeleteTemplateEvent;
 		public event EventHandler<Template> SaveTemplateEvent;
         public event EventHandler RetriveTemplateParentNodes;
@@ -41,13 +42,15 @@ namespace MRS
         {
             if (SearchTemplatesEvent != null)
             {
-                SearchTemplatesEvent(sender, args);
+                SearchTemplatesEvent( args,Convert.ToInt32(this.cbb_ParentNodes.SelectedValue));
             }
         }
 
         public void PopulateTemplatesParentNodes(List<TemplateCatalogNode> nodes)
         {
-            this.cbb_ParentNodes.DataSource = nodes.Select(n=>n.TemplateNodeName).ToList();
+            this.cbb_ParentNodes.DataSource = nodes;
+            this.cbb_ParentNodes.DisplayMember = "TemplateNodeName";
+            this.cbb_ParentNodes.ValueMember = "TemplateNodeId";
         }
 
         public void PopulateTemlatesInfo(List<Template> templates)
@@ -67,9 +70,25 @@ namespace MRS
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-			if (this.baseTemplateControl.SelectedTemplate != null)
-				if (SaveTemplateEvent != null)
-					SaveTemplateEvent(sender, this.baseTemplateControl.SelectedTemplate);
+            try
+            {
+                if (this.baseTemplateControl.SelectedTemplate != null)
+                    if (SaveTemplateEvent != null)
+                        SaveTemplateEvent(sender, this.baseTemplateControl.SelectedTemplate);
+
+                MessageBox.Show("保存成功");
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+			
+        }
+
+        private void cbb_ParentNodes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
