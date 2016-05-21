@@ -28,6 +28,7 @@ namespace MRS.Views.View
         public event EventHandler<UpdateCaseHistoryStatusEventArgs> UpdateCasetoryStatusEvent;
         public event EventHandler<UpdateCaseHistoryStatusEventArgs> DeleteCaseHistoryEvent;
         public event EventHandler<Template> SaveTemplateEvent;
+        public event EventHandler<Template> CreateTemplateEvent;
         #endregion
 
         private Patient currentSelectedPatient;
@@ -78,7 +79,7 @@ namespace MRS.Views.View
             ClearPatientInfo();
             //清空病历信息
             dgv_FinishedCaseHistory.DataSource = null;
-          
+
         }
 
         private void ConfigDgvFinishedCaseHistoryColumns()
@@ -157,7 +158,7 @@ namespace MRS.Views.View
         }
 
         private void HandleSelectTemplateForProgressNote(object sender, Template args)
-        { 
+        {
             //追加病程显示
         }
 
@@ -166,14 +167,18 @@ namespace MRS.Views.View
             PopulateSelectedTemplateInfo(args);
         }
 
-        private void HandleSaveTemplateEvent(object sender, string args)
+        private void HandleCreateTemplateEvent(int parentId, string name,int templateAttr)
         {
-            if (SaveTemplateEvent != null)
+            if (CreateTemplateEvent != null)
             {
-                currentSelectedTemplate.CreatedBy = "User1";
-                currentSelectedTemplate.FileContent = this.ActiveEditorControl.WriteControl.XMLText;
-                currentSelectedTemplate.FileName = args;
-                SaveTemplateEvent(sender, currentSelectedTemplate);
+                var newTemplate = new Template();
+                newTemplate.RecordId = Guid.NewGuid();
+                newTemplate.CreatedBy = "User1";
+                newTemplate.FileContent = this.ActiveEditorControl.WriteControl.XMLText;
+                newTemplate.FileName = name;
+                newTemplate.ParentNodeId = parentId;
+                newTemplate.TemplateAttr = templateAttr;
+                CreateTemplateEvent(null, newTemplate);
             }
         }
 
@@ -192,22 +197,31 @@ namespace MRS.Views.View
 
         private void btn_SaveTemplate_Click(object sender, EventArgs e)
         {
-            if (currentSelectedTemplate != null)
+            if (tv_TemplateCatalog.SelectedNode != null)
             {
-                SaveTemplate form = new SaveTemplate();
-                form.SaveTemplateEvent += HandleSaveTemplateEvent;
-                var node = GetTemplateNodeByParentId(currentSelectedTemplate.ParentNodeId);
-                if (node != null)
+                var templateCatalogNode = (TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag;
+
+                if (!templateCatalogNode.IsParentTemplateNode)
                 {
-                    form.PopulateSelectedTemplateInfo(currentSelectedTemplate.ParentNodeId, node.Text, currentSelectedTemplate.FileName, DateTime.Now.ToShortDateString());
-                    form.ShowDialog();
+                    SaveTemplate form = new SaveTemplate();
+                    form.CreateTemplateEvent += HandleCreateTemplateEvent;
+                    var parentId = templateCatalogNode.TemplateNodeId;
+                    var node = GetTemplateNodeByParentId(parentId);
+                    if (node != null)
+                    {
+                        form.PopulateSelectedTemplateInfo(parentId, node.Text, "", DateTime.Now.ToShortDateString());
+                        form.ShowDialog();
+                    }
                 }
+                else
+                { MessageBox.Show("请在树形菜单选择一个模板类型"); }
             }
+            else { MessageBox.Show("请在树形菜单选择一个模板类型"); }
         }
 
         private TreeNode GetTemplateNodeByParentId(int parentId)
         {
-            foreach(TreeNode node in tv_TemplateCatalog.Nodes)
+            foreach (TreeNode node in tv_TemplateCatalog.Nodes)
             {
                 foreach (TreeNode subNode in node.Nodes)
                 {
@@ -256,7 +270,7 @@ namespace MRS.Views.View
         {
             SearchPatientView form = new SearchPatientView();
             form.ShowDialog();
-        }      
+        }
 
         private void btn_SystemConfigure_Click(object sender, EventArgs e)
         {
@@ -394,7 +408,7 @@ namespace MRS.Views.View
             {
                 ProgressNoteTypeSelectionView form = new ProgressNoteTypeSelectionView();
                 var types = new List<TreeNode>();
-                foreach(TreeNode node in tv_TemplateCatalog.Nodes)
+                foreach (TreeNode node in tv_TemplateCatalog.Nodes)
                 {
                     foreach (TreeNode subNode in node.Nodes)
                     {
@@ -433,14 +447,14 @@ namespace MRS.Views.View
                         }
                     }
                     //病历
-                    else if(selectedCaseHistory.CaseType == (int)Enums.CaseType.Common)
+                    else if (selectedCaseHistory.CaseType == (int)Enums.CaseType.Common)
                     {
                         OpenActiveEditControlPage(selectedCaseHistory.Id, selectedCaseHistory.FileName + "(病历)", selectedCaseHistory.FileContent);
                     }
                     //首日病程
                     else if (selectedCaseHistory.CaseType == (int)Enums.CaseType.FirstProgressNote)
-                    { 
-                        
+                    {
+
                     }
                 }
             }
@@ -468,14 +482,14 @@ namespace MRS.Views.View
             }
             else
             {
-                TabPage newTabPage = new TabPage() 
+                TabPage newTabPage = new TabPage()
                 {
                     Text = tabTitle,
                     Tag = RecordId
                 };
 
-                EditorControl editor = new EditorControl() 
-                { 
+                EditorControl editor = new EditorControl()
+                {
                     Dock = DockStyle.Fill,
                     Location = new Point(3, 3),
                     Margin = new Padding(3, 4, 3, 4),
@@ -499,7 +513,7 @@ namespace MRS.Views.View
         {
             var result = string.Empty;
             switch (status)
-            { 
+            {
                 case (int)Enums.CaseHistoryStatus.New:
                     result = "新建";
                     break;

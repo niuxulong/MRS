@@ -82,6 +82,14 @@ namespace MRS.DataCacheManager
             dataCache.TemplateCache[dataCache.TemplateCache.IndexOf(pendingUpdateTemplate)] = template;
             return true;
         }
+        public bool InsertTemplateToCache(Template template)
+        {
+            if (!dataCache.TemplateCache.Exists(t => t.RecordId == template.RecordId))
+            {
+                dataCache.TemplateCache.Add(template);
+            }
+            return true;
+        }
 
         public void RemoveTemplateFromCache(Template template)
         {

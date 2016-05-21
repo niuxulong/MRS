@@ -22,6 +22,8 @@
 
         public const string SP_UPDATETEMPLATE = "Sp_UpdateTemplate";
 
+        public const string SP_INSERTTEMPLATE = "Sp_InsertTemplate";
+
         public const string SP_DELETETETEMPLATE = "Sp_DeleteTemplates";
     }
 }

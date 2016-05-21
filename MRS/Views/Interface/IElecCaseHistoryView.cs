@@ -18,6 +18,8 @@ namespace MRS.Views.Interface
 
         event EventHandler<Template> SaveTemplateEvent;
 
+        event EventHandler<Template> CreateTemplateEvent;
+
         event EventHandler<UpdateCaseHistoryStatusEventArgs> UpdateCasetoryStatusEvent;
 
         event EventHandler<UpdateCaseHistoryStatusEventArgs> DeleteCaseHistoryEvent;

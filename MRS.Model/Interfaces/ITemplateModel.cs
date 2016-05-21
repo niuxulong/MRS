@@ -15,5 +15,7 @@ namespace MRS.Model.Interfaces
         bool UpdateTemplate(Template template);
 
         bool RemoveTemplates(Template template);
+
+        bool InsertTemplate(Template template);
     }
 }

@@ -45,12 +45,30 @@ namespace MRS.Model.Models
             try
             {
                 var updateCacheSuccess = false;
-                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_UPDATETEMPLATE, GetUpdateTemplateParams(template.RecordId.ToString(), template.ParentNodeId, template.FileName, template.FileContent));
+                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_UPDATETEMPLATE, GetUpdateTemplateParams(template.RecordId.ToString(), template.ParentNodeId, template.FileName, template.FileContent,template.CreatedById,template.CreatedBy,template.TemplateAttr));
                 if (rowAmount > 0)
                 {
                     updateCacheSuccess = DataCacheManager.DataCacheManager.GetCacheManagerInstance().UpdateTemplateCache(template);
                 }
                 return updateCacheSuccess; 
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool InsertTemplate(Template template)
+        {
+            try
+            {
+                var updateCacheSuccess = false;
+                var rowAmount = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnSting(), SqlConst.SP_INSERTTEMPLATE, GetUpdateTemplateParams(template.RecordId.ToString(), template.ParentNodeId, template.FileName, template.FileContent,template.CreatedById,template.CreatedBy,template.TemplateAttr));
+                if (rowAmount > 0)
+                {
+                    updateCacheSuccess = DataCacheManager.DataCacheManager.GetCacheManagerInstance().InsertTemplateToCache(template);
+                }
+                return updateCacheSuccess;
             }
             catch (Exception ex)
             {
@@ -76,9 +94,9 @@ namespace MRS.Model.Models
             }
         }
 
-        private object[] GetUpdateTemplateParams(string recordId, int parentId, string fileName, string fileContent)
+        private object[] GetUpdateTemplateParams(string recordId, int parentId, string fileName, string fileContent,string createdById,string createdBy,int templateAttr)
         {
-            return new object[]{recordId, parentId, fileName, fileContent};
+            return new object[] { recordId, parentId, fileName, fileContent, createdById, createdBy, templateAttr };
         }
     }
 }
