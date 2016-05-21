@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 using DCSoft.Writer.Controls;
+using System.Drawing;
 
 namespace MRS.Views.View
 {
@@ -32,12 +33,14 @@ namespace MRS.Views.View
         private Patient currentSelectedPatient;
         private Template currentSelectedTemplate;
 
+        private Dictionary<Guid, TabPage> editorContrlsMapper;
+
         private EditorControl ActiveEditorControl
         {
             get
             {
-                if (this.tabControl1.SelectedTab.Controls.Count > 0)
-                    return ((EditorControl)this.tabControl1.SelectedTab.Controls[0]);
+                if (this.editorTabPageControl.SelectedTab.Controls.Count > 0)
+                    return ((EditorControl)this.editorTabPageControl.SelectedTab.Controls[0]);
                 return this.editorControl;
             }
         }
@@ -56,6 +59,8 @@ namespace MRS.Views.View
             {
                 SetupTemplateCatalogTree();
             }
+
+            this.editorContrlsMapper = new Dictionary<Guid, TabPage>();
         }
 
         private void SetupTemplateCatalogTree()
@@ -171,18 +176,7 @@ namespace MRS.Views.View
         {
             if (args != null)
             {
-                if (this.tabControl1.TabPages.Count > 0)
-                {
-                    this.tabControl1.TabPages.Add("操做页");
-                    var newPage = this.tabControl1.TabPages[this.tabControl1.TabPages.Count - 1];
-                    var editorControl = new EditorControl();
-                    editorControl.Dock = DockStyle.Fill;
-                    newPage.Controls.Add(editorControl);
-                    tabControl1.SelectTab(newPage);
-                }
-                    //显示到编辑控件
-                this.ActiveEditorControl.FileContent = args.FileContent;
-
+                OpenActiveEditControlPage(args.RecordId, args.FileName + "模板", args.FileContent);
                 currentSelectedTemplate = args;
                 if (currentSelectedTemplate.ParentNodeId == 0)
                 {
@@ -401,6 +395,7 @@ namespace MRS.Views.View
                 var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
                 if (selectedCaseHistory != null)
                 {
+                    // 病程
                     if (selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
                     {
                         XTextSubDocumentElement record = (XTextSubDocumentElement)selectedCaseHistory.Tag;
@@ -412,11 +407,60 @@ namespace MRS.Views.View
                             ActiveEditorControl.WriteControl.ScrollToCaretExt(DCSoft.WinForms.ScrollToViewStyle.Top);
                         }
                     }
+                    //病历
                     else if(selectedCaseHistory.CaseType == (int)Enums.CaseType.Common)
                     {
-                        ActiveEditorControl.WriteControl.XMLText = selectedCaseHistory.FileContent;
+                        OpenActiveEditControlPage(selectedCaseHistory.Id, selectedCaseHistory.FileName + "(病历)", selectedCaseHistory.FileContent);
+                    }
+                    //首日病程
+                    else if (selectedCaseHistory.CaseType == (int)Enums.CaseType.FirstProgressNote)
+                    { 
+                        
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// 打开新的编辑TAB页，或定位到已打开的编辑TAB页
+        /// </summary>
+        /// <param name="RecordId" 可以是模板Id， 或是病历、病程 Id></param>
+        private void OpenActiveEditControlPage(Guid RecordId, string tabTitle, string content)
+        {
+            TabPage targetTabPage = null;
+            foreach (TabPage tabPage in editorTabPageControl.TabPages)
+            {
+                if ((Guid)tabPage.Tag == RecordId)
+                {
+                    targetTabPage = tabPage;
+                    break;
+                }
+            }
+
+            if (targetTabPage != null)
+            {
+                editorTabPageControl.SelectedTab = targetTabPage;
+            }
+            else
+            {
+                TabPage newTabPage = new TabPage() 
+                {
+                    Text = tabTitle,
+                    Tag = RecordId
+                };
+
+                EditorControl editor = new EditorControl() 
+                { 
+                    Dock = DockStyle.Fill,
+                    Location = new Point(3, 3),
+                    Margin = new Padding(3, 4, 3, 4),
+                    Size = new Size(865, 600),
+                    FileContent = content
+                };
+
+                newTabPage.Controls.Add(editor);
+                editorTabPageControl.TabPages.Add(newTabPage);
+                editorTabPageControl.SelectedTab = newTabPage;
             }
         }
 
