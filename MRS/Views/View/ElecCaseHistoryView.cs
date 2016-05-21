@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Linq;
 using DCSoft.Writer.Controls;
 using System.Drawing;
+using DCSoft.Writer;
 
 namespace MRS.Views.View
 {
@@ -32,6 +33,8 @@ namespace MRS.Views.View
 
         private Patient currentSelectedPatient;
         private Template currentSelectedTemplate;
+
+        private Dictionary<Guid, Tuple<TabPage, Enums.TabPageType>> tabPageMapper = new Dictionary<Guid, Tuple<TabPage, Enums.TabPageType>>();
 
         private Dictionary<Guid, TabPage> editorContrlsMapper;
 
@@ -105,12 +108,13 @@ namespace MRS.Views.View
 
         public void PopulateCaseHistoryRecords(List<CaseHistory> caseHistories)
         {
-            var baseProgressNote = caseHistories.Where(c => c.CaseType == (int)Common.Enums.Enums.CaseType.ProgressNote).ToList();
+            if (caseHistories == null || caseHistories.Count == 0) return;                
+            var baseProgressNote = caseHistories.Where(c => c.CaseType == (int)Common.Enums.Enums.CaseType.ProgressNote);
             List<CaseHistory> tempList = new List<CaseHistory>();
             if (baseProgressNote.Count() > 0)
             {
                 WriterControl tempControl = new WriterControl();
-                tempControl.XMLText = baseProgressNote[0].FileContent;
+                tempControl.XMLText = baseProgressNote.FirstOrDefault().FileContent;
                 foreach (XTextSubDocumentElement document in tempControl.SubDocuments)
                 {
                     string title = document.Title;
@@ -118,8 +122,8 @@ namespace MRS.Views.View
                     {
                         title = System.IO.Path.GetFileNameWithoutExtension(document.FileName);
                     }
-                    var newCase = (CaseHistory)baseProgressNote[0].Clone();
-                    newCase.FileContent = title;
+                    var newCase = (CaseHistory)baseProgressNote.FirstOrDefault().Clone();
+                    newCase.FileContent = baseProgressNote.FirstOrDefault().FileContent;
                     newCase.Tag = document;
                     tempList.Add(newCase);
                 }
@@ -159,7 +163,53 @@ namespace MRS.Views.View
         private void HandleSelectTemplateForProgressNote(object sender, Template args)
         { 
             //追加病程显示
+            if (dgv_FinishedCaseHistory.SelectedRows.Count > 0)
+            {
+                var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
+                if (selectedCaseHistory != null && selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
+                {
+                    OpenActiveEditControlPage(selectedCaseHistory.Id, currentSelectedPatient.Name + "的病程", args.FileContent, Enums.TabPageType.ProgressNote);
+                }
+            }
         }
+
+        private string GetAppendedXML(string originalXML, string appendXML)
+        {
+
+            var tempWc = new WriterControl();
+            if (!string.IsNullOrEmpty(originalXML))
+            {
+                tempWc.XMLText = originalXML;
+            }
+            
+            var doc = CreateNewSubDocument(tempWc.Document, appendXML);
+            tempWc.AppendSubDocument(doc);
+            return tempWc.XMLText;
+        }
+
+        private XTextSubDocumentElement CreateNewSubDocument(XTextDocument document, string xml)
+        {
+            XTextSubDocumentElement doc = new XTextSubDocumentElement();
+            doc.OwnerDocument = document;
+            doc.DocumentInfo.Author = System.Environment.UserName;
+            doc.DocumentInfo.Title = DateTime.Now.ToString("病程记录yyyy年MM月dd日 HH时mm分ss秒");
+            doc.ID = doc.Title;
+
+            doc.LoadDocumentFromString(xml, "xml");
+
+            //doc.SetInnerTextFast(xml);
+            // 新文档不启用权限
+            doc.EnablePermission = DCBooleanValue.False;
+            // 新文档是不只读的
+            doc.ContentReadonly = ContentReadonlyState.False;
+            // 打印时背景透明
+            doc.Style.PrintBackColor = Color.Transparent;
+            //// 设置新的文件名
+            string fileName = doc.DocumentInfo.Title + ".xml";
+            doc.FileName = fileName;
+            return doc;
+        }
+
 
         private void HandleSelectTemplateEvent(object sender, Template args)
         {
@@ -181,7 +231,7 @@ namespace MRS.Views.View
         {
             if (args != null)
             {
-                OpenActiveEditControlPage(args.RecordId, args.FileName + "模板", args.FileContent);
+                OpenActiveEditControlPage(args.RecordId, args.FileName + "模板", args.FileContent, Enums.TabPageType.Template);
                 currentSelectedTemplate = args;
                 if (currentSelectedTemplate.ParentNodeId == 0)
                 {
@@ -278,19 +328,59 @@ namespace MRS.Views.View
         {
             if (currentSelectedPatient != null)
             {
-                var caseHistory = new CaseHistory()
+                var currentId = (Guid)editorTabPageControl.SelectedTab.Tag;
+                if (tabPageMapper.ContainsKey(currentId))
                 {
-                    Id = System.Guid.NewGuid(),
-                    PatientId = currentSelectedPatient.PatientId,
-                    FileName = currentSelectedTemplate.FileName,
-                    FileTitle = string.Empty,
-                    FileContent = this.ActiveEditorControl.WriteControl.XMLText,
-                    CreatedBy = "User1"
-                };
-                if (SaveCaseHistoryEvent != null)
-                {
-                    SaveCaseHistoryEvent(sender, caseHistory);
-                    MessageBox.Show("保存病历成功");
+                    var tabPageType = tabPageMapper[currentId].Item2;
+                    var caseHistory = new CaseHistory()
+                    {
+                        PatientId = currentSelectedPatient.PatientId,
+                        FileName = editorTabPageControl.SelectedTab.Text,
+                        FileTitle = string.Empty,
+                        FileContent = this.ActiveEditorControl.WriteControl.XMLText,
+                        CreatedBy = "User1"
+                    };
+
+                    if (tabPageType == Enums.TabPageType.Template)
+                    {
+                        caseHistory.Id = System.Guid.NewGuid();
+                        caseHistory.CaseType = currentSelectedTemplate.ParentNodeId.ToString().StartsWith("4") == true ? (int)Enums.CaseType.ProgressNote : (int)Enums.CaseType.Common;
+                        if (caseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
+                        {
+                            var xml = GetAppendedXML(string.Empty, caseHistory.FileContent);
+                            caseHistory.FileContent = xml;
+                        }
+
+                        var targetTabPageType = Enums.TabPageType.CaseHistory;
+                        if(caseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
+                        {
+                            targetTabPageType = Enums.TabPageType.ProgressNote;
+                        }
+
+                        //(((tabPageMapper[currentId].Item1 as TabPage).Controls[0]) as EditorControl).WriteControl.XMLText = caseHistory.FileContent;
+                        var tupple = new Tuple<TabPage, Enums.TabPageType>(tabPageMapper[currentId].Item1, targetTabPageType);
+
+                        tabPageMapper.Add(caseHistory.Id, tupple);
+                        tabPageMapper.Remove(currentId);
+                    }
+                    else if (tabPageType == Enums.TabPageType.CaseHistory)
+                    {
+                        caseHistory.Id = currentId;
+                        caseHistory.CaseType = (int)Enums.CaseType.Common;
+                    }
+                    else if (tabPageType == Enums.TabPageType.ProgressNote)
+                    {
+                        caseHistory.Id = currentId;
+                        caseHistory.CaseType = (int)Enums.CaseType.ProgressNote;
+                    }
+                    if (SaveCaseHistoryEvent != null)
+                    {
+                        SaveCaseHistoryEvent(sender, caseHistory);
+
+
+
+                        MessageBox.Show("保存病历成功");
+                    }
                 }
             }
         }
@@ -390,25 +480,39 @@ namespace MRS.Views.View
         //追加病程
         private void CaseHistory_MenuItem_AppendRecord_Click(object sender, EventArgs e)
         {
-            if (currentSelectedPatient != null)
+            if (dgv_FinishedCaseHistory.SelectedRows.Count > 0)
             {
-                ProgressNoteTypeSelectionView form = new ProgressNoteTypeSelectionView();
-                var types = new List<TreeNode>();
-                foreach(TreeNode node in tv_TemplateCatalog.Nodes)
+                var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
+                if (selectedCaseHistory != null && selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
                 {
-                    foreach (TreeNode subNode in node.Nodes)
+                    if (currentSelectedPatient != null)
                     {
-                        types.Add(subNode);
+                        ProgressNoteTypeSelectionView form = new ProgressNoteTypeSelectionView();
+                        var types = new List<TreeNode>();
+                        // Mark:第四树节点为病程节点
+                        if (tv_TemplateCatalog.Nodes.Count > 3)
+                        {
+                            foreach (TreeNode subNode in tv_TemplateCatalog.Nodes[3].Nodes)
+                            {
+                                types.Add(subNode);
+                            }
+                        }
+
+                        form.ProgressNoteTypes = types;
+                        if (form.ShowDialog() == DialogResult.OK)
+                        {
+                            if (form.SelectedTypeNode != null)
+                            {
+                                LoadTemplateView loadTemplateForm = new LoadTemplateView((TemplateCatalogNode)form.SelectedTypeNode.Tag);
+                                loadTemplateForm.SelectTemplateEvent += HandleSelectTemplateForProgressNote;
+                                loadTemplateForm.ShowDialog();
+                            }
+                        }
                     }
                 }
-                form.ProgressNoteTypes = types;
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    LoadTemplateView loadTemplateForm = new LoadTemplateView((TemplateCatalogNode)form.SelectedTypeNode.Tag);
-                    loadTemplateForm.SelectTemplateEvent += HandleSelectTemplateForProgressNote;
-                    loadTemplateForm.ShowDialog();
-                }
+                
             }
+            
         }
 
         private void dgv_FinishedCaseHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -421,7 +525,7 @@ namespace MRS.Views.View
                     // 病程
                     if (selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
                     {
-                        //OpenActiveEditControlPage(selectedCaseHistory.Id, selectedCaseHistory.FileName + "(病程)", selectedCaseHistory.FileContent);
+                        OpenActiveEditControlPage(selectedCaseHistory.Id, currentSelectedPatient.Name + "的病程", selectedCaseHistory.FileContent, Enums.TabPageType.ProgressNote);
 
                         XTextSubDocumentElement record = (XTextSubDocumentElement)selectedCaseHistory.Tag;
                         if (record != null)
@@ -435,7 +539,7 @@ namespace MRS.Views.View
                     //病历
                     else if(selectedCaseHistory.CaseType == (int)Enums.CaseType.Common)
                     {
-                        OpenActiveEditControlPage(selectedCaseHistory.Id, selectedCaseHistory.FileName + "(病历)", selectedCaseHistory.FileContent);
+                        OpenActiveEditControlPage(selectedCaseHistory.Id, selectedCaseHistory.FileName + "(病历)", selectedCaseHistory.FileContent, Enums.TabPageType.CaseHistory);
                     }
                     //首日病程
                     else if (selectedCaseHistory.CaseType == (int)Enums.CaseType.FirstProgressNote)
@@ -450,21 +554,17 @@ namespace MRS.Views.View
         /// 打开新的编辑TAB页，或定位到已打开的编辑TAB页
         /// </summary>
         /// <param name="RecordId" 可以是模板Id， 或是病历、病程 Id></param>
-        private void OpenActiveEditControlPage(Guid RecordId, string tabTitle, string content)
+        private void OpenActiveEditControlPage(Guid RecordId, string tabTitle, string content, Enums.TabPageType tabPageType)
         {
-            TabPage targetTabPage = null;
-            foreach (TabPage tabPage in editorTabPageControl.TabPages)
+            if (tabPageMapper.ContainsKey(RecordId))
             {
-                if ((Guid)tabPage.Tag == RecordId)
+                editorTabPageControl.SelectedTab = tabPageMapper[RecordId].Item1;
+                editorTabPageControl.SelectedTab.Tag = RecordId;
+                if (tabPageType == Enums.TabPageType.ProgressNote)
                 {
-                    targetTabPage = tabPage;
-                    break;
+                    var doc = CreateNewSubDocument(ActiveEditorControl.WriteControl.Document, content);
+                    ActiveEditorControl.WriteControl.AppendSubDocument(doc);
                 }
-            }
-
-            if (targetTabPage != null)
-            {
-                editorTabPageControl.SelectedTab = targetTabPage;
             }
             else
             {
@@ -480,12 +580,18 @@ namespace MRS.Views.View
                     Location = new Point(3, 3),
                     Margin = new Padding(3, 4, 3, 4),
                     Size = new Size(865, 600),
-                    FileContent = content
+                    //FileContent = content
                 };
 
                 newTabPage.Controls.Add(editor);
                 editorTabPageControl.TabPages.Add(newTabPage);
                 editorTabPageControl.SelectedTab = newTabPage;
+
+                var doc = CreateNewSubDocument(ActiveEditorControl.WriteControl.Document, content);
+                ActiveEditorControl.WriteControl.AppendSubDocument(doc);
+
+                var tupple = new Tuple<TabPage,Enums.TabPageType>(newTabPage, tabPageType);
+                tabPageMapper.Add(RecordId, tupple);
             }
         }
 

@@ -47,5 +47,14 @@
 
             Finalized = 3 //归档
         }
+
+        public enum TabPageType
+        { 
+            CaseHistory = 0,
+
+            ProgressNote = 1,
+
+            Template = 2
+        }
     }
 }

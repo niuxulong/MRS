@@ -52,6 +52,8 @@ namespace MRS.Presenters.Presenter
 
         private void HandleSaveCaseHistoryEvent(object sender, CaseHistory caseHistory)
         {
+            var currentId = caseHistory.Id;
+
             caseHistoryModel.InsertCaseHistory(caseHistory);
             HandleRetriveCaseHistoriesByPatientIdEvent(sender, caseHistory.PatientId);
         }

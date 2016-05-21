@@ -66,7 +66,7 @@ namespace MRS.Model.Models
 
         private object[] ConvertToParamDataRow(CaseHistory caseHistory)
         {
-            var caseHistoryParams = new object[7];
+            var caseHistoryParams = new object[8];
             caseHistoryParams[0] = caseHistory.Id.ToString();
             caseHistoryParams[1] = caseHistory.PatientId;
             caseHistoryParams[2] = caseHistory.FileName;
@@ -74,7 +74,7 @@ namespace MRS.Model.Models
             caseHistoryParams[4] = caseHistory.FileContent;
             caseHistoryParams[5] = caseHistory.CreatedBy;
             caseHistoryParams[6] = caseHistory.CreatedById;
-
+            caseHistoryParams[7] = caseHistory.CaseType;
             return caseHistoryParams;
         }
 
@@ -92,6 +92,7 @@ namespace MRS.Model.Models
                 caseHistory.CreatedById = dataRow.ItemArray[12].ToString();
                 caseHistory.CreatedBy = dataRow.ItemArray[13].ToString();
                 caseHistory.Status = (int)dataRow.ItemArray[14];
+                caseHistory.CaseType = (int)dataRow.ItemArray[15];
                 results.Add(caseHistory);
             }
 

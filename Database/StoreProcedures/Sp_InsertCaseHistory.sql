@@ -9,9 +9,14 @@ CREATE PROCEDURE [dbo].[Sp_InsertCaseHistory]
 	@FileTitle nvarchar(400),
 	@FileContent ntext,
 	@CreatedById nvarchar(100),
-	@CreatedBy nvarchar(100)
+	@CreatedBy nvarchar(100),
+	@CaseType int
 AS
-		INSERT EMR_CASEHISTORY(
+IF(EXISTS(SELECT * FROM EMR_CASEHISTORY WHERE RECORDID = @RecordId))
+	UPDATE EMR_CASEHISTORY SET FILENAME = @FileName, FILECONTENT = @FileContent, CASETYPE = @CaseType WHERE RECORDID = @RecordId
+ELSE
+BEGIN
+INSERT EMR_CASEHISTORY(
 			RECORDID, 
 			PA_ID, 
 			FILENAME, 
@@ -19,14 +24,19 @@ AS
 			FILECONTENT, 
 			CREATEDBYID, 
 			CREATEDBY,
-			STATUS) 
+			STATUS,
+			CASETYPE) 
 		VALUES (
-		@RecordId, 
-		@PatientId, 
-		@FileName, 
-		@FileTitle, 
-		@FileContent, 
-		@CreatedById, 
-		@CreatedBy,
-		0)
+			@RecordId, 
+			@PatientId, 
+			@FileName, 
+			@FileTitle, 
+			@FileContent, 
+			@CreatedById, 
+			@CreatedBy,
+			0,
+			@CaseType)
+END
+
+		
 GO
