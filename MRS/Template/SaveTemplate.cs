@@ -10,14 +10,15 @@ using System.Windows.Forms;
 
 namespace MRS
 {
-	public partial class SaveTemplate : Form
-	{
-        public event EventHandler<string> SaveTemplateEvent;
+    public delegate void CreateTemplatEventTemplate(int parentId, string name,int templateAttr);
+    public partial class SaveTemplate : Form
+    {
+        public event CreateTemplatEventTemplate CreateTemplateEvent;
 
-		public SaveTemplate()
-		{
-			InitializeComponent();
-		}
+        public SaveTemplate()
+        {
+            InitializeComponent();
+        }
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
@@ -26,9 +27,9 @@ namespace MRS
                 MessageBox.Show("请输入模板名称");
                 return;
             }
-            if (SaveTemplateEvent != null)
+            if (CreateTemplateEvent != null)
             {
-                SaveTemplateEvent(sender, tb_TemplateName.Text.Trim());
+                CreateTemplateEvent(Convert.ToInt32(this.tb_ParentNodeId.Text), tb_TemplateName.Text.Trim(), this.chb_Common.Checked ? 0 : 1);
             }
 
             this.Close();
@@ -46,5 +47,15 @@ namespace MRS
             this.tb_TemplateName.Text = fileName;
             this.tb_CreateDate.Text = createdDate;
         }
-	}
+
+        private void chb_Common_CheckedChanged(object sender, EventArgs e)
+        {
+            chb_Private.Checked = !chb_Common.Checked;
+        }
+
+        private void chb_Private_CheckedChanged(object sender, EventArgs e)
+        {
+            chb_Common.Checked = !chb_Private.Checked;
+        }
+    }
 }

@@ -41,6 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_ParentNodeId = new System.Windows.Forms.TextBox();
+            this.chb_Common = new System.Windows.Forms.CheckBox();
+            this.chb_Private = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -51,15 +53,15 @@
             this.panel2.Controls.Add(this.btn_Reset);
             this.panel2.Controls.Add(this.btn_Save);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 167);
+            this.panel2.Location = new System.Drawing.Point(0, 196);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(353, 59);
+            this.panel2.Size = new System.Drawing.Size(354, 59);
             this.panel2.TabIndex = 1;
             // 
             // btn_Reset
             // 
             this.btn_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Reset.Location = new System.Drawing.Point(255, 5);
+            this.btn_Reset.Location = new System.Drawing.Point(256, 5);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(75, 42);
             this.btn_Reset.TabIndex = 1;
@@ -70,7 +72,7 @@
             // btn_Save
             // 
             this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Save.Location = new System.Drawing.Point(174, 5);
+            this.btn_Save.Location = new System.Drawing.Point(175, 5);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 42);
             this.btn_Save.TabIndex = 0;
@@ -80,11 +82,13 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.chb_Private);
+            this.panel3.Controls.Add(this.chb_Common);
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(353, 167);
+            this.panel3.Size = new System.Drawing.Size(354, 196);
             this.panel3.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -109,7 +113,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(270, 130);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(271, 130);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tb_CreateDate
@@ -179,11 +183,33 @@
             this.tb_ParentNodeId.Size = new System.Drawing.Size(183, 29);
             this.tb_ParentNodeId.TabIndex = 4;
             // 
+            // chb_Common
+            // 
+            this.chb_Common.AutoSize = true;
+            this.chb_Common.Location = new System.Drawing.Point(44, 165);
+            this.chb_Common.Name = "chb_Common";
+            this.chb_Common.Size = new System.Drawing.Size(61, 25);
+            this.chb_Common.TabIndex = 1;
+            this.chb_Common.Text = "通用";
+            this.chb_Common.UseVisualStyleBackColor = true;
+            this.chb_Common.CheckedChanged += new System.EventHandler(this.chb_Common_CheckedChanged);
+            // 
+            // chb_Private
+            // 
+            this.chb_Private.AutoSize = true;
+            this.chb_Private.Location = new System.Drawing.Point(169, 165);
+            this.chb_Private.Name = "chb_Private";
+            this.chb_Private.Size = new System.Drawing.Size(61, 25);
+            this.chb_Private.TabIndex = 2;
+            this.chb_Private.Text = "个人";
+            this.chb_Private.UseVisualStyleBackColor = true;
+            this.chb_Private.CheckedChanged += new System.EventHandler(this.chb_Private_CheckedChanged);
+            // 
             // SaveTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 226);
+            this.ClientSize = new System.Drawing.Size(354, 255);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -196,6 +222,7 @@
             this.Text = "保存模板";
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -217,5 +244,7 @@
 		private System.Windows.Forms.TextBox tb_ParentNodeId;
 		private System.Windows.Forms.Button btn_Reset;
 		private System.Windows.Forms.Button btn_Save;
+        private System.Windows.Forms.CheckBox chb_Private;
+        private System.Windows.Forms.CheckBox chb_Common;
 	}
 }

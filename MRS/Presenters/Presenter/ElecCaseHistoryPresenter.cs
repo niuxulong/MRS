@@ -29,8 +29,14 @@ namespace MRS.Presenters.Presenter
             this.View.RetriveTemplateCatalogTree += HandleRetriveTemplateCatalogTree;
             this.View.SaveCaseHistoryEvent += HandleSaveCaseHistoryEvent;
             this.View.SaveTemplateEvent += HandleSaveTemplateEvent;
+            this.View.CreateTemplateEvent += View_CreateTemplateEvent;
             this.View.UpdateCasetoryStatusEvent += HandleUpdateCasetoryStatusEvent;
             this.View.DeleteCaseHistoryEvent += HandleDeleteCaseHistoryEvent;
+        }
+
+        void View_CreateTemplateEvent(object sender, Template template)
+        {
+            templateModel.InsertTemplate(template);
         }
 
         private void HandleDeleteCaseHistoryEvent(object sender, UpdateCaseHistoryStatusEventArgs args)

@@ -29,6 +29,7 @@ namespace MRS.Views.View
         public event EventHandler<UpdateCaseHistoryStatusEventArgs> UpdateCasetoryStatusEvent;
         public event EventHandler<UpdateCaseHistoryStatusEventArgs> DeleteCaseHistoryEvent;
         public event EventHandler<Template> SaveTemplateEvent;
+        public event EventHandler<Template> CreateTemplateEvent;
         #endregion
 
         private Patient currentSelectedPatient;
@@ -168,23 +169,9 @@ namespace MRS.Views.View
                 var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
                 if (selectedCaseHistory != null && selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
                 {
-                    OpenActiveEditControlPage(selectedCaseHistory.Id, currentSelectedPatient.Name + "的病程", args.FileContent, Enums.TabPageType.ProgressNote);
+                    OpenActiveEditControlPage(selectedCaseHistory.Id, currentSelectedPatient.Name + "的病程", args.FileContent, Enums.TabPageType.ProgressNote, true);
                 }
             }
-        }
-
-        private string GetAppendedXML(string originalXML, string appendXML)
-        {
-
-            var tempWc = new WriterControl();
-            if (!string.IsNullOrEmpty(originalXML))
-            {
-                tempWc.XMLText = originalXML;
-            }
-            
-            var doc = CreateNewSubDocument(tempWc.Document, appendXML);
-            tempWc.AppendSubDocument(doc);
-            return tempWc.XMLText;
         }
 
         private XTextSubDocumentElement CreateNewSubDocument(XTextDocument document, string xml)
@@ -216,14 +203,18 @@ namespace MRS.Views.View
             PopulateSelectedTemplateInfo(args);
         }
 
-        private void HandleSaveTemplateEvent(object sender, string args)
+        private void HandleCreateTemplateEvent(int parentId, string name,int templateAttr)
         {
-            if (SaveTemplateEvent != null)
+            if (CreateTemplateEvent != null)
             {
-                currentSelectedTemplate.CreatedBy = "User1";
-                currentSelectedTemplate.FileContent = this.ActiveEditorControl.WriteControl.XMLText;
-                currentSelectedTemplate.FileName = args;
-                SaveTemplateEvent(sender, currentSelectedTemplate);
+                var newTemplate = new Template();
+                newTemplate.RecordId = Guid.NewGuid();
+                newTemplate.CreatedBy = "User1";
+                newTemplate.FileContent = this.ActiveEditorControl.WriteControl.XMLText;
+                newTemplate.FileName = name;
+                newTemplate.ParentNodeId = parentId;
+                newTemplate.TemplateAttr = templateAttr;
+                CreateTemplateEvent(null, newTemplate);
             }
         }
 
@@ -242,22 +233,31 @@ namespace MRS.Views.View
 
         private void btn_SaveTemplate_Click(object sender, EventArgs e)
         {
-            if (currentSelectedTemplate != null)
+            if (tv_TemplateCatalog.SelectedNode != null)
+            {
+                var templateCatalogNode = (TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag;
+
+                if (!templateCatalogNode.IsParentTemplateNode)
             {
                 SaveTemplate form = new SaveTemplate();
-                form.SaveTemplateEvent += HandleSaveTemplateEvent;
-                var node = GetTemplateNodeByParentId(currentSelectedTemplate.ParentNodeId);
+                    form.CreateTemplateEvent += HandleCreateTemplateEvent;
+                    var parentId = templateCatalogNode.TemplateNodeId;
+                    var node = GetTemplateNodeByParentId(parentId);
                 if (node != null)
                 {
-                    form.PopulateSelectedTemplateInfo(currentSelectedTemplate.ParentNodeId, node.Text, currentSelectedTemplate.FileName, DateTime.Now.ToShortDateString());
+                        form.PopulateSelectedTemplateInfo(parentId, node.Text, "", DateTime.Now.ToShortDateString());
                     form.ShowDialog();
                 }
+                }
+                else
+                { MessageBox.Show("请在树形菜单选择一个模板类型"); }
             }
+            else { MessageBox.Show("请在树形菜单选择一个模板类型"); }
         }
 
         private TreeNode GetTemplateNodeByParentId(int parentId)
         {
-            foreach(TreeNode node in tv_TemplateCatalog.Nodes)
+            foreach (TreeNode node in tv_TemplateCatalog.Nodes)
             {
                 foreach (TreeNode subNode in node.Nodes)
                 {
@@ -345,11 +345,6 @@ namespace MRS.Views.View
                     {
                         caseHistory.Id = System.Guid.NewGuid();
                         caseHistory.CaseType = currentSelectedTemplate.ParentNodeId.ToString().StartsWith("4") == true ? (int)Enums.CaseType.ProgressNote : (int)Enums.CaseType.Common;
-                        if (caseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
-                        {
-                            var xml = GetAppendedXML(string.Empty, caseHistory.FileContent);
-                            caseHistory.FileContent = xml;
-                        }
 
                         var targetTabPageType = Enums.TabPageType.CaseHistory;
                         if(caseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
@@ -357,7 +352,6 @@ namespace MRS.Views.View
                             targetTabPageType = Enums.TabPageType.ProgressNote;
                         }
 
-                        //(((tabPageMapper[currentId].Item1 as TabPage).Controls[0]) as EditorControl).WriteControl.XMLText = caseHistory.FileContent;
                         var tupple = new Tuple<TabPage, Enums.TabPageType>(tabPageMapper[currentId].Item1, targetTabPageType);
 
                         tabPageMapper.Add(caseHistory.Id, tupple);
@@ -373,16 +367,16 @@ namespace MRS.Views.View
                         caseHistory.Id = currentId;
                         caseHistory.CaseType = (int)Enums.CaseType.ProgressNote;
                     }
-                    if (SaveCaseHistoryEvent != null)
-                    {
-                        SaveCaseHistoryEvent(sender, caseHistory);
+                if (SaveCaseHistoryEvent != null)
+                {
+                    SaveCaseHistoryEvent(sender, caseHistory);
 
 
 
-                        MessageBox.Show("保存病历成功");
-                    }
+                    MessageBox.Show("保存病历成功");
                 }
             }
+        }
         }
 
         private void btn_ManageData_Click(object sender, EventArgs e)
@@ -485,28 +479,28 @@ namespace MRS.Views.View
                 var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
                 if (selectedCaseHistory != null && selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
                 {
-                    if (currentSelectedPatient != null)
-                    {
-                        ProgressNoteTypeSelectionView form = new ProgressNoteTypeSelectionView();
-                        var types = new List<TreeNode>();
+            if (currentSelectedPatient != null)
+            {
+                ProgressNoteTypeSelectionView form = new ProgressNoteTypeSelectionView();
+                var types = new List<TreeNode>();
                         // Mark:第四树节点为病程节点
                         if (tv_TemplateCatalog.Nodes.Count > 3)
-                        {
+                {
                             foreach (TreeNode subNode in tv_TemplateCatalog.Nodes[3].Nodes)
-                            {
-                                types.Add(subNode);
-                            }
-                        }
+                    {
+                        types.Add(subNode);
+                    }
+                }
 
-                        form.ProgressNoteTypes = types;
-                        if (form.ShowDialog() == DialogResult.OK)
-                        {
+                form.ProgressNoteTypes = types;
+                if (form.ShowDialog() == DialogResult.OK)
+                {
                             if (form.SelectedTypeNode != null)
                             {
-                                LoadTemplateView loadTemplateForm = new LoadTemplateView((TemplateCatalogNode)form.SelectedTypeNode.Tag);
-                                loadTemplateForm.SelectTemplateEvent += HandleSelectTemplateForProgressNote;
-                                loadTemplateForm.ShowDialog();
-                            }
+                    LoadTemplateView loadTemplateForm = new LoadTemplateView((TemplateCatalogNode)form.SelectedTypeNode.Tag);
+                    loadTemplateForm.SelectTemplateEvent += HandleSelectTemplateForProgressNote;
+                    loadTemplateForm.ShowDialog();
+                }
                         }
                     }
                 }
@@ -537,7 +531,7 @@ namespace MRS.Views.View
                         }
                     }
                     //病历
-                    else if(selectedCaseHistory.CaseType == (int)Enums.CaseType.Common)
+                    else if (selectedCaseHistory.CaseType == (int)Enums.CaseType.Common)
                     {
                         OpenActiveEditControlPage(selectedCaseHistory.Id, selectedCaseHistory.FileName + "(病历)", selectedCaseHistory.FileContent, Enums.TabPageType.CaseHistory);
                     }
@@ -554,17 +548,17 @@ namespace MRS.Views.View
         /// 打开新的编辑TAB页，或定位到已打开的编辑TAB页
         /// </summary>
         /// <param name="RecordId" 可以是模板Id， 或是病历、病程 Id></param>
-        private void OpenActiveEditControlPage(Guid RecordId, string tabTitle, string content, Enums.TabPageType tabPageType)
+        private void OpenActiveEditControlPage(Guid RecordId, string tabTitle, string content, Enums.TabPageType tabPageType, bool isAppende = false)
         {
             if (tabPageMapper.ContainsKey(RecordId))
             {
                 editorTabPageControl.SelectedTab = tabPageMapper[RecordId].Item1;
                 editorTabPageControl.SelectedTab.Tag = RecordId;
-                if (tabPageType == Enums.TabPageType.ProgressNote)
+                if (isAppende)
                 {
                     var doc = CreateNewSubDocument(ActiveEditorControl.WriteControl.Document, content);
                     ActiveEditorControl.WriteControl.AppendSubDocument(doc);
-                }
+            }
             }
             else
             {
