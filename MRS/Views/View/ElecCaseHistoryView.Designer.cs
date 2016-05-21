@@ -1110,7 +1110,7 @@ namespace MRS.Views.View
             this.MenuItem_CheckRecord.Name = "MenuItem_CheckRecord";
             this.MenuItem_CheckRecord.Size = new System.Drawing.Size(124, 22);
             this.MenuItem_CheckRecord.Text = "审核病历";
-            this.MenuItem_CheckRecord.Click += new System.EventHandler(this.CaseHistory_MenuItem_AppendRecord_Click);
+            this.MenuItem_CheckRecord.Click += new System.EventHandler(this.CaseHistory_MenuItem_CheckRecord_Click);
             // 
             // MenuItem_RemoveCheck
             // 
@@ -1124,6 +1124,7 @@ namespace MRS.Views.View
             this.MenuItem_AppendRecord.Name = "MenuItem_AppendRecord";
             this.MenuItem_AppendRecord.Size = new System.Drawing.Size(124, 22);
             this.MenuItem_AppendRecord.Text = "追加病程";
+            this.MenuItem_AppendRecord.Click += new System.EventHandler(this.CaseHistory_MenuItem_AppendRecord_Click);
             // 
             // panel6
             // 

@@ -156,6 +156,11 @@ namespace MRS.Views.View
             }
         }
 
+        private void HandleSelectTemplateForProgressNote(object sender, Template args)
+        { 
+            //追加病程显示
+        }
+
         private void HandleSelectTemplateEvent(object sender, Template args)
         {
             PopulateSelectedTemplateInfo(args);
@@ -385,7 +390,25 @@ namespace MRS.Views.View
         //追加病程
         private void CaseHistory_MenuItem_AppendRecord_Click(object sender, EventArgs e)
         {
-
+            if (currentSelectedPatient != null)
+            {
+                ProgressNoteTypeSelectionView form = new ProgressNoteTypeSelectionView();
+                var types = new List<TreeNode>();
+                foreach(TreeNode node in tv_TemplateCatalog.Nodes)
+                {
+                    foreach (TreeNode subNode in node.Nodes)
+                    {
+                        types.Add(subNode);
+                    }
+                }
+                form.ProgressNoteTypes = types;
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadTemplateView loadTemplateForm = new LoadTemplateView((TemplateCatalogNode)form.SelectedTypeNode.Tag);
+                    loadTemplateForm.SelectTemplateEvent += HandleSelectTemplateForProgressNote;
+                    loadTemplateForm.ShowDialog();
+                }
+            }
         }
 
         private void dgv_FinishedCaseHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -398,6 +421,8 @@ namespace MRS.Views.View
                     // 病程
                     if (selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
                     {
+                        //OpenActiveEditControlPage(selectedCaseHistory.Id, selectedCaseHistory.FileName + "(病程)", selectedCaseHistory.FileContent);
+
                         XTextSubDocumentElement record = (XTextSubDocumentElement)selectedCaseHistory.Tag;
                         if (record != null)
                         {
