@@ -1172,10 +1172,10 @@ namespace MRS.Views.View
             // 
             this.tabPage1.Controls.Add(this.editorControl);
             this.tabPage1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 36);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1165, 761);
+            this.tabPage1.Size = new System.Drawing.Size(871, 606);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "操作页";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1187,7 +1187,7 @@ namespace MRS.Views.View
             this.editorControl.Location = new System.Drawing.Point(3, 3);
             this.editorControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.editorControl.Name = "editorControl";
-            this.editorControl.Size = new System.Drawing.Size(1159, 755);
+            this.editorControl.Size = new System.Drawing.Size(865, 600);
             this.editorControl.TabIndex = 0;
             this.editorControl.Title = "";
             // 

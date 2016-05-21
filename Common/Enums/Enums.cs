@@ -27,8 +27,13 @@
 
         public enum CaseType
         {
+            //普通病历
             Common = 0,
+
+            //病程
             ProgressNote = 1,
+
+            //首日病程
             FirstProgressNote = 2
         }
 

@@ -22,6 +22,7 @@ namespace MRS.Entity.Entities
         // 用于UI
         public object Tag { get; set; }
 
+        public int Status { get; set; }
 
         public object Clone()
         {
@@ -36,7 +37,5 @@ namespace MRS.Entity.Entities
             newCaseHistory.CreatedBy = CreatedBy;
             return newCaseHistory;
         }
-
-        public int Status { get; set; }
     }
 }

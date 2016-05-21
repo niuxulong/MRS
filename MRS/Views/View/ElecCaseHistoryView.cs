@@ -126,10 +126,7 @@ namespace MRS.Views.View
 
         public void PopulateTemplateCatalogTree(List<TemplateCatalogNode> nodes)
         {
-            foreach (var node in nodes)
-            {
-                tv_TemplateCatalog.Nodes.Add(node.ToTreeNode());
-            }
+            tv_TemplateCatalog.Nodes.AddRange(nodes.Select(n => n.ToTreeNode()).ToArray());
         }
 
         public void PopulatePatientInfo(Patient patient)
@@ -164,7 +161,7 @@ namespace MRS.Views.View
             if (SaveTemplateEvent != null)
             {
                 currentSelectedTemplate.CreatedBy = "User1";
-                currentSelectedTemplate.FileContent = this.editorControl.FileContent;
+                currentSelectedTemplate.FileContent = this.ActiveEditorControl.WriteControl.XMLText;
                 currentSelectedTemplate.FileName = args;
                 SaveTemplateEvent(sender, currentSelectedTemplate);
             }
@@ -211,17 +208,16 @@ namespace MRS.Views.View
 
         private TreeNode GetTemplateNodeByParentId(int parentId)
         {
-            for (var index = 0; index < tv_TemplateCatalog.Nodes.Count; index++)
+            foreach(TreeNode node in tv_TemplateCatalog.Nodes)
             {
-                for (var subIndex = 0; subIndex < tv_TemplateCatalog.Nodes[index].Nodes.Count; subIndex++)
+                foreach (TreeNode subNode in node.Nodes)
                 {
-                    if ((int)tv_TemplateCatalog.Nodes[index].Nodes[subIndex].Tag == parentId)
+                    if ((subNode.Tag as TemplateCatalogNode).TemplateNodeId == parentId)
                     {
-                        return tv_TemplateCatalog.Nodes[index].Nodes[subIndex];
+                        return subNode;
                     }
                 }
             }
-
             return null;
         }
 
@@ -287,9 +283,9 @@ namespace MRS.Views.View
                 {
                     Id = System.Guid.NewGuid(),
                     PatientId = currentSelectedPatient.PatientId,
-                    FileName = string.Empty,
+                    FileName = currentSelectedTemplate.FileName,
                     FileTitle = string.Empty,
-                    FileContent = this.editorControl.FileContent,
+                    FileContent = this.ActiveEditorControl.WriteControl.XMLText,
                     CreatedBy = "User1"
                 };
                 if (SaveCaseHistoryEvent != null)
@@ -334,13 +330,10 @@ namespace MRS.Views.View
 
         private void btn_Finalize_Click(object sender, EventArgs e)
         {
-            UpdateCaseHistoryStatus("档案归档", Enums.CaseHistoryStatus.Checked, Enums.CaseHistoryStatus.Finalized);
-            MessageBox.Show("归档成功");
-        }
-
-        private void writerControl1_DocumentContentChanged(object eventSender, DCSoft.Writer.WriterEventArgs args)
-        {
-
+            if (UpdateCaseHistoryStatus("档案归档", Enums.CaseHistoryStatus.Checked, Enums.CaseHistoryStatus.Finalized))
+            {
+                MessageBox.Show("归档成功");
+            }
         }
 
         private void btn_Temperature_Click(object sender, EventArgs e)
@@ -403,24 +396,28 @@ namespace MRS.Views.View
 
         private void dgv_FinishedCaseHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var row = dgv_FinishedCaseHistory.Rows[e.RowIndex];
-            var caseHistory = (CaseHistory)row.DataBoundItem;
-
-            if (caseHistory.CaseType == (int)Common.Enums.Enums.CaseType.ProgressNote)
+            if (dgv_FinishedCaseHistory.SelectedRows.Count > 0)
             {
-                XTextSubDocumentElement record = (XTextSubDocumentElement)caseHistory.Tag;
-                if (record != null)
+                var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
+                if (selectedCaseHistory != null)
                 {
-                    record.Focus();
-                    record.SelectFirstLine();
-                    this.ActiveEditorControl.WriteControl.Focus();
-                    this.ActiveEditorControl.WriteControl.ScrollToCaretExt(DCSoft.WinForms.ScrollToViewStyle.Top);
+                    if (selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
+                    {
+                        XTextSubDocumentElement record = (XTextSubDocumentElement)selectedCaseHistory.Tag;
+                        if (record != null)
+                        {
+                            record.Focus();
+                            record.SelectFirstLine();
+                            ActiveEditorControl.WriteControl.Focus();
+                            ActiveEditorControl.WriteControl.ScrollToCaretExt(DCSoft.WinForms.ScrollToViewStyle.Top);
+                        }
+                    }
+                    else if(selectedCaseHistory.CaseType == (int)Enums.CaseType.Common)
+                    {
+                        ActiveEditorControl.WriteControl.XMLText = selectedCaseHistory.FileContent;
+                    }
                 }
             }
-            else
-            {
- 
-        }
         }
 
         //撤销审核
@@ -450,7 +447,7 @@ namespace MRS.Views.View
             return result;
         }
 
-        private void UpdateCaseHistoryStatus(string actionName, Enums.CaseHistoryStatus allowedStatus, Enums.CaseHistoryStatus targetStatus)
+        private bool UpdateCaseHistoryStatus(string actionName, Enums.CaseHistoryStatus allowedStatus, Enums.CaseHistoryStatus targetStatus)
         {
             if (dgv_FinishedCaseHistory.SelectedRows.Count > 0)
             {
@@ -462,6 +459,7 @@ namespace MRS.Views.View
                         if (UpdateCasetoryStatusEvent != null)
                         {
                             UpdateCasetoryStatusEvent(null, new UpdateCaseHistoryStatusEventArgs() { caseHistoryId = selectedCaseHistory.Id, status = targetStatus, PatientId = selectedCaseHistory.PatientId });
+                            return true;
                         }
                     }
                     else
@@ -470,6 +468,8 @@ namespace MRS.Views.View
                     }
                 }
             }
+            return false;
         }
+
     }
 }

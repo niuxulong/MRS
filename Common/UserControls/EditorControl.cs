@@ -14,15 +14,19 @@ namespace Common.UserControls
     {
         public string Title { get; set; }
 
-        public DCSoft.Writer.Controls.WriterControl WriteControl { get { return this.writerControl1; } }
-
-        public string FileContent 
+        public DCSoft.Writer.Controls.WriterControl WriteControl 
         { 
+            get 
+            { 
+                return this.writerControl1; 
+            } 
+        }
+
+        public string FileContent
+        {
             get { return this.writerControl1.XMLText; }
             set { this.writerControl1.XMLText = value; }
         }
-
-
 
         public EditorControl()
         {
