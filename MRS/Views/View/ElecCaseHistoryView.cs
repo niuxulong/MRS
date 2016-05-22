@@ -82,7 +82,7 @@ namespace MRS.Views.View
             ClearPatientInfo();
             //清空病历信息
             dgv_FinishedCaseHistory.DataSource = null;
-          
+
         }
 
         private void ConfigDgvFinishedCaseHistoryColumns()
@@ -109,7 +109,7 @@ namespace MRS.Views.View
 
         public void PopulateCaseHistoryRecords(List<CaseHistory> caseHistories)
         {
-            if (caseHistories == null || caseHistories.Count == 0) return;                
+            if (caseHistories == null) return;
             var baseProgressNote = caseHistories.Where(c => c.CaseType == (int)Common.Enums.Enums.CaseType.ProgressNote);
             List<CaseHistory> tempList = new List<CaseHistory>();
             if (baseProgressNote.Count() > 0)
@@ -162,7 +162,7 @@ namespace MRS.Views.View
         }
 
         private void HandleSelectTemplateForProgressNote(object sender, Template args)
-        { 
+        {
             //追加病程显示
             if (dgv_FinishedCaseHistory.SelectedRows.Count > 0)
             {
@@ -203,7 +203,7 @@ namespace MRS.Views.View
             PopulateSelectedTemplateInfo(args);
         }
 
-        private void HandleCreateTemplateEvent(int parentId, string name,int templateAttr)
+        private void HandleCreateTemplateEvent(int parentId, string name, int templateAttr)
         {
             if (CreateTemplateEvent != null)
             {
@@ -222,7 +222,7 @@ namespace MRS.Views.View
         {
             if (args != null)
             {
-                OpenActiveEditControlPage(args.RecordId, args.FileName + "模板", args.FileContent, Enums.TabPageType.Template);
+                OpenActiveEditControlPage(args.RecordId, args.FileName + "模板", args.FileContent, args.ParentNodeId.ToString().StartsWith("4") ? Enums.TabPageType.ProgressNote : Enums.TabPageType.Template);
                 currentSelectedTemplate = args;
                 if (currentSelectedTemplate.ParentNodeId == 0)
                 {
@@ -238,16 +238,16 @@ namespace MRS.Views.View
                 var templateCatalogNode = (TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag;
 
                 if (!templateCatalogNode.IsParentTemplateNode)
-            {
-                SaveTemplate form = new SaveTemplate();
+                {
+                    SaveTemplate form = new SaveTemplate();
                     form.CreateTemplateEvent += HandleCreateTemplateEvent;
                     var parentId = templateCatalogNode.TemplateNodeId;
                     var node = GetTemplateNodeByParentId(parentId);
-                if (node != null)
-                {
+                    if (node != null)
+                    {
                         form.PopulateSelectedTemplateInfo(parentId, node.Text, "", DateTime.Now.ToShortDateString());
-                    form.ShowDialog();
-                }
+                        form.ShowDialog();
+                    }
                 }
                 else
                 { MessageBox.Show("请在树形菜单选择一个模板类型"); }
@@ -306,7 +306,7 @@ namespace MRS.Views.View
         {
             SearchPatientView form = new SearchPatientView();
             form.ShowDialog();
-        }      
+        }
 
         private void btn_SystemConfigure_Click(object sender, EventArgs e)
         {
@@ -347,7 +347,7 @@ namespace MRS.Views.View
                         caseHistory.CaseType = currentSelectedTemplate.ParentNodeId.ToString().StartsWith("4") == true ? (int)Enums.CaseType.ProgressNote : (int)Enums.CaseType.Common;
 
                         var targetTabPageType = Enums.TabPageType.CaseHistory;
-                        if(caseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
+                        if (caseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
                         {
                             targetTabPageType = Enums.TabPageType.ProgressNote;
                         }
@@ -367,16 +367,16 @@ namespace MRS.Views.View
                         caseHistory.Id = currentId;
                         caseHistory.CaseType = (int)Enums.CaseType.ProgressNote;
                     }
-                if (SaveCaseHistoryEvent != null)
-                {
-                    SaveCaseHistoryEvent(sender, caseHistory);
+                    if (SaveCaseHistoryEvent != null)
+                    {
+                        SaveCaseHistoryEvent(sender, caseHistory);
 
 
 
-                    MessageBox.Show("保存病历成功");
+                        MessageBox.Show("保存病历成功");
+                    }
                 }
             }
-        }
         }
 
         private void btn_ManageData_Click(object sender, EventArgs e)
@@ -479,34 +479,34 @@ namespace MRS.Views.View
                 var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
                 if (selectedCaseHistory != null && selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
                 {
-            if (currentSelectedPatient != null)
-            {
-                ProgressNoteTypeSelectionView form = new ProgressNoteTypeSelectionView();
-                var types = new List<TreeNode>();
+                    if (currentSelectedPatient != null)
+                    {
+                        ProgressNoteTypeSelectionView form = new ProgressNoteTypeSelectionView();
+                        var types = new List<TreeNode>();
                         // Mark:第四树节点为病程节点
                         if (tv_TemplateCatalog.Nodes.Count > 3)
-                {
+                        {
                             foreach (TreeNode subNode in tv_TemplateCatalog.Nodes[3].Nodes)
-                    {
-                        types.Add(subNode);
-                    }
-                }
+                            {
+                                types.Add(subNode);
+                            }
+                        }
 
-                form.ProgressNoteTypes = types;
-                if (form.ShowDialog() == DialogResult.OK)
-                {
+                        form.ProgressNoteTypes = types;
+                        if (form.ShowDialog() == DialogResult.OK)
+                        {
                             if (form.SelectedTypeNode != null)
                             {
-                    LoadTemplateView loadTemplateForm = new LoadTemplateView((TemplateCatalogNode)form.SelectedTypeNode.Tag);
-                    loadTemplateForm.SelectTemplateEvent += HandleSelectTemplateForProgressNote;
-                    loadTemplateForm.ShowDialog();
-                }
+                                LoadTemplateView loadTemplateForm = new LoadTemplateView((TemplateCatalogNode)form.SelectedTypeNode.Tag);
+                                loadTemplateForm.SelectTemplateEvent += HandleSelectTemplateForProgressNote;
+                                loadTemplateForm.ShowDialog();
+                            }
                         }
                     }
                 }
-                
+
             }
-            
+
         }
 
         private void dgv_FinishedCaseHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -526,8 +526,8 @@ namespace MRS.Views.View
                         {
                             record.Focus();
                             record.SelectFirstLine();
-                            ActiveEditorControl.WriteControl.Focus();
-                            ActiveEditorControl.WriteControl.ScrollToCaretExt(DCSoft.WinForms.ScrollToViewStyle.Top);
+                            //ActiveEditorControl.WriteControl.Focus();
+                            //ActiveEditorControl.WriteControl.ScrollToCaretExt(DCSoft.WinForms.ScrollToViewStyle.Top);
                         }
                     }
                     //病历
@@ -537,8 +537,8 @@ namespace MRS.Views.View
                     }
                     //首日病程
                     else if (selectedCaseHistory.CaseType == (int)Enums.CaseType.FirstProgressNote)
-                    { 
-                        
+                    {
+
                     }
                 }
             }
@@ -558,33 +558,54 @@ namespace MRS.Views.View
                 {
                     var doc = CreateNewSubDocument(ActiveEditorControl.WriteControl.Document, content);
                     ActiveEditorControl.WriteControl.AppendSubDocument(doc);
-            }
+                }
             }
             else
             {
-                TabPage newTabPage = new TabPage() 
+                TabPage newTabPage = null;
+                EditorControl editor = null;
+                if (editorTabPageControl.TabPages.Count == 1 && (Guid)editorTabPageControl.TabPages[0].Tag == Guid.Empty)
                 {
-                    Text = tabTitle,
-                    Tag = RecordId
-                };
+                    newTabPage = editorTabPageControl.TabPages[0];
+                    newTabPage.Text = tabTitle;
+                    newTabPage.Tag = RecordId;
+                    editor = editorTabPageControl.TabPages[0].Controls[0] as EditorControl;
+                }
+                else
+                {
+                    newTabPage = new TabPage()
+                   {
+                       Text = tabTitle,
+                       Tag = RecordId
+                   };
 
-                EditorControl editor = new EditorControl() 
-                { 
-                    Dock = DockStyle.Fill,
-                    Location = new Point(3, 3),
-                    Margin = new Padding(3, 4, 3, 4),
-                    Size = new Size(865, 600),
-                    //FileContent = content
-                };
 
-                newTabPage.Controls.Add(editor);
-                editorTabPageControl.TabPages.Add(newTabPage);
-                editorTabPageControl.SelectedTab = newTabPage;
+                    editor = new EditorControl()
+                    {
+                        Dock = DockStyle.Fill,
+                        Location = new Point(3, 3),
+                        Margin = new Padding(3, 4, 3, 4),
+                        Size = new Size(865, 600),
+                        //FileContent = content
+                    };
 
-                var doc = CreateNewSubDocument(ActiveEditorControl.WriteControl.Document, content);
-                ActiveEditorControl.WriteControl.AppendSubDocument(doc);
+                    newTabPage.Controls.Add(editor);
+                    editorTabPageControl.TabPages.Add(newTabPage);
+                    editorTabPageControl.SelectedTab = newTabPage;
+                }
 
-                var tupple = new Tuple<TabPage,Enums.TabPageType>(newTabPage, tabPageType);
+                if (tabPageType == Enums.TabPageType.ProgressNote)
+                {
+                    var doc = CreateNewSubDocument(ActiveEditorControl.WriteControl.Document, content);
+                    ActiveEditorControl.WriteControl.AppendSubDocument(doc);
+                }
+                else
+                {
+                    editor.FileContent = content;
+                }
+
+
+                var tupple = new Tuple<TabPage, Enums.TabPageType>(newTabPage, tabPageType);
                 tabPageMapper.Add(RecordId, tupple);
             }
         }
@@ -599,7 +620,7 @@ namespace MRS.Views.View
         {
             var result = string.Empty;
             switch (status)
-            { 
+            {
                 case (int)Enums.CaseHistoryStatus.New:
                     result = "新建";
                     break;
@@ -638,6 +659,55 @@ namespace MRS.Views.View
                 }
             }
             return false;
+        }
+
+        private void dgv_FinishedCaseHistory_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+
+        }
+
+        private void dgv_FinishedCaseHistory_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+
+        }
+
+        private void ContextMenuSrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.MenuItem_AppendRecord.Enabled = true;
+            if (dgv_FinishedCaseHistory.SelectedRows.Count > 0 && dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem != null)
+            {
+                var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
+                if (selectedCaseHistory.CaseType != (int)Enums.CaseType.ProgressNote)
+                {
+                    this.MenuItem_AppendRecord.Enabled = false;
+                }
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void dgv_FinishedCaseHistory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+
+                    if (dgv_FinishedCaseHistory.Rows[e.RowIndex].Selected == false)
+                    {
+                        dgv_FinishedCaseHistory.ClearSelection();
+                        dgv_FinishedCaseHistory.Rows[e.RowIndex].Selected = true;
+                    }
+
+                    if (dgv_FinishedCaseHistory.SelectedRows.Count == 1)
+                        dgv_FinishedCaseHistory.CurrentCell = dgv_FinishedCaseHistory.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                    this.ContextMenuSrip.Show();
+                }
+            }
         }
 
     }

@@ -35,8 +35,9 @@
             // 
             // cbbTypes
             // 
+            this.cbbTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTypes.FormattingEnabled = true;
-            this.cbbTypes.Location = new System.Drawing.Point(21, 34);
+            this.cbbTypes.Location = new System.Drawing.Point(21, 27);
             this.cbbTypes.Name = "cbbTypes";
             this.cbbTypes.Size = new System.Drawing.Size(323, 29);
             this.cbbTypes.TabIndex = 0;
@@ -72,7 +73,12 @@
             this.Controls.Add(this.cbbTypes);
             this.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ProgressNoteTypeSelectionView";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "病程类型";
             this.Load += new System.EventHandler(this.ProgressNoteTypeSelectionView_Load);
             this.ResumeLayout(false);
