@@ -218,11 +218,31 @@ namespace MRS.Views.View
             }
         }
 
+        private Guid GetProgressNoteRecordId()
+        {
+            Guid recordId = Guid.Empty;
+            foreach (var dic in tabPageMapper)
+            {
+                if (dic.Value.Item2 == Enums.TabPageType.ProgressNote)
+                {
+                    recordId = dic.Key;
+                    break;
+                }
+            }
+
+            if (recordId == Guid.Empty)
+            {
+                recordId = System.Guid.NewGuid();
+            }
+
+            return recordId;
+        }
+
         private void PopulateSelectedTemplateInfo(Template args)
         {
             if (args != null)
             {
-                OpenActiveEditControlPage(args.RecordId, args.FileName + "模板", args.FileContent, args.ParentNodeId.ToString().StartsWith("4") ? Enums.TabPageType.ProgressNote : Enums.TabPageType.Template);
+                OpenActiveEditControlPage(args.ParentNodeId.ToString().StartsWith("4") ? GetProgressNoteRecordId() : System.Guid.NewGuid(), args.FileName + "模板", args.FileContent, args.ParentNodeId.ToString().StartsWith("4") ? Enums.TabPageType.ProgressNote : Enums.TabPageType.Template);
                 currentSelectedTemplate = args;
                 if (currentSelectedTemplate.ParentNodeId == 0)
                 {
