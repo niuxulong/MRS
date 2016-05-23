@@ -366,7 +366,7 @@ namespace MRS.Views.View
                     var caseHistory = new CaseHistory()
                     {
                         PatientId = currentSelectedPatient.PatientId,
-                        FileName = editorTabPageControl.SelectedTab.Text,
+                        FileName = caseHistoryName,
                         FileTitle = string.Empty,
                         FileContent = this.ActiveEditorControl.WriteControl.XMLText,
                         CreatedBy = "User1"
@@ -554,8 +554,8 @@ namespace MRS.Views.View
                         {
                             record.Focus();
                             record.SelectFirstLine();
-                            //ActiveEditorControl.WriteControl.Focus();
-                            //ActiveEditorControl.WriteControl.ScrollToCaretExt(DCSoft.WinForms.ScrollToViewStyle.Top);
+                            ActiveEditorControl.WriteControl.Focus();
+                            ActiveEditorControl.WriteControl.ScrollToCaretExt(DCSoft.WinForms.ScrollToViewStyle.Top);
                         }
                     }
                     //病历
