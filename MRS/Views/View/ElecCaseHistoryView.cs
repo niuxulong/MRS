@@ -131,6 +131,10 @@ namespace MRS.Views.View
             }
             var dataSource = caseHistories.Where(c => c.CaseType != (int)Common.Enums.Enums.CaseType.ProgressNote).ToList();
             dataSource.AddRange(tempList);
+            if (!string.IsNullOrEmpty(tb_caseName.Text.Trim()))
+            {
+                dataSource = dataSource.Where(x => x.FileName.Contains(tb_caseName.Text.Trim())).ToList();
+            }
             dgv_FinishedCaseHistory.DataSource = dataSource;
         }
 
@@ -735,6 +739,14 @@ namespace MRS.Views.View
 
                     this.ContextMenuSrip.Show();
                 }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (RetriveCaseHistoriesByPatientIdEvent != null)
+            {
+                RetriveCaseHistoriesByPatientIdEvent(sender, currentSelectedPatient.PatientId);
             }
         }
 

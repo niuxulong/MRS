@@ -30,9 +30,9 @@ namespace MRS.Views.View
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElecCaseHistoryView));
             this.ContextMenuSrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuItem_Commit = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +84,7 @@ namespace MRS.Views.View
             this.col_Complated_Check = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_caseName = new System.Windows.Forms.TextBox();
             this.editorTabPageControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.editorControl = new Common.UserControls.EditorControl();
@@ -321,8 +321,8 @@ namespace MRS.Views.View
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn1.HeaderText = "序号";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -663,8 +663,8 @@ namespace MRS.Views.View
             // 
             // dgv_FinishedCaseHistory
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgv_FinishedCaseHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgv_FinishedCaseHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_FinishedCaseHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_FinishedCaseHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_FinishedCaseHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -684,8 +684,8 @@ namespace MRS.Views.View
             // 
             // col_Complated_No
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_Complated_No.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.col_Complated_No.DefaultCellStyle = dataGridViewCellStyle5;
             this.col_Complated_No.HeaderText = "序号";
             this.col_Complated_No.Name = "col_Complated_No";
             this.col_Complated_No.ReadOnly = true;
@@ -711,7 +711,7 @@ namespace MRS.Views.View
             // panel6
             // 
             this.panel6.Controls.Add(this.button1);
-            this.panel6.Controls.Add(this.textBox1);
+            this.panel6.Controls.Add(this.tb_caseName);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
@@ -729,15 +729,16 @@ namespace MRS.Views.View
             this.button1.TabIndex = 1;
             this.button1.Text = "检索";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // tb_caseName
             // 
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(2, 3);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 29);
-            this.textBox1.TabIndex = 0;
+            this.tb_caseName.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_caseName.Location = new System.Drawing.Point(2, 3);
+            this.tb_caseName.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_caseName.Name = "tb_caseName";
+            this.tb_caseName.Size = new System.Drawing.Size(173, 29);
+            this.tb_caseName.TabIndex = 0;
             // 
             // editorTabPageControl
             // 
@@ -1331,7 +1332,7 @@ namespace MRS.Views.View
         private System.Windows.Forms.ToolStripMenuItem btn_Temperature;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_caseName;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_AppendRecord;
         private Common.UserControls.EditorControl editorControl;
         private System.Windows.Forms.TabControl editorTabPageControl;
