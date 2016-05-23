@@ -275,7 +275,7 @@ namespace MRS.Views.View
             // 
             this.splitContainer2.Panel2.Controls.Add(this.editorTabPageControl);
             this.splitContainer2.Size = new System.Drawing.Size(1285, 640);
-            this.splitContainer2.SplitterDistance = 455;
+            this.splitContainer2.SplitterDistance = 454;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -290,7 +290,7 @@ namespace MRS.Views.View
             this.groupBox2.Location = new System.Drawing.Point(0, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(455, 635);
+            this.groupBox2.Size = new System.Drawing.Size(454, 635);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "2、已完成病历";
@@ -301,7 +301,7 @@ namespace MRS.Views.View
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(4, 494);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(447, 137);
+            this.panel4.Size = new System.Drawing.Size(446, 137);
             this.panel4.TabIndex = 2;
             // 
             // dataGridView2
@@ -315,7 +315,7 @@ namespace MRS.Views.View
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView2.Size = new System.Drawing.Size(447, 137);
+            this.dataGridView2.Size = new System.Drawing.Size(446, 137);
             this.dataGridView2.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -340,7 +340,7 @@ namespace MRS.Views.View
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(4, 452);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(447, 42);
+            this.panel5.Size = new System.Drawing.Size(446, 42);
             this.panel5.TabIndex = 3;
             // 
             // label11
@@ -360,7 +360,7 @@ namespace MRS.Views.View
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(4, 274);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(447, 178);
+            this.panel3.Size = new System.Drawing.Size(446, 178);
             this.panel3.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -400,7 +400,7 @@ namespace MRS.Views.View
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(447, 178);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(446, 178);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // textBox16
@@ -413,7 +413,7 @@ namespace MRS.Views.View
             this.textBox16.Margin = new System.Windows.Forms.Padding(4);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(165, 29);
+            this.textBox16.Size = new System.Drawing.Size(164, 29);
             this.textBox16.TabIndex = 19;
             this.textBox16.Text = "100";
             // 
@@ -441,7 +441,7 @@ namespace MRS.Views.View
             this.textBox14.Margin = new System.Windows.Forms.Padding(4);
             this.textBox14.Name = "textBox14";
             this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(165, 29);
+            this.textBox14.Size = new System.Drawing.Size(164, 29);
             this.textBox14.TabIndex = 17;
             // 
             // textBox13
@@ -468,7 +468,7 @@ namespace MRS.Views.View
             this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(165, 29);
+            this.textBox12.Size = new System.Drawing.Size(164, 29);
             this.textBox12.TabIndex = 15;
             this.textBox12.Text = "2016-03-18 18：30";
             // 
@@ -496,7 +496,7 @@ namespace MRS.Views.View
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(165, 29);
+            this.textBox10.Size = new System.Drawing.Size(164, 29);
             this.textBox10.TabIndex = 13;
             this.textBox10.Text = "2016-03-18 18：30";
             // 
@@ -524,7 +524,7 @@ namespace MRS.Views.View
             this.txt_CaseName.Margin = new System.Windows.Forms.Padding(4);
             this.txt_CaseName.Name = "txt_CaseName";
             this.txt_CaseName.ReadOnly = true;
-            this.txt_CaseName.Size = new System.Drawing.Size(165, 29);
+            this.txt_CaseName.Size = new System.Drawing.Size(164, 29);
             this.txt_CaseName.TabIndex = 11;
             this.txt_CaseName.Text = "入院记录";
             // 
@@ -658,7 +658,7 @@ namespace MRS.Views.View
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(4, 26);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(447, 248);
+            this.panel2.Size = new System.Drawing.Size(446, 248);
             this.panel2.TabIndex = 0;
             // 
             // dgv_FinishedCaseHistory
@@ -678,7 +678,7 @@ namespace MRS.Views.View
             this.dgv_FinishedCaseHistory.Name = "dgv_FinishedCaseHistory";
             this.dgv_FinishedCaseHistory.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_FinishedCaseHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_FinishedCaseHistory.Size = new System.Drawing.Size(447, 206);
+            this.dgv_FinishedCaseHistory.Size = new System.Drawing.Size(446, 206);
             this.dgv_FinishedCaseHistory.TabIndex = 0;
             this.dgv_FinishedCaseHistory.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_FinishedCaseHistory_CellDoubleClick);
             // 
@@ -716,7 +716,7 @@ namespace MRS.Views.View
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(447, 42);
+            this.panel6.Size = new System.Drawing.Size(446, 42);
             this.panel6.TabIndex = 1;
             // 
             // button1
@@ -748,7 +748,7 @@ namespace MRS.Views.View
             this.editorTabPageControl.Margin = new System.Windows.Forms.Padding(2);
             this.editorTabPageControl.Name = "editorTabPageControl";
             this.editorTabPageControl.SelectedIndex = 0;
-            this.editorTabPageControl.Size = new System.Drawing.Size(825, 640);
+            this.editorTabPageControl.Size = new System.Drawing.Size(826, 640);
             this.editorTabPageControl.TabIndex = 1;
             // 
             // tabPage1
@@ -758,7 +758,7 @@ namespace MRS.Views.View
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(817, 606);
+            this.tabPage1.Size = new System.Drawing.Size(818, 606);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Tag = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.tabPage1.Text = "操作页";
@@ -771,7 +771,7 @@ namespace MRS.Views.View
             this.editorControl.Location = new System.Drawing.Point(3, 3);
             this.editorControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.editorControl.Name = "editorControl";
-            this.editorControl.Size = new System.Drawing.Size(811, 600);
+            this.editorControl.Size = new System.Drawing.Size(812, 600);
             this.editorControl.TabIndex = 0;
             this.editorControl.Title = "";
             // 
@@ -1202,6 +1202,7 @@ namespace MRS.Views.View
             this.Controls.Add(this.pl_Menu);
             this.Controls.Add(this.pl_info);
             this.Name = "ElecCaseHistoryView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "电子病历";
             this.Load += new System.EventHandler(this.ElecCaseHistoryView_Load);
             this.ContextMenuSrip.ResumeLayout(false);

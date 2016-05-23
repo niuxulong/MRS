@@ -351,7 +351,18 @@ namespace MRS.Views.View
                 var currentId = (Guid)editorTabPageControl.SelectedTab.Tag;
                 if (tabPageMapper.ContainsKey(currentId))
                 {
+                    var caseHistoryName = string.Empty;
                     var tabPageType = tabPageMapper[currentId].Item2;
+                    var saveCaseHistoryView = new SaveCaseHistoryView();
+                    if (saveCaseHistoryView.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        caseHistoryName = saveCaseHistoryView.CaseHistoryName;
+                    }
+                    else
+                    {
+                        return;
+                    }
+
                     var caseHistory = new CaseHistory()
                     {
                         PatientId = currentSelectedPatient.PatientId,
@@ -390,9 +401,6 @@ namespace MRS.Views.View
                     if (SaveCaseHistoryEvent != null)
                     {
                         SaveCaseHistoryEvent(sender, caseHistory);
-
-
-
                         MessageBox.Show("保存病历成功");
                     }
                 }

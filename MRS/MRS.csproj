@@ -77,6 +77,12 @@
     <Compile Include="Views\View\ProgressNoteTypeSelectionView.Designer.cs">
       <DependentUpon>ProgressNoteTypeSelectionView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\View\SaveCaseHistoryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\View\SaveCaseHistoryView.Designer.cs">
+      <DependentUpon>SaveCaseHistoryView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\View\SearchCaseView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\View\ProgressNoteTypeSelectionView.resx">
       <DependentUpon>ProgressNoteTypeSelectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\View\SaveCaseHistoryView.resx">
+      <DependentUpon>SaveCaseHistoryView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\View\SearchCaseView.resx">
       <DependentUpon>SearchCaseView.cs</DependentUpon>
