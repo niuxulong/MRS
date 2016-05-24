@@ -309,14 +309,42 @@ namespace MRS.Views.View
             form.ShowDialog();
         }
 
+        private void SaveOpenedTabPageCaseHistory()
+        {
+            foreach (var key in tabPageMapper.Keys)
+            {
+                var caseHistory = new CaseHistory()
+                {
+                    Id = key,
+                    PatientId = currentSelectedPatient.PatientId,
+                    FileName = tabPageMapper[key].Item1.Text,
+                    FileTitle = string.Empty,
+                    FileContent = ActiveEditorControl.WriteControl.XMLText,
+                    Status = (int)Enums.CaseHistoryStatus.New
+                };
+
+                if(tabPageMapper[key].Item2 == Enums.TabPageType.CaseHistory)
+                {
+                    caseHistory.CaseType = (int)Enums.CaseType.Common;
+                }
+                else
+                {
+                    caseHistory.CaseType = (int)Enums.CaseType.Common;
+                }
+
+                SaveCaseHistoryEvent(null, caseHistory);
+            }
+        }
+
         private void HandleSelectPatientEvent(object sender, Patient args)
         {
             if (args != null)
             {
-                if (currentSelectedPatient != null)
+                if (currentSelectedPatient != null && tabPageMapper.Count > 0 && args.PatientId != currentSelectedPatient.PatientId)
                 {
                     if (MessageBox.Show("将会保存当前打开病例，并关闭", "信息", System.Windows.Forms.MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                     {
+                        SaveOpenedTabPageCaseHistory();
                         this.editorTabPageControl.TabPages.Clear();
                         var newPage = new TabPage();
                         newPage.Text = "操做页";
@@ -577,7 +605,7 @@ namespace MRS.Views.View
                     //病历
                     else if (selectedCaseHistory.CaseType == (int)Enums.CaseType.Common)
                     {
-                        OpenActiveEditControlPage(selectedCaseHistory.Id, selectedCaseHistory.FileName + "(病历)", selectedCaseHistory.FileContent, Enums.TabPageType.CaseHistory);
+                        OpenActiveEditControlPage(selectedCaseHistory.Id, selectedCaseHistory.FileName, selectedCaseHistory.FileContent, Enums.TabPageType.CaseHistory);
                     }
                     //首日病程
                     else if (selectedCaseHistory.CaseType == (int)Enums.CaseType.FirstProgressNote)
@@ -756,7 +784,7 @@ namespace MRS.Views.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (RetriveCaseHistoriesByPatientIdEvent != null)
+            if (RetriveCaseHistoriesByPatientIdEvent != null && currentSelectedPatient != null)
             {
                 RetriveCaseHistoriesByPatientIdEvent(sender, currentSelectedPatient.PatientId);
             }
