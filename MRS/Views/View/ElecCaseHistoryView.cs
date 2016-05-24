@@ -37,8 +37,6 @@ namespace MRS.Views.View
 
         private Dictionary<Guid, Tuple<TabPage, Enums.TabPageType>> tabPageMapper = new Dictionary<Guid, Tuple<TabPage, Enums.TabPageType>>();
 
-        private Dictionary<Guid, TabPage> editorContrlsMapper;
-
         private EditorControl ActiveEditorControl
         {
             get
@@ -63,8 +61,6 @@ namespace MRS.Views.View
             {
                 SetupTemplateCatalogTree();
             }
-
-            this.editorContrlsMapper = new Dictionary<Guid, TabPage>();
         }
 
         private void SetupTemplateCatalogTree()
@@ -317,15 +313,27 @@ namespace MRS.Views.View
         {
             if (args != null)
             {
-                if (MessageBox.Show("将会保存当前打开病例，并关闭", "信息", System.Windows.Forms.MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                if (currentSelectedPatient != null)
                 {
-
-                    currentSelectedPatient = args;
-                    PopulatePatientInfo(args);
-                    if (RetriveCaseHistoriesByPatientIdEvent != null)
+                    if (MessageBox.Show("将会保存当前打开病例，并关闭", "信息", System.Windows.Forms.MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                     {
-                        RetriveCaseHistoriesByPatientIdEvent(sender, args.PatientId);
+                        this.editorTabPageControl.TabPages.Clear();
+                        var newPage = new TabPage();
+                        newPage.Text = "操做页";
+                        newPage.Tag = Guid.Empty;
+                        var newEditor = new EditorControl();
+                        newEditor.Dock = DockStyle.Fill;
+                        newPage.Controls.Add(newEditor);
+                        this.editorTabPageControl.TabPages.Add(newPage);
+                        tabPageMapper.Clear();
                     }
+                }
+
+                currentSelectedPatient = args;
+                PopulatePatientInfo(args);
+                if (RetriveCaseHistoriesByPatientIdEvent != null)
+                {
+                    RetriveCaseHistoriesByPatientIdEvent(sender, args.PatientId);
                 }
             }
         }
@@ -704,7 +712,7 @@ namespace MRS.Views.View
 
         private void dgv_FinishedCaseHistory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
 
         }
 
