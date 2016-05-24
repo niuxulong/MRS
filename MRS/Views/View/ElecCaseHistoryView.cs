@@ -317,11 +317,15 @@ namespace MRS.Views.View
         {
             if (args != null)
             {
-                currentSelectedPatient = args;
-                PopulatePatientInfo(args);
-                if (RetriveCaseHistoriesByPatientIdEvent != null)
+                if (MessageBox.Show("将会保存当前打开病例，并关闭", "信息", System.Windows.Forms.MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    RetriveCaseHistoriesByPatientIdEvent(sender, args.PatientId);
+
+                    currentSelectedPatient = args;
+                    PopulatePatientInfo(args);
+                    if (RetriveCaseHistoriesByPatientIdEvent != null)
+                    {
+                        RetriveCaseHistoriesByPatientIdEvent(sender, args.PatientId);
+                    }
                 }
             }
         }
