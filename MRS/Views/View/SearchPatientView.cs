@@ -39,6 +39,9 @@ namespace MRS.Views.View
             if (this.dgv_Patient.SelectedRows.Count > 0)
             {
                 var selectedPatient = this.dgv_Patient.SelectedRows[0].DataBoundItem as Patient;
+
+
+
                 if (SelectPatientEvent != null)
                 {
                     SelectPatientEvent(sender, selectedPatient);
@@ -62,6 +65,7 @@ namespace MRS.Views.View
             this.dgv_Patient.Columns["col_HospitalNo"].DataPropertyName = "BeinHospitalCode";
             this.dgv_Patient.Columns["col_InTime"].DataPropertyName = "PrithTime";
             this.dgv_Patient.Columns["col_Sex"].DataPropertyName = "Sex";
+			this.dgv_Patient.Columns["IsHasProgressNote"].DataPropertyName = "IsHasProgressNote";
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Common.DataBaseAccessor;
+using Common.DataBaseAccessor;
 using Common.EventArguments;
 using MRS.Entity.Entities;
 using MRS.Model.Interfaces;
@@ -40,7 +40,7 @@ namespace MRS.Presenters.Presenter
         private void HandleSaveSystemConfigsAndCheckDBConnectionEvent(object sender, SystemConfigEventArgs args)
         {
             //保存本数据库的系统配置
-            this.SaveSystemConfig(args.TemplateCatalogNodes);
+			//this.SaveSystemConfig(args.TemplateCatalogNodes);
             //检查新数据库连接
             var canConnect = SqlHelper.CheckDatabaseConnection(args.DatabaseConfig.Server, args.DatabaseConfig.Database, args.DatabaseConfig.User, args.DatabaseConfig.Password);
             if (!canConnect)

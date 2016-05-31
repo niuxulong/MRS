@@ -1,4 +1,4 @@
-﻿using Common.EventArguments;
+using Common.EventArguments;
 using MRS.Entity.Entities;
 using MRS.Model.Interfaces;
 using MRS.Model.Models;

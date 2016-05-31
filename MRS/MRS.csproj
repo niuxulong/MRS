@@ -63,6 +63,7 @@
     <Compile Include="Views\Interface\IManageTemplateView.cs" />
     <Compile Include="Views\Interface\ISearchPatientView.cs" />
     <Compile Include="Views\Interface\ISystemConfigView.cs" />
+    <Compile Include="Views\UIHelper.cs" />
     <Compile Include="Views\View\AdminValidationView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +233,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="BaseProgressTemplate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Resource\5143024_220209437193_2.jpg" />
     <Content Include="Resource\a.jpg" />
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 namespace MRS.Entity.Entities
 {
     public class CaseHistory : ICloneable
@@ -24,10 +24,10 @@ namespace MRS.Entity.Entities
 
         public int Status { get; set; }
 
-        public object Clone()
+		public object Clone()
         {
             CaseHistory newCaseHistory = new CaseHistory();
-            newCaseHistory.Id = Id;
+            newCaseHistory.Id = Guid.NewGuid();
             newCaseHistory.PatientId = PatientId;
             newCaseHistory.FileName = FileName;
             newCaseHistory.FileTitle = FileTitle;

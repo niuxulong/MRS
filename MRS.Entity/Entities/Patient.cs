@@ -1,4 +1,4 @@
-﻿namespace MRS.Entity.Entities
+namespace MRS.Entity.Entities
 {
     public class Patient
     {
@@ -11,5 +11,7 @@
         public string Sex { get; set; }
 
         public string PrithTime { get; set; }
+
+		public bool IsHasProgressNote { get; set; }
     }
 }

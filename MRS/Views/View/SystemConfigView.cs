@@ -163,8 +163,8 @@ namespace MRS.Views.View
             {
                 var args = new SystemConfigEventArgs()
                 {
-                    DatabaseConfig = GetDatabaseConfigInfo(),
-                    TemplateCatalogNodes = GetTemplateCatalogTreeInfo()
+                    DatabaseConfig = GetDatabaseConfigInfo()
+					//TemplateCatalogNodes = GetTemplateCatalogTreeInfo()
                 };
                 SaveSystemConfigsAndCheckDBConnectionEvent(this, args);
             }

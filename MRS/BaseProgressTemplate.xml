@@ -1,0 +1,251 @@
+﻿<XTextDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EditorVersionString="1.2015.12.23">
+  <Attributes>
+    <Attribute>
+      <Name>DC_RecordID</Name>
+      <Value>8af23c87-0567-43ac-887b-8317b8fd1c92</Value>
+    </Attribute>
+    <Attribute>
+      <Name>DC_TemplateFlags</Name>
+      <Value>All</Value>
+    </Attribute>
+    <Attribute>
+      <Name>DC_UseLanguage2</Name>
+      <Value>False</Value>
+    </Attribute>
+    <Attribute>
+      <Name>DC_OwnerLevel</Name>
+      <Value>Global</Value>
+    </Attribute>
+  </Attributes>
+  <XElements>
+    <Element xsi:type="XTextHeader">
+      <Attributes />
+      <AcceptTab>true</AcceptTab>
+      <Expressions />
+      <ScriptItems />
+      <XElements>
+        <Element xsi:type="XString" StyleIndex="3">
+          <Text>广西壮族自治区</Text>
+        </Element>
+        <Element xsi:type="XInputField" StyleIndex="4">
+          <Attributes />
+          <ID>field30</ID>
+          <EnableValueValidate>true</EnableValueValidate>
+          <ValueBinding>
+            <DataSource>hos_info</DataSource>
+            <BindingPath>hos_name</BindingPath>
+            <WriteTextBindingPath />
+          </ValueBinding>
+          <Expressions />
+          <ScriptItems />
+          <XElements />
+          <Deleteable>false</Deleteable>
+          <BorderElementColor />
+          <TabStop>false</TabStop>
+          <EventExpressions />
+          <UserEditable>false</UserEditable>
+          <InnerValue />
+          <ToolTip>医院名称</ToolTip>
+          <BackgroundText>医院名称</BackgroundText>
+          <EnableHighlight>Default</EnableHighlight>
+          <EnableFieldTextColor>false</EnableFieldTextColor>
+          <LastSelectedListItems />
+        </Element>
+        <Element xsi:type="XParagraphFlag" StyleIndex="6" />
+        <Element xsi:type="XString" StyleIndex="2">
+          <Text>日 常 病 程 记 录</Text>
+        </Element>
+        <Element xsi:type="XParagraphFlag" StyleIndex="6" />
+        <Element xsi:type="XString">
+          <Text>姓名:</Text>
+        </Element>
+        <Element xsi:type="XString" StyleIndex="1" WhiteSpaceLength="1">
+          <Text> </Text>
+        </Element>
+        <Element xsi:type="XInputField" StyleIndex="8">
+          <Attributes />
+          <ID>p_name</ID>
+          <EnableValueValidate>true</EnableValueValidate>
+          <ValueBinding>
+            <DataSource>patient_treat_info</DataSource>
+            <BindingPath>p_name</BindingPath>
+          </ValueBinding>
+          <XElements />
+          <BorderElementColor />
+          <Name>p_name</Name>
+          <InnerValue />
+          <BackgroundText>p_name</BackgroundText>
+          <FieldSettings />
+        </Element>
+        <Element xsi:type="XString" StyleIndex="1" WhiteSpaceLength="8">
+          <Text>        </Text>
+        </Element>
+        <Element xsi:type="XString">
+          <Text>科别:</Text>
+        </Element>
+        <Element xsi:type="XString" StyleIndex="1" WhiteSpaceLength="14">
+          <Text>              </Text>
+        </Element>
+        <Element xsi:type="XString">
+          <Text>床号:</Text>
+        </Element>
+        <Element xsi:type="XString" StyleIndex="1" WhiteSpaceLength="10">
+          <Text>          </Text>
+        </Element>
+        <Element xsi:type="XString">
+          <Text>住院号:</Text>
+        </Element>
+        <Element xsi:type="XString" StyleIndex="1">
+          <Text>100010</Text>
+        </Element>
+        <Element xsi:type="XParagraphFlag" StyleIndex="7" />
+      </XElements>
+    </Element>
+    <Element xsi:type="XTextBody">
+      <Attributes />
+      <AcceptTab>true</AcceptTab>
+      <Expressions />
+      <ScriptItems />
+      <XElements>
+        <Element xsi:type="XParagraphFlag" />
+      </XElements>
+    </Element>
+    <Element xsi:type="XTextFooter">
+      <Attributes />
+      <AcceptTab>true</AcceptTab>
+      <Expressions />
+      <ScriptItems />
+      <XElements>
+        <Element xsi:type="XString" StyleIndex="1">
+          <Text>第</Text>
+        </Element>
+        <Element xsi:type="XPageInfo" StyleIndex="1">
+          <Attributes />
+          <PropertyExpressions />
+          <ScriptItems />
+          <SpecifyPageIndexs />
+          <Width>100</Width>
+          <AutoHeight>true</AutoHeight>
+          <Height>62.7343674</Height>
+          <FormatString />
+          <SpecifyPageIndexTextList />
+        </Element>
+        <Element xsi:type="XString" StyleIndex="1">
+          <Text>页 共</Text>
+        </Element>
+        <Element xsi:type="XPageInfo" StyleIndex="1">
+          <Attributes />
+          <PropertyExpressions />
+          <ScriptItems />
+          <SpecifyPageIndexs />
+          <Width>100</Width>
+          <AutoHeight>true</AutoHeight>
+          <Height>62.7343674</Height>
+          <ValueType>NumOfPages</ValueType>
+          <FormatString />
+          <SpecifyPageIndexTextList />
+        </Element>
+        <Element xsi:type="XString" StyleIndex="1">
+          <Text>页</Text>
+        </Element>
+        <Element xsi:type="XParagraphFlag" StyleIndex="5" />
+        <Element xsi:type="XParagraphFlag" StyleIndex="0" />
+      </XElements>
+    </Element>
+  </XElements>
+  <RepeatedImages />
+  <GlobalJavaScriptReferences />
+  <Info>
+    <ID>8af23c87-0567-43ac-887b-8317b8fd1c92</ID>
+    <Title>BC病程记录模板</Title>
+    <LicenseText>本软件未注册。</LicenseText>
+    <CreationTime>2013-01-11T16:19:02.7134633+08:00</CreationTime>
+    <LastModifiedTime>2013-01-11T16:19:02.7134633+08:00</LastModifiedTime>
+    <LastPrintTime>2013-01-11T16:19:02.7134633+08:00</LastPrintTime>
+    <Operator>DCSoft.Writer Version:1.1.1111.29168</Operator>
+    <NumOfPage>1</NumOfPage>
+  </Info>
+  <BodyText />
+  <Comments />
+  <LocalConfig />
+  <PageSettings>
+    <PageIndexsForHideHeaderFooter />
+    <PrinterName />
+    <PaperSource />
+    <HeaderDistance>38</HeaderDistance>
+    <FooterDistance>38</FooterDistance>
+    <LeftMargin>59</LeftMargin>
+    <TopMargin>118</TopMargin>
+    <RightMargin>59</RightMargin>
+    <BottomMargin>79</BottomMargin>
+  </PageSettings>
+  <UserHistories />
+  <Parameters>
+    <Parameter Name="当前时间" />
+  </Parameters>
+  <ContentStyles>
+    <Default xsi:type="DocumentContentStyle">
+      <Color>ControlText</Color>
+      <FontName>宋体</FontName>
+      <FontSize>12</FontSize>
+    </Default>
+    <Styles>
+      <Style Index="0">
+        <Color>ControlText</Color>
+        <FontName>宋体</FontName>
+        <FontSize>12</FontSize>
+        <BorderWidth>30</BorderWidth>
+      </Style>
+      <Style Index="1">
+        <Color>Navy</Color>
+        <FontName>宋体</FontName>
+        <FontSize>12</FontSize>
+      </Style>
+      <Style Index="2">
+        <Color>ControlText</Color>
+        <FontName>宋体</FontName>
+        <FontSize>18</FontSize>
+        <Bold>true</Bold>
+      </Style>
+      <Style Index="3">
+        <Color>ControlText</Color>
+        <FontName>微软雅黑</FontName>
+        <FontSize>16</FontSize>
+        <Align>Center</Align>
+      </Style>
+      <Style Index="4">
+        <Color>ControlText</Color>
+        <FontName>微软雅黑</FontName>
+        <FontSize>16</FontSize>
+      </Style>
+      <Style Index="5">
+        <Color>ControlText</Color>
+        <FontName>宋体</FontName>
+        <FontSize>12</FontSize>
+        <Align>Center</Align>
+        <BorderWidth>1</BorderWidth>
+        <BorderBottom>true</BorderBottom>
+      </Style>
+      <Style Index="6">
+        <Color>ControlText</Color>
+        <FontName>宋体</FontName>
+        <FontSize>12</FontSize>
+        <LineSpacingStyle>Space1pt5</LineSpacingStyle>
+        <Align>Center</Align>
+      </Style>
+      <Style Index="7">
+        <Color>ControlText</Color>
+        <FontName>宋体</FontName>
+        <FontSize>12</FontSize>
+        <LineSpacingStyle>Space1pt5</LineSpacingStyle>
+        <BorderWidth>30</BorderWidth>
+      </Style>
+      <Style Index="8">
+        <Color>Navy</Color>
+        <FontName>宋体</FontName>
+        <FontSize>12</FontSize>
+      </Style>
+    </Styles>
+  </ContentStyles>
+  <FileName>BC病程记录模板</FileName>
+</XTextDocument>

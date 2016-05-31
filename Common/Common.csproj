@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Const\Constants.cs" />
     <Compile Include="Const\SqlConst.cs" />
     <Compile Include="DatabaseAccessor\SqlHelper.cs" />
     <Compile Include="Enums\Enums.cs" />
