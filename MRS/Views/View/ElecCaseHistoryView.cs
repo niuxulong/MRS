@@ -222,7 +222,7 @@ namespace MRS.Views.View
 			}
 			else
 			{
-				UIHelper.ShowInformationMessage("请选择一个模板类型");
+                UIHelper.ShowInformationMessage("请在病历目录里选择要加载的病历类型！");
 			}
 		}
 

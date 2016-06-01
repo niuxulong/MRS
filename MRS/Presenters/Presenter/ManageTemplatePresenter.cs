@@ -54,13 +54,15 @@ namespace MRS.Presenters.Presenter
         void HandleDeleteTemplateEvent(object sender, Entity.Entities.Template template)
         {
             templateModel.RemoveTemplates(template);
-            HandleSearchTemplatesEvent(null, 0);
+            HandleSearchTemplatesEvent(string.Empty, template.ParentNodeId);
+            this.View.ClearViewAfterDeletedTemplate();
         }
 
         private void HandleSearchTemplatesEvent(string args, int parentNodeId)
         {
-            var templates = templateModel.GetTemplatesByFilter(args, parentNodeId, Enums.TemplateAttrEnum.Undefined);
-            if (templates != null && templates.Count > 0)
+            //只检索个人模板
+            var templates = templateModel.GetTemplatesByFilter(args, parentNodeId, Enums.TemplateAttrEnum.Personal);
+            if (templates != null)
             {
                 this.View.PopulateTemlatesInfo(templates);
             }

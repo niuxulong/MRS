@@ -25,7 +25,14 @@ namespace Common.UserControls
 
         public Template SelectedTemplate
         {
-            get { return dgv_templateList.SelectedRows[0].DataBoundItem as Template; }
+            get {
+                    if (dgv_templateList.SelectedRows.Count > 0)
+                    {
+                        return dgv_templateList.SelectedRows[0].DataBoundItem as Template;
+                    }
+                    return null;
+                }
+                
             set {}
         }
 
@@ -33,6 +40,12 @@ namespace Common.UserControls
         {
             InitializeComponent();
             ConfigDgvTemplateList();
+        }
+
+        public void ClearViewAfterDeletedTemplate()
+        {
+            tb_forSearch.Clear();
+            writerControl.ClearContent();
         }
 
         public void DeleteSelectedTemplate()
@@ -101,7 +114,8 @@ namespace Common.UserControls
 
         private void writerControl_DocumentContentChanged(object eventSender, DCSoft.Writer.WriterEventArgs args)
         {
-            SelectedTemplate.FileContent = writerControl.XMLText;
+            if(SelectedTemplate != null)
+                SelectedTemplate.FileContent = writerControl.XMLText;
         }
     }
 }

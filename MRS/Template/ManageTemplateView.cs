@@ -90,5 +90,10 @@ namespace MRS
         {
 
         }
+
+        public void ClearViewAfterDeletedTemplate()
+        {
+            this.baseTemplateControl.ClearViewAfterDeletedTemplate();
+        }
     }
 }

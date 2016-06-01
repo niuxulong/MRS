@@ -20,5 +20,7 @@ namespace MRS.Views.Interface
         void PopulateTemlatesInfo(List<Template> templates);
 
         void PopulateTemplatesParentNodes(List<TemplateCatalogNode> nodes);
+
+        void ClearViewAfterDeletedTemplate();
     }
 }
