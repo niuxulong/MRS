@@ -27,5 +27,7 @@ namespace MRS.Views.Interface
         void PopulateCaseHistoryRecords(List<CaseHistory> caseHistories);
 
         void PopulateTemplateCatalogTree(List<TemplateCatalogNode> nodes);
+
+        Patient CurrentPatient { get; }
     }
 }
