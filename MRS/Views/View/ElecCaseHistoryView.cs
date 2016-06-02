@@ -931,17 +931,17 @@ namespace MRS.Views.View
 					////=============================================
 					//自己画X
 					////"\"线
-					int offset = 3;
+					int offset = 4;
 					Point p1 = new Point(myTabRect.X + offset, myTabRect.Y + offset);
-					p1.Offset(-3, 2);
+					p1.Offset(-6, 4);
 					Point p2 = new Point(myTabRect.X + myTabRect.Width - offset, myTabRect.Y + myTabRect.Height - offset);
-					p2.Offset(-3, 2);
+					p2.Offset(-6, 4);
 					e.Graphics.DrawLine(objpen, p1, p2);
 					//"/"线
 					Point p3 = new Point(myTabRect.X + offset, myTabRect.Y + myTabRect.Height - offset);
-					p3.Offset(-3, 2);
+					p3.Offset(-6, 4);
 					Point p4 = new Point(myTabRect.X + myTabRect.Width - offset, myTabRect.Y + offset);
-					p4.Offset(-3, 2);
+					p4.Offset(-6, 4);
 					e.Graphics.DrawLine(objpen, p3, p4);
 
 					////=============================================
