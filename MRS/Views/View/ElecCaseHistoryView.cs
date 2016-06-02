@@ -171,6 +171,11 @@ namespace MRS.Views.View
 				{
 					if (!isAddedBaseProgressTemplate)
 					{
+                        if (currentSelectedPatient == null)
+                        {
+                            UIHelper.ShowInformationMessage("请选择病人");
+                            return;
+                        }
 						if (currentSelectedPatient.IsHasProgressNote)
 						{
 							UIHelper.ShowInformationMessage("当前病人已经添加过病程");
@@ -351,35 +356,13 @@ namespace MRS.Views.View
                 }
                 else
                 {
-                    MessageBox.Show("当前页没有父节点ID。");
+                    UIHelper.ShowInformationMessage("当前页没有父节点ID。");
                 }
             }
             else
             {
-                MessageBox.Show("当前页没有父节点ID。");
+                UIHelper.ShowInformationMessage("当前页没有父节点ID。");
             }
-
-
-            //if (tv_TemplateCatalog.SelectedNode != null)
-            //{
-            //    var templateCatalogNode = (TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag;
-
-            //    if (!templateCatalogNode.IsParentTemplateNode)
-            //    {
-            //        SaveTemplate form = new SaveTemplate();
-            //        form.CreateTemplateEvent += HandleCreateTemplateEvent;
-            //        var parentId = templateCatalogNode.TemplateNodeId;
-            //        var node = GetTemplateNodeByParentId(parentId);
-            //        if (node != null)
-            //        {
-            //            form.PopulateSelectedTemplateInfo(parentId, node.Text, "", DateTime.Now.ToShortDateString());
-            //            form.ShowDialog();
-            //        }
-            //    }
-            //    else
-            //    { MessageBox.Show("请在树形菜单选择一个模板类型"); }
-            //}
-            //else { MessageBox.Show("请在树形菜单选择一个模板类型"); }
 		}
 
 		private TreeNode GetTemplateNodeByParentId(int parentId)
