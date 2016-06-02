@@ -27,7 +27,7 @@ namespace MRS.Entity.Entities
 		public object Clone()
         {
             CaseHistory newCaseHistory = new CaseHistory();
-            newCaseHistory.Id = Guid.NewGuid();
+            newCaseHistory.Id = Id;
             newCaseHistory.PatientId = PatientId;
             newCaseHistory.FileName = FileName;
             newCaseHistory.FileTitle = FileTitle;
