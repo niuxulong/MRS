@@ -855,40 +855,12 @@ namespace MRS.Views.View
 
 		private void ContextMenuSrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			this.MenuItem_AppendRecord.Enabled = true;
-			if (dgv_FinishedCaseHistory.SelectedRows.Count > 0 && dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem != null)
-			{
-				var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
-				if (selectedCaseHistory.CaseType != (int)Enums.CaseType.ProgressNote)
-				{
-					this.MenuItem_AppendRecord.Enabled = false;
-				}
-			}
-			else
-			{
-				e.Cancel = true;
-			}
+			
 		}
 
 		private void dgv_FinishedCaseHistory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			if (e.Button == System.Windows.Forms.MouseButtons.Right)
-			{
-				if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-				{
-
-					if (dgv_FinishedCaseHistory.Rows[e.RowIndex].Selected == false)
-					{
-						dgv_FinishedCaseHistory.ClearSelection();
-						dgv_FinishedCaseHistory.Rows[e.RowIndex].Selected = true;
-					}
-
-					if (dgv_FinishedCaseHistory.SelectedRows.Count == 1)
-						dgv_FinishedCaseHistory.CurrentCell = dgv_FinishedCaseHistory.Rows[e.RowIndex].Cells[e.ColumnIndex];
-
-					this.ContextMenuSrip.Show();
-				}
-			}
+			
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -981,6 +953,39 @@ namespace MRS.Views.View
 				}
 			}
 		}
+
+        private void dgv_FinishedCaseHistory_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    if (dgv_FinishedCaseHistory.Rows[e.RowIndex].Selected == false)
+                    {
+                        dgv_FinishedCaseHistory.ClearSelection();
+                        dgv_FinishedCaseHistory.Rows[e.RowIndex].Selected = true;
+                    }
+
+                    if (dgv_FinishedCaseHistory.SelectedRows.Count == 1)
+                        dgv_FinishedCaseHistory.CurrentCell = dgv_FinishedCaseHistory.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    this.ContextMenuSrip.Enabled = true;
+                    this.MenuItem_AppendRecord.Enabled = true;
+                    if (dgv_FinishedCaseHistory.SelectedRows.Count > 0 && dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem != null)
+                    {
+                        var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
+                        if (selectedCaseHistory.CaseType != (int)Enums.CaseType.ProgressNote)
+                        {
+                            this.MenuItem_AppendRecord.Enabled = false;
+                        }
+                    }
+                    else
+                        this.ContextMenuSrip.Enabled = false;
+
+                    this.ContextMenuSrip.Show(MousePosition.X, MousePosition.Y);
+                }
+            }
+
+        }
 
 	}
 }
