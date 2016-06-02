@@ -48,6 +48,10 @@ namespace MRS.Views.View
 				return this.editorControl;
 			}
 		}
+        public Patient CurrentPatient
+        {
+            get { return currentSelectedPatient; }
+        }
 
 		public ElecCaseHistoryView()
 		{

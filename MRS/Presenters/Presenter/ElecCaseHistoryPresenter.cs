@@ -4,6 +4,7 @@ using MRS.Model.Interfaces;
 using MRS.Model.Models;
 using MRS.Presenters.Interface;
 using MRS.Views.Interface;
+using System.Linq;
 
 namespace MRS.Presenters.Presenter
 {
@@ -14,6 +15,9 @@ namespace MRS.Presenters.Presenter
         public ITemplateCatalogModel templateCatalogModel { get; private set; }
 
         public ITemplateModel templateModel { get; private set; }
+
+        public IPatientModel patientModel { get; private set; }
+
 
         public ElecCaseHistoryPresenter(IElecCaseHistoryView view)
             : base(view)
@@ -72,12 +76,12 @@ namespace MRS.Presenters.Presenter
                 this.View.PopulateTemplateCatalogTree(templateTreeNodes);
             }
         }
-
         private void HandleRetriveCaseHistoriesByPatientIdEvent(object sender, string patientId)
         {
             if (!string.IsNullOrEmpty(patientId))
             {
                 var caseHistories = caseHistoryModel.GetCaseHistoryByPatientId(patientId);
+                View.CurrentPatient.IsHasProgressNote = caseHistories.Select(p => p.CaseType > 0).Count() > 0;
                 this.View.PopulateCaseHistoryRecords(caseHistories);
             }
             

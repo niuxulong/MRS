@@ -28,8 +28,7 @@ namespace MRS.Presenters.Presenter
 		{
 			var patientName = string.IsNullOrEmpty(name) ? null : name;
 			List<Patient> patients = this.patientModel.GetPatientsByName(patientName);
-			foreach (var patient in patients)
-				patient.IsHasProgressNote = caseHistoryModel.GetCaseHistoryByPatientId(patient.PatientId).Select(p => p.CaseType > 0).Count() > 0;
+			
 			this.View.PopulatePatientsRecords(patients);
 		}
 	}

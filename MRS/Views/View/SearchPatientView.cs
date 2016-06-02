@@ -40,8 +40,6 @@ namespace MRS.Views.View
             {
                 var selectedPatient = this.dgv_Patient.SelectedRows[0].DataBoundItem as Patient;
 
-
-
                 if (SelectPatientEvent != null)
                 {
                     SelectPatientEvent(sender, selectedPatient);
