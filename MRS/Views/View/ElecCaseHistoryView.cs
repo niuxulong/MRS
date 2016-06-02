@@ -37,7 +37,7 @@ namespace MRS.Views.View
 		private Template currentSelectedTemplate;
 		private bool isAddedBaseProgressTemplate;
 
-		private Dictionary<Guid, Tuple<TabPage, Enums.TabPageType>> tabPageMapper = new Dictionary<Guid, Tuple<TabPage, Enums.TabPageType>>();
+        private Dictionary<Guid, Tuple<TabPage, Enums.TabPageType, Template>> tabPageMapper = new Dictionary<Guid, Tuple<TabPage, Enums.TabPageType, Template>>();
 
 		private EditorControl ActiveEditorControl
 		{
@@ -171,6 +171,11 @@ namespace MRS.Views.View
 				{
 					if (!isAddedBaseProgressTemplate)
 					{
+                        if (currentSelectedPatient == null)
+                        {
+                            UIHelper.ShowInformationMessage("请选择病人");
+                            return;
+                        }
 						if (currentSelectedPatient.IsHasProgressNote)
 						{
 							UIHelper.ShowInformationMessage("当前病人已经添加过病程");
@@ -323,7 +328,7 @@ namespace MRS.Views.View
 		{
 			if (args != null)
 			{
-				OpenActiveEditControlPage(args.ParentNodeId.ToString().StartsWith("3") ? GetProgressNoteRecordId() : System.Guid.NewGuid(), args.FileName + "模板", args.FileContent, args.ParentNodeId.ToString().StartsWith("3") ? Enums.TabPageType.ProgressNote : Enums.TabPageType.Template);
+                OpenActiveEditControlPage(args.ParentNodeId.ToString().StartsWith("3") ? GetProgressNoteRecordId() : System.Guid.NewGuid(), args.FileName + "模板", args.FileContent, args.ParentNodeId.ToString().StartsWith("3") ? Enums.TabPageType.ProgressNote : Enums.TabPageType.Template, false, args.ParentNodeId.ToString().StartsWith("3") ? null : args);
 				currentSelectedTemplate = args;
 				if (currentSelectedTemplate.ParentNodeId == 0)
 				{
@@ -334,26 +339,30 @@ namespace MRS.Views.View
 
 		private void btn_SaveTemplate_Click(object sender, EventArgs e)
 		{
-			if (tv_TemplateCatalog.SelectedNode != null)
-			{
-				var templateCatalogNode = (TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag;
-
-				if (!templateCatalogNode.IsParentTemplateNode)
-				{
-					SaveTemplate form = new SaveTemplate();
-					form.CreateTemplateEvent += HandleCreateTemplateEvent;
-					var parentId = templateCatalogNode.TemplateNodeId;
-					var node = GetTemplateNodeByParentId(parentId);
-					if (node != null)
-					{
-						form.PopulateSelectedTemplateInfo(parentId, node.Text, "", DateTime.Now.ToShortDateString());
-						form.ShowDialog();
-					}
-				}
-				else
-				{ MessageBox.Show("请在树形菜单选择一个模板类型"); }
-			}
-			else { MessageBox.Show("请在树形菜单选择一个模板类型"); }
+            var currentId = (Guid)editorTabPageControl.SelectedTab.Tag;
+            if (tabPageMapper.ContainsKey(currentId))
+            {
+                if (tabPageMapper[currentId].Item2 == Enums.TabPageType.Template && tabPageMapper[currentId].Item3 != null)
+                {
+                    SaveTemplate form = new SaveTemplate();
+                    form.CreateTemplateEvent += HandleCreateTemplateEvent;
+                    var parentId = ((Template)tabPageMapper[currentId].Item3).ParentNodeId;
+                    var node = GetTemplateNodeByParentId(parentId);
+                    if (node != null)
+                    {
+                        form.PopulateSelectedTemplateInfo(parentId, node.Text, "", DateTime.Now.ToShortDateString());
+                        form.ShowDialog();
+                    }
+                }
+                else
+                {
+                    UIHelper.ShowInformationMessage("当前页没有父节点ID。");
+                }
+            }
+            else
+            {
+                UIHelper.ShowInformationMessage("当前页没有父节点ID。");
+            }
 		}
 
 		private TreeNode GetTemplateNodeByParentId(int parentId)
@@ -533,7 +542,7 @@ namespace MRS.Views.View
 								targetTabPageType = Enums.TabPageType.ProgressNote;
 							}
 
-							var tupple = new Tuple<TabPage, Enums.TabPageType>(tabPageMapper[currentId].Item1, targetTabPageType);
+							var tupple = new Tuple<TabPage, Enums.TabPageType, Template>(tabPageMapper[currentId].Item1, targetTabPageType, null);
 
 							tabPageMapper.Add(caseHistory.Id, tupple);
 							tabPageMapper.Remove(currentId);
@@ -720,7 +729,7 @@ namespace MRS.Views.View
 		/// 打开新的编辑TAB页，或定位到已打开的编辑TAB页
 		/// </summary>
 		/// <param name="RecordId" 可以是模板Id， 或是病历、病程 Id></param>
-		private void OpenActiveEditControlPage(Guid RecordId, string tabTitle, string content, Enums.TabPageType tabPageType, bool isAppende = false)
+		private void OpenActiveEditControlPage(Guid RecordId, string tabTitle, string content, Enums.TabPageType tabPageType, bool isAppende = false, Template template = null)
 		{
 			if (tabPageMapper.ContainsKey(RecordId))
 			{
@@ -777,7 +786,7 @@ namespace MRS.Views.View
 				}
 
 
-				var tupple = new Tuple<TabPage, Enums.TabPageType>(newTabPage, tabPageType);
+				var tupple = new Tuple<TabPage, Enums.TabPageType, Template>(newTabPage, tabPageType, template);
 				tabPageMapper.Add(RecordId, tupple);
 			}
 		}
@@ -890,6 +899,7 @@ namespace MRS.Views.View
 				//画关闭符号
 				using (Pen objpen = new Pen(Color.Black))
 				{
+                    objpen.Width = 1.6f;
 					////=============================================
 					//自己画X
 					////"\"线
@@ -938,6 +948,7 @@ namespace MRS.Views.View
 				bool isClose = x > myTabRect.X && x < myTabRect.Right && y > myTabRect.Y && y < myTabRect.Bottom;
 				if (isClose == true)
 				{
+                    tabPageMapper.Remove((Guid)this.editorTabPageControl.SelectedTab.Tag);
 					this.editorTabPageControl.TabPages.Remove(this.editorTabPageControl.SelectedTab);
 				}
 			}
