@@ -968,7 +968,7 @@ namespace MRS.Views.View
 
                     if (dgv_FinishedCaseHistory.SelectedRows.Count == 1)
                         dgv_FinishedCaseHistory.CurrentCell = dgv_FinishedCaseHistory.Rows[e.RowIndex].Cells[e.ColumnIndex];
-
+                    this.ContextMenuSrip.Enabled = true;
                     this.MenuItem_AppendRecord.Enabled = true;
                     if (dgv_FinishedCaseHistory.SelectedRows.Count > 0 && dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem != null)
                     {
@@ -978,6 +978,8 @@ namespace MRS.Views.View
                             this.MenuItem_AppendRecord.Enabled = false;
                         }
                     }
+                    else
+                        this.ContextMenuSrip.Enabled = false;
 
                     this.ContextMenuSrip.Show(MousePosition.X, MousePosition.Y);
                 }
