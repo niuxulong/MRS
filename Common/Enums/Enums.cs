@@ -1,60 +1,67 @@
-﻿namespace Common.Enums
+namespace Common.Enums
 {
-    public static class Enums
-    {
-        public enum SystemSettingKeyEnum
-        { 
-            DataBaseConnection,
+	public static class Enums
+	{
+		public enum SystemSettingKeyEnum
+		{
+			DataBaseConnection,
 
-            TemplateCatalogNode
-        }
+			TemplateCatalogNode
+		}
 
-        public enum SystemSettingIdEnum
-        {
-            DataBaseConnectionId = 0,
+		public enum SystemSettingIdEnum
+		{
+			DataBaseConnectionId = 0,
 
-            TemplateCatalogNodeId = 1
-        }
+			TemplateCatalogNodeId = 1
+		}
 
-        public enum TemplateAttrEnum
-        { 
-            Common = 0,
+		public enum TemplateAttrEnum
+		{
+			Common = 0,
 
-            Personal = 1,
+			Personal = 1,
 
-            Undefined = 3
-        }
+			Undefined = 3
+		}
 
-        public enum CaseType
-        {
-            //普通病历
-            Common = 0,
+		public enum CaseType
+		{
+			//普通病历
+			Common = 0,
 
-            //病程
-            ProgressNote = 1,
+			//普通病程
+			ProgressNote = 1,
 
-            //首日病程
-            FirstProgressNote = 2
-        }
+			//首普通病程
+			ProgressNoteWithFirstCommon = 2,
 
-        public enum CaseHistoryStatus
-        { 
-            New = 0, //新建病历
+			//首中医病程
+			ProgressNoteWithFirstTCM = 3
+		}
 
-            Checking = 1, //审核中
+		public enum CaseHistoryStatus
+		{
+			New = 0, //新建病历
 
-            Checked = 2, //审核完毕
+			Checking = 1, //审核中
 
-            Finalized = 3 //归档
-        }
+			Checked = 2, //审核完毕
 
-        public enum TabPageType
-        { 
-            CaseHistory = 0,
+			Finalized = 3 //归档
+		}
 
-            ProgressNote = 1,
+		public enum TabPageType
+		{
+			CaseHistory = 0,
 
-            Template = 2
-        }
-    }
+			Template = 1,
+
+			ProgressNote = 2,
+
+			FirstProgressCommonNote = 3,
+
+			FirstTCMProgressNote = 4
+		}
+	}
 }

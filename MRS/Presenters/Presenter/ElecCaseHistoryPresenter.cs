@@ -81,7 +81,8 @@ namespace MRS.Presenters.Presenter
             if (!string.IsNullOrEmpty(patientId))
             {
                 var caseHistories = caseHistoryModel.GetCaseHistoryByPatientId(patientId);
-                View.CurrentPatient.IsHasProgressNote = caseHistories.Select(p => p.CaseType > 0).Count() > 0;
+				View.CurrentPatient.IsHasProgressCommonNote = caseHistories.Exists(c => c.CaseType ==2);
+				View.CurrentPatient.IsHasProgressTCMNote = caseHistories.Exists(c => c.CaseType == 3);
                 this.View.PopulateCaseHistoryRecords(caseHistories);
             }
             

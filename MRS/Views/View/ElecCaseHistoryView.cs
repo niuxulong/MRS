@@ -37,7 +37,7 @@ namespace MRS.Views.View
 		private Template currentSelectedTemplate;
 		private bool isAddedBaseProgressTemplate;
 
-        private Dictionary<Guid, Tuple<TabPage, Enums.TabPageType, Template>> tabPageMapper = new Dictionary<Guid, Tuple<TabPage, Enums.TabPageType, Template>>();
+		private Dictionary<Guid, Tuple<TabPage, Enums.TabPageType, Template>> tabPageMapper = new Dictionary<Guid, Tuple<TabPage, Enums.TabPageType, Template>>();
 
 		private EditorControl ActiveEditorControl
 		{
@@ -48,10 +48,10 @@ namespace MRS.Views.View
 				return this.editorControl;
 			}
 		}
-        public Patient CurrentPatient
-        {
-            get { return currentSelectedPatient; }
-        }
+		public Patient CurrentPatient
+		{
+			get { return currentSelectedPatient; }
+		}
 
 		public ElecCaseHistoryView()
 		{
@@ -115,7 +115,7 @@ namespace MRS.Views.View
 		public void PopulateCaseHistoryRecords(List<CaseHistory> caseHistories)
 		{
 			if (caseHistories == null) return;
-			var baseProgressNote = caseHistories.Where(c => c.CaseType == (int)Common.Enums.Enums.CaseType.ProgressNote);
+			var baseProgressNote = caseHistories.Where(c => c.CaseType >= (int)Common.Enums.Enums.CaseType.ProgressNote);
 			List<CaseHistory> tempList = new List<CaseHistory>();
 			if (baseProgressNote.Count() > 0)
 			{
@@ -136,11 +136,11 @@ namespace MRS.Views.View
 					tempList.Add(newCase);
 				}
 			}
-			var dataSource = caseHistories.Where(c => c.CaseType != (int)Common.Enums.Enums.CaseType.ProgressNote).ToList();
+			var dataSource = caseHistories.Where(c => c.CaseType == (int)Common.Enums.Enums.CaseType.Common).ToList();
 			dataSource.AddRange(tempList);
 			if (!string.IsNullOrEmpty(tb_caseName.Text.Trim()))
 			{
-				dataSource = dataSource.Where(x => x.FileName.Contains(tb_caseName.Text.Trim())).ToList();
+				dataSource = dataSource.Where(x => x.FileTitle.Contains(tb_caseName.Text.Trim())).ToList();
 			}
 			dgv_FinishedCaseHistory.DataSource = dataSource;
 		}
@@ -162,70 +162,115 @@ namespace MRS.Views.View
 			txt_hospitalNo.Text = string.Empty;
 		}
 
+
+
 		private void btn_LoadTemplate_Click(object sender, EventArgs e)
 		{
 			if (tv_TemplateCatalog.SelectedNode != null && tv_TemplateCatalog.SelectedNode.Level == 1)
 			{
+				var nodeId = ((TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag).TemplateNodeId.ToString();
+				var type = (int)GetTabPageTypeById(nodeId);
 				//病程
-				if (((TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag).TemplateNodeId.ToString().StartsWith("3"))
+				if (type > 1)
 				{
-					if (!isAddedBaseProgressTemplate)
+					//if (!isAddedBaseProgressTemplate)
+					//{
+					if (currentSelectedPatient == null)
 					{
-                        if (currentSelectedPatient == null)
-                        {
-                            UIHelper.ShowInformationMessage("请选择病人");
-                            return;
-                        }
-						if (currentSelectedPatient.IsHasProgressNote)
+						UIHelper.ShowInformationMessage("请选择病人");
+						return;
+					}
+					if (type == 2)
+					{
+						if (!currentSelectedPatient.IsHasProgressCommonNote && !currentSelectedPatient.IsHasProgressTCMNote)
 						{
-							UIHelper.ShowInformationMessage("当前病人已经添加过病程");
+							UIHelper.ShowInformationMessage("请为当前病人添加首日病程");
 							return;
 						}
 						else
 						{
-							TabPage newTabPage = null;
-							EditorControl editor = null;
-							if (editorTabPageControl.TabPages.Count == 1 && (Guid)editorTabPageControl.TabPages[0].Tag == Guid.Empty)
-							{
-								newTabPage = editorTabPageControl.TabPages[0];
-								//newTabPage.Text = currentSelectedTemplate.FileTitle;
-								//newTabPage.Tag = currentSelectedTemplate.RecordId;
-								editor = editorTabPageControl.TabPages[0].Controls[0] as EditorControl;
-							}
-							else
-							{
-								newTabPage = new TabPage()
-								{
-									Text = currentSelectedTemplate.FileTitle,
-									Tag = currentSelectedTemplate.RecordId
-								};
-
-								editor = new EditorControl()
-								{
-									Dock = DockStyle.Fill,
-									Location = new Point(3, 3),
-									Margin = new Padding(3, 4, 3, 4),
-									Size = new Size(865, 600),
-									//FileContent = content
-								};
-
-								newTabPage.Controls.Add(editor);
-								editorTabPageControl.TabPages.Add(newTabPage);
-								editorTabPageControl.SelectedTab = newTabPage;
-							}
-							// 加载框架模版
-							string tempPath = Path.Combine(Application.StartupPath, "BaseProgressTemplate.xml");
-							editor.WriteControl.LoadDocument(tempPath, null);
-							editor.WriteControl.Document.Body.Elements.Clear();
-							isAddedBaseProgressTemplate = true;
+							UIHelper.ShowInformationMessage("请在已经添加的首日病程中追加病程");
+							return;
 						}
 					}
-					else
+					else if (type == 3 || type == 4)
+					{
+						if (currentSelectedPatient.IsHasProgressCommonNote && type == 3)
+						{
+							UIHelper.ShowInformationMessage("当前病人已经添加过首日病程");
+							return;
+						}
+						else if (currentSelectedPatient.IsHasProgressTCMNote && type == 4)
+						{
+							UIHelper.ShowInformationMessage("当前病人已经添加过首日中医病程");
+							return;
+						}
+					}
+					if (type ==3 && currentSelectedPatient.IsHasProgressTCMNote)
+					{
+						UIHelper.ShowInformationMessage("当前病人已经添加过首日中医病程,不能添加普通病程");
+						return;
+					}
+					else if (type == 4 && currentSelectedPatient.IsHasProgressCommonNote)
+					{
+						UIHelper.ShowInformationMessage("当前病人已经添加过首日普通病程,不能添加中医病程");
+						return;
+					}
+
+
+					if (type == 3 && currentSelectedPatient.HasBaseTemplateForCommonProgressNote)
 					{
 						LoadTemplateView form = new LoadTemplateView((TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag);
 						form.SelectTemplateEvent += HandleSelectTemplateEvent;
 						form.ShowDialog();
+						return;
 					}
+					else if (type == 4 && currentSelectedPatient.HasBaseTemplateForTCMProgressNote)
+					{
+						LoadTemplateView form = new LoadTemplateView((TemplateCatalogNode)tv_TemplateCatalog.SelectedNode.Tag);
+						form.SelectTemplateEvent += HandleSelectTemplateEvent;
+						form.ShowDialog();
+						return;
+					}
+
+					TabPage newTabPage = null;
+					EditorControl editor = null;
+					if (editorTabPageControl.TabPages.Count == 1 && (Guid)editorTabPageControl.TabPages[0].Tag == Guid.Empty)
+					{
+						newTabPage = editorTabPageControl.TabPages[0];
+						//newTabPage.Text = currentSelectedTemplate.FileTitle;
+						//newTabPage.Tag = currentSelectedTemplate.RecordId;
+						editor = editorTabPageControl.TabPages[0].Controls[0] as EditorControl;
+					}
+					else
+					{
+						newTabPage = new TabPage()
+						{
+							Text = currentSelectedTemplate.FileTitle,
+							Tag = currentSelectedTemplate.RecordId
+						};
+
+						editor = new EditorControl()
+						{
+							Dock = DockStyle.Fill,
+							Location = new Point(3, 3),
+							Margin = new Padding(3, 4, 3, 4),
+							Size = new Size(865, 600),
+							//FileContent = content
+						};
+
+						newTabPage.Controls.Add(editor);
+						editorTabPageControl.TabPages.Add(newTabPage);
+						editorTabPageControl.SelectedTab = newTabPage;
+					}
+					// 加载框架模版
+					string tempPath = Path.Combine(Application.StartupPath, "BaseProgressTemplate.xml");
+					editor.WriteControl.LoadDocument(tempPath, null);
+					editor.WriteControl.Document.Body.Elements.Clear();
+					if (type == 3)
+						currentSelectedPatient.HasBaseTemplateForCommonProgressNote = true;
+					else if (type == 4)
+						currentSelectedPatient.HasBaseTemplateForTCMProgressNote = true;
 				}
 				else
 				{
@@ -240,6 +285,7 @@ namespace MRS.Views.View
 			}
 		}
 
+
 		private void HandleSelectTemplateForProgressNote(object sender, Template args)
 		{
 			if (args != null)
@@ -250,7 +296,7 @@ namespace MRS.Views.View
 				if (dgv_FinishedCaseHistory.SelectedRows.Count > 0)
 				{
 					var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
-					if (selectedCaseHistory != null && selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
+					if (selectedCaseHistory != null && selectedCaseHistory.CaseType >= (int)Enums.CaseType.ProgressNote)
 					{
 						var doc = CreateNewSubDocument(ActiveEditorControl.WriteControl.Document, args.FileContent);
 						ActiveEditorControl.WriteControl.AppendSubDocument(doc);
@@ -304,12 +350,17 @@ namespace MRS.Views.View
 			}
 		}
 
-		private Guid GetProgressNoteRecordId()
+		private Guid GetProgressNoteRecordId(string nodeId)
 		{
 			Guid recordId = Guid.Empty;
 			foreach (var dic in tabPageMapper)
 			{
-				if (dic.Value.Item2 == Enums.TabPageType.ProgressNote)
+				if (nodeId.StartsWith("301") && dic.Value.Item2== Enums.TabPageType.FirstProgressCommonNote)
+				{
+					recordId = dic.Key;
+					break;
+				}
+				else if (nodeId.StartsWith("302") && dic.Value.Item2 == Enums.TabPageType.FirstTCMProgressNote)
 				{
 					recordId = dic.Key;
 					break;
@@ -328,7 +379,10 @@ namespace MRS.Views.View
 		{
 			if (args != null)
 			{
-                OpenActiveEditControlPage(args.ParentNodeId.ToString().StartsWith("3") ? GetProgressNoteRecordId() : System.Guid.NewGuid(), args.FileName + "模板", args.FileContent, args.ParentNodeId.ToString().StartsWith("3") ? Enums.TabPageType.ProgressNote : Enums.TabPageType.Template, false, args.ParentNodeId.ToString().StartsWith("3") ? null : args);
+				OpenActiveEditControlPage(
+					args.ParentNodeId.ToString().StartsWith("3") ? GetProgressNoteRecordId(args.ParentNodeId.ToString()) : System.Guid.NewGuid(), args.FileName + "模板",
+					args.FileContent, GetTabPageTypeById(args.ParentNodeId.ToString()),
+					false, args.ParentNodeId.ToString().StartsWith("3") ? null : args);
 				currentSelectedTemplate = args;
 				if (currentSelectedTemplate.ParentNodeId == 0)
 				{
@@ -337,32 +391,47 @@ namespace MRS.Views.View
 			}
 		}
 
+		private Common.Enums.Enums.TabPageType GetTabPageTypeById(string nodeId)
+		{
+			var type = Enums.TabPageType.Template;
+			if (nodeId.StartsWith("3"))
+			{
+				if (nodeId.StartsWith("301"))
+					type = Enums.TabPageType.FirstProgressCommonNote;
+				else if (nodeId.StartsWith("302"))
+					type = Enums.TabPageType.FirstTCMProgressNote;
+				else
+					type = Enums.TabPageType.ProgressNote;
+			}
+			return type;
+		}
+
 		private void btn_SaveTemplate_Click(object sender, EventArgs e)
 		{
-            var currentId = (Guid)editorTabPageControl.SelectedTab.Tag;
-            if (tabPageMapper.ContainsKey(currentId))
-            {
-                if (tabPageMapper[currentId].Item2 == Enums.TabPageType.Template && tabPageMapper[currentId].Item3 != null)
-                {
-                    SaveTemplate form = new SaveTemplate();
-                    form.CreateTemplateEvent += HandleCreateTemplateEvent;
-                    var parentId = ((Template)tabPageMapper[currentId].Item3).ParentNodeId;
-                    var node = GetTemplateNodeByParentId(parentId);
-                    if (node != null)
-                    {
-                        form.PopulateSelectedTemplateInfo(parentId, node.Text, "", DateTime.Now.ToShortDateString());
-                        form.ShowDialog();
-                    }
-                }
-                else
-                {
-                    UIHelper.ShowInformationMessage("当前页没有父节点ID。");
-                }
-            }
-            else
-            {
-                UIHelper.ShowInformationMessage("当前页没有父节点ID。");
-            }
+			var currentId = (Guid)editorTabPageControl.SelectedTab.Tag;
+			if (tabPageMapper.ContainsKey(currentId))
+			{
+				if (tabPageMapper[currentId].Item2 == Enums.TabPageType.Template && tabPageMapper[currentId].Item3 != null)
+				{
+					SaveTemplate form = new SaveTemplate();
+					form.CreateTemplateEvent += HandleCreateTemplateEvent;
+					var parentId = ((Template)tabPageMapper[currentId].Item3).ParentNodeId;
+					var node = GetTemplateNodeByParentId(parentId);
+					if (node != null)
+					{
+						form.PopulateSelectedTemplateInfo(parentId, node.Text, "", DateTime.Now.ToShortDateString());
+						form.ShowDialog();
+					}
+				}
+				else
+				{
+					UIHelper.ShowInformationMessage("当前页没有父节点ID。");
+				}
+			}
+			else
+			{
+				UIHelper.ShowInformationMessage("当前页没有父节点ID。");
+			}
 		}
 
 		private TreeNode GetTemplateNodeByParentId(int parentId)
@@ -498,10 +567,19 @@ namespace MRS.Views.View
 						CreatedBy = "User1"
 					};
 
-					if (tabPageType == Enums.TabPageType.ProgressNote)
+					if (tabPageType >= Enums.TabPageType.ProgressNote)
 					{
 						caseHistory.Id = currentId;
-						caseHistory.CaseType = (int)Common.Enums.Enums.CaseType.ProgressNote;
+						var tabpeype = (int)tabPageType;
+						if (tabPageType == Enums.TabPageType.FirstProgressCommonNote)
+						{
+							caseHistory.CaseType = (int)Common.Enums.Enums.CaseType.ProgressNoteWithFirstCommon;
+						}
+						else if (tabPageType == Enums.TabPageType.FirstTCMProgressNote)
+						{
+							caseHistory.CaseType = (int)Common.Enums.Enums.CaseType.ProgressNoteWithFirstTCM;
+						}
+
 						//List<CaseHistory> progressNotes = new List<CaseHistory>();
 						//// 获得需要保存的文档对象
 						//List<XTextDocument> documents = new List<XTextDocument>();
@@ -537,9 +615,18 @@ namespace MRS.Views.View
 							caseHistory.CaseType = currentSelectedTemplate.ParentNodeId.ToString().StartsWith("3") == true ? (int)Enums.CaseType.ProgressNote : (int)Enums.CaseType.Common;
 
 							var targetTabPageType = Enums.TabPageType.CaseHistory;
+
 							if (caseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
 							{
 								targetTabPageType = Enums.TabPageType.ProgressNote;
+							}
+							else if (caseHistory.CaseType == (int)Enums.CaseType.ProgressNoteWithFirstCommon)
+							{
+								targetTabPageType = Enums.TabPageType.FirstProgressCommonNote;
+							}
+							else if (caseHistory.CaseType == (int)Enums.CaseType.ProgressNoteWithFirstTCM)
+							{
+								targetTabPageType = Enums.TabPageType.FirstTCMProgressNote;
 							}
 
 							var tupple = new Tuple<TabPage, Enums.TabPageType, Template>(tabPageMapper[currentId].Item1, targetTabPageType, null);
@@ -660,7 +747,7 @@ namespace MRS.Views.View
 			if (dgv_FinishedCaseHistory.SelectedRows.Count > 0)
 			{
 				var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
-				if (selectedCaseHistory != null && selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
+				if (selectedCaseHistory != null && selectedCaseHistory.CaseType >= (int)Enums.CaseType.ProgressNote)
 				{
 					if (currentSelectedPatient != null)
 					{
@@ -698,7 +785,7 @@ namespace MRS.Views.View
 				if (selectedCaseHistory != null)
 				{
 					// 病程
-					if (selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNote)
+					if (selectedCaseHistory.CaseType >= (int)Enums.CaseType.ProgressNote)
 					{
 						OpenActiveEditControlPage(selectedCaseHistory.Id, currentSelectedPatient.Name + "的病程", selectedCaseHistory.FileContent, Enums.TabPageType.ProgressNote);
 
@@ -717,7 +804,7 @@ namespace MRS.Views.View
 						OpenActiveEditControlPage(selectedCaseHistory.Id, selectedCaseHistory.FileName, selectedCaseHistory.FileContent, Enums.TabPageType.CaseHistory);
 					}
 					//首日病程
-					else if (selectedCaseHistory.CaseType == (int)Enums.CaseType.FirstProgressNote)
+					else if (selectedCaseHistory.CaseType == (int)Enums.CaseType.ProgressNoteWithFirstCommon)
 					{
 
 					}
@@ -755,10 +842,10 @@ namespace MRS.Views.View
 				else
 				{
 					newTabPage = new TabPage()
-				   {
-					   Text = tabTitle,
-					   Tag = RecordId
-				   };
+					{
+						Text = tabTitle,
+						Tag = RecordId
+					};
 
 
 					editor = new EditorControl()
@@ -775,7 +862,7 @@ namespace MRS.Views.View
 					editorTabPageControl.SelectedTab = newTabPage;
 				}
 
-				if (tabPageType == Enums.TabPageType.ProgressNote)
+				if (tabPageType == Enums.TabPageType.FirstProgressCommonNote || tabPageType == Enums.TabPageType.FirstTCMProgressNote)
 				{
 					var doc = CreateNewSubDocument(ActiveEditorControl.WriteControl.Document, content);
 					ActiveEditorControl.WriteControl.AppendSubDocument(doc);
@@ -855,12 +942,12 @@ namespace MRS.Views.View
 
 		private void ContextMenuSrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			
+
 		}
 
 		private void dgv_FinishedCaseHistory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			
+
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -899,7 +986,7 @@ namespace MRS.Views.View
 				//画关闭符号
 				using (Pen objpen = new Pen(Color.Black))
 				{
-                    objpen.Width = 1.6f;
+					objpen.Width = 1.6f;
 					////=============================================
 					//自己画X
 					////"\"线
@@ -948,44 +1035,44 @@ namespace MRS.Views.View
 				bool isClose = x > myTabRect.X && x < myTabRect.Right && y > myTabRect.Y && y < myTabRect.Bottom;
 				if (isClose == true)
 				{
-                    tabPageMapper.Remove((Guid)this.editorTabPageControl.SelectedTab.Tag);
+					tabPageMapper.Remove((Guid)this.editorTabPageControl.SelectedTab.Tag);
 					this.editorTabPageControl.TabPages.Remove(this.editorTabPageControl.SelectedTab);
 				}
 			}
 		}
 
-        private void dgv_FinishedCaseHistory_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-                {
-                    if (dgv_FinishedCaseHistory.Rows[e.RowIndex].Selected == false)
-                    {
-                        dgv_FinishedCaseHistory.ClearSelection();
-                        dgv_FinishedCaseHistory.Rows[e.RowIndex].Selected = true;
-                    }
+		private void dgv_FinishedCaseHistory_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			if (e.Button == System.Windows.Forms.MouseButtons.Right)
+			{
+				if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+				{
+					if (dgv_FinishedCaseHistory.Rows[e.RowIndex].Selected == false)
+					{
+						dgv_FinishedCaseHistory.ClearSelection();
+						dgv_FinishedCaseHistory.Rows[e.RowIndex].Selected = true;
+					}
 
-                    if (dgv_FinishedCaseHistory.SelectedRows.Count == 1)
-                        dgv_FinishedCaseHistory.CurrentCell = dgv_FinishedCaseHistory.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                    this.ContextMenuSrip.Enabled = true;
-                    this.MenuItem_AppendRecord.Enabled = true;
-                    if (dgv_FinishedCaseHistory.SelectedRows.Count > 0 && dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem != null)
-                    {
-                        var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
-                        if (selectedCaseHistory.CaseType != (int)Enums.CaseType.ProgressNote)
-                        {
-                            this.MenuItem_AppendRecord.Enabled = false;
-                        }
-                    }
-                    else
-                        this.ContextMenuSrip.Enabled = false;
+					if (dgv_FinishedCaseHistory.SelectedRows.Count == 1)
+						dgv_FinishedCaseHistory.CurrentCell = dgv_FinishedCaseHistory.Rows[e.RowIndex].Cells[e.ColumnIndex];
+					this.ContextMenuSrip.Enabled = true;
+					this.MenuItem_AppendRecord.Enabled = true;
+					if (dgv_FinishedCaseHistory.SelectedRows.Count > 0 && dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem != null)
+					{
+						var selectedCaseHistory = dgv_FinishedCaseHistory.SelectedRows[0].DataBoundItem as CaseHistory;
+						if (selectedCaseHistory.CaseType < (int)Enums.CaseType.ProgressNote)
+						{
+							this.MenuItem_AppendRecord.Enabled = false;
+						}
+					}
+					else
+						this.ContextMenuSrip.Enabled = false;
 
-                    this.ContextMenuSrip.Show(MousePosition.X, MousePosition.Y);
-                }
-            }
+					this.ContextMenuSrip.Show(MousePosition.X, MousePosition.Y);
+				}
+			}
 
-        }
+		}
 
 	}
 }

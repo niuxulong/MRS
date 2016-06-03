@@ -19,6 +19,10 @@ namespace MRS.Entity.Entities
 
         public int CaseType { get; set; }
 
+		//0- 无首日病程
+		//1- 有首日病程
+		public int ProgressLevel { get; set; }
+
         // 用于UI
         public object Tag { get; set; }
 

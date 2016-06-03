@@ -12,6 +12,12 @@ namespace MRS.Entity.Entities
 
         public string PrithTime { get; set; }
 
-		public bool IsHasProgressNote { get; set; }
+		public bool IsHasProgressCommonNote { get; set; }
+
+		public bool IsHasProgressTCMNote { get; set; }
+
+		public bool HasBaseTemplateForCommonProgressNote { get; set; }
+
+		public bool HasBaseTemplateForTCMProgressNote { get; set; }
     }
 }
