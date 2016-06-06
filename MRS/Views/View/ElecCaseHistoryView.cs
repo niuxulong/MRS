@@ -723,7 +723,37 @@ namespace MRS.Views.View
 						{
 							if (MessageBox.Show("确定要删除所选病例吗？", "删除病历", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
 							{
-								DeleteCaseHistoryEvent(null, new UpdateCaseHistoryStatusEventArgs() { caseHistoryId = selectedCaseHistory.Id, status = Enums.CaseHistoryStatus.New, PatientId = selectedCaseHistory.PatientId });
+								if (selectedCaseHistory.CaseType > (int)Common.Enums.Enums.CaseType.Common)
+								{
+									if (tabPageMapper.ContainsKey(selectedCaseHistory.Id))
+									{
+										var tabpage = tabPageMapper[selectedCaseHistory.Id];
+										var editor = tabpage.Item1.Controls[0] as EditorControl;
+										foreach (XTextSubDocumentElement document in editor.WriteControl.SubDocuments)
+										{
+											if (document.Title == selectedCaseHistory.FileTitle)
+											{
+												document.EditorDelete(false);
+												break;
+											}
+										}
+										var saveCaseHistory = (CaseHistory)selectedCaseHistory.Clone();
+										saveCaseHistory.FileTitle = tabpage.Item1.Text;
+										saveCaseHistory.FileName = tabpage.Item1.Text;
+										saveCaseHistory.FileContent = editor.WriteControl.XMLText;
+										if (SaveCaseHistoryEvent != null)
+											SaveCaseHistoryEvent(null, saveCaseHistory);
+										UIHelper.ShowInformationMessage("删除成功");
+									}
+									else
+									{
+										UIHelper.ShowInformationMessage("请打开需要删除的病历确认在删除。");
+									}
+								}
+								else
+									DeleteCaseHistoryEvent(null, new UpdateCaseHistoryStatusEventArgs() { caseHistoryId = selectedCaseHistory.Id, status = Enums.CaseHistoryStatus.New, PatientId = selectedCaseHistory.PatientId });
+
+
 							}
 						}
 					}
