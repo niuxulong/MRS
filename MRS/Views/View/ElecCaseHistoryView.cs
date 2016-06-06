@@ -569,6 +569,7 @@ namespace MRS.Views.View
 
 					if (tabPageType >= Enums.TabPageType.ProgressNote)
 					{
+                        caseHistory.CaseType = (int)Common.Enums.Enums.CaseType.ProgressNote;
 						caseHistory.Id = currentId;
 						var tabpeype = (int)tabPageType;
 						if (tabPageType == Enums.TabPageType.FirstProgressCommonNote)
